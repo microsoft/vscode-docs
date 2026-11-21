@@ -64,8 +64,8 @@
     },
     {
       "id": "vscode-docs-article-checks",
-      "displayName": "Docs findings",
-      "description": "Check articles or folders and review a persistent, filterable findings inbox with private evidence-bound decisions.",
+      "displayName": "Docs workflow",
+      "description": "Write documentation on a dedicated authoring page and review checks in a separate persistent findings inbox.",
       "actions": [
         {
           "name": "status",

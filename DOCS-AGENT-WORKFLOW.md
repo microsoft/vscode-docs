@@ -25,6 +25,8 @@ For the complete scenario inventory, implementation assessment, and proposed nex
   * [Record an exact-asset review](#record-an-exact-asset-review)
 * [Check an article visually](#check-an-article-visually)
   * [Review an article with an agent](#review-an-article-with-an-agent)
+  * [Propose a feature-documentation plan](#propose-a-feature-documentation-plan)
+  * [Prepare an approved draft](#prepare-an-approved-draft)
 * [Use the docs workbench](#use-the-docs-workbench)
 
 ## Agent writing hooks
@@ -421,13 +423,15 @@ Use `--decision rejected` to record rejection. Add the required media-tool optio
 
 ## Check an article visually
 
-The **Docs findings** canvas gives documentation maintainers a persistent findings inbox, independent of check execution. Check selected articles or folders, filter accumulated findings, and record reasoned decisions directly. It requires a trusted checkout, installed Node.js and checker dependencies, and a Copilot host exposing the experimental session-scoped background-task SDK.
+The **Docs workflow** canvas has two dedicated pages. **Docs writing** contains documentation requests, plans, approvals, and drafts. **Findings** contains checks, article reviews, replay, and a persistent findings inbox independent of check execution. Both use the same saved workflow state. The canvas requires a trusted checkout, installed Node.js and checker dependencies, and a Copilot host exposing the experimental session-scoped background-task SDK.
 
 Ask Copilot to open the `vscode-docs-article-checks` canvas from `.github\extensions\vscode-docs-workbench`. Opening it loads the inbox and incorporates eligible saved results, but never launches a task, fetches GitHub, or requires `gh` authentication. After updating the extension, an attended extension reload is needed. Do not reload or change extension configuration automatically.
 
+Use the **Docs writing** and **Findings** navigation links to switch pages. The `/writing` and `/findings` routes support direct loading, reload, and browser navigation. Switching pages preserves unfinished form text and filters without starting work or making decisions. Writing progress and recovery stay on the writing page; check progress, freshness controls, and coverage stay on the findings page.
+
 The shared `extension.json` declares both canvases so compatible hosts can list them without starting the provider. The provider starts on the first canvas open or action. Runtime registrations use those same declarations. Article initialization is independent of the existing GitHub queue initialization.
 
-1. Enter one or more Markdown articles or folders in **Check scope**, separated by commas, for example `docs/debugtest, docs/editing/codebasics.md`. Scope paths must be under `docs`, `api`, `remote`, or `release-notes`. The picker shows the resolved article count and rejects traversal, symbolic links, junctions, arbitrary files, and shell text. For the default corpus, enter `docs, api, remote, release-notes`. Batches are limited to 5,000 articles.
+1. On **Findings**, enter one or more Markdown articles or folders in **Check scope**, separated by commas, for example `docs/debugtest, docs/editing/codebasics.md`. Scope paths must be under `docs`, `api`, `remote`, or `release-notes`. The picker shows the resolved article count and rejects traversal, symbolic links, junctions, arbitrary files, and shell text. For the default corpus, enter `docs, api, remote, release-notes`. Batches are limited to 5,000 articles.
 2. Select **Run checks**. This explicit action authorizes a read-only check, private results, and automatic ingestion, and can use host credits. No separate confirmation checkbox or import step is required. One host task executes a fixed command to `article-runner.mjs` for the whole batch. The runner resolves scope at launch and checks each selected article with `build/check-claims.js` and links enabled. Overlapping selections are deduplicated; files subsequently added to a selected folder are not silently included. Article text remains data, never agent instructions. The action does not authorize edits, public writes, installs, worktrees, media capture, or review decisions.
 3. Review the **Findings** inbox while checks run. Saved findings appear with current freshness marked **Checking** while a local worker validates them. This is historical evidence, not a claim that the source is still current. New results enter the inbox only after full validation and an owning-task observation of idle or completed. Filter by article or folder, check type, severity, review status, freshness, and search text. Filters do not change execution scope, launch tasks, or create decisions. There is no run-history navigation.
 4. Expand a finding, choose a decision, enter a reason, and select **Save decision**. You can save while the full-inbox check is pending, but every save independently rechecks the selected article, its dependencies, artifacts, and verification token. Unsaved reasons survive filter changes while evidence, verification, and review history remain unchanged. A new verification or automatic reopen clears obsolete drafts. The existing audit helpers deduplicate observations, preserve decisions for unchanged evidence, and reopen decisions when observed evidence changes. Review does not update documentation, create proposals or issues, or approve publication.
@@ -435,11 +439,13 @@ The shared `extension.json` declares both canvases so compatible hosts can list 
 
 **Stop verification** stops only the local freshness worker, never a host task. Saved findings remain available. Entries without completed current verification show **Unavailable**; use **Refresh** to retry the full-inbox check. Individual saves can still request fresh validation when accepted artifact provenance is intact. Tampered or unavailable artifacts remain read-only. Closing the last findings canvas also stops local verification.
 
+Visible views check for saved workflow updates every 10 seconds while idle and refresh when focused or revealed. This discovers findings, plans, and decisions created in another view or host action without starting another task. Hidden views pause polling.
+
 Checks cover data variables, lifecycle IDs, product-reference syntax, internal links, fragments, and media paths. They do not verify prose accuracy, public product availability, external websites, rendered media, generated content, or navigation. No product build or manifest is supplied, so product references remain **unverified**, distinct from errors and warnings. Checker exit 1 with a valid error report is a check result, not an infrastructure failure.
 
 ### Review an article with an agent
 
-Select **Review an article** in the **Task** picker to review a local article or one section without editing it. PR selection is not yet supported.
+On **Findings**, select **Review an article** in the **Task** picker to review a local article or one section without editing it. PR selection is not yet supported.
 
 1. Select an existing article, its intended product channel, and a **Review focus**: editorial, technical accuracy, or both. For a section review, choose **One section** in **Review scope**, select **Load sections**, and choose a heading. Its nested subsections are included, up to the next heading at the same or higher level. Headings inside code examples are not section boundaries.
 2. Select **Start article review**. This authorizes local deterministic prechecks, a host-owned agent review, private result files, and read-only product-source research when needed. It can use host credits. It does not authorize sign-in, installs, article commands, UI execution, worktrees, documentation edits, or GitHub writes.
@@ -462,9 +468,51 @@ Run the focused integration tests with `npm run test:article-workflow`. Set `DOC
 
 The accepted live pilot covers a combined technical and editorial review, source-cited findings, separate precheck results, and persistence after reload. Earlier findings and stored check coverage remain intact. The article remains unchanged, and no live triage decision is saved. This verifies the review handoff, not every category of possible documentation issue.
 
+### Propose a feature-documentation plan
+
+Open the **Docs writing** page. This M2 checkpoint produces a private proposal and records a plan decision. Drafting requires a separate confirmation through **Prepare draft**. Plan approval never starts drafting or media generation.
+
+When a plan or draft already exists, expand **New documentation request** to start another request. Current draft actions appear before the original plan; supporting context, research, and proposal notes remain available in expandable sections.
+
+1. Describe the work in **Documentation request**, optionally add an issue URL, and choose the intended product channel. No GitHub issue is required. Include whatever you know about the intended reader, desired output, context, and constraints. An issue can also start an investigation, but the agent must not assume it contains all requirements. Supported issue URLs reference `microsoft/vscode`, `microsoft/vscode-docs`, or `microsoft/vscode-docs-pr`, and are read as data without checking out a PR.
+2. Select **Propose documentation plan**. The host agent follows [docs-feature-plan](.github/skills/docs-feature-plan/SKILL.md) and doc-writer's research phase. It proposes the reader, intent, purpose, evidence of availability, exact article and navigation changes, and useful screenshots or videos. A no-change outcome is valid. Missing evidence produces an incomplete plan with limitations.
+3. Review **Plans and drafts** on the writing page. Media entries describe their purpose, placement, and proposed scenario. Unsupported captures stay pending with a reason. No assets have been generated or approved.
+4. Select **Approve plan scope** or enter feedback and select **Reject plan**. Approval checks the exact plan bytes, local documentation snapshot, guidance, and any captured issue discussion again. Changed sources or a superseding proposal require a new plan. Rejection does not need current source access, but still binds the exact proposal.
+
+The [plan validator](build/doc-plan.js) restricts proposals to docs articles, documentation TOCs, and the sitemap. It requires sitemap work for new articles and rejects generated policy output, out-of-scope paths, and fabricated media-approval states. Source references and availability assessments remain agent judgments for human review, not independently authenticated conclusions.
+
+Local source citations must identify files in the captured documentation snapshot. They cannot name arbitrary local or network files. Public citations support GitHub, the VS Code website, Microsoft Learn, and the official update-metadata endpoint. Mutable update metadata describes the research time, not an immutable product version, and should accompany pinned product-source evidence.
+
+Private records use `feature-plans.json` and `feature-plans` beside the existing inbox state. The [adapter](.github/extensions/vscode-docs-workbench/feature-plans.mjs) waits for a validated completion receipt and owning-host confirmation before exposing decision controls. The interface shows the latest proposal for each feature source and channel, not execution-history navigation. Earlier records remain private for provenance.
+
+The source snapshot covers docs Markdown, docs TOCs, the sitemap, lifecycle data, data-variable files, and planning guidance. It is deliberately conservative: unrelated changes within this snapshot can require replanning. Approval records the checked snapshot at that time. A future drafting action must validate its source again and use an explicitly approved authoring location and branch.
+
+Plan approval does not authorize repository edits, worktree creation, capture readiness, media use, commits, or publication. The approved M2 scope still includes optional attended media generation and exact-asset approval before draft inclusion. Use the existing attended media procedure separately. The independent M3 media workflow will reuse the same capture and preparation tools.
+
+The live description-input pilot verifies plan creation, source evidence, an explicit no-new-media recommendation, plan-scope approval, and persistence after reload. Approval leaves articles, prior findings, and coverage unchanged and starts no additional agent or capture. Issue-source changes, proposed and pending media, rejection, and incomplete plans are covered by isolated tests.
+
+### Prepare an approved draft
+
+After approving a plan that proposes changes:
+
+1. In **Draft in an existing checkout**, choose the authoring location. The current workspace is prefilled, but no edits are authorized yet. Use an existing named branch and save any open editor changes. The workflow does not create or switch branches or worktrees.
+2. Select **Prepare draft**. Review the location, branch, and exact file list in the confirmation. Cancel to leave everything unchanged. Planned files must be clean; unrelated uncommitted work is preserved and checked for unexpected changes.
+3. Confirm the text draft. If only the commit or planning guidance changed while all captured documentation inputs still match, the confirmation explicitly asks you to reconfirm the plan for drafting. Changed documentation inputs or issue requirements require reassessment instead.
+4. Review the saved diff and check results under **Draft**. Errors remain visible as **Draft checks need attention**. A successful check does not replace human review. The report describes completion-time bytes; further manual edits require another check.
+
+The host agent uses [docs-feature-draft](.github/skills/docs-feature-draft/SKILL.md), follows the approved descriptions, and runs trusted preflight and completion helpers. The helpers check the branch, planned files, source inputs, unrelated working-copy content, and known media references. They run the existing claim and link checks, adding navigation checks for new articles or navigation changes. They do not execute package scripts or checker code from the authoring checkout.
+
+This step drafts text, not media. Existing media is preserved. New media references require a separate approved-asset step and are rejected here. Proposed assets remain explicitly pending, with TODO comments where appropriate. Use conversation and the existing attended media procedure for those assets rather than treating a text draft as finished media work.
+
+If an agent or check fails after editing starts, edits can remain in the chosen checkout. Inspect them and continue explicitly in the editor or conversation. Do not repeat the draft automatically or reset the checkout. One draft attempt is recorded per approved plan in v1. These checks are safeguards within the host's existing permissions, not an OS sandbox or protection from every concurrent edit.
+
+No staging, commits, GitHub writes, publication, or captures are authorized by drafting.
+
+The bounded live pilot verifies a one-paragraph draft, preserved surrounding content and media, saved checks and diff, and persistence in the actual canvas after reload. It leaves the change unstaged for human review. New-file diffs, branch changes, scope violations, and pending media are covered by isolated tests, not by that one live edit.
+
 ### Replay from the findings inbox
 
-Select **Replay procedure (attended)** in the **Task** picker. This checks a reviewed, checked-in storyboard without producing screenshots or videos.
+On **Findings**, select **Replay procedure (attended)** in the **Task** picker. This checks a reviewed, checked-in storyboard without producing screenshots or videos.
 
 1. Select a storyboard and a matching installed VS Code build. The current Windows integration discovers standard Stable and Insiders installations and reads their version information without opening an editor window.
 2. If the storyboard requires a workspace, enter its absolute path. Optionally select an existing dedicated capture profile; otherwise a private workspace-bound profile is created when you start. Never select a normal profile.
@@ -563,15 +611,15 @@ An attended local Windows round-trip on 20 November 2026 verified the previous s
 
 An attended two-article batch also verified this redesign on the local Windows host. One host task returned exit 0 and produced 88 unverified findings, no errors, and no warnings. The completed batch entered the inbox without a separate import action. Provider reload preserved the inbox and per-article coverage; article, check-type, review-status, and freshness filters worked independently of execution scope. Direct review controls were inspected, but no live decisions or public writes were made. Automatic visible-page polling is covered by browser tests; the live browser page was hidden, so **Refresh** reconciled the completed task.
 
-These local checks do not establish compatibility with every host or full-corpus performance. For attended acceptance on another host, approve a workspace-extension reload and reopen **Docs findings**. With separate authorization for a live check, select two articles, start one batch, verify ingestion and per-article coverage, and reopen to check persistence. Save a live decision only if authorized. Stop on uncertain acknowledgement; do not repeat the launch.
+These local checks do not establish compatibility with every host or full-corpus performance. For attended acceptance on another host, approve a workspace-extension reload and reopen **Docs workflow**. On **Findings**, with separate authorization for a live check, select two articles, start one batch, verify ingestion and per-article coverage, and reopen to check persistence. Save a live decision only if authorized. Stop on uncertain acknowledgement; do not repeat the launch.
 
-PR review, feature documentation, audits, and media retain their existing entry points. PR selection, their full integration into this inbox, and docs-as-eval remain deferred. Coverage here includes local structural checks, whole-article and section reviews, and explicitly reviewed replay procedures, not every documentation workflow. Planned inbox PR review reads GitHub snapshots as data without checking out or executing the PR.
+PR review, feature documentation, audits, and media retain their existing entry points. Feature authoring now includes plan decisions and separately confirmed text drafting with saved diffs and checks. Media remains a separate attended step. PR selection, full workflow integration, and docs-as-eval remain deferred. Planned inbox PR review reads GitHub snapshots as data without checking out or executing the PR.
 
 ## Use the docs workbench
 
 The workspace-scoped Docs workbench canvas brings together open documentation PRs, documentation issues, release test plan items (TPIs), and private media tasks. It requires a Copilot host that supports SDK canvas extensions, background-agent tasks, and approval dialogs, plus an authenticated `gh` CLI.
 
-This existing queue canvas is separate from **Docs findings**. Its attachment approval flag is not an [exact-asset review](#record-an-exact-asset-review) and does not authorize documentation use or publication.
+This existing queue canvas is separate from **Docs workflow**. Its attachment approval flag is not an [exact-asset review](#record-an-exact-asset-review) and does not authorize documentation use or publication.
 
 Ask Copilot to open the **Docs workbench** canvas. Reload workspace extensions after updating its implementation. The extension does not require a separate SDK installation.
 

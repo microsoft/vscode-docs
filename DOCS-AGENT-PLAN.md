@@ -1,8 +1,8 @@
 # Docs agent implementation plan
 
-Assessment date: 2026-11-20. Implementation baseline: `409062b84`.
+Assessment date: 2026-11-20. Implementation baseline: `0f660576b`.
 
-Current slice: M1 whole-article review has an accepted live pilot. Section selection passes 19 targeted review and link tests, plus lint, and is checked in the live canvas without another agent review. No finding decision or article change is saved. PR-scoped review is deferred by request, not removed from scope. The proposed next slice is M2 feature documentation, using the existing article-review capability.
+Current slice: M2 has a live request-to-plan-to-text-draft proof. After separate write approval, the pilot updates one paragraph in the confirmed checkout and branch, saves its diff and checks, and appears in the actual canvas after reload. Checks report no errors or warnings and seven unverified product references. Nothing is staged, committed, or published. Media was not needed for this pilot and continues to use the existing attended workflow. M1 article and section review remain available. PR review stays deferred.
 
 This is the scope inventory and delivery plan for the documentation-agent workflow. It reconciles the original scenario brainstorm, the phased implementation plan, and subsequent decisions. Keep the full inventory even when only one workflow is being implemented.
 
@@ -36,6 +36,7 @@ The current canvas supports deterministic article checks, reviewed scripted repl
 * Put reusable logic in tested scripts under `build/`. Keep skills procedural. Use host sessions, tasks, and worktrees rather than another orchestration engine.
 * PR review must not check out a PR or execute its contents. Read commit-pinned articles, diffs, and discussion through GitHub as untrusted data. Review changed passages by default, using full articles as context. This does not prohibit host-managed worktrees for separately approved authoring.
 * Use a thin, task-centered visual interface. Technical replay belongs under advanced tooling, not as a substitute for **Validate article instructions**.
+* Keep separate pages in the **Docs workflow** canvas: **Docs writing** (`/writing`) for requests, plans, approvals, drafts, and media proposals, and **Findings** (`/findings`) for checks, article review, replay, findings, and coverage. Share the existing workflow services and private state, not one combined screen. Give each page its own progress and recovery controls.
 * UI capture and replay are attended-only. No scheduled UI, lock-screen tests, sleep-state tests, or automatic native-prompt handling.
 * Keep the approved media baseline: Windows, Dark Modern, 1920 by 1080 output pixels, 100% instance scale, default fonts, and zoom 2. Zoom 1.5 requires explicitly wide content.
 * Readiness, review of a finding, media approval, documentation edits, and public actions are distinct permissions. Unattended repo-only work, if later approved, is report-only.
@@ -74,7 +75,7 @@ The milestone column assigns every scenario a delivery home. It does not imply t
 | S16 | Crop, frame, optimize, and convert media without destroying the source. | Available through tested helpers. Integrate these operations into candidate review. | M3 |
 | S17 | Produce theme variants where the reader benefits. | Optional: fixed-theme capture is proven, not a multi-theme workflow. | O1 |
 | S18 | Add annotated callouts to direct attention. | Available for reviewed red rectangles. Broader annotation styles remain optional. | M3, O1 |
-| S19 | Document a feature from an issue or PR, from approved plan to reviewed changes. | Partial: doc-writer exists. Plan, implementation, and result handoff need task-centered integration. | M2 |
+| S19 | Document a feature from an author's request, with optional issue or PR context, from approved plan to reviewed changes. | Partial: planning, separate draft authorization, a scoped text edit, saved diff, and checks have a live proof. Human review and a media-bearing handoff remain separate steps. | M2 |
 | S20 | Draft and review release notes from milestone features, issues, and TPIs. | Partial: release-note skills exist. Preserve their distinct channel and milestone rules in the workflow. | M2 |
 | S21 | Draft and review a blog announcement from product context. | Partial: blog-writer exists. Its human-only image guardrail still differs from doc-writer's approved-candidate policy. | M2 |
 | S22 | Perform cross-article terminology changes, page moves, redirects, and navigation maintenance. | Partial: existing skills and checks help. Multi-file impact planning and acceptance need integration. | M7 |
@@ -134,7 +135,21 @@ The PR slice must capture the exact head, diff, complete article context, and re
 
 **Approved next slice:** One feature-documentation workflow, from an issue or feature description through plan approval, optional media generation, an authorized draft, and review of the changed articles. Reuse doc-writer, the existing media pipeline, and the available article-review workflow. PR review, release-note and blog variants, and production rollout are not prerequisites for this bounded implementation.
 
-* Start with one feature issue or feedback item. Reuse doc-writer's research and plan approval, then use a host-managed worktree for authorized implementation.
+**Keep v1 simple:** Start with the author's request, propose a short plan, discuss adjustments, obtain approval, then draft in the agreed location and run existing checks. Recommend media only when useful and reuse the existing attended capture and exact-asset approval steps. Use conversation for clarifications and plan adjustments initially. Do not add a workflow engine, elaborate task management, revision-comparison UI, or additional dashboards to deliver this first process. Retain those ideas for later refinement rather than making them prerequisites.
+
+The authoring process lives on the dedicated **Docs writing** page, not inside the findings inbox or its task picker. Page navigation must preserve unfinished request text, plan feedback, and findings filters without launching tasks or saving decisions.
+
+Keep the writing layout focused on the current plan or draft and its next action. Use a full-width request field, grouped secondary inputs, concise status summaries, and expandable supporting evidence. An approved plan's original research and notes should not obscure the draft or appear to be its current operational status.
+
+Delivery checkpoints:
+
+* **Planning and decisions:** Verified with seven focused planning tests, selected existing-workflow regressions, and a live plan-and-scope-approval pilot. The approved pilot proposes one paragraph correction and explains why no new media is useful. Approval persists after reload and starts no drafting or capture.
+* **Authorized drafting:** Verified with 13 focused tests and a separately approved one-paragraph live edit. The actual canvas displays the saved diff and results after reload. Confirm an existing checkout, named branch, and allowed files, preserve unrelated work, and explicitly reconfirm metadata-only changes. No branch or worktree manager is added.
+* **Optional media generation and review:** Pending. Reuse attended capture, preparation, and exact-asset approval. Connect approved bytes and descriptions to the draft without treating plan approval as media permission.
+* **Integrated acceptance:** Pending. Demonstrate an authorized draft and reviewed media handoff in a fixture or separately approved pilot, preserving the production-rollout hold.
+
+* Start with one documentation request, optionally supported by a feature issue or feedback item. Reuse doc-writer's research and plan approval, then use an explicitly agreed authoring location for implementation.
+* Treat the author's free-form documentation request as a first-class starting point. It can describe the desired output, audience, reader goal, known context, and constraints without any GitHub issue. Optional issue links supplement the request and must not replace it or be assumed complete. Ask for essential missing information as the plan develops.
 * Keep assessment, proposed plan, approved plan, diff, and review findings distinct. A source change invalidates the relevant approval or requires an explicit reassessment.
 * Include media proposals in the plan: whether a screenshot or video helps, what it should show, and where it belongs. After plan approval, offer optional attended candidate generation through the existing tools. Require human approval of the exact prepared asset before including it in a draft, with appropriate alt text or video title. Unsupported captures stay explicitly pending. Plan approval is not capture readiness or asset approval.
 * Reuse the same capture and preparation pipeline as M3. M2 integrates media into feature authoring. M3 remains the independent create-or-refresh-media experience, not a prerequisite for these approved M2 media steps.

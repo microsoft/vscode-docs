@@ -286,7 +286,7 @@ In this example:
 * `uriFormat` replaces the first `%s` with the captured value.
 * `action` opens the resulting URI in the system's default application.
 
-The default pattern matches common messages that contain an HTTP or HTTPS URI or port number. The default `uriFormat` is `http://localhost:%s`.
+The default pattern matches common messages that contain an HTTP or HTTPS URI or port number. When you omit `uriFormat`, an all-digit port capture uses `http://localhost:%s`, so `3000` becomes `http://localhost:3000`. A captured complete URI uses `%s` and remains unchanged, so `https://localhost:5001` stays `https://localhost:5001`. If you supply a nonempty `uriFormat`, it overrides the inferred format.
 
 #### Trigger debugging via Microsoft Edge or Chrome
 

@@ -10,6 +10,7 @@ import { inboxView, inspectInbox, inspectExecution, triageInbox } from './articl
 import { createProgressiveVerification } from './article-verification.mjs';
 import { createReplayWorkflow } from './article-replay.mjs';
 import { createReviewWorkflow } from './article-review.mjs';
+import { createFeaturePlans } from './feature-plans.mjs';
 
 const description = id => `Docs article check ${id}`;
 const quote = value => `'${value.replaceAll("'", "''")}'`;
@@ -35,7 +36,7 @@ async function bounded(promise, milliseconds, message = 'Host acknowledgement ti
 
 export async function createArticleWorkflow({
   session, workspace, home, check, checkerOptions, acknowledgementTimeout = 30_000,
-  verificationTimeout = 120_000, onVerificationMetrics, verificationWorker, replayOptions, reviewOptions
+  verificationTimeout = 120_000, onVerificationMetrics, verificationWorker, replayOptions, reviewOptions, featureOptions
 }) {
   const store = await createArticleStore(workspace, home);
   const ownerSessionId = text(session.sessionId, 'Host session ID');
@@ -60,6 +61,9 @@ export async function createArticleWorkflow({
   const reviews = await createReviewWorkflow(store, {
     ownerSessionId, list: hostList, start: startHostTask, find: findHostTask, observation: hostObservation
   }, reviewOptions);
+  const features = await createFeaturePlans(store, {
+    ownerSessionId, list: hostList, start: startHostTask, find: findHostTask, observation: hostObservation
+  }, featureOptions);
   function track(operation) {
     operations.add(operation);
     return operation.finally(() => operations.delete(operation));
@@ -108,6 +112,7 @@ export async function createArticleWorkflow({
     const claims = inboxView(state, articles, observed, verified, verification.checkedAt || null);
     const replayView = await replays.snapshot();
     const reviewView = await reviews.snapshot();
+    const featureView = await features.snapshot();
     const runs = await Promise.all(state.runs.map(async run => {
       const result = observed.get(run.id);
       const completion = result?.completion || await runnerCompletion(run);
@@ -125,9 +130,10 @@ export async function createArticleWorkflow({
       articles, ...claims,
       findings: [...claims.findings, ...replayView.findings, ...reviewView.findings],
       coverage: [...claims.coverage.map(entry => ({ ...entry, check: 'checks' })), ...replayView.coverage, ...reviewView.coverage],
+      featurePlans: featureView.plans,
       verification, hostSync: hostStatus,
       catalog: { state: catalogError ? 'failed' : catalogPromise ? 'checking' : 'complete', message: catalogError },
-      runs: [...runs, ...replayView.runs, ...reviewView.runs].sort((left, right) => left.createdAt.localeCompare(right.createdAt))
+      runs: [...runs, ...replayView.runs, ...reviewView.runs, ...featureView.runs].sort((left, right) => left.createdAt.localeCompare(right.createdAt))
     };
   }
   async function runnerCompletion(run) {
@@ -268,7 +274,8 @@ export async function createArticleWorkflow({
     const owned = (await store.read()).runs.filter(run => run.ownerSessionId === ownerSessionId && run.launch !== 'not-started');
     const replayRuns = await replays.ownedRuns();
     const reviewRuns = await reviews.ownedRuns();
-    if (owned.length || replayRuns.length || reviewRuns.length) {
+    const featureRuns = await features.ownedRuns();
+    if (owned.length || replayRuns.length || reviewRuns.length || featureRuns.length) {
       let list;
       try { list = await hostList(); }
       catch (error) {
@@ -280,11 +287,13 @@ export async function createArticleWorkflow({
         });
         if (replayRuns.length) await replays.sync(undefined, error);
         if (reviewRuns.length) await reviews.sync(undefined, error);
+        if (featureRuns.length) await features.sync(undefined, error);
         throw error;
       }
       for (const run of owned) await sync({ id: run.id }, list);
       if (replayRuns.length) await replays.sync(list);
       if (reviewRuns.length) await reviews.sync(list);
+      if (featureRuns.length) await features.sync(list);
     }
   }
   function updateHost() {
@@ -306,7 +315,8 @@ export async function createArticleWorkflow({
     const state = await store.read();
     const replayRuns = await replays.ownedRuns();
     const reviewRuns = await reviews.ownedRuns();
-    if (Date.now() - lastHostPoll >= 5000 && [...state.runs, ...replayRuns, ...reviewRuns].some(run =>
+    const featureRuns = await features.ownedRuns();
+    if (Date.now() - lastHostPoll >= 5000 && [...state.runs, ...replayRuns, ...reviewRuns, ...featureRuns].some(run =>
       run.ownerSessionId === ownerSessionId && run.launch !== 'not-started' &&
       (!run.observation || run.observation.status === 'running'))) updateHost();
     return snapshot({ verify: false });
@@ -324,6 +334,7 @@ export async function createArticleWorkflow({
   const actions = {
     launch, sync, refresh, poll,
     inspect: async ({ id }) => {
+      if (await features.has(id)) return features.inspect({ id });
       if (await reviews.has(id)) return reviews.inspect({ id });
       const run = (await store.read()).runs.find(item => item.id === id);
       return run ? inspectExecution(store, run) : replays.inspect({ id });
@@ -337,6 +348,11 @@ export async function createArticleWorkflow({
     'review-launch': reviews.launch,
     'review-sections': reviews.sections,
     'review-resolve': reviews.resolve,
+    'feature-launch': features.launch,
+    'feature-draft-context': features.draftContext,
+    'feature-draft-start': features.startDraft,
+    'feature-decide': features.decide,
+    'feature-resolve': features.resolve,
     'cancel-verification': async () => { await verifier.cancel(); return snapshot({ verify: false }); },
     'resolve-uncertain': resolveUncertain
   };

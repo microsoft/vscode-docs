@@ -3,14 +3,17 @@ let state;
 let token;
 let busy = false;
 let polling = false;
+let refreshRequested = false;
+let lastPollAt = 0;
 let viewGeneration = 0;
+let actionPage;
 let severity = 'all';
 let catalogKey;
 const expanded = new Set();
 const drafts = new Map();
 const findingRows = new Map();
 const severityButtons = new Map();
-let executionKey;
+const executionKeys = new Map();
 let coverageKey;
 let findingTable;
 let findingBody;
@@ -21,6 +24,10 @@ let orderedFindings;
 let replayOptions;
 let preparedReplay;
 let reviewSections;
+let featurePlansKey;
+const planFeedback = new Map();
+const draftLocations = new Map();
+let writingRequestInitialized = false;
 const severities = ['error', 'warning', 'unverified'];
 const freshnessLabels = { fresh: 'Fresh', checking: 'Checking', stale: 'Stale', 'not-observed': 'Not observed', unavailable: 'Unavailable' };
 const coverageLabels = { clean: 'Checked clean', findings: 'With findings', checking: 'Checking freshness',
@@ -29,6 +36,23 @@ const coverageLabels = { clean: 'Checked clean', findings: 'With findings', chec
 const time = value => value ? new Date(value).toLocaleString(undefined, {
   month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit'
 }) : 'Never';
+
+function currentPage() { return location.pathname === '/writing' ? 'writing' : 'findings'; }
+function renderPage() {
+  const writing = currentPage() === 'writing';
+  $('writing-page').hidden = !writing;
+  $('findings-page').hidden = writing;
+  document.querySelector('.article-app').dataset.page = currentPage();
+  $('page-title').textContent = writing ? 'Docs writing' : 'Findings inbox';
+  $('page-description').textContent = writing
+    ? 'Describe your request, agree on a plan, then prepare and review the draft.'
+    : 'Check a scope. Review findings across articles, independently of when checks ran.';
+  document.title = writing ? 'Docs writing' : 'Docs findings';
+  for (const link of document.querySelectorAll('.page-navigation a')) {
+    if (link.dataset.page === currentPage()) link.setAttribute('aria-current', 'page');
+    else link.removeAttribute('aria-current');
+  }
+}
 
 function element(tag, value, className) {
   const node = document.createElement(tag);
@@ -48,9 +72,10 @@ function control(parent, label, action) {
   parent.append(node);
   return node;
 }
-function notice(message, error = false) {
-  if ($('notice').textContent !== message) $('notice').textContent = message;
-  $('notice').className = error ? 'error' : 'muted';
+function notice(message, error = false, page = actionPage || currentPage()) {
+  const target = $(page === 'writing' ? 'writing-notice' : 'notice');
+  if (target.textContent !== message) target.textContent = message;
+  target.className = error ? 'error' : 'muted';
 }
 async function request(action, input = {}) {
   const response = await fetch('/action', {
@@ -72,6 +97,7 @@ async function refresh() { state = await request('refresh'); }
 async function perform(action) {
   if (busy) return;
   viewGeneration++;
+  actionPage = currentPage();
   busy = true;
   render();
   try { await action(); }
@@ -79,7 +105,7 @@ async function perform(action) {
     notice(error.message, true);
     // A disconnected POST can have succeeded. Read references, never retry it.
     try { await bootstrap(); } catch { /* Preserve the original action error. */ }
-  } finally { busy = false; render(); }
+  } finally { busy = false; actionPage = undefined; render(); }
 }
 function scopeInput() { return [...new Set($('scope').value.split(',').map(value => value.trim()).filter(Boolean))].sort(); }
 function inScope(article, scope) { return scope.some(item => item === article || article.startsWith(`${item}/`)); }
@@ -93,6 +119,11 @@ function executionLabel(run) {
   if (run.result?.state === 'stale') return 'Out-of-date report';
   if (run.result?.state === 'freshness-failed') return 'Verification failed';
   if (run.readiness) return 'Waiting for your readiness';
+  if (run.kind === 'authoring' && run.ingestedHash && run.result?.state === 'valid') {
+    if (run.result.phase === 'draft') return run.result.draftStatus === 'needs-attention' ? 'Draft checks need attention' : 'Draft ready for review';
+    return run.decision ? `Plan ${run.decision.status}` :
+      run.result.planStatus === 'incomplete' ? 'Planning incomplete' : 'Plan ready for review';
+  }
   if (run.kind === 'review' && run.ingestedHash && run.result?.state === 'valid') return `Article review ${run.result.reviewStatus}`;
   if (run.ingestedHash && run.result?.state === 'valid') return run.kind === 'replay' ? `Replay ${run.result.replayStatus}` : 'Findings updated';
   if (['completed', 'failed', 'cancelled'].includes(run.observation?.status) && run.result?.state === 'missing') return 'No report';
@@ -100,24 +131,28 @@ function executionLabel(run) {
   if (run.observation?.status === 'running') return 'Host running';
   return 'Waiting for verified results';
 }
-function renderExecution() {
-  const latest = state.runs.at(-1);
-  const label = latest ? `${executionLabel(latest)} · ${latest.articles.length} article(s)` : '';
-  if ($('execution-indicator').textContent !== label) $('execution-indicator').textContent = label;
-  $('execution-details').hidden = !latest;
-  if (!latest || !$('execution-details').open) {
-    $('execution').replaceChildren();
-    executionKey = undefined;
+function renderExecution(writing = false) {
+  const runs = state.runs.filter(run => (run.kind === 'authoring') === writing);
+  const indicator = $(writing ? 'writing-execution-indicator' : 'execution-indicator');
+  const details = $(writing ? 'writing-execution-details' : 'execution-details');
+  const container = $(writing ? 'writing-execution' : 'execution');
+  const latest = runs.at(-1);
+  const label = latest ? `${executionLabel(latest)} · ${latest.kind === 'authoring' ? 'feature documentation' : `${latest.articles.length} article(s)`}` : '';
+  if (indicator.textContent !== label) indicator.textContent = label;
+  details.hidden = !latest;
+  if (!latest || !details.open) {
+    container.replaceChildren();
+    executionKeys.delete(writing);
     return;
   }
-  const relevant = state.runs.filter(run => run === latest || !run.rerun?.allowed);
+  const relevant = runs.filter(run => run === latest || !run.rerun?.allowed);
   const key = JSON.stringify([busy, relevant.map(run => [
     run.id, run.ownerSessionId, run.ownerMatches, run.agentId, run.scope, run.createdAt, run.launch, run.ingestedHash,
     run.result, run.observation, run.error, run.syncError, run.rerun, run.activity
   ])]);
-  if (executionKey === key) return;
-  executionKey = key;
-  $('execution').replaceChildren();
+  if (executionKeys.get(writing) === key) return;
+  executionKeys.set(writing, key);
+  container.replaceChildren();
   for (const run of relevant) {
     const section = element('section');
     paragraph(section, `${executionLabel(run)} · ${run.scope.join(', ')} · ${time(run.createdAt)}`);
@@ -131,16 +166,17 @@ function renderExecution() {
     if (run.ownerMatches && ['starting', 'uncertain'].includes(run.launch)) {
       const resolve = control(section, 'I checked host history: no task started', () => void perform(async () => {
         if (!window.confirm('Confirm you inspected the owning host session and no task started. This does not cancel any task.')) return;
-        await request(['replay', 'review'].includes(run.kind) ? `${run.kind}-resolve` : 'resolve-uncertain', { id: run.id, confirmed: true });
+        await request(run.kind === 'authoring' ? 'feature-resolve' : ['replay', 'review'].includes(run.kind) ? `${run.kind}-resolve` : 'resolve-uncertain', { id: run.id, confirmed: true });
         await refresh();
         notice('Launch resolved. No task was cancelled.');
       }));
       resolve.disabled = busy;
     }
-    $('execution').append(section);
+    container.append(section);
   }
 }
 function render() {
+  renderPage();
   if (!state) return;
   $('workspace').textContent = state.workspace;
   $('ownership').textContent = `Private inbox: ${state.storageDirectory}. Previous prototype state, daily audit state, and account workbench state are not read, merged, or overwritten.`;
@@ -157,13 +193,14 @@ function render() {
   const scope = scopeInput();
   const articles = state.articles.filter(article => inScope(article, scope));
   const valid = scope.length && scope.every(item => catalog.includes(item)) && articles.length;
-  const blocker = state.runs.find(run => !['replay', 'review'].includes(run.kind) && run.articles.some(article => articles.includes(article)) && !run.rerun?.allowed);
+  const blocker = state.runs.find(run => !run.kind && run.articles.some(article => articles.includes(article)) && !run.rerun?.allowed);
   const catalogReady = !state.catalog || state.catalog.state === 'complete';
   $('launch').disabled = busy || !catalogReady || state.hostSync?.state === 'checking' || !state.hostAvailable || !valid || !!blocker;
   $('scope-count').textContent = catalogReady ? `${articles.length} article(s) selected` :
     state.catalog.state === 'failed' ? 'Article list unavailable' : 'Loading current article list';
   $('launch-eligibility').textContent = blocker ? `Cannot overlap this scope: ${blocker.rerun?.reason}` : '';
   $('reload').disabled = busy || state.verification?.terminating || state.verification?.state === 'cancelling';
+  $('writing-reload').disabled = busy;
   $('stop-verification').hidden = state.verification?.state !== 'checking';
   $('stop-verification').disabled = busy;
   const verificationStatus = state.verification?.state === 'checking'
@@ -171,10 +208,14 @@ function render() {
     : state.verification?.message || state.catalog?.message || (state.hostSync?.state === 'failed' ? state.hostSync.message : '');
   if ($('verification-status').textContent !== verificationStatus) $('verification-status').textContent = verificationStatus;
   renderExecution();
-  renderReplay();
-  renderReview();
-  renderFindings();
-  renderCoverage();
+  renderExecution(true);
+  if (currentPage() === 'writing') renderFeaturePlans();
+  else {
+    renderReplay();
+    renderReview();
+    renderFindings();
+    renderCoverage();
+  }
 }
 function renderDecision(parent, record) {
   const { finding } = record;
@@ -471,6 +512,189 @@ function renderReview() {
     (sectionMode && (!hasSections || !$('review-section').value));
   $('review-eligibility').textContent = blocker ? blocker.rerun.reason : '';
 }
+function renderFeaturePlans() {
+  $('writing-host-status').textContent = state.hostAvailable ? '' : 'This host does not expose the task API needed to plan and draft documentation.';
+  for (const id of ['feature-description', 'feature-issue', 'feature-channel']) $(id).disabled = busy;
+  $('feature-launch').disabled = busy || !state.hostAvailable ||
+    (!$('feature-description').value.trim() && !$('feature-issue').value.trim());
+  const records = state.featurePlans || [];
+  if (!writingRequestInitialized) {
+    $('writing-request').open = !records.length || !!$('feature-description').value.trim() || !!$('feature-issue').value.trim();
+    writingRequestInitialized = true;
+  }
+  $('feature-plans-section').hidden = !records.length;
+  const key = JSON.stringify([busy, records]);
+  if (key === featurePlansKey) return;
+  featurePlansKey = key;
+  const disclosureStates = new Map([...$('feature-plans').querySelectorAll('details[data-section]')]
+    .map(details => [details.dataset.section, details.open]));
+  function disclosure(key, label, open = false, className = 'plan-disclosure') {
+    const details = element('details', undefined, className);
+    details.dataset.section = key;
+    details.open = disclosureStates.has(key) ? disclosureStates.get(key) : open;
+    details.append(element('summary', label));
+    return details;
+  }
+  $('feature-plans').replaceChildren();
+  for (const record of records) {
+    const plan = record.plan;
+    const title = plan?.title || record.label;
+    const status = record.draft?.report ? record.draft.report.status === 'needs-attention' ? 'Checks need attention' : 'Draft ready'
+      : record.draft ? ['invalid', 'execution-failed'].includes(record.draft.state) ? 'Draft needs attention' : 'Preparing draft'
+      : record.decision ? record.decision.status === 'approved' ? 'Approved' : 'Rejected'
+      : plan ? Reflect.get({ 'changes-needed': 'Plan ready', 'no-change': 'No change proposed', incomplete: 'Research incomplete' }, plan.outcome)
+      : record.waiting ? 'Researching' : 'Needs attention';
+    const panel = disclosure(`${record.id}:card`, '', true, 'feature-plan');
+    const summary = panel.querySelector('summary');
+    summary.setAttribute('aria-label', `${title}, ${status}`);
+    const badge = element('span', status, 'plan-status');
+    badge.dataset.tone = /attention|incomplete|Rejected/.test(status) ? 'attention' : 'ready';
+    summary.append(element('span', title, 'plan-title'), badge);
+    const body = element('div', undefined, 'plan-body');
+    panel.append(body);
+    if (record.message) paragraph(body, record.message, record.waiting ? 'muted' : 'error');
+    if (!plan) { $('feature-plans').append(panel); continue; }
+    paragraph(body, plan.summary, 'plan-lead');
+    const meta = element('div', undefined, 'plan-meta');
+    meta.append(element('span', `${plan.changes.length} ${plan.changes.length === 1 ? 'file' : 'files'}`),
+      element('span', plan.media.length ? `${plan.media.length} media ${plan.media.length === 1 ? 'proposal' : 'proposals'}` : 'No new media'));
+    body.append(meta);
+    const next = element('div', undefined, 'plan-next');
+    const proposal = record.decision
+      ? disclosure(`${record.id}:proposal`, 'Original plan and evidence')
+      : element('div');
+    if (record.decision) body.append(next, proposal);
+    else body.append(proposal, next);
+    const context = disclosure(`${record.id}:context`, 'Audience and product context', plan.outcome === 'incomplete');
+    for (const [label, value] of [['Reader', plan.persona], ['Intent', plan.intent], ['Purpose', plan.purpose]]) {
+      paragraph(context, `${label}: ${value}`);
+    }
+    paragraph(context, `Agent availability assessment: ${plan.availability.status}. ${plan.availability.explanation}`);
+    const scope = element('section', undefined, 'plan-section');
+    scope.append(element('h3', 'Proposed changes'));
+    const changes = element('ul', undefined, 'plan-changes');
+    for (const change of plan.changes) {
+      const item = element('li');
+      const heading = element('div', undefined, 'plan-change-heading');
+      heading.append(element('code', change.path), element('span', change.action === 'create' ? 'New file' : 'Update'));
+      item.append(heading);
+      paragraph(item, change.description);
+      changes.append(item);
+    }
+    if (!plan.changes.length) paragraph(scope, 'No content changes proposed.');
+    scope.append(changes);
+    const mediaSection = element('section', undefined, 'plan-section');
+    mediaSection.append(element('h3', 'Media proposals'));
+    if (!plan.media.length) paragraph(mediaSection, 'No media proposed.', 'muted');
+    for (const media of plan.media) {
+      const item = element('div', undefined, 'media-proposal');
+      paragraph(item, `${media.kind} · ${media.article} · ${media.status}: ${media.purpose}`);
+      paragraph(item, `Placement: ${media.placement}. Scenario: ${media.scenario}`, 'muted');
+      if (media.limitation) paragraph(item, media.limitation, 'media-pending');
+      mediaSection.append(item);
+    }
+    proposal.append(scope, mediaSection, context);
+    const sources = disclosure(`${record.id}:sources`, 'Research evidence and source');
+    paragraph(sources, `Documentation revision: ${record.sourceRevision}. Approval rechecks the source snapshot and any captured issue. Evidence is an agent assessment for human review.`);
+    for (const source of plan.sources) {
+      if (source.url.startsWith('file:')) {
+        paragraph(sources, source.note);
+        paragraph(sources, `Captured local source: ${source.url}`, 'reference');
+        continue;
+      }
+      const url = new URL(source.url);
+      const link = element('a', `${url.hostname} · ${url.pathname.split('/').filter(Boolean).at(-1) || 'Source'}`);
+      link.href = source.url; link.target = '_blank'; link.rel = 'noopener noreferrer';
+      const item = element('p'); item.append(link); sources.append(item);
+      paragraph(sources, source.note);
+    }
+    proposal.append(sources);
+    if (plan.limitations.length) {
+      const notes = disclosure(`${record.id}:notes`, `Original proposal notes (${plan.limitations.length})`, plan.outcome === 'incomplete');
+      for (const limitation of plan.limitations) paragraph(notes, limitation, 'muted');
+      proposal.append(notes);
+    }
+    if (record.decision) paragraph(next, `Plan ${record.decision.status} · ${time(record.decision.at)} · ${record.decision.reason}`, 'muted');
+    else if (record.canDecide) {
+      const decision = element('div', undefined, 'plan-decision');
+      const feedback = element('textarea');
+      feedback.id = `plan-feedback-${record.id}`; feedback.rows = 2; feedback.maxLength = 4000;
+      feedback.value = planFeedback.get(record.id) || '';
+      const label = element('label', 'Plan feedback (required to reject)');
+      label.htmlFor = feedback.id;
+      feedback.addEventListener('input', () => planFeedback.set(record.id, feedback.value));
+      decision.append(label, feedback);
+      const decide = status => void perform(async () => {
+        await request('feature-decide', { id: record.id, planHash: record.planHash, status, confirmed: true,
+          reason: feedback.value.trim() || (status === 'approved' ? 'Approved this exact plan scope in the canvas.' : '') });
+        planFeedback.delete(record.id);
+        await refresh();
+        notice('Plan decision saved. Drafting and media generation have not started.');
+      });
+      const actions = element('div', undefined, 'plan-actions');
+      control(actions, 'Approve plan scope', () => decide('approved')).disabled = busy;
+      const reject = control(actions, 'Reject plan', () => decide('rejected'));
+      reject.disabled = busy; reject.classList.add('secondary');
+      decision.append(actions); next.append(decision);
+    }
+    if (record.draft) {
+      const draft = element('section', undefined, 'draft-result plan-section');
+      draft.append(element('h3', 'Draft'));
+      paragraph(draft, `${record.draft.target} · ${record.draft.branch}`, 'draft-location');
+      if (record.draft.message) paragraph(draft, record.draft.message, record.draft.waiting ? 'muted' : 'error');
+      const report = record.draft.report;
+      if (!report && !record.draft.message) paragraph(draft, 'Waiting for confirmed draft results.', 'muted');
+      if (report) {
+        paragraph(draft, report.status === 'needs-attention' ? 'Draft saved; checks need attention.' : 'Draft saved for human review.');
+        for (const item of report.files) paragraph(draft, item.path, 'reference');
+        const count = level => report.checks.findings.filter(finding => finding.severity === level).length;
+        const checks = disclosure(`${record.id}:checks`, `Checks · ${count('error')} errors · ${count('warning')} warnings · ${count('unverified')} unverified`);
+        for (const finding of report.checks.findings) paragraph(checks, `${finding.article}:${finding.line} [${finding.severity}] ${finding.message}`);
+        const diff = disclosure(`${record.id}:diff`, 'Review draft diff', false, 'draft-diff');
+        diff.append(element('pre', report.diff));
+        draft.append(diff, checks);
+        paragraph(draft, `Saved checks from ${time(report.generatedAt)}. Further edits require another check.`, 'muted');
+        for (const media of report.pendingMedia) paragraph(draft, `Media pending: ${media.id} (${media.kind}). ${media.reason}`, 'media-pending');
+      }
+      next.append(draft);
+    } else if (record.decision?.status === 'approved' && plan.outcome === 'changes-needed') {
+      const setup = element('section', undefined, 'draft-setup plan-section');
+      setup.append(element('h3', 'Prepare a draft'));
+      const target = element('input');
+      target.id = `draft-target-${record.id}`;
+      target.value = draftLocations.get(record.id) || state.workspace;
+      target.disabled = busy;
+      target.addEventListener('input', () => draftLocations.set(record.id, target.value));
+      const label = element('label', 'Draft in an existing checkout');
+      label.htmlFor = target.id;
+      setup.append(label, target);
+      paragraph(setup, 'Confirm the existing branch and planned file writes before drafting. No branch creation, media generation, or publication.', 'muted');
+      const actions = element('div', undefined, 'plan-actions');
+      control(actions, 'Prepare draft', () => void perform(async () => {
+        const input = { id: record.id, planHash: record.planHash, target: target.value.trim() };
+        const context = await request('feature-draft-context', input);
+        const changed = context.reconfirm ? 'The commit or planning guidance changed, but documentation inputs still match. Reconfirm this plan for drafting.\n\n' : '';
+        if (!window.confirm(`${changed}Prepare the approved text draft in:\n${context.target}\nBranch: ${context.branch}\n\nWrite only:\n${context.files.join('\n')}\n\nNo commits, new media, or GitHub writes. Continue?`)) return;
+        const run = await request('feature-draft-start', { ...input, branch: context.branch, contextHash: context.contextHash, confirmed: true });
+        await refresh();
+        notice(run.launch === 'uncertain' ? run.error : 'Drafting started in the confirmed location. Media remains a separate attended step.', run.launch === 'uncertain');
+      })).disabled = busy;
+      setup.append(actions); next.append(setup);
+    }
+    $('feature-plans').append(panel);
+  }
+}
+for (const id of ['feature-description', 'feature-issue']) $(id).addEventListener('input', renderFeaturePlans);
+$('feature-form').addEventListener('submit', event => {
+  event.preventDefault();
+  void perform(async () => {
+    const run = await request('feature-launch', { feature: $('feature-description').value.trim(),
+      issue: $('feature-issue').value.trim(), channel: $('feature-channel').value, confirmed: true });
+    await refresh();
+    if (run.launch === 'acknowledged') $('writing-request').open = false;
+    notice(run.launch === 'uncertain' ? run.error : 'Planning submitted. Drafting and media generation have not started.', run.launch === 'uncertain');
+  });
+});
 $('review-article').addEventListener('input', () => {
   reviewSections = undefined;
   $('review-section').replaceChildren();
@@ -590,6 +814,7 @@ $('article-filter').addEventListener('input', () => { renderFindings(); renderCo
 for (const id of ['check-filter', 'status-filter', 'freshness-filter']) $(id).addEventListener('change', () => { renderFindings(); renderCoverage(); });
 $('coverage-details').addEventListener('toggle', () => { if (state) renderCoverage(); });
 $('execution-details').addEventListener('toggle', () => { if (state) renderExecution(); });
+$('writing-execution-details').addEventListener('toggle', () => { if (state) renderExecution(true); });
 $('launch-form').addEventListener('submit', event => {
   event.preventDefault();
   const scope = scopeInput();
@@ -601,11 +826,16 @@ $('launch-form').addEventListener('submit', event => {
   });
 });
 $('reload').addEventListener('click', () => void perform(async () => { await refresh(); notice(''); }));
+$('writing-reload').addEventListener('click', () => void perform(async () => {
+  state = await request('poll');
+  notice('');
+}));
 $('stop-verification').addEventListener('click', () => void perform(async () => {
   state = await request('cancel-verification');
 }));
 
-setInterval(async () => {
+async function pollResults(force = false) {
+  if (force) refreshRequested = true;
   if (busy || polling || document.hidden || !state) return;
   const verificationStopped = ['cancelled', 'failed'].includes(state.verification?.state);
   const pending = ['checking', 'cancelling'].includes(state.verification?.state) || state.verification?.terminating ||
@@ -616,19 +846,38 @@ setInterval(async () => {
       (!verificationStopped && !['invalid', 'stale', 'freshness-failed', 'execution-failed'].includes(run.result?.state) &&
         (run.result?.state === 'missing' ||
           (['idle', 'completed'].includes(run.observation.status) && !run.ingestedHash && run.completion?.outcome !== 'execution-failed')))));
-  if (!pending) return;
+  // Another canvas or host action can add work after this view becomes idle.
+  if (!pending && !refreshRequested && Date.now() - lastPollAt < 10_000) return;
   polling = true;
+  refreshRequested = false;
+  lastPollAt = Date.now();
   const generation = viewGeneration;
   try {
     const updated = await request('poll');
     if (!busy && generation === viewGeneration) state = updated;
+    else refreshRequested = true;
   }
   catch (error) { notice(`Could not refresh results: ${error.message}`, true); }
   finally { polling = false; render(); }
-}, 1000);
+}
+setInterval(() => void pollResults(), 1000);
+document.addEventListener('visibilitychange', () => { if (!document.hidden) void pollResults(true); });
+window.addEventListener('focus', () => void pollResults(true));
+for (const link of document.querySelectorAll('.page-navigation a')) {
+  link.addEventListener('click', event => {
+    if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    if (location.pathname !== link.pathname) history.pushState(null, '', link.pathname);
+    render();
+    $('page-title').focus();
+    void pollResults(true);
+  });
+}
+window.addEventListener('popstate', () => { render(); $('page-title').focus(); void pollResults(true); });
 await perform(async () => {
   await bootstrap();
   render();
   if (state.runs.some(run => run.ownerMatches && run.launch !== 'not-started')) state = await request('poll');
-  notice(state.runs.length ? '' : 'Ready. Choose articles or folders to check.');
+  notice(state.runs.some(run => run.kind !== 'authoring') ? '' : 'Ready. Choose articles or folders to check.', false, 'findings');
+  notice(state.featurePlans?.length ? '' : 'Describe your documentation request to get started.', false, 'writing');
 });
