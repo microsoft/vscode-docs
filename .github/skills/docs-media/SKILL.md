@@ -8,6 +8,17 @@ argument-hint: 'An article, existing media asset, or storyboard path.'
 
 Use the tested scripts under `build/` to produce private media candidates. This skill describes the procedure; it does not implement a separate driver or orchestration system.
 
+## Standalone article requests
+
+An article and a create/refresh request are sufficient to start this workflow in the current chat. Do not require a feature-documentation plan, an unfinished draft, another chat, or author-maintained storyboard JSON.
+
+* A request can cover one or several screenshots or videos. For creation, propose useful new assets without assuming existing ones should be replaced. For refresh, assess existing assets and keep those that still serve the reader.
+* Present one concise capture proposal describing each asset's purpose, article placement, proposed insertion or replacement, and prerequisites. For video, include the visible action sequence and intended duration. Prepare the underlying storyboard details yourself and make them available for review.
+* Starting the chat authorizes preparation only. Obtain approval for the intended attended capture work before launching the product. Native prompts and each required readiness response remain human work.
+* Keep candidate decisions per asset, but allow the user to approve a named set together. Bind every decision to its exact prepared bytes. A rejected or blocked asset must not be included merely because another candidate was approved.
+* Use appropriate image/video viewers for final review and native editor diffs for article changes. Before applying a replacement, confirm its original asset and article have not changed since the approved proposal. Preserve raw and prepared candidates, and apply only the explicitly authorized insertions/replacements.
+* For several assets, use the existing bounded capture runs as needed. Do not introduce scheduled capture or a separate batch orchestration system. Report partial results and unsupported work explicitly rather than automatically retrying failures.
+
 For assertion-based procedure checks without media, use [docs-replay](../docs-replay/SKILL.md). Replay outcomes are never media candidates or visual approvals.
 
 ## Read-only media assessment

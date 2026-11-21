@@ -46,14 +46,14 @@ async function createEditor({ executable = process.execPath, run = execute } = {
       if (!Array.isArray(files) || !files.length || files.length > 4 ||
           files.some(file => typeof file !== 'string' || !path.isAbsolute(file) || /[\r\n\0]/.test(file)) ||
           typeof prompt !== 'string' || !prompt.trim() || prompt.length > 12000 || prompt.includes('\0')) {
-        throw new Error('Invalid review chat request.');
+        throw new Error('Invalid chat request.');
       }
       const help = await launch(['chat', '--help']);
       if (!help.stdout?.includes('--add-file') || !help.stdout.includes('--mode')) {
         throw new Error('This VS Code installation does not expose the required native chat launcher.');
       }
       await launch(['chat', '--reuse-window', '--mode', 'agent', ...files.flatMap(file => ['--add-file', file]), prompt]);
-      return { requested: true, message: "Sent the review request to VS Code Chat. Continue there; this canvas does not track that chat's completion." };
+      return { requested: true, message: "Sent the request to VS Code Chat. Continue there; this canvas does not track that chat's completion." };
     }
   };
 }

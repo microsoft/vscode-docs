@@ -16,7 +16,7 @@ body { margin: 0; }
 .article-app .page-navigation, .article-app #findings-page { max-width: 1440px; margin: 0 auto; }
 .article-app #writing-page { max-width: 1040px; margin: 0 auto; }
 .article-app[data-page=writing] > header, .article-app[data-page=writing] > .page-navigation { max-width: 1040px; }
-.article-app .page-navigation { display: flex; gap: 16px; padding-bottom: 12px; }
+.article-app .page-navigation { display: flex; flex-wrap: wrap; gap: 4px 16px; padding-bottom: 12px; }
 .article-app .page-navigation a { color: var(--vscode-textLink-foreground, light-dark(#005fb8, #75beff)); padding: 4px 0; text-decoration: none; border-bottom: 2px solid transparent; }
 .article-app .page-navigation a[aria-current=page] { border-bottom-color: currentColor; font-weight: 600; }
 .article-app .writing-progress { margin-top: 12px; }

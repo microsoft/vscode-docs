@@ -8,6 +8,7 @@ The [implementation plan](DOCS-AGENT-PLAN.md) defines the eight core workflows, 
 
 * [Choose a daily workflow](#choose-a-daily-workflow)
 * [Start a skill-driven review chat](#start-a-skill-driven-review-chat)
+* [Start a screenshot or video chat](#start-a-screenshot-or-video-chat)
 * [Target canvas experience](#target-canvas-experience)
 * [Use the Docs workflow canvas](#use-the-docs-workflow-canvas)
   * [Review an article with an agent](#review-an-article-with-an-agent)
@@ -44,8 +45,8 @@ The initial planning/drafting checkpoint is `9afaa1905`. The current workflow al
 |---|---|---|
 | Write new feature content | On **Docs writing**, describe the request, optionally supply an issue, and [propose a plan](#propose-a-feature-documentation-plan). Approve it, then separately [confirm drafting](#prepare-an-approved-draft). | The live proof is an article update, not a new article. New-article creation and navigation need end-to-end acceptance. |
 | Review and revise an article | Use **Review in chat** for an interactive skill-driven review and update. Use the separate structured article-review path when persistent findings are needed. | The chat handoff and native editor opening are verified. A complete live agent-generated revision pilot remains. Native opening is currently Windows VS Code only. |
-| Create or refresh screenshots | Use the [attended media procedure](#capture-an-editor-screenshot-candidate). An approved feature plan can also [generate and review screenshots before its first draft](#review-screenshots-before-drafting). | No independent tracked article-media task, existing-image replacement flow, or accepted multi-image journey. Do not create a dummy feature plan just to unlock media controls. |
-| Generate short demo videos | Use the existing [attended video procedure](#record-an-editor-video-candidate) and [exact-asset review](#record-an-exact-asset-review), with explicit capture approval. | Video generation, playback review, and article handoff are not integrated into the new canvas. Feature-plan video proposals stay pending. |
+| Create or refresh screenshots | Open **Screenshots**, select an article and create/refresh, then [start docs-media in chat](#start-a-screenshot-or-video-chat). One request can cover several assets. | The launcher does not capture or approve media. Full multi-image capture/replacement acceptance remains separate from handoff tests. |
+| Generate short demo videos | Open **Demo videos** and [start docs-media in chat](#start-a-screenshot-or-video-chat) with the article and desired demos. Capture, playback review, and approval happen there. | Uses the existing attended video tools, not a new recording system. Missing tools or unsupported captures remain pending. |
 | Check content accuracy | On **Findings**, use **Check claims and links** for local structural checks and **Review an article** for product claims and editorial/grammar assessment. | These are separate controls. Settings/keybindings in deterministic canvas checks remain unverified without product evidence. External URLs are not checked. No blanket accuracy verdict. |
 | Check article instructions against the actual UI | The existing [replay procedure](#replay-a-reviewed-procedure) can test selected predefined assertions. | It does not follow or validate article prose. Article-derived actions, source-step mapping, and expected-versus-observed results are planned. |
 | Verify a PR's accuracy | Request a separately scoped read-only PR review using pinned GitHub data and the PR-review procedure. | No PR input or integrated PR results in the new canvas. Never check out or execute PR contents. PR accuracy is now in the core plan, not removed from scope. |
@@ -69,6 +70,22 @@ Native opening currently requires the Windows VS Code extension host and a CLI s
 The earlier findings-inbox review and structured drafting procedures below remain available; they are not mandatory steps for the chat launcher.
 
 A live one-click proof created a separate interactive chat with the article and skill attached, loaded doc-writer, and returned a handoff acknowledgement without performing a full review or editing files. Run `npm run test:review-chat` for the focused fixture checks; set `DOCS_ARTICLE_BROWSER` to the installed browser path described below to include the browser journey.
+
+## Start a screenshot or video chat
+
+The **Screenshots** (`/screenshots`) and **Demo videos** (`/videos`) pages are independent launchers, not steps in feature drafting:
+
+1. Choose an article and select **Create new** or **Refresh existing**. Add a request if useful, such as "refresh the two setup screenshots while preserving their annotations" or "make short demos for setup and navigation." One request can cover several assets.
+2. Select the intended product channel, then **Start in chat**. The native chat receives the article, media type, operation, request, and docs-media skill. No feature plan or existing draft is required.
+3. In that chat, agree on a concise proposal: what each asset should show, its placement, the insertions/replacements, and prerequisites. The agent handles the storyboard details and asks only for essential missing context.
+4. Approve the intended capture work and remain present for the attended run. Handle native prompts and each required readiness response yourself. Starting chat is not capture permission.
+5. Inspect the final candidates in appropriate image/video viewers. Approve the exact assets to use and their scoped application before any originals are replaced or article references are changed. The agent runs relevant checks and uses native editor diffs for article changes.
+
+Create requests do not imply replacing existing assets. Refresh requests keep useful existing media rather than replacing everything. Rejected or unsupported assets remain explicit; approval of one candidate does not approve others. Candidates and raw sources stay private until their authorized handoff.
+
+Both pages share the proven native chat transport and its Windows/last-active-window limitations. They neither create batch workflow tasks nor change findings or review decisions. They also do not track chat completion. Check Chat before retrying a failed or timed-out launch.
+
+The focused launcher tests cover both media types, create/refresh choices, multiple-asset requests, failure handling, narrow layouts, and preserved batch state. They do not generate real media or establish full capture-workflow acceptance.
 
 ## Target canvas experience
 

@@ -13,6 +13,7 @@ import { createReviewWorkflow } from './article-review.mjs';
 import { createFeaturePlans } from './feature-plans.mjs';
 import editorTools from '../../../build/docs-editor.js';
 import reviewChat from '../../../build/review-chat.js';
+import mediaChat from '../../../build/media-chat.js';
 
 const description = id => `Docs article check ${id}`;
 const quote = value => `'${value.replaceAll("'", "''")}'`;
@@ -136,6 +137,7 @@ export async function createArticleWorkflow({
       featurePlans: featureView.plans,
       editor: { available: sourceEditor.available, message: sourceEditor.message },
       reviewChat: { available: sourceEditor.available && typeof sourceEditor.chat === 'function', presets: reviewChat.presets.map(({ id, label }) => ({ id, label })) },
+      mediaChat: { available: sourceEditor.available && typeof sourceEditor.chat === 'function' },
       verification, hostSync: hostStatus,
       catalog: { state: catalogError ? 'failed' : catalogPromise ? 'checking' : 'complete', message: catalogError },
       runs: [...runs, ...replayView.runs, ...reviewView.runs, ...featureView.runs].sort((left, right) => left.createdAt.localeCompare(right.createdAt))
@@ -359,6 +361,15 @@ export async function createArticleWorkflow({
       const article = await resolveArticle(store.workspace, input.article);
       const skill = fileURLToPath(new URL('../../skills/doc-writer/SKILL.md', import.meta.url));
       const prompt = reviewChat.reviewPrompt({ article, skill, selected: input.presets, request: input.request, channel: input.channel });
+      return sourceEditor.chat({ files: [article, skill], prompt });
+    },
+    'media-chat': async input => {
+      if (input.confirmed !== true) throw new Error('Start the media request explicitly before opening chat.');
+      if (!sourceEditor.available || typeof sourceEditor.chat !== 'function') throw new Error(sourceEditor.message || 'Native chat opening is unavailable in this host.');
+      const article = await resolveArticle(store.workspace, input.article);
+      const skill = fileURLToPath(new URL('../../skills/docs-media/SKILL.md', import.meta.url));
+      const prompt = mediaChat.mediaPrompt({ article, skill, kind: input.kind, operation: input.operation,
+        request: input.request, channel: input.channel });
       return sourceEditor.chat({ files: [article, skill], prompt });
     },
     'open-article': async ({ article, line }) => sourceEditor.open({ file: await resolveArticle(store.workspace, article), line }),
