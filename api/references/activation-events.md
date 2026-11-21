@@ -215,7 +215,7 @@ For example, the declaration of `onAuthenticationRequest` below:
 ]
 ```
 
-will cause the extension to be activated when VS Code needs retrieve an `AuthenticationSession` of type `github`.
+will cause the extension to be activated when VS Code needs to retrieve an `AuthenticationSession` of type `github`.
 
 > **Note**: Beginning with VS Code 1.74.0, authentication providers contributed by your extension do not require a corresponding `onAuthenticationRequest` activation event declaration for your extension to be activated.
 

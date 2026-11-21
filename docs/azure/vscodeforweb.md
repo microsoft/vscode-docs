@@ -109,7 +109,7 @@ The following are commonly used scenarios for the `\azure` environment.
 
         ![Screenshot that shows view code button](images/vscodeforweb/fourth.png)
 
-        There, you can see multi-lingual code samples in Python, C#, and JavaScript for agents and with the inclusion of JSON, cURL, JavaScript, C#, and Go for models, Entra ID can be used to authenticate agents with "Key Authorization" now available for models.
+        There, you can see multilingual code samples in Python, C#, and JavaScript for agents, and in JSON, cURL, JavaScript, C#, and Go for models. Entra ID can be used to authenticate agents, with "Key Authorization" now available for models.
 
         ![Screenshot that shows EntraID auth](images/vscodeforweb/fifth.png)
 
@@ -163,7 +163,7 @@ The following are commonly used scenarios for the `\azure` environment.
 
 * [Rapid prototyping with {% data variables.product.prodname_vscode_shortname %} extensions and Python](https://code.visualstudio.com/docs/python/python-quick-start)
 
-* [Create, Edit, and Deploy an Agents with Azure Copilot](https://review.learn.microsoft.com/en-us/azure/copilot/deployment-agent?branch=release-ignite-azure-copilot)
+* [Create, edit, and deploy an agent with Azure Copilot](https://review.learn.microsoft.com/en-us/azure/copilot/deployment-agent?branch=release-ignite-azure-copilot)
 
 ## Limitations
 

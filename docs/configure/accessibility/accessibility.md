@@ -101,7 +101,7 @@ One of the best approaches to selecting the best colors for a specific condition
 
 ![Color wheel highlighting complementary colors for regular vision, deuteranopia, protanopia, tritanopia and monochromacy](images/accessibility/accessibility-color-wheels.png)
 
->**Note**: For more information on finding complementary colors, access the color blind simulator and interactive color wheel at [Adobe Color](https://color.adobe.com/create/color-accessibility).
+>**Note**: For more information on finding complementary colors, access the color-blind simulator and interactive color wheel at [Adobe Color](https://color.adobe.com/create/color-accessibility).
 
 ## Dim unfocused editors and terminals
 

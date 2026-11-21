@@ -33,7 +33,7 @@ Many extensions choose to contribute Views and/or View Containers to the Primary
 
 ## Secondary Sidebar
 
-As the name implies, the Secondary Sidebar is normally considered a auxiliary location for Views. While extensions cannot contribute Views directly to it by default, users can drag Views from the Primary Sidebar or the Panel to customize their layout.
+As the name implies, the Secondary Sidebar is normally considered an auxiliary location for Views. While extensions cannot contribute Views directly to it by default, users can drag Views from the Primary Sidebar or the Panel to customize their layout.
 
 ![Example of the secondary sidebar](images/examples/secondary-sidebar.png)
 

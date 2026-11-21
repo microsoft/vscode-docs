@@ -156,7 +156,7 @@ The Python extension also offers support for discovering and running Django unit
 2. Add `MANAGE_PY_PATH` as an environment variable:
     1. Create a `.env` file at the root of your project.
     2. Add `MANAGE_PY_PATH='<path-to-manage.py>'` to the `.env` file, replacing `<path-to-manage.py>` with the path to your application's `manage.py` file.
-        > **Tip**: you can copy the path by right clicking on the file in the Explorer view and selecting **Copy Path**.
+        > **Tip**: you can copy the path by right-clicking on the file in the Explorer view and selecting **Copy Path**.
 3. Add Django test arguments to `"python.testing.unittestArgs": []` in the `settings.json` [file](/docs/configure/settings.md) as needed, and remove any arguments that are not compatible with Django.
 
 > [!Note]

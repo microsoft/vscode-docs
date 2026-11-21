@@ -525,7 +525,7 @@ If an extension wants to provide a debugger or terminal that also work in the we
 
 If you want to use esbuild instead of webpack, do the following:
 
-Add a `esbuild.js` build script:
+Add an `esbuild.js` build script:
 ```js
 const esbuild = require('esbuild');
 const glob = require('glob');

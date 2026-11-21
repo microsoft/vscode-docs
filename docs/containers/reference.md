@@ -511,7 +511,7 @@ The command template chosen to execute is selected based on the following rules:
 1. If multiple templates are configured:
     1. Constrained templates are checked. A constrained template has `match`. The `match` regular expression is compared against contextual hints--for example, image name, container name, etc.
     1. If multiple constrained templates apply, the user will be prompted to choose. If only one applies, the user will not be prompted.
-    1. If there no applicable constrained templates, unconstrained templates are checked. An unconstrained template does not have `match`, and is therefore always applicable.
+    1. If there are no applicable constrained templates, unconstrained templates are checked. An unconstrained template does not have `match`, and is therefore always applicable.
     1. If multiple unconstrained templates apply, the user will be prompted to choose. If only one applies, the user will not be prompted.
 
 ### Docker Build

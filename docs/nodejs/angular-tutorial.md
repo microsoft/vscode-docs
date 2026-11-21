@@ -168,7 +168,7 @@ If you'd like to see a full MEAN (MongoDB, Express, Angular, Node.js) stack exam
 
 ### React
 
-[React](https://reactjs.org) is a library for building user interfaces and it is more minimal than angular. If you'd like to see an example of React working with {% data variables.product.prodname_vscode_shortname %}, check out the [Using React in {% data variables.product.prodname_vscode_shortname %}](/docs/nodejs/reactjs-tutorial.md) tutorial. It will walk you through creating an React application and configuring the `launch.json` file for the JavaScript debugger.
+[React](https://reactjs.org) is a library for building user interfaces and it is more minimal than Angular. If you'd like to see an example of React working with {% data variables.product.prodname_vscode_shortname %}, check out the [Using React in {% data variables.product.prodname_vscode_shortname %}](/docs/nodejs/reactjs-tutorial.md) tutorial. It will walk you through creating a React application and configuring the `launch.json` file for the JavaScript debugger.
 
 ## Angular Extensions
 

@@ -16,7 +16,7 @@ Custom editors allow extensions to create fully customizable read/write editors 
 - Offering alternative visual renderings for data files such as CSV or JSON or XML.
 - Building fully customizable editing experiences for binary or text files.
 
-This document provides an overview of the custom editor API and the basics of implementing a custom editor. We'll take a look at the two types of custom editors and how they differ, as well as which one is right for your use case. Then for each of these custom editor types, we'll cover the basics of building a well behaved custom editor.
+This document provides an overview of the custom editor API and the basics of implementing a custom editor. We'll take a look at the two types of custom editors and how they differ, as well as which one is right for your use case. Then for each of these custom editor types, we'll cover the basics of building a well-behaved custom editor.
 
 Although custom editors are a powerful new extension point, implementing a basic custom editor is not actually that difficult! Still, if you are working on your first VS Code extension, you may want to consider holding off on diving into custom editors until you are more familiar with the basics of the VS Code API. Custom editors build on a lot of VS Code concepts—such as [webviews](/api/extension-guides/webview) and text documents—so it may be a bit overwhelming if you are learning all of these new ideas at the same time.
 
@@ -210,7 +210,7 @@ If the user opens the same resource in another editor group using our custom edi
 
 **Closing Custom Editors**
 
-Say we have two instance of our custom editors open for the same resource. When the user closes these editors, VS Code signals our extension so that it can clean up any resources associated with the editor.
+Say we have two instances of our custom editors open for the same resource. When the user closes these editors, VS Code signals our extension so that it can clean up any resources associated with the editor.
 
 When the first editor instance is closed, VS Code fires the `WebviewPanel.onDidDispose` event on the `WebviewPanel` from the closed editor. At this point, our extension must clean up any resources associated with that specific editor instance.
 
@@ -232,7 +232,7 @@ Editable custom editors are implemented by `CustomEditorProvider`. This interfac
 
 **Edits**
 
-Changes to a editable custom document are expressed through edits. An edit can be anything from a text change, to an image rotation, to reordering a list. VS Code leaves the specifics of what an edit does entirely up to your extension, but VS Code does need to know when an edit takes places. Editing is how VS Code marks documents as dirty, which in turn enables auto save and back ups.
+Changes to an editable custom document are expressed through edits. An edit can be anything from a text change, to an image rotation, to reordering a list. VS Code leaves the specifics of what an edit does entirely up to your extension, but VS Code does need to know when an edit takes place. Editing is how VS Code marks documents as dirty, which in turn enables auto save and backups.
 
 Whenever a user makes an edit in any of the webviews for your custom editor, your extension must fire a `onDidChangeCustomDocument` event from its `CustomEditorProvider`. The `onDidChangeCustomDocument` event can fire two event types depending on your custom editor implementation: `CustomDocumentContentChangeEvent` and `CustomDocumentEditEvent`.
 
@@ -251,7 +251,7 @@ A `CustomDocumentEditEvent` has the following fields:
 - `document` — The `CustomDocument` the edit was for.
 - `label` — Optional text that describes what type of edit was made (for example: "Crop", "Insert", ...)
 - `undo` — Function invoked by VS Code when the edit needs to be undone.
-- `redo` — Function invoked by VS Code when the edits needs to be redone.
+- `redo`: Function invoked by VS Code when the edits need to be redone.
 
 When an extension fires a `CustomDocumentEditEvent` from `onDidChangeCustomDocument`, VS Code marks the associated document as being dirty. To make the document no longer dirty, a user can then either save or revert the document, or undo/redo back to the document's last saved state.
 

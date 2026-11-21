@@ -148,7 +148,7 @@ Notice the color differences based on language service symbol understanding:
 * line 11: `Range` and `Position` are colored as classes and `document` as a parameter.
 * line 13: `getFoldingRanges` is colored as a function.
 
-The settings `setting(editor.semanticHighlighting.enabled)` serves as the main control on whether semantic highlighting is applied. It can have values `true`, `false`, and `configuredByTheme`.
+The setting `setting(editor.semanticHighlighting.enabled)` serves as the main control on whether semantic highlighting is applied. It can have values `true`, `false`, and `configuredByTheme`.
 
 * `true` and `false` turn semantic highlighting on or off for all themes.
 * `configuredByTheme` is the default and lets each theme control whether semantic highlighting is enabled or not. All the themes that ship with {% data variables.product.prodname_vscode_shortname %} (for example, the "Dark+" default) have semantic highlighting enabled by default.
@@ -165,7 +165,7 @@ You can override the theme setting by:
 
 When semantic highlighting is enabled and available for a language, it is up to the theme to configure whether and how semantic tokens are colored. Some semantic tokens are standardized and map to well-established TextMate scopes. If the theme has a coloring rule for these TextMate scopes, the semantic tokens are rendered with that color, without the need for any additional coloring rules.
 
-Additional styling rules can be configured in `editor.semanticTokenColorCustomizations"`:
+Additional styling rules can be configured in `editor.semanticTokenColorCustomizations`:
 
 ```json
 "editor.semanticTokenColorCustomizations": {
