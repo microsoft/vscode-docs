@@ -14,7 +14,7 @@ Downloads: [Windows](https://az764295.vo.msecnd.net/stable/db71ac615ddf9f33b133f
 
 ## JavaScript - Salsa Preview
 
-The JavaScript language service in VS Code has always been powered by TypeScript. We are migrating to a new JavaScript language service implementation called [Salsa](https://github.com/microsoft/TypeScript/issues/4789). Salsa will become available with TypeScript 1.8 but for the January update, we are providing way to preview Salsa in VS Code.
+The JavaScript language service in VS Code has always been powered by TypeScript. We are migrating to a new JavaScript language service implementation called [Salsa](https://github.com/microsoft/TypeScript/issues/4789). Salsa will become available with TypeScript 1.8 but for the January update, we are providing a way to preview Salsa in VS Code.
 
 ### Salsa Improvements
 
@@ -42,11 +42,11 @@ There is now support for JSX:
 
 >**Tip:** To get IntelliSense for React/JSX, install the typings for `react-global` by running `tsd install react-global` from the terminal.
 
-Salsa also understands JSX constructs inside JavaScript (`.js`) files to support React Native development. We haven't updated the grammar for `.js` files yet but you can enable JSX syntax coloring for JS using the [`js-is-jsx` extension](https://marketplace.visualstudio.com/items?itemName=eg2.js-is-jsx). This extension tell VS Code to treat `.js` files as `.jsx` files so that the JSX syntax coloring is used.
+Salsa also understands JSX constructs inside JavaScript (`.js`) files to support React Native development. We haven't updated the grammar for `.js` files yet but you can enable JSX syntax coloring for JS using the [`js-is-jsx` extension](https://marketplace.visualstudio.com/items?itemName=eg2.js-is-jsx). This extension tells VS Code to treat `.js` files as `.jsx` files so that the JSX syntax coloring is used.
 
 It is now possible to have mixed TypeScript and JavaScript projects. To enable JavaScript inside a TypeScript project, you can set the `allowJs` property to `true` in the `tsconfig.json`.
 
->**Tip:** The `tsc` compiler does not detect the presence of a `jsconfig.json` file automatically. Use the `–p` argument to make `tsc` use your `jsconfig.json` file, e.g. `tsc -p jsconfig.json`.
+>**Tip:** The `tsc` compiler does not detect the presence of a `jsconfig.json` file automatically. Use the `-p` argument to make `tsc` use your `jsconfig.json` file, e.g. `tsc -p jsconfig.json`.
 
 Finally, the TypeScript compiler `tsc` can down-level compile JavaScript files from ES6 to another language level.
 
@@ -97,20 +97,20 @@ In addition to the 4 major colors in the Visual Studio themes (comments, strings
 
 ![Dark+ theme](images/January/dark_plus_theme.png)
 
-New installations will get the new Dark+ theme as the default. Existing installations using the previous Light or Dark themes can switch to the new Dark+ or Light+ theme using `Color Theme` command.
+New installations will get the new Dark+ theme as the default. Existing installations using the previous Light or Dark themes can switch to the new Dark+ or Light+ theme using the `Color Theme` command.
 
 ### Keyboard Accessibility
 
 You will find that VS Code provides an exhaustive list of commands in the Command Palette (`kb(workbench.action.showCommands)`) so that you can run VS Code without using the mouse. However, some parts of the UI could not be operated without using the mouse. We made a pass over these locations and added support to use the `kbstyle(Tab)` key to jump between UI controls that you can interact with. Using `kbstyle(Tab)` or `kbstyle(Shift+Tab)` to jump between elements with actions in the UI is a very common pattern for keyboard accessibility. In addition to that, we now also draw an indicator around the UI element once the element gains focus.
 
-Some areas where you can now jump to using keyboard only:
+Some areas you can now jump to using only the keyboard:
 
 * View switcher
 * Header of collapsible sections in a view to expand/collapse
 * Actions in views and sections
 * Actions for items in the tree
 
-This is just the beginning of our journey to become more keyboard accessible, expect more areas to follow in the future!
+This is just the beginning of our journey to become more keyboard accessible. Expect more areas to follow in the future!
 
 ### Experimental screen reader support in the editor
 
@@ -126,7 +126,7 @@ Please note that the translation effort for VS Code has not been completed yet a
 
 ### Ligatures for VS Code
 
-VS Code now supports fonts with programming ligatures, like [Hasklig](https://github.com/i-tu/Hasklig) and [Fira Code](https://github.com/tonsky/FiraCode). Those fonts provide compositions for character sequences commonly used in programming, as `=>`, `>=`, `!=` etc. Enable ligatures with new `editor.fontLigatures` setting and pick a font with programming ligatures. Special thanks to [@mattblagden](https://github.com/mattblagden) for initiating this.
+VS Code now supports fonts with programming ligatures, like [Hasklig](https://github.com/i-tu/Hasklig) and [Fira Code](https://github.com/tonsky/FiraCode). Those fonts provide compositions for character sequences commonly used in programming, such as `=>`, `>=`, `!=` etc. Enable ligatures with the new `editor.fontLigatures` setting and pick a font with programming ligatures. Special thanks to [@mattblagden](https://github.com/mattblagden) for initiating this.
 
 ![Ligatures for Code](images/January/editor-ligatures.png)
 
@@ -134,7 +134,7 @@ VS Code now supports fonts with programming ligatures, like [Hasklig](https://gi
 
 The Find widget was updated to make all of its functions work regardless of the number of results. It is now possible to Find, Replace, etc. well beyond the first 1000 find matches. For performance reasons, the Find widget still only highlights the first 1000 matches. We have also improved the tab order in the widget.
 
-The refactoring allowed us to introduce the "X of Y" display, such that now you can tell in a glance how many results and where you are in that list.
+The refactoring allowed us to introduce the "X of Y" display, such that now you can tell at a glance how many results there are and where you are in that list.
 
 We also added two new actions, "Find Next Selection" (`kb(editor.action.nextSelectionMatchFindAction)`) and "Find Previous Selection" (`kb(editor.action.previousSelectionMatchFindAction)`), that allow you to jump to the next or previous matches without losing editor focus. Thanks to [@ajkerrigan](https://github.com/ajkerrigan), there are now key bindings for the "Replace" and "Replace all" actions.
 
@@ -171,7 +171,7 @@ We improved the interaction and rendering of IntelliSense suggestions which have
 
 ![IntelliSense full documentation icon](images/January/intellisense-1.png)
 
-Clicking it will display the full documentation for that suggestion. It's also possible trigger IntelliSense a second time to enter this mode
+Clicking it will display the full documentation for that suggestion. It's also possible to trigger IntelliSense a second time to enter this mode
 (`kb(editor.action.triggerSuggest)`):
 
 ![Show IntelliSense full documentation](images/January/intellisense-2.png)
@@ -180,7 +180,7 @@ Clicking it will display the full documentation for that suggestion. It's also p
 
 ### Hide the Menu Bar (Windows, Linux)
 
-We added a new action to hide the menu bar on Windows and Linux (`View | Toggle Menu Bar`). You can still access the menu pressing the `Alt` key.
+We added a new action to hide the menu bar on Windows and Linux (`View | Toggle Menu Bar`). You can still access the menu by pressing the `Alt` key.
 
 ### Horizontal panel
 
@@ -214,29 +214,29 @@ We now indicate in the Debug and Watch views which variables have changed values
 
 Node.js debugging now supports source maps with "inlined source" in addition to "inlined source maps" which were already supported. To avoid confusion, here is a brief explanation of these two source map options. "Inlined source" and "inlined source maps" are orthogonal features and VS Code supports both either alone or in combination:
 
-* *Inlined source maps:* The contents of the source map does not live in a file but is a data URL at the end of the generated file.
-* *Inlined source:* The contents of the original source file does not live in a file but is included in the source map.
+* *Inlined source maps:* The contents of the source map do not live in a file but are a data URL at the end of the generated file.
+* *Inlined source:* The contents of the original source file do not live in a file but are included in the source map.
 
 The strategy for which situations VS Code will use "inlined source" is as follows:
 
 * VS Code always tries to locate the source on disk first.
 * If it cannot find the source (e.g. because there is none in the VS Code workspace or because the paths in the source maps are broken), VS Code will use the "inlined source" if available.
-* If there is no inlined source, VS Code will fall back to get the file contents from Node.js itself.
+* If there is no inlined source, VS Code will fall back to getting the file contents from Node.js itself.
 
-Whenever the editor contents is not loaded from the file system but comes from the debugger backend, the editor will be in read-only mode and the "origin" of the editor contents is shown in the editor title like this:
+Whenever the editor contents are not loaded from the file system but come from the debugger backend, the editor will be in read-only mode and the "origin" of the editor contents is shown in the editor title like this:
 
 ![Editor showing inlined source](images/January/debug-inlined-source.png)
 
 ### Remote Debugging
 
-The following improvements enable VS Code to support remote debugging, includes debugging into a Docker container:
+The following improvements enable VS Code to support remote debugging, including debugging into a Docker container:
 
 * The `attach` launch configuration now supports an `address` attribute where a remote host can be specified. Please note that remote debugging is only supported on recent versions of Node.js (>= 4.x).
 * The `attach` launch configuration now supports a `localRoot` and a `remoteRoot` attribute that can be used to map paths between a local VS Code project and a (remote) Node.js folder. This works even locally on the same system or across different operating systems. Whenever a code path needs to be converted from the remote Node.js to a local VS Code path, the `remoteRoot` path is stripped off the path and replaced by `localRoot`. For the reverse conversion, the `localRoot` path is replaced by the `remoteRoot`.
 
 ### launch.json relative paths not automatically converted to absolute ones
 
-In order to achieve consistency across our configuration files, we plan for the **February release** to no longer automatically convert certain paths from relative to absolute in `launch.json`. We recommend that for the `program`, `cwd`, `outDir`, and `runtimeExecutable` attributes, you prefix your relative paths with the `${workspaceRoot}` variable as soon as possible. To make it easier for you to find the affected paths that need this treatment, we highlight them with a green squiggles for the January release. (Please note: since we continue to automatically convert paths for the January release, your launch configurations will continue to work).
+In order to achieve consistency across our configuration files, we plan for the **February release** to no longer automatically convert certain paths from relative to absolute in `launch.json`. We recommend that for the `program`, `cwd`, `outDir`, and `runtimeExecutable` attributes, you prefix your relative paths with the `${workspaceRoot}` variable as soon as possible. To make it easier for you to find the affected paths that need this treatment, we highlight them with green squiggles for the January release. (Please note: since we continue to automatically convert paths for the January release, your launch configurations will continue to work.)
 
 ### "--nolazy" option not automatically added
 
@@ -252,13 +252,13 @@ For VS Code Mono debugging support, we've added an `externalConsole` attribute, 
 
 ### API Consumption
 
-When you write an extension for VS Code, you are developing it against a set of APIs that we define through a file called `vscode.d.ts`. You can see this file in our repository [here](https://github.com/microsoft/vscode/blob/main/src/vs/vscode.d.ts). This file is picked up from our TypeScript and JavaScript language service to provide you with rich validation and IntelliSense while you develop your extension.
+When you write an extension for VS Code, you are developing it against a set of APIs that we define through a file called `vscode.d.ts`. You can see this file in our repository [here](https://github.com/microsoft/vscode/blob/main/src/vs/vscode.d.ts). This file is picked up by our TypeScript and JavaScript language service to provide you with rich validation and IntelliSense while you develop your extension.
 
 As we make changes to the VS Code API between versions, `vscode.d.ts` changes and is updated and tagged from release to release. Previously, we stored the `vscode.d.ts` file within the `vscode` npm module that all extensions automatically depend on. So to update to our latest API, you would just install a newer version of the `vscode` npm module in your extension by typing `npm update vscode`.
 
 We found that this approach has many issues:
 
-* The `vscode` npm module needs to be updated and versioned independent from VS Code versions because it contains API unrelated code (e.g. for test running)
+* The `vscode` npm module needs to be updated and versioned independently of VS Code versions because it contains code unrelated to the API (e.g. for test running)
 * The `engine` field of the `package.json` in your extension should be the only place that drives the decision which API to develop against.
 
 To solve these issues, we made the following changes:
@@ -366,7 +366,7 @@ You can see an initial set of tests in [adapter.test.ts](https://github.com/micr
 
 ### JSON mode is now an extension
 
-From a user's perspective, nothing has really changed when editing JSON, but under the hood, the JSON language support has been refactored. JSON language support drives the smartness when editing JSON files, from validation based on schemes to code completion and formatting. JSON is now a regular extension, using the same [VS Code extension APIs](/docs/extensionAPI/overview.md) as everyone else. The implementation is based on the language server infrastructure, which makes it easy to run in a separate process. Read [here](https://code.visualstudio.com/docs/extensions/example-language-server) for more on the language server.
+From a user's perspective, nothing has really changed when editing JSON, but under the hood, the JSON language support has been refactored. JSON language support drives the smartness when editing JSON files, from validation based on schemas to code completion and formatting. JSON is now a regular extension, using the same [VS Code extension APIs](/docs/extensionAPI/overview.md) as everyone else. The implementation is based on the language server infrastructure, which makes it easy to run in a separate process. Read [here](https://code.visualstudio.com/docs/extensions/example-language-server) for more on the language server.
 
 ## Notable Bug Fixes
 
