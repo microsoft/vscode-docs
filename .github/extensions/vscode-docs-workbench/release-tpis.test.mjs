@@ -178,6 +178,15 @@ test('browser loads release TPIs, launches one chat, and persists the reversible
   await page.locator('#tpi-release:enabled').waitFor();
   await page.getByLabel('Release', { exact: true }).selectOption('10');
   await page.getByText('2 of 2 TPIs', { exact: true }).waitFor();
+  await page.setViewportSize({ width: 1400, height: 900 });
+  const releaseBounds = await page.locator('#tpi-release').boundingBox();
+  const refreshBounds = await page.locator('#tpi-refresh').boundingBox();
+  const searchBounds = await page.locator('#tpi-search').boundingBox();
+  assert.ok(Math.abs(releaseBounds.y + releaseBounds.height - refreshBounds.y - refreshBounds.height) < 2,
+    'Release selection and refresh should align as one control group.');
+  assert.ok(searchBounds.y > releaseBounds.y + releaseBounds.height, 'List filters should sit beneath the release controls.');
+  assert.ok((await page.locator('.tpi-content').boundingBox()).width <= 1200, 'Wide views should keep a readable content width.');
+  assert.ok((await page.locator('#tpi-rows tr').first().boundingBox()).height < 100, 'Collapsed rows should stay compact.');
   assert.equal(await page.getByRole('cell', { name: 'Closed', exact: true }).count(), 1);
   assert.equal(await page.locator('img').count(), 0, 'GitHub titles must remain text, not markup.');
   const first = page.getByRole('row').filter({ hasText: 'Explain fixture navigation' });
@@ -210,8 +219,27 @@ test('browser loads release TPIs, launches one chat, and persists the reversible
   await page.getByText(/Chat timed out.*Check VS Code Chat before trying again/).waitFor();
   assert.equal(f.chats.length, 2);
   assert.equal(await checkbox.isChecked(), false);
-  await page.setViewportSize({ width: 420, height: 800 });
-  assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+  const appearances = [];
+  for (const colorScheme of ['light', 'dark']) {
+    await page.emulateMedia({ colorScheme });
+    const appearance = await page.locator('.tpi-page').evaluate(element => ({
+      foreground: getComputedStyle(element).color,
+      background: getComputedStyle(element).backgroundColor,
+      header: getComputedStyle(element.querySelector('.tpi-table th')).backgroundColor
+    }));
+    assert.notEqual(appearance.foreground, appearance.background);
+    appearances.push(appearance);
+    await page.setViewportSize({ width: 420, height: 800 });
+    assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+    for (const id of ['tpi-release', 'tpi-refresh', 'tpi-channel', 'tpi-search', 'tpi-filter']) {
+      const bounds = await page.locator(`#${id}`).boundingBox();
+      assert.ok(bounds.x >= 0 && bounds.x + bounds.width <= 420, 'Controls must remain within the narrow viewport.');
+    }
+    assert.ok(await page.locator('.tpi-table-container').evaluate(element => element.scrollWidth > element.clientWidth),
+      'Only the table, not the page, should scroll horizontally.');
+  }
+  assert.notEqual(appearances[0].background, appearances[1].background);
+  assert.notEqual(appearances[0].header, appearances[1].header);
   assert.equal(f.tracked.length, 0);
   assert.deepEqual(errors, []);
 });
