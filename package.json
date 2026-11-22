@@ -41,6 +41,7 @@
     "test:article-workflow": "node --test .github/extensions/vscode-docs-workbench/article-workflow.test.mjs .github/extensions/vscode-docs-workbench/article-replay.test.mjs .github/extensions/vscode-docs-workbench/article-review.test.mjs .github/extensions/vscode-docs-workbench/feature-plans.test.mjs",
     "test:article-browser": "node --test .github/extensions/vscode-docs-workbench/article-browser.test.mjs .github/extensions/vscode-docs-workbench/article-replay.test.mjs .github/extensions/vscode-docs-workbench/article-review.test.mjs .github/extensions/vscode-docs-workbench/feature-plans.test.mjs",
     "test:review-chat": "node --test .github/extensions/vscode-docs-workbench/review-chat.test.mjs",
+    "test:release-tpis": "node --test .github/extensions/vscode-docs-workbench/release-tpis.test.mjs",
     "generate-sidebar": "node ./build/generate-sidebar.js",
     "serve": "npm run generate-sidebar && node ./build/serve.js",
     "test-release-note-toc": "node --test ./build/release-note-toc.test.js"

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Release TPIs</title>
+  <link rel="stylesheet" href="/article.css">
+</head>
+<body>
+<main class="article-app">
+  <nav class="page-navigation" aria-label="Docs workflow pages">
+    <a href="/write">Write documentation</a>
+    <a href="/issue">Document an issue</a>
+    <a href="/tpis" aria-current="page">Release TPIs</a>
+    <a href="/review">Review in chat</a>
+    <a href="/screenshots">Screenshots</a>
+    <a href="/videos">Demo videos</a>
+    <a href="/instructions">Check instructions</a>
+    <a href="/findings">Findings</a>
+  </nav>
+  <h1>Release TPIs</h1>
+  <p>Choose a release, start its documentation in chat, and mark each TPI <strong>Documented</strong> when you finish.</p>
+  <p class="muted">Repository: microsoft/vscode. Includes open and closed test plan items; excludes Verification TPIs. The checkbox is private local state, not a GitHub change.</p>
+  <div class="tpi-toolbar">
+    <div><label for="tpi-release">Release</label><select id="tpi-release" disabled><option value="">Select a release</option></select></div>
+    <button id="tpi-refresh" type="button" class="secondary" disabled>Refresh</button>
+    <div><label for="tpi-search">Search TPIs</label><input id="tpi-search" type="search" placeholder="Title, number, or assignee"></div>
+    <div><label for="tpi-filter">Documentation</label><select id="tpi-filter"><option value="all">All</option><option value="pending">Not documented</option><option value="documented">Documented</option></select></div>
+    <div><label for="tpi-channel">Intended product channel</label><select id="tpi-channel"><option value="stable">Stable</option><option value="insiders">Insiders</option></select></div>
+  </div>
+  <p id="tpi-notice" role="status" aria-live="polite">Loading releases...</p>
+  <p id="tpi-error" class="error" role="alert"></p>
+  <p id="tpi-source" class="muted"></p>
+  <p id="tpi-chat-status" class="muted"></p>
+  <p id="tpi-count" class="muted"></p>
+  <div class="tpi-table-container">
+    <table class="tpi-table" aria-label="Release test plan items" hidden>
+      <thead><tr><th scope="col">TPI</th><th scope="col">Assignee</th><th scope="col">GitHub</th><th scope="col">Documented</th><th scope="col">Action</th></tr></thead>
+      <tbody id="tpi-rows"></tbody>
+    </table>
+  </div>
+  <p id="tpi-empty" class="empty"></p>
+  <p class="muted">Document opens doc-writer in chat to research and propose a plan before edits. A release milestone does not prove availability. Chat launches never change Documented or populate batch Findings.</p>
+</main>
+<script type="module" src="/release-tpis-app.mjs"></script>
+</body>
+</html>

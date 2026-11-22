@@ -82,6 +82,12 @@ export function createGitHub(run = runGh) {
       .filter(item => /^\d+\.\d+\.\d+$/.test(item.title))
       .map(item => ({ title: item.title, number: item.number, state: item.state }));
   }
+  async function releaseTpis(milestone) {
+    if (!Number.isSafeInteger(milestone) || milestone < 1) throw new WorkbenchError('Choose a release milestone.');
+    return (await pages(`repos/microsoft/vscode/issues?milestone=${milestone}&state=all&labels=testplan-item`))
+      .filter(item => !item.pull_request && isDocumentationTpi(item))
+      .map(item => normalize(item, 'microsoft/vscode', 'issue'));
+  }
   async function queue(name, milestone) {
     if (name === 'pulls') return pullRequests();
     if (name === 'issues') {
@@ -127,7 +133,7 @@ export function createGitHub(run = runGh) {
     };
   }
   return {
-    api, pages, queue, milestones, detail,
+    api, pages, queue, milestones, releaseTpis, detail,
     account: async () => (await api('user')).login,
     async canTriage() {
       const { permissions } = await api('repos/microsoft/vscode-docs');

@@ -32,11 +32,11 @@ if (procedure) {
   $('chat-scope').textContent = 'Scripted assertions are not proof that the article instructions are correct. No UI execution, media capture, or article edits start from this page. Chat results are not automatically saved to Findings.';
 }
 if (writingKind) {
-  const title = writingKind === 'issue' ? 'Document an issue/TPI' : 'Write documentation';
+  const title = writingKind === 'issue' ? 'Document an issue' : 'Write documentation';
   document.title = title;
   $('chat-title').textContent = title;
   $('chat-description').textContent = writingKind === 'issue'
-    ? 'Start from a GitHub issue or test plan item. Agree on the documentation plan with doc-writer in chat.'
+    ? 'Start from a GitHub issue. For release test plan items, browse Release TPIs. Agree on the documentation plan with doc-writer in chat.'
     : 'Describe the content you need. Research, plan, and implement with doc-writer in the same chat.';
   $('chat-presets').hidden = true;
   $('chat-article-label').textContent = 'Existing article for context (optional)';

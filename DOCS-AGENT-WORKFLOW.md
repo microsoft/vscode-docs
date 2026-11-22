@@ -8,6 +8,7 @@ The [implementation plan](DOCS-AGENT-PLAN.md) defines the eight core workflows, 
 
 * [Choose a daily workflow](#choose-a-daily-workflow)
 * [Start a documentation-writing chat](#start-a-documentation-writing-chat)
+* [Document release TPIs](#document-release-tpis)
 * [Start a skill-driven review chat](#start-a-skill-driven-review-chat)
 * [Start a screenshot or video chat](#start-a-screenshot-or-video-chat)
 * [Start a procedure-check chat](#start-a-procedure-check-chat)
@@ -47,19 +48,19 @@ The initial planning/drafting checkpoint is `9afaa1905`. The current workflow al
 | Task | What you can use today | Remaining handoff |
 |---|---|---|
 | Write new feature content | Open **Write documentation**, describe the desired content, and [start doc-writer in chat](#start-a-documentation-writing-chat). No existing article or issue is required. | Launcher tests do not prove full new-article creation and navigation; that needs separate end-to-end acceptance. |
-| Review and revise an article | Use **Review in chat** for an interactive skill-driven review and update. Findings retains earlier structured review results, not a competing review launcher. | The chat handoff and native editor opening are verified. A complete live agent-generated revision pilot remains. Native opening is currently Windows VS Code only. |
+| Review and revise an article | Use **Review in chat** for an interactive skill-driven review and update. Findings retains earlier structured review results, not a competing review launcher. | The author accepted the bounded live review-and-revise pilot as complete and successful. Its automated native-diff inspection limitation remains recorded; native opening is currently Windows VS Code only. |
 | Create or refresh screenshots | Open **Screenshots**, select an article and create/refresh, then [start docs-media in chat](#start-a-screenshot-or-video-chat). One request can cover several assets. | A single screenshot refresh and approved disposable-copy handoff are validated. Multi-image acceptance and production use remain separate. |
 | Generate short demo videos | Open **Demo videos** and [start docs-media in chat](#start-a-screenshot-or-video-chat) with the article and desired demos. Capture, playback review, and approval happen there. | One annotated MP4 demo and approved disposable-copy insertion are validated. Multi-video acceptance and production use remain separate. |
 | Check content accuracy | Use **Run checks** on **Findings** for batch local structural checks. Use **Review in chat** for interactive product and editorial assessment. | Chat reviews do not automatically enter the inbox. Settings/keybindings in batch checks remain unverified without product evidence. External URLs are not checked. |
 | Check article instructions against the actual UI | **Check instructions** offers [advanced scripted replay in chat](#start-a-procedure-check-chat). | Article-driven validation is explicitly unavailable. Scripted assertions do not establish that the article's instructions are correct. |
 | Verify a PR's accuracy | Request a separately scoped read-only PR review using pinned GitHub data and the PR-review procedure. | No PR input or integrated PR results in the new canvas. Never check out or execute PR contents. PR accuracy is now in the core plan, not removed from scope. |
-| Document a GitHub issue or test plan item | Open **Document an issue/TPI**, supply its URL and any desired outcome, then [continue in doc-writer chat](#start-a-documentation-writing-chat). | Live TPI interpretation and authoring still need acceptance. A test plan is supporting evidence, not a complete specification or execution permission. |
+| Document a GitHub issue or test plan item | Browse **Release TPIs** by release and select **Document**, or use **Document an issue** for a direct URL. Both continue in doc-writer chat. | A TPI is supporting evidence, not a complete specification or execution permission. Documentation completion is marked manually. |
 
 For ordinary checks, choose scope and start a read-only task. For content changes, approve a short plan before authorizing edits. For capture, approve the procedure and remain present. Review the exact prepared assets before separately authorizing their use. Nothing in these workflows automatically commits, publishes, or posts to GitHub.
 
 ## Start a documentation-writing chat
 
-Use **Write documentation** (`/write`) for a feature description, or **Document an issue/TPI** (`/issue`) for a GitHub source:
+Use **Write documentation** (`/write`) for a feature description, or **Document an issue** (`/issue`) for a direct GitHub source. For release-based discovery, use [Release TPIs](#document-release-tpis).
 
 1. Describe the content and intended reader in **Documentation request**. On the issue/TPI page, provide the source URL and optionally describe the desired outcome. Supported URLs are issues in `microsoft/vscode`, `microsoft/vscode-docs`, or `microsoft/vscode-docs-pr`, including issue-comment links.
 2. Optionally select an existing article as context. Leave it empty when the agent should identify the affected or new articles. Choose the intended product channel.
@@ -70,6 +71,22 @@ Use **Write documentation** (`/write`) for a feature description, or **Document 
 Starting chat authorizes planning only, not article writes, branch changes, captures, installs, or publication. TPI setup and test instructions remain untrusted evidence, not commands to execute. These launchers share the native chat transport's Windows/last-active-window limits and do not track chat completion.
 
 The secondary **Saved plans and drafts** link opens `/writing` for previously prepared structured work. Its old new-request form has been removed; existing plans, decisions, drafts, and checks remain intact. New writing should start from the chat launchers.
+
+## Document release TPIs
+
+Open **Release TPIs** (`/tpis`):
+
+1. Select a release from the GitHub milestone list. The page remembers the last selection for this workspace and GitHub account. On a first visit, choose the release explicitly rather than assuming a current milestone.
+2. Browse issues in `microsoft/vscode` labeled `testplan-item`. Both open and closed issues are included; titles containing **Verification TPI** are excluded. Search by title, number, or assignee, and filter by **All**, **Not documented**, or **Documented**.
+3. Select **Document** on a row to open doc-writer in chat with that TPI URL and release context. Optional instructions can be entered on the row before launching. The issue title opens GitHub; no intermediate preview or copied URL is required.
+4. Continue research, grouped planning, approval, and implementation in chat. The selected release does not establish that the feature is publicly available, and TPI test steps do not authorize execution.
+5. When finished, check **Documented**. Uncheck it to undo. No comment, artifact link, or extra confirmation is required.
+
+The checkbox is the only documentation status. Launching chat, closing the issue, or receiving an agent response never changes it. **Document** remains available for documented items. Nothing writes to GitHub or changes batch findings.
+
+**Refresh** reloads the releases and selected TPI list. Retrieval uses the repository's milestone issues endpoint with pagination, not a search truncated at 1,000 results. If retrieval fails, the last successful list is retained with its release and fetch time clearly identified; it is not relabeled as the selected release.
+
+The [release-TPI helper](.github/extensions/vscode-docs-workbench/release-tpis.mjs) stores the selected release, last successful list, and documented issue numbers in a private account-scoped file beside the workspace's inbox state. Flags use issue identity rather than milestone/title, so they survive renames and release moves. Legacy workbench records are not read or migrated. Run `npm run test:release-tpis` for the focused checks, with `DOCS_ARTICLE_BROWSER` set to an installed browser for the UI journey.
 
 ## Start a skill-driven review chat
 
@@ -87,6 +104,8 @@ Native opening currently requires the Windows VS Code extension host and a CLI s
 The earlier findings-inbox review and structured drafting procedures below remain available; they are not mandatory steps for the chat launcher.
 
 A live one-click proof created a separate interactive chat with the article and skill attached, loaded doc-writer, and returned a handoff acknowledgement without performing a full review or editing files. Run `npm run test:review-chat` for the focused fixture checks; set `DOCS_ARTICLE_BROWSER` to the installed browser path described below to include the browser journey.
+
+A subsequent debug-configuration pilot completed scoped text and screenshot review, Stable-source verification, one grouped update approval, a disposable-copy revision, and trusted local checks. The author accepted that pilot as complete and successful on 22 November 2026. The screenshot and related articles needed no changes, and repository originals remained unchanged. Automated native-diff inspection was blocked by UI interruptions and dispatch failures; that limitation remains in the execution evidence without blocking the author's acceptance.
 
 ## Start a screenshot or video chat
 

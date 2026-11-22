@@ -140,6 +140,19 @@ body { margin: 0; }
 .article-app .review-chat-form input:not([type="checkbox"]), .article-app .review-chat-form textarea, .article-app .review-chat-form select { width: 100%; min-width: 0; box-sizing: border-box; }
 .article-app .review-chat-form fieldset { display: flex; flex-wrap: wrap; gap: 12px 24px; border: 1px solid var(--border); padding: 12px; }
 .article-app .review-chat-form fieldset label { display: flex; align-items: center; gap: 4px; }
+.article-app .tpi-toolbar { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; margin: 18px 0; }
+.article-app .tpi-toolbar > div { flex: 1 1 170px; }
+.article-app .tpi-table-container { overflow-x: auto; }
+.article-app .tpi-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.article-app .tpi-table th:first-child { width: auto; }
+.article-app .tpi-table th:not(:first-child) { width: 110px; }
+.article-app .tpi-table td { overflow-wrap: anywhere; }
+.article-app .tpi-table input[type=checkbox] { width: auto; }
+.article-app .tpi-table details { max-width: 700px; }
+.article-app .tpi-table textarea { margin-top: 6px; }
+@media (max-width: 650px) {
+  .article-app .tpi-table { min-width: 650px; }
+}
 @media (max-width: 600px) {
   .article-app .feature-plan > summary { flex-wrap: wrap; padding: 12px; }
   .article-app .plan-body { padding: 0 12px 12px; }

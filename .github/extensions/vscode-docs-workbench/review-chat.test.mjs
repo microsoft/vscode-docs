@@ -311,7 +311,7 @@ test('browser launches writing and issue/TPI chats without mandatory article inp
   await page.getByText('Documentation request sent to chat.', { exact: true }).waitFor();
   assert.equal(calls[0].files.length, 1);
   assert.match(calls[0].prompt, /Document the new workflow for extension authors/);
-  await page.getByRole('link', { name: 'Document an issue/TPI', exact: true }).click();
+  await page.getByRole('link', { name: 'Document an issue', exact: true }).click();
   await page.locator('#chat-issue:enabled').waitFor();
   assert.equal(new URL(page.url()).pathname, '/issue');
   const url = 'https://github.com/microsoft/vscode/issues/123';
