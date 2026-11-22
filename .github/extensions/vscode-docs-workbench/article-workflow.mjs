@@ -16,6 +16,7 @@ import reviewChat from '../../../build/review-chat.js';
 import mediaChat from '../../../build/media-chat.js';
 import writingChat from '../../../build/writing-chat.js';
 import { createReleaseTpis } from './release-tpis.mjs';
+import { createPrReviews } from './pr-reviews.mjs';
 
 const description = id => `Docs article check ${id}`;
 const quote = value => `'${value.replaceAll("'", "''")}'`;
@@ -41,11 +42,12 @@ async function bounded(promise, milliseconds, message = 'Host acknowledgement ti
 
 export async function createArticleWorkflow({
   session, workspace, home, check, checkerOptions, acknowledgementTimeout = 30_000,
-  verificationTimeout = 120_000, onVerificationMetrics, verificationWorker, replayOptions, reviewOptions, featureOptions, editor, tpiOptions
+  verificationTimeout = 120_000, onVerificationMetrics, verificationWorker, replayOptions, reviewOptions, featureOptions, editor, tpiOptions, prOptions
 }) {
   const store = await createArticleStore(workspace, home);
   const sourceEditor = editor || await editorTools.createEditor();
   const tpis = createReleaseTpis(store, sourceEditor, tpiOptions);
+  const prs = createPrReviews(store, sourceEditor, prOptions);
   const ownerSessionId = text(session.sessionId, 'Host session ID');
   const activity = new Map();
   const tasks = session.rpc?.tasks;
@@ -142,6 +144,7 @@ export async function createArticleWorkflow({
       mediaChat: { available: sourceEditor.available && typeof sourceEditor.chat === 'function' },
       procedureChat: { available: sourceEditor.available && typeof sourceEditor.chat === 'function' },
       writingChat: { available: sourceEditor.available && typeof sourceEditor.chat === 'function' },
+      prChat: { available: sourceEditor.available && typeof sourceEditor.chat === 'function' },
       verification, hostSync: hostStatus,
       catalog: { state: catalogError ? 'failed' : catalogPromise ? 'checking' : 'complete', message: catalogError },
       runs: [...runs, ...replayView.runs, ...reviewView.runs, ...featureView.runs].sort((left, right) => left.createdAt.localeCompare(right.createdAt))
@@ -355,6 +358,8 @@ export async function createArticleWorkflow({
     'tpi-load': tpis.load,
     'tpi-documented': tpis.documented,
     'tpi-document': tpis.document,
+    'pr-load': prs.load,
+    'pr-chat': prs.review,
     inspect: async ({ id }) => {
       if (await features.has(id)) return features.inspect({ id });
       if (await reviews.has(id)) return reviews.inspect({ id });

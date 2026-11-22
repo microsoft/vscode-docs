@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Review PRs</title>
+  <link rel="stylesheet" href="/article.css">
+</head>
+<body>
+<main class="article-app tpi-page pr-page">
+  <nav class="page-navigation" aria-label="Docs workflow pages">
+    <a href="/write">Write documentation</a>
+    <a href="/issue">Document an issue</a>
+    <a href="/tpis">Release TPIs</a>
+    <a href="/prs" aria-current="page">Review PRs</a>
+    <a href="/review">Review in chat</a>
+    <a href="/screenshots">Screenshots</a>
+    <a href="/videos">Demo videos</a>
+    <a href="/instructions">Check instructions</a>
+    <a href="/findings">Findings</a>
+  </nav>
+  <div class="tpi-content">
+  <header class="tpi-header">
+    <p class="tpi-repository">VS Code documentation</p>
+    <h1>Review PRs</h1>
+    <p class="tpi-intro">Browse open pull requests. Verify their technical accuracy in a read-only chat.</p>
+  </header>
+  <section class="tpi-controls" aria-label="Pull request source">
+    <div class="tpi-release-controls">
+      <div><label for="pr-repository">Repository</label><select id="pr-repository" disabled><option value="microsoft/vscode-docs">microsoft/vscode-docs</option><option value="microsoft/vscode-docs-pr">microsoft/vscode-docs-pr</option></select></div>
+      <button id="pr-refresh" type="button" class="secondary" disabled>Refresh</button>
+    </div>
+    <div class="tpi-channel-field"><label for="pr-channel">Intended product channel</label><select id="pr-channel"><option value="stable">Stable</option><option value="insiders">Insiders</option></select></div>
+  </section>
+  <p id="pr-notice" role="status" aria-live="polite">Loading pull requests...</p>
+  <p id="pr-error" class="error" role="alert"></p>
+  <p id="pr-chat-status" class="muted"></p>
+  <section class="tpi-list" aria-label="Pull requests and filters">
+    <div class="tpi-list-toolbar">
+      <div class="tpi-search-field"><label for="pr-search">Search PRs</label><input id="pr-search" type="search" placeholder="Title, number, or author"></div>
+      <p id="pr-count" class="muted"></p>
+    </div>
+    <p id="pr-source" class="muted"></p>
+    <div class="tpi-table-container">
+      <table class="tpi-table" aria-label="Open pull requests" hidden>
+        <thead><tr><th scope="col">Pull request</th><th scope="col">Author</th><th scope="col">Updated</th><th scope="col">GitHub</th><th scope="col" class="tpi-action">Action</th></tr></thead>
+        <tbody id="pr-rows"></tbody>
+      </table>
+    </div>
+    <p id="pr-empty" class="empty"></p>
+  </section>
+  <details class="pr-direct">
+    <summary>Review a PR by URL</summary>
+    <form id="pr-direct-form" class="review-chat-form">
+      <label for="pr-url">Pull request URL</label>
+      <input id="pr-url" type="url" maxlength="2000" placeholder="https://github.com/microsoft/vscode-docs/pull/..." required>
+      <label for="pr-request">Review focus (optional)</label>
+      <textarea id="pr-request" rows="2" maxlength="4000" placeholder="Specific concerns, claims, or exclusions"></textarea>
+      <div><button id="pr-direct-start" type="submit" disabled>Start PR review in chat</button></div>
+      <p class="muted">Use a URL from either documentation repository, including closed PRs. Uses the product channel selected above.</p>
+    </form>
+  </details>
+  <footer class="tpi-footer">
+    <p>Includes all open PRs, including drafts, ordered by most recently updated. Review uses chat credits and verifies a pinned revision, not this list's cached metadata.</p>
+    <p>No PR checkout, execution, article edits, or GitHub comments. Results stay in chat; launching does not track completion or populate batch Findings. Check Chat before retrying a failed handoff.</p>
+  </footer>
+  </div>
+</main>
+<script type="module" src="/pr-reviews-app.mjs"></script>
+</body>
+</html>

@@ -2,6 +2,7 @@ import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { createHash } from 'node:crypto';
 import { itemKey, milestoneName, WorkbenchError } from './state.mjs';
+import reviewChat from '../../../build/review-chat.js';
 
 const execute = promisify(execFile);
 export async function runGh(args, input) {
@@ -88,6 +89,11 @@ export function createGitHub(run = runGh) {
       .filter(item => !item.pull_request && isDocumentationTpi(item))
       .map(item => normalize(item, 'microsoft/vscode', 'issue'));
   }
+  async function openPullRequests(repository) {
+    if (!reviewChat.prRepositories.includes(repository)) throw new WorkbenchError('Choose a supported documentation repository.');
+    return (await pages(`repos/${repository}/pulls?state=open&sort=updated&direction=desc`))
+      .map(item => normalize(item, repository, 'pr'));
+  }
   async function queue(name, milestone) {
     if (name === 'pulls') return pullRequests();
     if (name === 'issues') {
@@ -133,7 +139,7 @@ export function createGitHub(run = runGh) {
     };
   }
   return {
-    api, pages, queue, milestones, releaseTpis, detail,
+    api, pages, queue, milestones, releaseTpis, openPullRequests, detail,
     account: async () => (await api('user')).login,
     async canTriage() {
       const { permissions } = await api('repos/microsoft/vscode-docs');

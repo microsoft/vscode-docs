@@ -152,11 +152,11 @@ body { margin: 0; }
 .tpi-page .tpi-channel-field { width: 220px; }
 .tpi-page .tpi-list { border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
 .tpi-page .tpi-list-toolbar { display: grid; grid-template-columns: minmax(0, 1fr) 190px auto; align-items: end; gap: 16px; padding: 16px; }
-.tpi-page #tpi-count { font-size: .82em; white-space: nowrap; margin: 0 0 8px; }
-.tpi-page #tpi-source { margin: 0; padding: 0 16px 14px; font-size: .8em; line-height: 1.5; border-bottom: 1px solid var(--border); }
-.tpi-page #tpi-source:empty { padding: 0; border: 0; }
-.tpi-page #tpi-notice, .tpi-page #tpi-error, .tpi-page #tpi-chat-status { margin: 0 0 14px; line-height: 1.5; }
-.tpi-page #tpi-notice:empty, .tpi-page #tpi-error:empty, .tpi-page #tpi-chat-status:empty, .tpi-page #tpi-empty:empty { display: none; }
+.tpi-page :is(#tpi-count, #pr-count) { font-size: .82em; white-space: nowrap; margin: 0 0 8px; }
+.tpi-page :is(#tpi-source, #pr-source) { margin: 0; padding: 0 16px 14px; font-size: .8em; line-height: 1.5; border-bottom: 1px solid var(--border); }
+.tpi-page :is(#tpi-source, #pr-source):empty { padding: 0; border: 0; }
+.tpi-page :is(#tpi-notice, #tpi-error, #tpi-chat-status, #pr-notice, #pr-error, #pr-chat-status) { margin: 0 0 14px; line-height: 1.5; }
+.tpi-page :is(#tpi-notice, #tpi-error, #tpi-chat-status, #tpi-empty, #pr-notice, #pr-error, #pr-chat-status, #pr-empty):empty { display: none; }
 .tpi-page .tpi-table-container { overflow-x: auto; }
 .tpi-page .tpi-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
 .tpi-page .tpi-table th { padding: 10px 16px; font-size: .78em; font-weight: 600; background: var(--vscode-editorWidget-background, light-dark(#fafafa, #252526)); }
@@ -183,7 +183,11 @@ body { margin: 0; }
 .tpi-page .tpi-action button { padding: 5px 10px; font-size: .85em; }
 .tpi-page .tpi-footer { margin-top: 16px; color: var(--muted); font-size: .8em; line-height: 1.6; }
 .tpi-page .tpi-footer p { max-width: 100ch; }
-.tpi-page #tpi-empty { padding: 20px 16px; margin: 0; }
+.tpi-page :is(#tpi-empty, #pr-empty) { padding: 20px 16px; margin: 0; }
+.pr-page .tpi-release-controls > div { width: 300px; }
+.pr-page .tpi-list-toolbar { grid-template-columns: minmax(0, 1fr) auto; }
+.pr-page .pr-direct { margin-top: 20px; }
+.pr-page .pr-direct form { margin-top: 16px; }
 @media (max-width: 650px) {
   .tpi-page .tpi-table { min-width: 650px; }
   .tpi-page .tpi-controls { gap: 12px; }

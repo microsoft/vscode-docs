@@ -9,6 +9,7 @@ The [implementation plan](DOCS-AGENT-PLAN.md) defines the eight core workflows, 
 * [Choose a daily workflow](#choose-a-daily-workflow)
 * [Start a documentation-writing chat](#start-a-documentation-writing-chat)
 * [Document release TPIs](#document-release-tpis)
+* [Review PR accuracy](#review-pr-accuracy)
 * [Start a skill-driven review chat](#start-a-skill-driven-review-chat)
 * [Start a screenshot or video chat](#start-a-screenshot-or-video-chat)
 * [Start a procedure-check chat](#start-a-procedure-check-chat)
@@ -53,7 +54,7 @@ The initial planning/drafting checkpoint is `9afaa1905`. The current workflow al
 | Generate short demo videos | Open **Demo videos** and [start docs-media in chat](#start-a-screenshot-or-video-chat) with the article and desired demos. Capture, playback review, and approval happen there. | One annotated MP4 demo and approved disposable-copy insertion are validated. Multi-video acceptance and production use remain separate. |
 | Check content accuracy | Use **Run checks** on **Findings** for batch local structural checks. Use **Review in chat** for interactive product and editorial assessment. | Chat reviews do not automatically enter the inbox. Settings/keybindings in batch checks remain unverified without product evidence. External URLs are not checked. |
 | Check article instructions against the actual UI | **Check instructions** offers [advanced scripted replay in chat](#start-a-procedure-check-chat). | Article-driven validation is explicitly unavailable. Scripted assertions do not establish that the article's instructions are correct. |
-| Verify a PR's accuracy | Request a separately scoped read-only PR review using pinned GitHub data and the PR-review procedure. | No PR input or integrated PR results in the new canvas. Never check out or execute PR contents. PR accuracy is now in the core plan, not removed from scope. |
+| Verify a PR's accuracy | Open **Review PRs**, browse either docs repository or supply a URL, and [start a read-only accuracy review](#review-pr-accuracy) in chat. | Full source-verification acceptance remains a separate pilot. No PR checkout or execution. Deterministic checks require an already available authenticated matching source root; chat results do not automatically enter Findings. |
 | Document a GitHub issue or test plan item | Browse **Release TPIs** by release and select **Document**, or use **Document an issue** for a direct URL. Both continue in doc-writer chat. | A TPI is supporting evidence, not a complete specification or execution permission. Documentation completion is marked manually. |
 
 For ordinary checks, choose scope and start a read-only task. For content changes, approve a short plan before authorizing edits. For capture, approve the procedure and remain present. Review the exact prepared assets before separately authorizing their use. Nothing in these workflows automatically commits, publishes, or posts to GitHub.
@@ -87,6 +88,21 @@ The checkbox is the only documentation status. Launching chat, closing the issue
 **Refresh** reloads the releases and selected TPI list. Retrieval uses the repository's milestone issues endpoint with pagination, not a search truncated at 1,000 results. If retrieval fails, the last successful list is retained with its release and fetch time clearly identified; it is not relabeled as the selected release.
 
 The [release-TPI helper](.github/extensions/vscode-docs-workbench/release-tpis.mjs) stores the selected release, last successful list, and documented issue numbers in a private account-scoped file beside the workspace's inbox state. Flags use issue identity rather than milestone/title, so they survive renames and release moves. Legacy workbench records are not read or migrated. Run `npm run test:release-tpis` for the focused checks, with `DOCS_ARTICLE_BROWSER` set to an installed browser for the UI journey.
+
+## Review PR accuracy
+
+Open **Review PRs** (`/prs`):
+
+1. Select `microsoft/vscode-docs` or `microsoft/vscode-docs-pr`. The list includes all open PRs, including drafts, ordered by most recently updated. Search by title, number, or author.
+2. Select the intended product channel. Expand a row's **Optional instructions** to narrow the review or identify concerns.
+3. Select **Review** to open an interactive pr-review chat. Alternatively, expand **Review a PR by URL** to supply a URL from either repository, including a closed PR.
+4. Read the source-backed findings and coverage limitations in that conversation. The review screens untrusted GitHub inputs, records full head and base hashes, reviews changed passages with complete articles as context, and rechecks the revisions before reporting. Suspicious instructions require human confirmation to continue ignoring them.
+
+The list is discovery context, not a pinned review snapshot. **Refresh** retrieves all pages. A failure retains the previous successful list with its original repository, account, and fetch time; a different selected repository is explicitly identified. The provider keeps only this temporary cache, not a persistent PR queue or completion state.
+
+Starting a review does not authorize PR checkout, Git fetch, worktree creation, PR execution, installation, article edits, or GitHub comments and reviews. Trusted deterministic checks can run only against an already available authenticated source root matching the reviewed head. Otherwise, the chat reports them unavailable and continues focused source verification. It must not substitute checks of the current checkout or treat unverified claims as a complete pass.
+
+Results stay in chat rather than automatically entering Findings. Native opening shares the Windows and last-active-window limitations of the other launchers. Check Chat before retrying a failed or timed-out handoff. Run `npm run test:pr-reviews`, with `DOCS_ARTICLE_BROWSER` set to an installed browser for the UI tests. Fixture tests verify retrieval and handoff, not an actual PR's technical accuracy.
 
 ## Start a skill-driven review chat
 
