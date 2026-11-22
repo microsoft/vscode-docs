@@ -56,7 +56,7 @@ You can also explore official and publicly contributed Features [on the specific
 
 ![Specification site list of available Features](features-list-site.webp)
 
-You can even use dev containers with Features from your favorite CI system using the [dev container CLI](https://github.com/devcontainers/cli), a GitHub Action, or an Azure DevOps task. We have a GitHub Action and Azure DevOps task available in the [devcontainers/ci](https://github.com/devcontainers/ci) repository. The dev container CLI, GitHub Action, or Azure DevOps task can also be used to [pre-build images](/docs/devcontainers/devcontainer-cli.md#prebuilding) that include Feature contents to speed up start times.
+You can even use dev containers with Features from your favorite CI system using the [dev container CLI](https://github.com/devcontainers/cli), a GitHub Action, or an Azure DevOps task. We have a GitHub Action and Azure DevOps task available in the [devcontainers/ci](https://github.com/devcontainers/ci) repository. The dev container CLI, GitHub Action, or Azure DevOps task can also be used to [pre-build images](https://code.visualstudio.com/docs/devcontainers/devcontainer-cli#_pre-building) that include Feature contents to speed up start times.
 
 If you'd like to not only use publicly available Features but also create your own private or public ones to share, continue reading!
 

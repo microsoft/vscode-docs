@@ -889,7 +889,7 @@ If an incompatible extension has been installed on a remote host, container, or 
 
 Native modules bundled with (or dynamically acquired for) a {% data variables.product.prodname_vscode_shortname %} extension must be recompiled [using Electron's `electron-rebuild`](https://electronjs.org/docs/tutorial/using-native-node-modules). However, {% data variables.product.prodname_vscode_shortname %} Server runs a standard (non-Electron) version of Node.js, which can cause binaries to fail when used remotely.
 
-**Resolution:** Extensions need to be modified to solve this problem. They will need to include (or dynamically acquire) both sets of binaries (Electron and standard Node.js) for the "modules" version in Node.js that {% data variables.product.prodname_vscode_shortname %} ships and then check to see if `context.executionContext === vscode.ExtensionExecutionContext.Remote` in their activation function to set up the correct binaries. See the [extension author's guide](/api/advanced-topics/remote-extensions#using-native-nodejs-modules) for details.
+**Resolution:** Extensions need to be modified to solve this problem. They will need to include (or dynamically acquire) both sets of binaries (Electron and standard Node.js) for the "modules" version in Node.js that {% data variables.product.prodname_vscode_shortname %} ships and then check to see if `context.executionContext === vscode.ExtensionExecutionContext.Remote` in their activation function to set up the correct binaries. See the [extension author's guide](/api/advanced-topics/remote-extensions.md#using-native-node.js-modules) for details.
 
 ### Extension only fails on non-x86_64 hosts or Alpine Linux
 

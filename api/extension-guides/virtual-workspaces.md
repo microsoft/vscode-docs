@@ -9,7 +9,7 @@ MetaDescription: Learn how to support virtual workspaces in extensions
 
 # Virtual Workspaces
 
-Extensions like the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension open VS Code on one or more folders backed by a [file system provider](/api/extension-guides/virtual-documents#file-system-api). When an extension implements a file system provider, workspace resources may not be located on the local disk, but be **virtual**, located on a server or the cloud, and editing operations happen there.
+Extensions like the [GitHub Repositories](https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub) extension open VS Code on one or more folders backed by a [file system provider](/api/references/vscode-api.md#FileSystemProvider). When an extension implements a file system provider, workspace resources may not be located on the local disk, but be **virtual**, located on a server or the cloud, and editing operations happen there.
 
 This configuration is called a **virtual workspace**. When a virtual workspace is open in a VS Code window, this is indicated by a label in the remote indicator in the lower left corner, similar to other [remote development](/docs/remote/remote-overview) windows.
 
@@ -35,7 +35,7 @@ This opens a VS Code window for a virtual workspace where all resources are virt
 
 ## Review that the extension code is ready for virtual resources
 
-The VS Code API support for virtual file systems has been around for quite a while. You can check out the [file system provider API](/api/extension-guides/virtual-documents#file-system-api).
+The VS Code API support for virtual file systems has been around for quite a while. You can check out the [file system provider API](/api/references/vscode-api.md#FileSystemProvider).
 
 A file system provider is registered for a new URI scheme (for example, `vscode-vfs`) and resources on that file system will be represented by URIs using that schema (`vscode-vfs://github/microsoft/vscode/package.json`)
 

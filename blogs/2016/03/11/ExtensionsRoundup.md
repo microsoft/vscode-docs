@@ -70,7 +70,7 @@ Change the case of the currently selected word or selection. This [extension](ht
 
 ## Subscribe
 
-Subscribe to the VS Code [RSS feed](feed.xml) to get more updates on extensions.
+Subscribe to the VS Code [RSS feed](https://code.visualstudio.com/feed.xml) to get more updates on extensions.
 
 And if you have an extension you really like and want to see it featured here, send us a [Tweet](https://twitter.com/code).
 
