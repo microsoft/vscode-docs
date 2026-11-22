@@ -100,6 +100,8 @@ Open **Review PRs** (`/prs`):
 
 The list is discovery context, not a pinned review snapshot. **Refresh** retrieves all pages. A failure retains the previous successful list with its original repository, account, and fetch time; a different selected repository is explicitly identified. The provider keeps only this temporary cache, not a persistent PR queue or completion state.
 
+GitHub comment-summary counters can disagree with the available discussion. The review cross-checks fully retrieved REST and GraphQL conversation-comment collections. When their comment IDs agree, the GraphQL total matches, and all returned content is screened, a differing summary count becomes a reported metadata warning, not a blocker. Failed requests, incomplete pagination, unreadable content, and unresolved collection differences still stop the review.
+
 Starting a review does not authorize PR checkout, Git fetch, worktree creation, PR execution, installation, article edits, or GitHub comments and reviews. Trusted deterministic checks can run only against an already available authenticated source root matching the reviewed head. Otherwise, the chat reports them unavailable and continues focused source verification. It must not substitute checks of the current checkout or treat unverified claims as a complete pass.
 
 Results stay in chat rather than automatically entering Findings. Native opening shares the Windows and last-active-window limitations of the other launchers. Check Chat before retrying a failed or timed-out handoff. Run `npm run test:pr-reviews`, with `DOCS_ARTICLE_BROWSER` set to an installed browser for the UI tests. Fixture tests verify retrieval and handoff, not an actual PR's technical accuracy.
