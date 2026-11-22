@@ -121,7 +121,15 @@
         "sourceRevision": {"$ref": "#/$defs/text"}, "channel": {"enum": ["stable", "insiders"]},
         "focus": {"enum": ["editorial", "technical", "both"]},
         "guidelinesHash": {"$ref": "#/$defs/hash"}, "checkerInputHash": {"$ref": "#/$defs/hash"},
-        "section": {"$ref": "#/$defs/reviewSection"}
+        "section": {"$ref": "#/$defs/reviewSection"},
+        "product": {"$ref": "#/$defs/reviewProduct"}
+      }
+    },
+    "reviewProduct": {
+      "type": "object", "additionalProperties": false, "required": ["channel", "version", "revision", "source"],
+      "properties": {
+        "channel": {"enum": ["stable", "insiders"]}, "version": {"$ref": "#/$defs/text"},
+        "revision": {"type": "string", "pattern": "^[a-f0-9]{40}$"}, "source": {"$ref": "#/$defs/text"}
       }
     },
     "reviewSection": {

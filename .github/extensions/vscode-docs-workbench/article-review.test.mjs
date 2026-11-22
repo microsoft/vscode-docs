@@ -20,7 +20,7 @@ const draft = () => ({
     message: 'The instruction does not identify its target.', suggestion: 'Name the control to select.', sources: [] }]
 });
 
-async function fixture(t, articleContent = content, articles = {}, editor) {
+async function fixture(t, articleContent = content, articles = {}, editor, reviewOptions = {}) {
   const f = await createArticleFixture({ content: articleContent, articles, workflowOptions: { editor } });
   let dispose = async () => {};
   t.after(async () => { try { await dispose(); } finally { await f.dispose(); } });
@@ -48,7 +48,7 @@ async function fixture(t, articleContent = content, articles = {}, editor) {
     }
     return { agentId: task.id };
   };
-  const workflow = await f.reopen({ reviewOptions: { check: f.check }, replayOptions: {
+  const workflow = await f.reopen({ reviewOptions: { check: f.check, ...reviewOptions }, replayOptions: {
     builds: async () => ({ builds: [], errors: [] })
   } });
   return { ...f, workflow, reviewRequests,
@@ -68,6 +68,224 @@ async function fixture(t, articleContent = content, articles = {}, editor) {
     }
   };
 }
+
+const stableProduct = {channel: 'stable', version: '1.147.0', revision: 'a'.repeat(40),
+  source: 'https://github.com/microsoft/vscode/releases/tag/1.147.0'};
+const technicalDraft = request => {
+  const value = draft();
+  Object.assign(value.findings[0], {category: 'accuracy', sources: [{
+    url: `https://github.com/microsoft/vscode/blob/${request.binding.product.revision}/src/fixture.ts#L1`,
+    quote: 'Synthetic product evidence.'
+  }]});
+  return value;
+};
+
+test('technical batches share one public product pin and preserve editorial findings, decisions, and local checks', async t => {
+  const targets = [];
+  let product = stableProduct;
+  const f = await fixture(t, content, {'docs/other.md': content}, undefined, {
+    resolveProduct: async target => { targets.push(target); return product; }
+  });
+  await f.workflow.dispatch('launch', {scope: ['docs'], confirmed: true});
+  await f.workflow.dispatch('editorial-launch', {scope: ['docs'], channel: 'stable', confirmed: true});
+  const before = await f.snapshot();
+  const editorial = before.findings.find(record => record.finding.kind === 'review');
+  await f.workflow.dispatch('finding-state', {check: 'review', findingId: editorial.finding.id,
+    evidenceHash: editorial.evidenceHash, actionToken: editorial.actions.token, status: 'dismissed'});
+  const local = await f.rawWorkflow.store.read();
+  f.setDraft(technicalDraft);
+  const input = {scope: ['docs', 'docs/article.md'], channel: 'stable', version: '1.147.0',
+    concerns: 'Check the stated default.', confirmed: true, product: {...stableProduct, revision: 'c'.repeat(40)}};
+  const result = await f.workflow.dispatch('technical-launch', input);
+  assert.deepEqual(targets, [{channel: 'stable', version: '1.147.0'}]);
+  assert.equal(result.runs.length, 2);
+  assert.equal(new Set(result.runs.map(run => run.batchId)).size, 1);
+  for (const run of result.runs) {
+    assert.equal(run.binding.focus, 'technical');
+    assert.deepEqual(run.binding.product, stableProduct, 'The client must not own the product pin.');
+    const request = await readJson((await f.files(run)).request);
+    assert.equal(request.concerns, 'Check the stated default.');
+    assert.deepEqual(request.binding.product, stableProduct);
+  }
+  assert.match(f.reviewRequests.at(-1).prompt, /exact revision, never main/);
+  assert.match(f.reviewRequests.at(-1).prompt, /needed instruction check/);
+  let state = await f.snapshot();
+  assert.equal(state.findings.find(record => record.finding.id === editorial.finding.id).finding.status, 'dismissed');
+  assert.equal(state.findings.filter(record => record.provenance?.report.review?.binding.focus === 'technical').length, 2);
+  assert.ok(state.coverage.some(entry => entry.procedure?.includes('1.147.0')));
+  const unchanged = await f.rawWorkflow.store.read();
+  assert.deepEqual(unchanged.coverage, local.coverage);
+  assert.deepEqual(unchanged.review, local.review);
+  assert.deepEqual(unchanged.runs.map(run => run.id), local.runs.map(run => run.id));
+  const reopened = await f.reopen({reviewOptions: {check: f.check, resolveProduct: async () => { throw new Error('Refresh must not repin'); }}});
+  assert.equal((await reopened.dispatch('refresh', {})).runs.filter(run => run.binding?.product).length, 2);
+
+  product = {...stableProduct, version: '1.148.0', revision: 'b'.repeat(40),
+    source: 'https://github.com/microsoft/vscode/releases/tag/1.148.0'};
+  await f.workflow.dispatch('technical-launch', {...input, version: ''});
+  state = await f.snapshot();
+  const technical = state.findings.filter(record => record.provenance?.report.review?.binding.focus === 'technical');
+  assert.equal(technical.length, 4, 'A different public revision must not silently reuse the earlier finding identity.');
+  assert.equal(state.coverage.filter(entry => entry.procedure?.startsWith('technical')).length, 4);
+});
+
+test('technical batch preflight enforces five articles and rejects unavailable or invalid targets before any agent starts', async t => {
+  const extra = Object.fromEntries(Array.from({length: 5}, (_, i) => [`docs/extra${i}.md`, content]));
+  let pinCalls = 0;
+  let unavailable = true;
+  const f = await fixture(t, content, extra, undefined, {resolveProduct: async () => {
+    pinCalls++;
+    if (unavailable) throw new Error('Public release lookup unavailable');
+    return stableProduct;
+  }});
+  const input = {scope: ['docs'], channel: 'stable', confirmed: true};
+  await assert.rejects(f.workflow.dispatch('technical-launch', input), /at most 5/);
+  await assert.rejects(f.workflow.dispatch('technical-launch', {...input, confirmed: false}), /Explicit/);
+  const small = {...input, scope: ['docs/article.md', 'docs/extra0.md']};
+  for (const change of [{channel: 'internal'}, {version: '../main'}, {concerns: false}]) {
+    await assert.rejects(f.workflow.dispatch('technical-launch', {...small, ...change}));
+  }
+  assert.equal(pinCalls, 0);
+  await assert.rejects(f.workflow.dispatch('technical-launch', small), /lookup unavailable/);
+  unavailable = false;
+  await writeFile(path.join(f.workspace, 'docs', 'extra0.md'), 'x'.repeat(500_001));
+  await assert.rejects(f.workflow.dispatch('technical-launch', small), /oversized/);
+  assert.equal(f.reviewRequests.length, 0);
+  assert.equal((await f.snapshot()).runs.length, 0);
+  await writeFile(path.join(f.workspace, 'docs', 'extra0.md'), content);
+  f.setDraft(technicalDraft);
+  assert.equal((await f.workflow.dispatch('technical-launch', {...input, scope: Object.keys(extra)})).runs.length, 5);
+  assert.equal(f.reviewRequests.length, 5);
+});
+
+test('technical batches preserve explicit unconfirmed and not-started outcomes without automatic retries', async t => {
+  const f = await fixture(t, content, {'docs/b.md': content, 'docs/c.md': content}, undefined,
+    {resolveProduct: async () => stableProduct});
+  f.setDraft(technicalDraft);
+  f.failLaunchAt(2);
+  const input = {scope: ['docs'], channel: 'stable', confirmed: true};
+  const result = await f.workflow.dispatch('technical-launch', input);
+  assert.deepEqual(result.runs.map(run => run.launch), ['acknowledged', 'uncertain', 'not-started']);
+  assert.equal(f.reviewRequests.length, 2);
+  assert.equal((await f.snapshot()).findings.length, 1);
+  await assert.rejects(f.workflow.dispatch('technical-launch', input), /running|unconfirmed/);
+  assert.equal(f.reviewRequests.length, 2);
+});
+
+test('technical reports bind supported citations and finding identity to the selected public release', async t => {
+  const f = await fixture(t);
+  const precheck = f.check(f.workspace, ['docs/article.md'], {links: true});
+  const binding = review.createBinding('docs/article.md', Buffer.from(content), precheck, 'stable', 'technical', undefined, stableProduct);
+  const value = technicalDraft({binding});
+  const first = review.makeReviewReport(binding, content, value);
+  value.findings[0].sources[0].url = `https://github.com/microsoft/vscode/blob/${'b'.repeat(40)}/src/fixture.ts#L1`;
+  assert.throws(() => review.makeReviewReport(binding, content, value), /pinned public product revision/);
+  value.findings[0].sources = [];
+  value.findings[0].assessment = 'question';
+  value.findings[0].message = 'Needs an attended instruction check.';
+  assert.equal(review.makeReviewReport(binding, content, value).findings[0].severity, 'unverified');
+  assert.throws(() => review.createBinding('docs/article.md', Buffer.from(content), precheck,
+    'insiders', 'technical', undefined, stableProduct), /match the technical review channel/);
+  const nextBinding = {...binding, product: {...stableProduct, revision: 'b'.repeat(40)}};
+  const second = review.makeReviewReport(nextBinding, content, technicalDraft({binding: nextBinding}));
+  assert.notEqual(first.findings[0].id, second.findings[0].id);
+});
+
+test('browser adds technical accuracy to the existing batch form with explicit public release context', {
+  skip: !process.env.DOCS_ARTICLE_BROWSER && 'Set DOCS_ARTICLE_BROWSER to an installed browser.'
+}, async t => {
+  const targets = [];
+  const f = await fixture(t, content, {'docs/other.md': content}, undefined,
+    {resolveProduct: async target => { targets.push(target); return stableProduct; }});
+  f.setDraft(technicalDraft);
+  let browser;
+  const server = await createWorkbenchServer(f.workflow.raw, async () => {}, () => {}, {assetEntries: articleAssets});
+  f.beforeDispose(async () => { try { await browser?.close(); } finally { await server.close(); } });
+  browser = await chromium.launchPersistentContext(path.join(f.directory, 'browser'), {
+    executablePath: process.env.DOCS_ARTICLE_BROWSER, headless: true
+  });
+  const page = await browser.newPage();
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.route('**/*', route => new URL(route.request().url()).origin === server.url ? route.continue() : route.abort());
+  await page.goto(`${server.url}/findings`);
+  await page.locator('#reload:enabled').waitFor();
+  await page.getByLabel('Checks', {exact: true}).selectOption('technical');
+  assert.equal(f.reviewRequests.length, 0);
+  assert.equal(targets.length, 0, 'Selecting an option does not start source research.');
+  await page.getByLabel('Public product channel', {exact: true}).selectOption('insiders');
+  assert.equal(await page.locator('#technical-release').isVisible(), false);
+  await page.getByLabel('Public product channel', {exact: true}).selectOption('stable');
+  await page.getByLabel('Stable version (optional)', {exact: true}).fill('1.147.0');
+  await page.getByLabel('Technical focus (optional)', {exact: true}).fill('Check defaults.');
+  await page.locator('#scope').fill('docs');
+  await page.getByRole('button', {name: 'Run technical review', exact: true}).evaluate(button => { button.click(); button.click(); });
+  await page.locator('#execution-indicator').getByText('Technical batch: 2/2 reviewed', {exact: true}).waitFor();
+  assert.deepEqual(targets, [{channel: 'stable', version: '1.147.0'}]);
+  assert.equal(f.reviewRequests.length, 2);
+  assert.equal(await page.locator('.finding-type').getByText('Technical', {exact: true}).count(), 2);
+  await page.getByRole('searchbox', {name: 'Filter findings'}).fill('technical');
+  assert.equal(await page.locator('.finding').count(), 2);
+  await page.getByRole('searchbox', {name: 'Filter findings'}).fill('editorial');
+  assert.equal(await page.locator('.finding').count(), 0);
+  await page.getByRole('searchbox', {name: 'Filter findings'}).fill('');
+  const run = (await f.snapshot()).runs.find(run => run.binding?.product);
+  const request = await readJson((await f.files(run)).request);
+  assert.equal(request.concerns, 'Check defaults.');
+  await page.locator('#execution-details > summary').click();
+  await page.locator('#execution').getByText(`Public target: 1.147.0 (${'a'.repeat(40)}).`, {exact: true}).first().waitFor();
+  await page.reload();
+  await page.locator('#execution-indicator').getByText('Technical batch: 2/2 reviewed', {exact: true}).waitFor();
+  assert.equal(f.reviewRequests.length, 2);
+  await page.getByLabel('Checks', {exact: true}).selectOption('technical');
+  await page.setViewportSize({width: 420, height: 800});
+  assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+  assert.deepEqual(errors, []);
+});
+
+test('browser filters individual technical and editorial findings and clears combined filters without starting work', {
+  skip: !process.env.DOCS_ARTICLE_BROWSER && 'Set DOCS_ARTICLE_BROWSER to an installed browser.'
+}, async t => {
+  const f = await fixture(t);
+  const mixed = draft();
+  mixed.findings.push({...mixed.findings[0], category: 'accuracy', assessment: 'question',
+    message: 'This behavior needs product verification.'});
+  f.setDraft(mixed);
+  await f.launch({focus: 'both'});
+  await f.snapshot();
+  let browser;
+  const server = await createWorkbenchServer(f.workflow.raw, async () => {}, () => {}, {assetEntries: articleAssets});
+  f.beforeDispose(async () => { try { await browser?.close(); } finally { await server.close(); } });
+  browser = await chromium.launchPersistentContext(path.join(f.directory, 'browser'), {
+    executablePath: process.env.DOCS_ARTICLE_BROWSER, headless: true
+  });
+  const page = await browser.newPage();
+  await page.route('**/*', route => new URL(route.request().url()).origin === server.url ? route.continue() : route.abort());
+  await page.goto(`${server.url}/findings`);
+  const rows = page.locator('.finding');
+  await rows.first().waitFor();
+  assert.equal(await rows.count(), 2);
+  const types = page.getByLabel('Finding type', {exact: true});
+  await types.selectOption({label: 'Technical'});
+  assert.equal(await rows.count(), 1);
+  assert.equal(await rows.locator('.finding-type').innerText(), 'Technical');
+  await page.getByLabel('Check type', {exact: true}).selectOption('review');
+  assert.equal(await rows.count(), 1);
+  await page.getByRole('button', {name: 'Unverified 1', exact: true}).click();
+  await types.selectOption({label: 'Editorial'});
+  assert.equal(await rows.count(), 0, 'Type and severity filters must combine.');
+  await page.getByRole('button', {name: 'Clear filters', exact: true}).click();
+  assert.equal(await types.inputValue(), 'all');
+  assert.equal(await page.getByLabel('Check type', {exact: true}).inputValue(), 'all');
+  assert.equal(await rows.count(), 2);
+  await types.selectOption({label: 'Editorial'});
+  assert.equal(await rows.locator('.finding-type').innerText(), 'Editorial');
+  await page.getByRole('button', {name: 'Refresh', exact: true}).click();
+  await page.waitForFunction(() => !document.querySelector('#reload').disabled);
+  assert.equal(await types.inputValue(), 'editorial');
+  assert.equal(await rows.count(), 1);
+  assert.equal(f.reviewRequests.length, 1, 'Filtering or refreshing must not start another review.');
+});
 
 test('one-click review decisions resolve corrected historical findings without rewriting review freshness', async t => {
   const f = await fixture(t);
@@ -170,6 +388,9 @@ test('browser exposes accessible icon actions on collapsed findings and preserve
   await row.waitFor();
   const actions = row.locator('.finding-actions');
   assert.equal(await row.locator('.finding-toggle').getAttribute('aria-expanded'), 'false');
+  assert.equal(await row.locator('.finding-type').innerText(), 'Editorial');
+  assert.equal(await row.locator('.finding-type').isVisible(), true);
+  assert.equal(await row.locator('.finding-toggle').getAttribute('aria-description'), 'Finding type: Editorial review: structure');
   assert.equal(await actions.isVisible(), true);
   assert.equal(await page.getByRole('img', { name: 'Warning', exact: true }).count(), 1);
   for (const button of await actions.getByRole('button').all()) {

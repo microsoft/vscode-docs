@@ -7,11 +7,12 @@ const MarkdownIt = require('markdown-it');
 const { checkClaims } = require('./check-claims');
 const { maskFrontmatter } = require('./check-links');
 const { validateReport } = require('./findings');
+const { validateReviewProduct } = require('./review-product');
 
 /* eslint-disable security/detect-non-literal-fs-filename -- Article paths come from the guarded workflow or a validated report; guidance paths are fixed trusted files. */
 const root = path.resolve(__dirname, '..');
 const guidance = ['.github/skills/docs-review/SKILL.md', '.github/skills/pr-review/SKILL.md',
-  '.github/instructions/docs-writing.instructions.md', 'build/review.js', 'build/findings.js', 'build/findings.schema.json', 'build/check-links.js'];
+  '.github/instructions/docs-writing.instructions.md', 'build/review.js', 'build/review-product.js', 'build/findings.js', 'build/findings.schema.json', 'build/check-links.js'];
 const hash = value => crypto.createHash('sha256').update(value).digest('hex');
 const markdown = new MarkdownIt({ html: true, linkify: false });
 
@@ -36,7 +37,7 @@ function guidanceHash() {
   return hash(JSON.stringify(guidance.map(file => [file, hash(fs.readFileSync(path.join(root, file)))])));
 }
 
-function createBinding(article, bytes, precheck, channel, focus, selection) {
+function createBinding(article, bytes, precheck, channel, focus, selection, product) {
   validateReport(precheck);
   if (!['stable', 'insiders'].includes(channel) || !['editorial', 'technical', 'both'].includes(focus) ||
       JSON.stringify(precheck.scanPaths) !== JSON.stringify([article]) ||
@@ -44,13 +45,17 @@ function createBinding(article, bytes, precheck, channel, focus, selection) {
     throw new Error('Review requires one article, an explicit channel and focus, and its claim/link precheck.');
   }
   const articleHash = hash(bytes);
+  if (product !== undefined && (validateReviewProduct(product).channel !== channel || focus === 'editorial')) {
+    throw new Error('The pinned product must match the technical review channel.');
+  }
   let section;
   if (selection !== undefined) {
     section = articleSections(bytes.toString('utf8')).find(item => item.startLine === selection?.startLine);
     if (!section || selection.articleHash !== articleHash) throw new Error('The section selection changed or is invalid. Load sections again.');
   }
   return { article, articleHash, sourceRevision: precheck.sourceRevision, channel, focus,
-    guidelinesHash: guidanceHash(), checkerInputHash: precheck.inputHash, ...(section ? { section } : {}) };
+    guidelinesHash: guidanceHash(), checkerInputHash: precheck.inputHash, ...(section ? { section } : {}),
+    ...(product ? {product} : {}) };
 }
 
 function assertSourceSpans(report, content) {
@@ -81,6 +86,7 @@ function makeReviewReport(binding, content, draft, generatedAt = new Date().toIS
       const { line, message, ...reviewEvidence } = item;
       const evidence = JSON.stringify({ channel: binding.channel, focus: binding.focus,
         ...(binding.section ? { section: binding.section } : {}),
+        ...(binding.product ? {product: binding.product} : {}),
         category: item.category, quote: item.quote });
       return { id: hash(`review\0${binding.article}\0${evidence}`), kind: 'review',
         severity: item.assessment === 'supported' ? 'warning' : 'unverified',

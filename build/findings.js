@@ -6,6 +6,7 @@ const path = require('path');
 const schema = require('./findings.schema.json');
 const { validateManifestReference } = require('./product-manifest');
 const { resolveSourceRoot } = require('./review-source');
+const { validateReviewProduct } = require('./review-product');
 
 /* eslint-disable security/detect-non-literal-fs-filename -- The report path is explicitly supplied by the caller. */
 
@@ -166,6 +167,11 @@ function validateReview(report) {
     JSON.stringify(report.scanPaths) === JSON.stringify([binding.article]), 'review source or scope mismatch.');
   requireValue(['stable', 'insiders'].includes(binding.channel) && ['editorial', 'technical', 'both'].includes(binding.focus),
     'review channel or focus is invalid.');
+  if (Object.hasOwn(binding, 'product')) {
+    validateReviewProduct(binding.product);
+    requireValue(binding.product.channel === binding.channel && binding.focus !== 'editorial',
+      'pinned product must match a technical review channel.');
+  }
   if (Object.hasOwn(binding, 'section')) {
     requireShape(binding.section, schema.$defs.reviewSection, 'review.binding.section');
     requireText(binding.section.title, 'review section title');
@@ -211,6 +217,8 @@ function validateReviewFinding(finding, report) {
       /^https:\/\/github\.com\/microsoft\/vscode\/blob\/[a-f0-9]{40}\//.test(source.url),
       'product citations require a pinned microsoft/vscode source URL and line reference.');
     const url = new URL(source.url);
+    requireValue(!binding.product || url.pathname.split('/')[4] === binding.product.revision,
+      'technical citations must match the pinned public product revision.');
     const range = url.hash.slice(1).split('-');
     requireValue(url.href === source.url && !url.search && url.pathname.split('/').slice(5).every(part =>
       /^[a-zA-Z0-9_.-]+$/.test(part) && !['.', '..'].includes(part)) &&
@@ -221,6 +229,7 @@ function validateReviewFinding(finding, report) {
     'supported technical findings require cited product evidence; otherwise report an unresolved question.');
   requireValue(finding.evidence === JSON.stringify({ channel: binding.channel, focus: binding.focus,
     ...(binding.section ? { section: binding.section } : {}),
+    ...(binding.product ? {product: binding.product} : {}),
     category: evidence.category, quote: evidence.quote }), 'review identity does not match its quoted claim and scope.');
 }
 

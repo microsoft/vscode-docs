@@ -108,6 +108,18 @@ async function perform(action) {
 function scopeInput() { return [...new Set($('scope').value.split(',').map(value => value.trim()).filter(Boolean))].sort(); }
 function inScope(article, scope) { return scope.some(item => item === article || article.startsWith(`${item}/`)); }
 function articleMatches(article) { return article.toLowerCase().includes($('article-filter').value.trim().toLowerCase()); }
+const findingTypeLabels = {
+  claim: 'Reference', link: 'Link', lifecycle: 'Feature marker', replay: 'Instruction check',
+  'media-drift': 'Media drift', eval: 'Evaluation', 'audit-proposal': 'Audit proposal'
+};
+function findingType(finding) {
+  if (finding.kind === 'review') {
+    const label = finding.reviewEvidence.category === 'accuracy' ? 'Technical' : 'Editorial';
+    return {value: label.toLowerCase(), label, description: `${label} review: ${finding.reviewEvidence.category}`};
+  }
+  const label = Reflect.get(findingTypeLabels, finding.kind);
+  return {value: finding.kind, label, description: finding.kind === 'claim' ? 'Reference check' : label};
+}
 function checkType(finding) { return ['replay', 'review'].includes(finding.kind) ? finding.kind : finding.kind === 'link' ? 'links' : 'claims'; }
 function executionLabel(run) {
   if (['starting', 'uncertain'].includes(run.launch)) return 'Launch unconfirmed';
@@ -140,7 +152,7 @@ function renderExecution(writing = false) {
   const reviewed = batch?.filter(run => run.ingestedHash && run.result?.state === 'valid' && run.result.reviewStatus === 'complete').length;
   const attention = batch?.filter(run => ['uncertain', 'not-started'].includes(run.launch) ||
     ['execution-failed', 'invalid', 'stale'].includes(run.result?.state) || run.result?.reviewStatus === 'incomplete').length;
-  const label = batch ? `Editorial batch: ${reviewed}/${batch.length} reviewed${attention ? ` · ${attention} need attention` : ''}` :
+  const label = batch ? `${latest.binding.focus === 'technical' ? 'Technical' : 'Editorial'} batch: ${reviewed}/${batch.length} reviewed${attention ? ` · ${attention} need attention` : ''}` :
     latest ? `${executionLabel(latest)} · ${latest.kind === 'authoring' ? 'feature documentation' : `${latest.articles.length} article(s)`}` : '';
   if (indicator.textContent !== label) indicator.textContent = label;
   details.hidden = !latest;
@@ -160,6 +172,7 @@ function renderExecution(writing = false) {
   for (const run of relevant) {
     const section = element('section');
     paragraph(section, `${executionLabel(run)} · ${(run.batchId ? run.articles : run.scope).join(', ')} · ${time(run.createdAt)}`);
+    if (run.binding?.product) paragraph(section, `Public target: ${run.binding.product.version} (${run.binding.product.revision}).`, 'muted');
     paragraph(section, `Host: ${run.observation?.status || run.launch}. Owner: ${run.ownerSessionId}. Task: ${run.agentId || 'unacknowledged'}. Execution: ${run.id}.`, 'muted');
     if (run.observation) paragraph(section, `Host last observed ${time(run.observation.observedAt)}. Idle alone does not establish completion or a request for input.`, 'muted');
     if (run.result?.message) paragraph(section, run.result.message, 'muted');
@@ -198,21 +211,29 @@ function render() {
   const articles = state.articles.filter(article => inScope(article, scope));
   const valid = scope.length && scope.every(item => catalog.includes(item)) && articles.length;
   const editorial = $('batch-focus').value === 'editorial';
-  const oversized = editorial && articles.length > state.editorialBatchLimit;
-  const blocker = state.runs.find(run => (editorial ? run.kind === 'review' : !run.kind) &&
+  const technical = $('batch-focus').value === 'technical';
+  const agentReview = editorial || technical;
+  const oversized = agentReview && articles.length > state.reviewBatchLimit;
+  const blocker = state.runs.find(run => (agentReview ? run.kind === 'review' : !run.kind) &&
     run.articles.some(article => articles.includes(article)) && !run.rerun?.allowed);
   const catalogReady = !state.catalog || state.catalog.state === 'complete';
   $('launch').disabled = busy || !catalogReady || state.hostSync?.state === 'checking' || !state.hostAvailable || !valid || oversized || !!blocker;
-  $('launch').textContent = editorial ? 'Run editorial review' : 'Run checks';
+  $('launch').textContent = technical ? 'Run technical review' : editorial ? 'Run editorial review' : 'Run checks';
   $('batch-focus').disabled = busy;
-  $('editorial-options').hidden = !editorial;
+  $('editorial-options').hidden = !agentReview;
+  $('review-channel-label').textContent = technical ? 'Public product channel' : 'Product channel (context only)';
+  $('review-concerns-label').textContent = technical ? 'Technical focus (optional)' : 'Editorial focus (optional)';
+  $('technical-release').hidden = !technical || $('editorial-channel').value !== 'stable';
+  $('technical-version').disabled = busy || !technical || $('editorial-channel').value !== 'stable';
   for (const id of ['editorial-channel', 'editorial-concerns']) $(id).disabled = busy;
-  $('batch-description').textContent = editorial
+  $('batch-description').textContent = technical
+    ? `Up to ${state.reviewBatchLimit} articles; one AI agent per article. Pins one public release for the batch: latest Stable unless specified, or the latest published Insiders build. Checks product-source accuracy and public availability. Unverified behavior remains a question. No UI execution, media, content edits, or public changes. Uses AI credits.`
+    : editorial
     ? `Up to ${state.editorialBatchLimit} articles; one AI agent per article. Reviews text clarity, grammar, structure, and usefulness. Saves private judgments, not verified product claims. No media, content edits, or public changes. Uses AI credits.`
     : 'Read-only claims and links checks. Saves private results and uses host credits. No content or public changes.';
   $('scope-count').textContent = catalogReady ? `${articles.length} article(s) selected` :
     state.catalog.state === 'failed' ? 'Article list unavailable' : 'Loading current article list';
-  $('launch-eligibility').textContent = oversized ? `Select at most ${state.editorialBatchLimit} articles for editorial review.` :
+  $('launch-eligibility').textContent = oversized ? `Select at most ${state.reviewBatchLimit} articles for ${technical ? 'technical' : 'editorial'} review.` :
     blocker ? `Cannot overlap this scope: ${blocker.rerun?.reason}` : '';
   $('reload').disabled = busy || state.verification?.terminating || state.verification?.state === 'cancelling';
   $('writing-reload').disabled = busy;
@@ -303,8 +324,9 @@ function renderFinding(record) {
   }
   const key = JSON.stringify([record, expanded.has(finding.id), busy, editorKey]);
   const reviewKey = JSON.stringify([record.evidenceHash, record.coverageToken, record.history, finding.status, record.reviewable, record.actions, busy, editorKey]);
+  const type = findingType(finding);
   const baseKey = JSON.stringify([finding.id, finding.article, finding.line, finding.kind,
-    finding.severity, finding.evidence, finding.message]);
+    finding.severity, finding.evidence, finding.message, type]);
   if (cached?.key === key) { cached.record = record; return cached.rows; }
   if (cached && cached.expanded === expanded.has(finding.id) && cached.baseKey === baseKey &&
       cached.reviewKey === reviewKey) {
@@ -342,11 +364,16 @@ function renderFinding(record) {
     renderFindings();
     $(`finding-${finding.id}`).focus();
   });
-  toggle.append(element('span', `${finding.article.split('/').at(-1)}:${finding.line} · `, 'finding-location'), element('span', primary, 'finding-primary'));
+  const location = element('span', undefined, 'finding-location');
+  const typeBadge = element('span', type.label, 'badge finding-type');
+  typeBadge.title = type.description;
+  location.append(typeBadge, document.createTextNode(`${finding.article.split('/').at(-1)}:${finding.line} · `));
+  toggle.append(location, element('span', primary, 'finding-primary'));
   toggle.id = `finding-${finding.id}`;
   toggle.className = 'finding-toggle';
-  toggle.title = `${finding.article}:${finding.line}\n${finding.message}`;
+  toggle.title = `${type.description}\n${finding.article}:${finding.line}\n${finding.message}`;
   toggle.setAttribute('aria-label', `${finding.article}:${finding.line} · ${primary}`);
+  toggle.setAttribute('aria-description', `Finding type: ${type.description}`);
   toggle.setAttribute('aria-expanded', String(expanded.has(finding.id)));
   toggle.setAttribute('aria-controls', `detail-${finding.id}`);
   description.append(element('span', `${finding.status} · ${Reflect.get(freshnessLabels, record.freshness)}`, 'finding-mobile-status'));
@@ -394,23 +421,37 @@ function renderFinding(record) {
 }
 function matches(record, filters) {
   const { finding } = record;
+  const type = findingType(finding);
   return finding.article.toLowerCase().includes(filters.article) &&
     (filters.check === 'all' || checkType(finding) === filters.check) &&
+    (filters.type === 'all' || type.value === filters.type) &&
     (filters.status === 'all' || finding.status === filters.status) &&
     (filters.freshness === 'all' || record.freshness === filters.freshness) &&
-    `${finding.article} ${finding.message} ${finding.evidence} ${finding.line}`.toLowerCase().includes(filters.query);
+    `${type.description} ${finding.article} ${finding.message} ${finding.evidence} ${finding.line}`.toLowerCase().includes(filters.query);
 }
 function clearFilters() {
   severity = 'all';
   $('finding-search').value = ''; $('article-filter').value = '';
-  for (const id of ['check-filter', 'status-filter', 'freshness-filter']) $(id).value = 'all';
+  for (const id of ['finding-type-filter', 'check-filter', 'status-filter', 'freshness-filter']) $(id).value = 'all';
   renderFindings(); renderCoverage();
 }
 function renderFindings() {
   if (!state) return;
+  const typeFilter = $('finding-type-filter');
+  const knownTypes = new Set([...typeFilter.options].map(option => option.value));
+  const types = new Map(state.findings.map(record => {
+    const type = findingType(record.finding);
+    return [type.value, type.label];
+  }));
+  for (const [value, label] of [...types].sort((left, right) => left[1].localeCompare(right[1]))) {
+    if (knownTypes.has(value)) continue;
+    const option = element('option', label);
+    option.value = value;
+    typeFilter.append(option);
+  }
   const filters = {
     query: $('finding-search').value.toLowerCase(), article: $('article-filter').value.trim().toLowerCase(),
-    check: $('check-filter').value, status: $('status-filter').value, freshness: $('freshness-filter').value
+    type: typeFilter.value, check: $('check-filter').value, status: $('status-filter').value, freshness: $('freshness-filter').value
   };
   const base = state.findings.filter(record => matches(record, filters));
   for (const [value, label] of [['all', 'All'], ['error', 'Errors'], ['warning', 'Warnings'], ['unverified', 'Unverified']]) {
@@ -910,9 +951,10 @@ function renderReplayRecovery() {
 }
 $('scope').addEventListener('input', render);
 $('batch-focus').addEventListener('change', render);
+$('editorial-channel').addEventListener('change', render);
 $('finding-search').addEventListener('input', renderFindings);
 $('article-filter').addEventListener('input', () => { renderFindings(); renderCoverage(); });
-for (const id of ['check-filter', 'status-filter', 'freshness-filter']) $(id).addEventListener('change', () => { renderFindings(); renderCoverage(); });
+for (const id of ['finding-type-filter', 'check-filter', 'status-filter', 'freshness-filter']) $(id).addEventListener('change', () => { renderFindings(); renderCoverage(); });
 $('coverage-details').addEventListener('toggle', () => { if (state) renderCoverage(); });
 $('execution-details').addEventListener('toggle', () => { if (state) renderExecution(); });
 $('writing-execution-details').addEventListener('toggle', () => { if (state) renderExecution(true); });
@@ -920,16 +962,19 @@ $('launch-form').addEventListener('submit', event => {
   event.preventDefault();
   const scope = scopeInput();
   const editorial = $('batch-focus').value === 'editorial';
+  const technical = $('batch-focus').value === 'technical';
   void perform(async () => {
     notice('Starting one bounded batch. Findings remain available while checks run.');
-    if (editorial) {
-      const result = await request('editorial-launch', { scope, channel: $('editorial-channel').value,
+    if (editorial || technical) {
+      const result = await request(technical ? 'technical-launch' : 'editorial-launch', { scope, channel: $('editorial-channel').value,
+        ...(technical && $('editorial-channel').value === 'stable' ? {version: $('technical-version').value.trim()} : {}),
         concerns: $('editorial-concerns').value, confirmed: true });
       await refresh();
       const acknowledged = result.runs.filter(run => run.launch === 'acknowledged').length;
       const uncertain = result.runs.filter(run => run.launch === 'uncertain').length;
       const notStarted = result.runs.filter(run => run.launch === 'not-started').length;
-      notice(`Editorial reviews requested: ${acknowledged}. Unconfirmed: ${uncertain}. Not started: ${notStarted}.${uncertain ? ' Inspect execution details and Chat before retrying.' : ''}`,
+      const product = result.runs[0]?.binding.product;
+      notice(`${technical ? 'Technical' : 'Editorial'} reviews requested: ${acknowledged}. Unconfirmed: ${uncertain}. Not started: ${notStarted}.${product ? ` Public target: ${product.version} (${product.revision}).` : ''}${uncertain ? ' Inspect execution details and Chat before retrying.' : ''}`,
         !!uncertain || !!notStarted);
       return;
     }

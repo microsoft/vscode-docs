@@ -70,6 +70,16 @@ test('compact inbox loads automatically, filters, and preserves one-click decisi
   await indicator.getByText('Findings updated · 1 article(s)', { exact: true }).waitFor();
   assert.equal(f.requests.length, 1);
   assert.equal(await rows.count(), 9);
+  assert.equal(await rows.locator('.finding-type').count(), 9);
+  assert.ok((await rows.locator('.finding-type').allTextContents()).includes('Reference'));
+  assert.ok((await rows.locator('.finding-type').allTextContents()).includes('Link'));
+  const typeFilter = page.getByLabel('Finding type', {exact: true});
+  await typeFilter.selectOption({label: 'Reference'});
+  assert.equal(await rows.count(), 7);
+  await typeFilter.selectOption({label: 'Link'});
+  assert.equal(await rows.count(), 2);
+  await typeFilter.selectOption('all');
+  assert.equal(await rows.count(), 9);
   assert.equal(await page.getByRole('img', { name: 'Error', exact: true }).count(), 2);
   assert.equal(await page.getByRole('img', { name: 'Unverified', exact: true }).count(), 7);
   assert.equal(await page.locator('#execution-details').evaluate(node => node.open), false);
@@ -89,6 +99,7 @@ test('compact inbox loads automatically, filters, and preserves one-click decisi
   assert.equal(await rows.count(), 9);
 
   const toggle = page.getByRole('button', { name: /^docs\/article\.md:\d+ · setting\(fixture\.setting0\)$/ });
+  assert.equal(await toggle.getAttribute('aria-description'), 'Finding type: Reference check');
   await toggle.click();
   const actions = rows.filter({ hasText: 'fixture.setting0' }).locator('.finding-actions');
   assert.equal(await actions.count(), 1, 'Review requires no enable/import step.');
@@ -157,6 +168,10 @@ test('compact inbox loads automatically, filters, and preserves one-click decisi
   assert.notEqual(appearances.get('dark').background, appearances.get('light').background);
   await page.setViewportSize({ width: 420, height: 800 });
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth), true);
+  for (const id of ['article-filter', 'finding-type-filter', 'check-filter', 'status-filter', 'freshness-filter']) {
+    const bounds = await page.locator(`#${id}`).boundingBox();
+    assert.ok(bounds.x >= 0 && bounds.x + bounds.width <= 420, 'Finding filters must fit the narrow viewport.');
+  }
   await page.getByLabel('Checks', { exact: true }).selectOption('editorial');
   for (const id of ['scope', 'batch-focus', 'launch', 'editorial-channel', 'editorial-concerns']) {
     const bounds = await page.locator(`#${id}`).boundingBox();

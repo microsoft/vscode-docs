@@ -9,7 +9,7 @@ import { loadRunArtifacts, reportHostStatus, reportRerunDecision } from './artic
 import { decideInboxFinding, inboxFindingSource, inboxView, inspectInbox, inspectExecution, triageInbox } from './article-inbox.mjs';
 import { createProgressiveVerification } from './article-verification.mjs';
 import { createReplayWorkflow } from './article-replay.mjs';
-import { createReviewWorkflow, editorialBatchLimit } from './article-review.mjs';
+import { createReviewWorkflow, editorialBatchLimit, reviewBatchLimit } from './article-review.mjs';
 import { createFeaturePlans } from './feature-plans.mjs';
 import editorTools from '../../../build/docs-editor.js';
 import reviewChat from '../../../build/review-chat.js';
@@ -134,7 +134,7 @@ export async function createArticleWorkflow({
     }));
     return {
       workspace: store.workspace, ownerSessionId, storageDirectory: store.directory,
-      hostAvailable: available, editorialBatchLimit,
+      hostAvailable: available, editorialBatchLimit, reviewBatchLimit,
       hostContract: 'Experimental session-scoped SDK tasks. API presence is not proof of a successful launch. No host links are returned by this contract.',
       articles, ...claims,
       findings: [...claims.findings, ...replayView.findings, ...reviewView.findings],
@@ -389,6 +389,7 @@ export async function createArticleWorkflow({
     'replay-resolve': replays.resolve,
     'review-launch': reviews.launch,
     'editorial-launch': reviews.launchEditorial,
+    'technical-launch': reviews.launchTechnical,
     'review-sections': reviews.sections,
     'review-resolve': reviews.resolve,
     'review-chat': async input => {
