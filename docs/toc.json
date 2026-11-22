@@ -326,7 +326,7 @@
           ["Fix an API Bug", "/docs/agents/guides/fix-a-bug-with-agents", { "secondary": true }],
           ["Add Tests", "/docs/agents/guides/test-code-with-ai", { "secondary": true }],
           ["Test-Driven Development", "/docs/agents/guides/test-driven-development-guide", { "secondary": true }],
-          ["Test Web Apps", "/docs/agents/guides/browser-agent-testing-guide", { "secondary": true }],
+          ["Test Web Apps", "/docs/agents/guides/browser-agent-testing-guide", { "secondary": true }]
         ]
         }
       ]
@@ -399,5 +399,5 @@
     "link": "/docs/extension-docs/overview",
     "toc": "extension-docs/toc.json",
     "topics": []
-  },
+  }
 ]
