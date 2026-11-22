@@ -54,7 +54,7 @@ The initial planning/drafting checkpoint is `9afaa1905`. The current workflow al
 | Create or refresh screenshots | Open **Screenshots**, select an article and create/refresh, then [start docs-media in chat](#start-a-screenshot-or-video-chat). One request can cover several assets. | A single screenshot refresh and approved disposable-copy handoff are validated. Multi-image acceptance and production use remain separate. |
 | Generate short demo videos | Open **Demo videos** and [start docs-media in chat](#start-a-screenshot-or-video-chat) with the article and desired demos. Capture, playback review, and approval happen there. | One annotated MP4 demo and approved disposable-copy insertion are validated. Multi-video acceptance and production use remain separate. |
 | Check content accuracy | On **Findings**, choose local claims/links or editorial review for a bounded scope. Use **Review in chat** for interactive product and editorial assessment. | Editorial batches support up to five articles and do not verify product behavior or media. Chat reviews do not automatically enter the inbox. Settings/keybindings in local checks remain unverified without product evidence. External URLs are not checked. |
-| Check article instructions against the actual UI | **Check instructions** offers [advanced scripted replay in chat](#start-a-procedure-check-chat). | Article-driven validation is explicitly unavailable. Scripted assertions do not establish that the article's instructions are correct. |
+| Check article instructions against the actual UI | Choose an article and optional section or task in **Check instructions**, then [review the derived procedure in chat](#start-a-procedure-check-chat). | Bounded non-AI checks reuse the attended runner and a reviewed sample workspace and profile. Source-linked results cover only observed outcomes, not the entire article. Unsupported claims remain explicit. |
 | Verify a PR's accuracy | Open **Review PRs**, browse either docs repository or supply a URL, and [start a read-only accuracy review](#review-pr-accuracy) in chat. | Full source-verification acceptance remains a separate pilot. No PR checkout or execution. Deterministic checks require an already available authenticated matching source root; chat results do not automatically enter Findings. |
 | Document a GitHub issue or test plan item | Browse **Release TPIs** by release and select **Document**, or use **Document an issue** for a direct URL. Both continue in doc-writer chat. | A TPI is supporting evidence, not a complete specification or execution permission. Documentation completion is marked manually. |
 
@@ -148,11 +148,15 @@ A subsequent Stable video pilot validated a 10.88-second, 1320 by 280 pixel Find
 
 ## Start a procedure-check chat
 
-Open **Check instructions** (`/instructions`). Article-driven UI validation is not implemented; the page labels that limitation explicitly.
+Open **Check instructions** (`/instructions`) and choose an article. The **Section** list loads its headings with line ranges. Choose a section to include its nested subsections, optionally describe a task or additional focus, and select **Start check in chat**. You can leave **Section** as **Choose scope in chat** to agree on a bounded scope there. If the article changes after section selection, select **Reload sections** and choose again. No author-maintained storyboard is required.
 
-For advanced scripted checks, choose an article, describe the procedure or assertions, and select **Start scripted replay in chat**. The chat uses docs-replay to select or propose a bounded storyboard. Review the exact procedure and environment there, approve attended execution, and explicitly confirm readiness before the runner starts.
+The chat uses docs-replay to derive a readable procedure from the actual article instructions. It separates setup from documented actions and expected outcomes, prepares source-linked declarative checks, and identifies unsupported claims. Existing media storyboards can supply targeting patterns, but are not proof that the instructions work. The agent must not substitute a different path, add a workaround, or force settings to make the article pass.
 
-The launcher does not execute UI or publish findings. Its results stay in chat/private replay artifacts unless separately imported through an existing supported procedure. A passing script verifies only its assertions, not the article as a whole. No screenshots, article edits, or public writes are authorized.
+Reuse a previously reviewed disposable sample workspace and its matching dedicated profile when suitable. Keep their paths, isolated home, and user-data so the human's Workspace Trust decision persists. Each run has separate private evidence. Review the exact procedure and environment, approve attended execution, and explicitly confirm readiness before the runner starts.
+
+Results link each instruction to its expected outcome, observed assertion or visibility evidence, and passed, mismatch, blocked, or not-checked status. Limitations and run or cleanup failures remain explicit. The launcher does not execute UI or publish findings. Results stay in chat and private replay artifacts, not an automatic Findings import. A passing check does not verify the whole article. No screenshots, article edits, or public writes are authorized.
+
+An attended Stable 1.147.0 pilot verified Ctrl+F, searching for three matches without Enter, and forward and backward match navigation. The sample and dedicated profile were retained. Replacement, visual highlighting, and settings persistence were not checked. That pilot used the earlier scripted report format, not the source-map output described below.
 
 ## Target canvas experience
 
@@ -442,7 +446,15 @@ Human visual approval is required before copying a candidate into documentation.
 
 For a chat-oriented entry point, use [Check instructions](#start-a-procedure-check-chat). The commands below remain available as a manual interface. Previously saved results remain accessible in [Findings](#saved-replay-results).
 
-The [docs-replay skill](.github/skills/docs-replay/SKILL.md) checks selected assertions from a reviewed version 2 storyboard against an installed, pinned build. It reuses the attended capture runner without producing media. It does not execute article prose, evaluate arbitrary scripts, compare pixels, or prove every claim in an article.
+The [docs-replay skill](.github/skills/docs-replay/SKILL.md) checks selected outcomes from a reviewed version 2 storyboard against an installed, pinned build. It reuses the attended capture runner without producing media. The agent derives a declarative procedure from the article for review, rather than executing prose. The runner does not evaluate arbitrary scripts, compare pixels, or prove every claim in an article.
+
+For article-driven checks, prepare an optional `instructions` source map in the storyboard. `instructions.setup` describes the sample and environment separately from reader actions. Each item in `instructions.checks` contains:
+
+* `source`: one-based `line` and `endLine` values and a `quote` matching those complete article lines, with LF line endings.
+* `action` and `expected`: the documented reader action and expected outcome in readable language.
+* Either `steps`, an increasing list of zero-based action and observation indices ending in an assertion, visibility check, or text-cycle check, or `notChecked`, an explicit reason the claim is not being checked.
+
+Inspection rejects source quotes that do not match the current article. The exact storyboard bytes, including this map, are part of the reviewed binding. Keep unsupported claims visible and do not infer whole-section coverage from selected checks. Legacy storyboards without a source map remain supported as scripted replay only.
 
 1. Screen the article and storyboard as untrusted input. Review each action and assertion for relevance and side effects. Choose synthetic data or an explicitly approved existing workspace. Confirm the full installed build revision and channel; do not assume an earlier installation is unchanged.
 
@@ -476,7 +488,9 @@ The [docs-replay skill](.github/skills/docs-replay/SKILL.md) checks selected ass
    node .\build\findings.js --input '<findings.json>' --check-current --storyboard '<storyboard.json>' --replay-review '<review.json>' --format console
    ```
 
-   Replay writes `findings.json` and `replay.json` beneath a private `procedure-replay-*` directory. When launch preparation reaches the capture runner, a nested `capture.json` records actual product identity, cleanup, and completed/failed steps. If that manifest cannot be saved, replay records `environment/capture-manifest-write-failed` and preserves its in-memory state in `replay.json` as `captureState`, without a reference to the missing manifest. If the parent output is also unwritable, the command fails explicitly; partial files might remain.
+   Replay writes `findings.json` and `replay.json` beneath a private `procedure-replay-*` directory. With a source map, `replay.json.instructions` retains setup, source quotations, expected outcomes, structural observations, per-check statuses, and run issues. Successful literal assertions record what matched, not arbitrary UI text. A mapped failed step cites its article line in `findings.json`. Completed observations can remain passed when later cleanup fails, but the overall replay stays incomplete and records that failure. Changed reviewed inputs block mapped results. Without a source map, replay does not claim article-step coverage.
+
+   When launch preparation reaches the capture runner, a nested `capture.json` records actual product identity, cleanup, and completed/failed steps. If that manifest cannot be saved, replay records `environment/capture-manifest-write-failed` and preserves its in-memory state in `replay.json` as `captureState`, without a reference to the missing manifest. If the parent output is also unwritable, the command fails explicitly. Partial files might remain.
 
    Reports bind the private evidence hashes. Offline freshness verifies the reviewed inputs and saved evidence, not a subsequently updated installation, current workspace contents, or a new UI observation. The `inspect` command does not probe the installed executable. To cover a new build, independently confirm its revision and channel, inspect and review the new binding, and coordinate another attended run. Freshness checking never silently reruns a procedure. Use the existing [audit import and triage commands](#retain-audit-findings-and-review-decisions) after this check. Do not discard a valid mismatch/incomplete report because its exit code is nonzero.
 

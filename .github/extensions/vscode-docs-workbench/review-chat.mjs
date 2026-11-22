@@ -2,6 +2,12 @@ const $ = id => document.getElementById(id);
 let token;
 let busy = false;
 let available = false;
+let sectionGeneration = 0;
+let sectionArticle = '';
+let sectionHash;
+let sectionPending = '';
+let sectionsLoading = false;
+const articles = new Set();
 const mediaKind = location.pathname === '/screenshots' ? 'screenshot' : location.pathname === '/videos' ? 'video' : undefined;
 const procedure = location.pathname === '/instructions';
 const writingKind = location.pathname === '/write' ? 'feature' : location.pathname === '/issue' ? 'issue' : undefined;
@@ -23,13 +29,14 @@ if (mediaKind) {
 if (procedure) {
   document.title = 'Check instructions';
   $('chat-title').textContent = 'Check instructions';
-  $('chat-description').textContent = 'Automatic article-driven UI validation is not yet available. Advanced option: replay a human-reviewed scripted procedure in chat.';
-  $('chat-description').className = 'media-pending';
+  $('chat-description').textContent = 'Choose an article and a section or task to check. Review a procedure derived from its instructions in chat before an attended VS Code run.';
   $('chat-presets').hidden = true;
-  $('chat-request').placeholder = 'Describe the reviewed procedure or specific assertions you want to check.';
-  $('chat-start').textContent = 'Start scripted replay in chat';
+  $('chat-section-field').hidden = false;
+  $('chat-request-label').textContent = 'Task or additional focus (optional)';
+  $('chat-request').placeholder = 'For example, check opening Find, entering a query, and navigating matches. You can agree on the scope in chat.';
+  $('chat-start').textContent = 'Start check in chat';
   $('chat-permissions').textContent = 'Uses docs-replay and chat credits. Review the exact procedure and environment in chat, approve an attended run, and confirm readiness before execution.';
-  $('chat-scope').textContent = 'Scripted assertions are not proof that the article instructions are correct. No UI execution, media capture, or article edits start from this page. Chat results are not automatically saved to Findings.';
+  $('chat-scope').textContent = 'Results cover only the agreed instructions and observable outcomes, with unsupported claims marked not checked. No UI execution, media capture, or article edits start from this page. Chat results are not automatically saved to Findings.';
 }
 if (writingKind) {
   const title = writingKind === 'issue' ? 'Document an issue' : 'Write documentation';
@@ -64,13 +71,83 @@ function eligibility() {
   const missing = writingKind
     ? writingKind === 'issue' ? !$('chat-issue').value.trim() : !$('chat-request').value.trim() && !$('chat-issue').value.trim()
     : !$('chat-article').value.trim() || (!mediaKind && !procedure && !$('chat-request').value.trim() && !$('chat-presets').querySelector('input:checked'));
-  $('chat-start').disabled = busy || !available || missing;
+  $('chat-start').disabled = busy || !available || missing || sectionsLoading;
+  $('chat-section').disabled = busy || !available || sectionsLoading ||
+    sectionArticle !== $('chat-article').value.trim() || $('chat-section').options.length < 2;
+  $('chat-section-reload').disabled = busy || !available || sectionsLoading || !$('chat-article').value.trim();
 }
 
+function resetSections() {
+  sectionGeneration++;
+  sectionArticle = '';
+  sectionHash = undefined;
+  sectionPending = '';
+  sectionsLoading = false;
+  const option = document.createElement('option');
+  option.value = '';
+  option.textContent = 'Choose scope in chat';
+  $('chat-section').replaceChildren(option);
+  $('chat-section-notice').className = 'muted';
+  $('chat-section-notice').textContent = 'Choose an article to list its sections.';
+  eligibility();
+}
+
+async function loadSections() {
+  const article = $('chat-article').value.trim();
+  if (!available || !article || sectionArticle === article || sectionPending === article) return;
+  resetSections();
+  const generation = sectionGeneration;
+  sectionPending = article;
+  sectionsLoading = true;
+  $('chat-section-notice').textContent = 'Loading article sections...';
+  eligibility();
+  try {
+    const response = await fetch('/action', {
+      method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Workbench-Token': token },
+      body: JSON.stringify({ action: 'review-sections', input: { article } })
+    });
+    const result = await response.json();
+    if (generation !== sectionGeneration || article !== $('chat-article').value.trim()) return;
+    if (!response.ok) throw new Error(result.error || `Cannot load sections: HTTP ${response.status}`);
+    for (const section of result.sections) {
+      const option = document.createElement('option');
+      option.value = String(section.startLine);
+      option.textContent = `${section.title} (lines ${section.startLine}-${section.endLine})`;
+      $('chat-section').append(option);
+    }
+    sectionArticle = article;
+    sectionHash = result.articleHash;
+    $('chat-section-notice').textContent = result.sections.length
+      ? 'A section includes its nested subsections.'
+      : 'No section headings found. Describe a task below or choose the scope in chat.';
+  } catch (error) {
+    if (generation !== sectionGeneration) return;
+    $('chat-section-notice').className = 'error';
+    $('chat-section-notice').textContent = `${error.message} You can still describe a task below.`;
+  } finally {
+    if (generation === sectionGeneration) {
+      sectionPending = '';
+      sectionsLoading = false;
+      eligibility();
+    }
+  }
+}
+
+if (procedure) {
+  $('chat-article').addEventListener('input', () => {
+    resetSections();
+    if (articles.has($('chat-article').value.trim())) void loadSections();
+  });
+  $('chat-article').addEventListener('change', () => { void loadSections(); });
+  $('chat-section-reload').addEventListener('click', () => {
+    resetSections();
+    void loadSections();
+  });
+}
 for (const id of ['chat-article', 'chat-request', 'chat-presets', 'chat-issue']) $(id).addEventListener('input', eligibility);
 $('review-chat-form').addEventListener('submit', async event => {
   event.preventDefault();
-  if (busy || !available) return;
+  if (busy || !available || sectionsLoading) return;
   busy = true;
   eligibility();
   $('chat-notice').className = 'muted';
@@ -81,6 +158,8 @@ $('review-chat-form').addEventListener('submit', async event => {
       body: JSON.stringify({ action: writingKind ? 'writing-chat' : procedure ? 'procedure-chat' : mediaKind ? 'media-chat' : 'review-chat', input: { article: $('chat-article').value.trim(),
         ...(writingKind ? { kind: writingKind, issue: $('chat-issue').value.trim() }
           : mediaKind ? { kind: mediaKind, operation: $('chat-operation').value }
+          : procedure ? ($('chat-section').value
+            ? { section: { startLine: Number($('chat-section').value), articleHash: sectionHash } } : {})
           : { presets: [...$('chat-presets').querySelectorAll('input:checked')].map(input => input.value) }),
         request: $('chat-request').value, channel: $('chat-channel').value, confirmed: true } })
     });
@@ -100,6 +179,7 @@ try {
   token = result.token;
   available = (writingKind ? result.state.writingChat : procedure ? result.state.procedureChat : mediaKind ? result.state.mediaChat : result.state.reviewChat)?.available === true;
   for (const article of result.state.articles) {
+    articles.add(article);
     const option = document.createElement('option'); option.value = article; $('chat-articles').append(option);
   }
   for (const preset of mediaKind || procedure || writingKind ? [] : result.state.reviewChat?.presets || []) {
@@ -113,6 +193,7 @@ try {
   $('chat-notice').textContent = available ? '' : result.state.editor?.message || 'Native chat opening is unavailable in this host.';
   $('chat-notice').className = available ? 'muted' : 'error';
   eligibility();
+  if (procedure) await loadSections();
 } catch (error) {
   $('chat-notice').textContent = error.message;
   $('chat-notice').className = 'error';

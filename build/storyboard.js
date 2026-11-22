@@ -107,7 +107,7 @@ function validateSteps(steps, targets, label, requireAssertion) {
 
 function validateStoryboard(value) {
   requireValue(value?.schemaVersion === 2, 'unsupported schemaVersion; migrate to version 2 using build/storyboards/editor-find.json.');
-  requireScalarFields(value, schema, 'storyboard', ['profile', 'fixture', 'workspace', 'targets', 'steps', 'capture', 'video', 'privacy']);
+  requireScalarFields(value, schema, 'storyboard', ['profile', 'fixture', 'workspace', 'targets', 'steps', 'instructions', 'capture', 'video', 'privacy']);
   requireScalarFields(value.profile, schema.$defs.profile, 'profile');
   requireValue(value.profile.zoomLevel === (value.profile.wideContent ? 1.5 : 2),
     'use zoom level 2 by default, or 1.5 with profile.wideContent: true.');
@@ -135,6 +135,35 @@ function validateStoryboard(value) {
     }
   }
   validateSteps(value.steps, value.targets, 'steps', true);
+  if (Object.hasOwn(value, 'instructions')) {
+    const instructions = value.instructions;
+    const rule = schema.properties.instructions;
+    requireScalarFields(instructions, rule, 'instructions', ['checks']);
+    requireArray(instructions.checks, rule.properties.checks, 'instructions.checks');
+    requireValue(!Object.hasOwn(value, 'video'), 'instruction checks use steps, not video phases.');
+    for (const [index, check] of instructions.checks.entries()) {
+      const label = `instructions.checks[${index}]`;
+      requireScalarFields(check, schema.$defs.instructionCheck, label, ['source', 'steps']);
+      requireScalarFields(check.source, schema.$defs.instructionSource, `${label}.source`);
+      requireValue(check.source.endLine >= check.source.line &&
+        check.source.quote.split('\n').length === check.source.endLine - check.source.line + 1,
+      `${label}.source must quote complete lines in its range.`);
+      requireValue(Object.hasOwn(check, 'steps') !== Object.hasOwn(check, 'notChecked'),
+        `${label} requires steps or an explicit notChecked reason.`);
+      if (Object.hasOwn(check, 'steps')) {
+        const stepsRule = schema.$defs.instructionCheck.properties.steps;
+        requireArray(check.steps, stepsRule, `${label}.steps`);
+        for (const [position, step] of check.steps.entries()) {
+          requireScalar(step, stepsRule.items, `${label}.steps[]`);
+          requireValue(step < value.steps.length && (position === 0 || step > check.steps[position - 1]),
+            `${label}.steps must reference existing steps in increasing order.`);
+        }
+        const outcome = value.steps.at(check.steps.at(-1));
+        requireValue(outcome.kind === 'assert' || outcome.kind === 'wait-for' || outcome.expectTextCycle,
+          `${label}.steps must end with an observable outcome.`);
+      }
+    }
+  }
   requireScalarFields(value.capture, schema.properties.capture, 'capture', ['highlights']);
   if (Object.hasOwn(value.capture, 'highlights')) {
     const highlights = value.capture.highlights;

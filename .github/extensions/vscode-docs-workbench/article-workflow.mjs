@@ -413,7 +413,16 @@ export async function createArticleWorkflow({
       if (!sourceEditor.available || typeof sourceEditor.chat !== 'function') throw new Error(sourceEditor.message || 'Native chat opening is unavailable in this host.');
       const article = await resolveArticle(store.workspace, input.article);
       const skill = fileURLToPath(new URL('../../skills/docs-replay/SKILL.md', import.meta.url));
-      const prompt = reviewChat.procedurePrompt({ article, skill, request: input.request, channel: input.channel });
+      let section;
+      if (input.section !== undefined) {
+        const current = await reviews.sections({ article: input.article });
+        const selected = current.sections.find(item => item.startLine === input.section?.startLine);
+        if (!selected || input.section.articleHash !== current.articleHash) {
+          throw new Error('The article or selected section changed. Reload the sections and choose again.');
+        }
+        section = { ...selected, articleHash: current.articleHash };
+      }
+      const prompt = reviewChat.procedurePrompt({ article, skill, section, request: input.request, channel: input.channel });
       return sourceEditor.chat({ files: [article, skill], prompt });
     },
     'writing-chat': async input => {

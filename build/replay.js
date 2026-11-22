@@ -30,6 +30,14 @@ function inspectProcedure(options) {
   if (!/^[a-f0-9]{40}$/i.test(options.revision)) throw new Error('Supply the full product build revision.');
   const article = fs.realpathSync(path.resolve(ROOT, ...storyboard.article.split('/')));
   if (!isWithinRoot(ROOT, article) || !fs.statSync(article).isFile()) throw new Error('Article must be inside the trusted checkout.');
+  if (storyboard.instructions) {
+    const lines = fs.readFileSync(article, 'utf8').replace(/^\uFEFF/, '').split(/\r?\n/);
+    for (const {source} of storyboard.instructions.checks) {
+      if (source.endLine > lines.length || lines.slice(source.line - 1, source.endLine).join('\n') !== source.quote) {
+        throw new Error('Instruction quote does not match the exact article lines. Derive and review the procedure again.');
+      }
+    }
+  }
   if (storyboard.workspace && (!path.isAbsolute(options.workspace || '') || !path.isAbsolute(options.captureProfile || ''))) {
     throw new Error('Review requires absolute workspace and dedicated capture-profile paths.');
   }
@@ -80,6 +88,35 @@ function reference(file) {
   return {file, sha256: fileHash(file)};
 }
 
+function instructionResults(storyboard, result) {
+  const {instructions, steps} = storyboard;
+  const changed = result.failures.some(failure => failure.code === 'reviewed-inputs-changed');
+  return {
+    setup: instructions.setup,
+    checks: instructions.checks.map(check => {
+      if (check.notChecked) return {...check, status: 'not-checked', reason: check.notChecked, observed: []};
+      const outcomes = check.steps.map(index => result.steps.find(step => step.index === index));
+      const failed = outcomes.find(step => step?.status === 'failed');
+      const passed = !changed && outcomes.every(step => step?.status === 'passed');
+      const status = changed ? 'blocked' : failed ? failed.failure.category === 'mismatch' ? 'mismatch' : 'blocked' :
+        passed ? 'passed' : result.failures.some(failure => failure.category !== 'mismatch') ? 'blocked' : 'not-checked';
+      return {
+        ...check, status,
+        ...(!passed ? {reason: changed ? 'reviewed-inputs-changed' : failed ? failed.failure.code :
+          result.failures.length ? 'run-stopped-before-outcome' : 'outcome-not-observed'} : {}),
+        observed: passed ? check.steps.flatMap(index => {
+          const step = steps.at(index);
+          if (step.kind === 'assert') return [{step: index, target: step.target, assertion: {text: step.text, match: step.match}, matched: true}];
+          if (step.kind === 'wait-for') return [{step: index, target: step.target, state: step.state}];
+          if (step.expectTextCycle) return [{step: index, target: step.expectTextCycle.target, cycleAdvanced: true, values: step.expectTextCycle.values}];
+          return [];
+        }) : failed ? [failed.failure] : []
+      };
+    }),
+    runIssues: result.failures.map(({category, code}) => ({category, code}))
+  };
+}
+
 function makeReport(review, reviewReference, evidenceReference, result) {
   const {binding, bindingHash} = review;
   const generatedAt = new Date().toISOString();
@@ -90,13 +127,14 @@ function makeReport(review, reviewReference, evidenceReference, result) {
     scanPaths: [binding.article], inputHash: bindingHash,
     replay: {binding, review: reviewReference, evidence: evidenceReference, status},
     findings: failures.map(failure => {
+      const instruction = failure.phase === 'steps' && result.instructions?.checks.find(check => check.steps?.includes(failure.step));
       // Paths, timestamps and observed values are evidence, not finding identity.
       const evidence = JSON.stringify({storyboard: binding.storyboardId, phase: failure.phase || 'run',
         step: failure.step ?? null, target: failure.target || null, code: failure.code});
       return {
         id: hash(`replay\0${binding.article}\0${evidence}`), kind: 'replay',
         severity: failure.category === 'mismatch' ? 'warning' : 'unverified',
-        article: binding.article, articleHash: binding.articleHash, line: 1, evidence,
+        article: binding.article, articleHash: binding.articleHash, line: instruction ? instruction.source.line : 1, evidence,
         sourceRevision: binding.sourceRevision, status: 'open', firstSeen: generatedAt, lastSeen: generatedAt,
         message: `Procedure ${binding.storyboardId}${Number.isInteger(failure.step) ? ` step ${failure.step + 1} (${failure.kind})` : ''}: ${failure.category} (${failure.code}).` +
           (failure.category === 'mismatch' ? ' Review the assertion and article; this is not proof of an article bug.' : ' Replay is incomplete; no documentation mismatch is inferred.'),
@@ -114,6 +152,9 @@ async function replayProcedure(options, dependencies = {}) {
     workspace: review.binding.workspace, captureProfile: review.binding.captureProfile
   };
   assertBinding(inspectProcedure(bindingOptions), review);
+  const storyboardBytes = fs.readFileSync(options.storyboard);
+  if (hash(storyboardBytes) !== review.binding.storyboardHash) throw new Error('Stale procedure review: storyboard changed. Review again.');
+  const storyboard = validateStoryboard(JSON.parse(storyboardBytes));
   const output = privateDirectory(options.output);
   if (review.binding.workspace && (isWithinRoot(output, review.binding.workspace) || isWithinRoot(review.binding.workspace, output))) {
     throw new Error('Private output must be separate from the workspace.');
@@ -156,13 +197,14 @@ async function replayProcedure(options, dependencies = {}) {
     ...(capture ? capture.manifestPersisted === false ? {captureState: capture.manifest} :
       {capture: reference(path.join(capture.directory, 'capture.json'))} : {})
   };
+  if (storyboard.instructions) result.instructions = instructionResults(storyboard, result);
   const evidenceFile = path.join(directory, 'replay.json');
   try {
     fs.writeFileSync(evidenceFile, JSON.stringify(result, null, 2), {flag: 'wx'});
     const report = makeReport(review, reviewReference, reference(evidenceFile), result);
     const reportFile = path.join(directory, 'findings.json');
     fs.writeFileSync(reportFile, JSON.stringify(report, null, 2), {flag: 'wx'});
-    return {directory, reportFile, report};
+    return {directory, reportFile, report, ...(result.instructions ? {instructions: result.instructions} : {})};
   } catch (error) {
     throw new Error('Replay failed: could not save complete private replay evidence. Partial files may remain.', {cause: error});
   }
@@ -180,7 +222,7 @@ function assertReplayEvidence(report, options) {
     throw new Error('Replay evidence has an inconsistent completion status.');
   }
   const expected = makeReport(review, report.replay.review, evidence, result);
-  const observations = findings => findings.map(({id, replayEvidence}) => ({id, replayEvidence}))
+  const observations = findings => findings.map(({id, line, replayEvidence}) => ({id, line, replayEvidence}))
     .sort((left, right) => left.id.localeCompare(right.id));
   if (expected.replay.status !== report.replay.status ||
       JSON.stringify(observations(expected.findings)) !== JSON.stringify(observations(report.findings))) {

@@ -469,6 +469,57 @@ function replayFake(overrides) {
   return {...fakeApplication(overrides), confirmReady: async () => true};
 }
 
+test('replay saves source-linked instruction outcomes and distinguishes unobserved claims from passed assertions', async () => {
+  await withOutput(async options => {
+    const storyboard = JSON.parse(fs.readFileSync(STORYBOARD));
+    delete storyboard.video;
+    const lines = fs.readFileSync(path.join(__dirname, '..', ...storyboard.article.split('/')), 'utf8').split(/\r?\n/);
+    const index = lines.findIndex(line => line.includes('Press `kb(actions.find)`'));
+    assert.ok(index > 0);
+    const source = {line: index + 1, endLine: index + 1, quote: lines.at(index)};
+    storyboard.instructions = {
+      setup: 'Open the reviewed text sample without changing Find settings.',
+      checks: [
+        {source, action: 'Find total in the sample.', expected: 'Three matches.', steps: [6]},
+        {source, action: 'Inspect minimap highlighting.', expected: 'Matches appear in the minimap.',
+          notChecked: 'This runner does not inspect rendered highlights.'}
+      ]
+    };
+    const file = path.join(options.output, 'article-procedure.json');
+    fs.writeFileSync(file, JSON.stringify(storyboard));
+    const reviewed = reviewedReplay({...options, storyboard: file});
+    const passed = await replayProcedure(reviewed, replayFake());
+    const saved = JSON.parse(fs.readFileSync(passed.report.replay.evidence.file));
+    assert.deepEqual(saved.instructions, passed.instructions);
+    assert.deepEqual(passed.instructions.checks.map(check => check.status), ['passed', 'not-checked']);
+    assert.equal(passed.instructions.checks[0].source.line, index + 1);
+    assert.deepEqual(passed.instructions.checks[0].observed,
+      [{step: 6, target: 'count', assertion: {text: 'of 3', match: 'contains'}, matched: true}]);
+    assert.equal(passed.instructions.checks[1].reason, 'This runner does not inspect rendered highlights.');
+    assertReplayCurrent(passed.report, {storyboard: file, review: reviewed.review});
+
+    const mismatch = await replayProcedure(reviewed, replayFake({assertionText: 'Changed label'}));
+    assert.equal(mismatch.instructions.checks[0].status, 'mismatch');
+    assert.equal(mismatch.report.findings[0].line, index + 1);
+    const wrongLocation = structuredClone(mismatch.report);
+    wrongLocation.findings[0].line = 1;
+    assert.throws(() => assertReplayCurrent(wrongLocation, {storyboard: file, review: reviewed.review}),
+      /contradicts the saved step evidence/);
+
+    const blocked = replayFake();
+    blocked.confirmReady = async () => false;
+    const incomplete = await replayProcedure(reviewed, blocked);
+    assert.equal(incomplete.instructions.checks[0].status, 'blocked');
+    assert.deepEqual(incomplete.instructions.checks[0].observed, []);
+    assert.equal(incomplete.instructions.runIssues[0].code, 'readiness-denied');
+    assert.equal(blocked.state().photographed, false);
+
+    storyboard.instructions.checks[0].source.quote = 'A quotation that no longer matches the article.';
+    fs.writeFileSync(file, JSON.stringify(storyboard));
+    assert.throws(() => inspectProcedure({...options, storyboard: file}), /quote does not match the exact article lines/);
+  });
+});
+
 test('replay passes unchanged assertions without saving pixels and reports label drift with stable identity', async () => {
   await withOutput(async options => {
     const reviewed = reviewedReplay(options);

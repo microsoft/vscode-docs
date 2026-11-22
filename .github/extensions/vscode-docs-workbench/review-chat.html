@@ -25,6 +25,12 @@
     <label id="chat-article-label" for="chat-article">Article</label>
     <input id="chat-article" list="chat-articles" placeholder="docs/debugtest/debugging-configuration.md" required disabled>
     <datalist id="chat-articles"></datalist>
+    <div id="chat-section-field" hidden>
+      <label for="chat-section">Section (optional)</label>
+      <select id="chat-section" disabled><option value="">Choose scope in chat</option></select>
+      <button id="chat-section-reload" type="button" disabled>Reload sections</button>
+      <p id="chat-section-notice" class="muted" role="status" aria-live="polite">Choose an article to list its sections.</p>
+    </div>
     <fieldset id="chat-presets" disabled><legend>Review focus</legend></fieldset>
     <div id="chat-media-task" hidden>
       <label for="chat-operation">Task</label>

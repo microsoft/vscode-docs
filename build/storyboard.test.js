@@ -49,6 +49,35 @@ test('requires outcome assertions and bounds typing and pause time', () => {
   }
 });
 
+test('instruction source maps require exact line ranges and an observable outcome for each runnable check', () => {
+  const storyboard = structuredClone(find);
+  delete storyboard.video;
+  storyboard.instructions = {
+    setup: 'Open the reviewed sample file.',
+    checks: [
+      {source: {line: 165, endLine: 165, quote: 'Article instruction.'},
+        action: 'Search for total.', expected: 'Three matches.', steps: [6]},
+      {source: {line: 167, endLine: 167, quote: 'Another article instruction.'},
+        action: 'Check a persistent setting.', expected: 'The value survives restart.', notChecked: 'Restart is outside this check.'}
+    ]
+  };
+  validateStoryboard(storyboard);
+  for (const change of [
+    value => {value.instructions.checks[0].steps = [0];},
+    value => {value.instructions.checks[0].steps = [40];},
+    value => {value.instructions.checks[0].steps = [6, 6];},
+    value => {value.instructions.checks[0].steps = [6, 0];},
+    value => {value.instructions.checks[0].notChecked = 'Not run';},
+    value => {delete value.instructions.checks[1].notChecked;},
+    value => {value.instructions.checks[0].source.endLine = 166;},
+    value => {value.video = structuredClone(find.video);}
+  ]) {
+    const invalid = structuredClone(storyboard);
+    change(invalid);
+    assert.throws(() => validateStoryboard(invalid), /Invalid storyboard/);
+  }
+});
+
 test('validates screenshot highlights without allowing unknown targets, colors, or oversized strokes', () => {
   validateStoryboard({...find, capture: {...find.capture, highlights: {targets: [{target: 'query'}]}}});
   for (const highlights of [
