@@ -1,10 +1,12 @@
-import { createCanvas, CanvasError, joinSession } from '@github/copilot-sdk/extension';
+import { createCanvas, CanvasError, joinSession } from '@microsoft/copilot-sdk/extension';
 import { realpath } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { createStore, WorkbenchError } from './state.mjs';
 import { createGitHub } from './github.mjs';
 import { createWorkbench } from './workbench.mjs';
 import { createHttpDiagnostics, createWorkbenchServer } from './server.mjs';
+import { articleCanvasOptions } from './article-canvas.mjs';
+import { declaredCanvas } from './canvas-declarations.mjs';
 
 const instances = new Map();
 const github = createGitHub();
@@ -55,16 +57,9 @@ async function invoke(action, input = {}, requireLaunchApproval = false) {
   }
 }
 
-const schema = (properties, required) => ({ type: 'object', properties, required, additionalProperties: false });
-const key = { type: 'string', description: 'Canonical identity, for example microsoft/vscode-docs:pr:1234.' };
 const canvas = createCanvas({
-  id: 'vscode-docs-workbench',
-  displayName: 'Docs workbench',
-  description: 'Track documentation PRs, release TPIs, issues, and media tasks with approved background-agent workflows.',
-  actions: [{
-    name: 'queue-summary',
-    description: 'Read queue counts, refresh errors, milestone, and local work status without fetching GitHub.',
-    async handler() {
+  ...declaredCanvas('vscode-docs-workbench', {
+    async 'queue-summary'() {
       const state = await (await workbench()).snapshot();
       return {
         milestone: state.milestone, account: state.account,
@@ -76,37 +71,16 @@ const canvas = createCanvas({
         records: Object.entries(state.records).filter(([, record]) => !record.archivedAt)
           .map(([key, record]) => ({ key, disposition: record.disposition }))
       };
-    }
-  }, {
-    name: 'refresh-queues',
-    description: 'Refresh GitHub queues, preserving cached data and reporting any individual queue errors.',
-    async handler() {
+    },
+    async 'refresh-queues'() {
       await invoke('refresh');
       return { refreshed: true, ...(await canvasActionSummary()) };
-    }
-  }, {
-    name: 'inspect-item',
-    description: 'Read the current source, comments, and stored workflow history for a work item.',
-    inputSchema: schema({ key }, ['key']),
-    handler: ({ input }) => invoke('detail', input)
-  }, {
-    name: 'start-workflow',
-    description: 'Start a host-approved background review, documentation plan, approved implementation, or media task.',
-    inputSchema: schema({
-      key, workflow: { type: 'string', enum: ['review', 'document', 'close-comment', 'implement', 'screenshot', 'video'] },
-      plan: { type: 'string' }, base: { type: 'string', enum: ['main', 'vnext'] }
-    }, ['key', 'workflow']),
-    handler: ({ input }) => invoke('launch', input, true)
-  }, {
-    name: 'sync-tasks',
-    description: 'Read actual host background-agent states and save their results.',
-    async handler() { await invoke('sync'); return canvasActionSummary(); }
-  }, {
-    name: 'attach-media',
-    description: 'Attach a genuine PNG, WebM, or MP4 from the task private media directory for human visual review.',
-    inputSchema: schema({ key, file: { type: 'string' }, description: { type: 'string' } }, ['key', 'file', 'description']),
-    handler: ({ input }) => invoke('attach-media', input)
-  }],
+    },
+    'inspect-item': ({ input }) => invoke('detail', input),
+    'start-workflow': ({ input }) => invoke('launch', input, true),
+    async 'sync-tasks'() { await invoke('sync'); return canvasActionSummary(); },
+    'attach-media': ({ input }) => invoke('attach-media', input)
+  }),
   async open({ instanceId }) {
     if (!instances.has(instanceId)) {
       try {
@@ -141,4 +115,5 @@ async function canvasActionSummary() {
   };
 }
 
-session = await joinSession({ canvases: [canvas] });
+const articleCanvas = createCanvas(articleCanvasOptions({ getSession: () => session, CanvasError }));
+session = await joinSession({ canvases: { definitions: [canvas, articleCanvas] } });
