@@ -10,6 +10,7 @@ import auditFindings from '../../../build/audit-findings.js';
 import { WorkbenchError, text } from './state.mjs';
 import { atomicJson, createArticleStore, hash, isHash, isTime, now, ownedPath, readBytes, readJson, resolveArticle, resolveScope, uuid, validateRun } from './article-storage.mjs';
 import { reportHostStatus, reportRerunDecision } from './article-artifacts.mjs';
+import { decideFinding, findingActionView, findingSource } from './finding-actions.mjs';
 
 /* eslint-disable security/detect-non-literal-fs-filename -- All artifacts are guarded private paths; article paths use resolveArticle. */
 
@@ -128,6 +129,13 @@ This authorizes analysis and private draft output.${focus === 'editorial' ? '' :
 
 export async function createReviewWorkflow(store, host, { check = checkDefault } = {}) {
   const stateFile = reviewStore(store);
+  async function source(state, input) {
+    const record = state.review.findings.find(record => record.finding.id === input.findingId);
+    const run = state.runs.find(run => run.reportId === record?.reportId);
+    if (!run?.ingestedHash) throw new Error('Original review evidence is unavailable.');
+    const result = await loadResult(store, run);
+    return findingSource(record, result.report);
+  }
   async function inspect(run) {
     let result;
     try {
@@ -242,6 +250,7 @@ export async function createReviewWorkflow(store, host, { check = checkDefault }
       const run = state.runs.find(item => item.reportId === record.reportId);
       const result = results.get(run.id);
       return { ...record, check: 'review', reviewable: result?.state === 'valid',
+        actions: findingActionView(record, result?.report, result?.message),
         freshness: result?.state === 'valid' ? 'fresh' : result?.state === 'stale' ? 'stale' : 'unavailable',
         coverageToken: hash(JSON.stringify([run.id, run.ingestedHash])),
         message: result?.message || 'Agent judgment. A later review not mentioning this finding does not resolve it.',
@@ -280,6 +289,8 @@ export async function createReviewWorkflow(store, host, { check = checkDefault }
   }
   return {
     launch,
+    finding: async input => source(await stateFile.read(), input),
+    decide: input => stateFile.update(async state => decideFinding(store, state.review, await source(state, input), input)),
     async launchEditorial(input) {
       if (input.confirmed !== true) throw new Error('Explicit editorial-batch launch approval is required.');
       if (input.concerns !== undefined && typeof input.concerns !== 'string') throw new Error('Editorial concerns must be text.');

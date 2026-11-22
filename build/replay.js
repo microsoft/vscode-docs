@@ -168,14 +168,9 @@ async function replayProcedure(options, dependencies = {}) {
   }
 }
 
-function assertReplayCurrent(report, options) {
+function assertReplayEvidence(report, options) {
   const review = readReview(options.review);
-  const current = inspectProcedure({storyboard: options.storyboard, revision: review.binding.product.revision,
-    workspace: review.binding.workspace, captureProfile: review.binding.captureProfile});
-  assertBinding(current, review);
-  if (current.bindingHash !== report.inputHash || fileHash(options.review) !== report.replay.review.sha256) {
-    throw new Error('Stale replay report: reviewed inputs changed.');
-  }
+  if (fileHash(options.review) !== report.replay.review.sha256) throw new Error('Replay review evidence changed.');
   const evidence = report.replay.evidence;
   if (fileHash(evidence.file) !== evidence.sha256) throw new Error('Replay evidence changed.');
   const result = JSON.parse(fs.readFileSync(evidence.file, 'utf8'));
@@ -191,6 +186,18 @@ function assertReplayCurrent(report, options) {
       JSON.stringify(observations(expected.findings)) !== JSON.stringify(observations(report.findings))) {
     throw new Error('Replay report contradicts the saved step evidence.');
   }
+  return review;
+}
+
+function assertReplayCurrent(report, options) {
+  const review = readReview(options.review);
+  const current = inspectProcedure({storyboard: options.storyboard, revision: review.binding.product.revision,
+    workspace: review.binding.workspace, captureProfile: review.binding.captureProfile});
+  assertBinding(current, review);
+  if (current.bindingHash !== report.inputHash || fileHash(options.review) !== report.replay.review.sha256) {
+    throw new Error('Stale replay report: reviewed inputs changed.');
+  }
+  assertReplayEvidence(report, options);
 }
 
 async function main(args = process.argv.slice(2)) {
@@ -229,7 +236,7 @@ async function main(args = process.argv.slice(2)) {
   return command === 'run' ? result.report.replay.status === 'passed' ? 0 : result.report.replay.status === 'mismatch' ? 1 : 2 : 0;
 }
 
-module.exports = {assertReplayCurrent, inspectProcedure, main, makeReport, replayProcedure, reviewProcedure};
+module.exports = {assertReplayCurrent, assertReplayEvidence, inspectProcedure, main, makeReport, replayProcedure, reviewProcedure};
 
 if (require.main === module) {
   main().then(code => {process.exitCode = code;}, error => {console.error(error.message); process.exitCode = 2;});

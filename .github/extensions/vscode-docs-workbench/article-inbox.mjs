@@ -3,6 +3,29 @@ import auditFindings from '../../../build/audit-findings.js';
 import { WorkbenchError, text } from './state.mjs';
 import { hash, now, resolveArticle } from './article-storage.mjs';
 import { loadRunArtifacts } from './article-artifacts.mjs';
+import { decideFinding, findingActionView, findingSource } from './finding-actions.mjs';
+
+function originalReports(state, inspected) {
+  const reports = new Map();
+  for (const run of state.runs) {
+    const result = inspected.get(run.id);
+    if (result?.state !== 'valid' || result.reportHash !== run.ingestedHash) continue;
+    for (const report of result.reports) {
+      const { findings: _findings, ...metadata } = report;
+      reports.set(auditFindings.reportId(metadata), report);
+    }
+  }
+  return reports;
+}
+
+export async function inboxFindingSource(store, state, input) {
+  const record = state.review.findings.find(record => record.finding.id === input.findingId);
+  return findingSource(record, originalReports(state, await inspectInbox(store, state)).get(record?.reportId));
+}
+
+export function decideInboxFinding(store, input) {
+  return store.update(async state => decideFinding(store, state.review, await inboxFindingSource(store, state, input), input));
+}
 
 export async function inspectExecution(store, run) {
   const checkedAt = now();
@@ -236,6 +259,7 @@ export async function inboxSnapshot(store, state, articles, inspected, check) {
 export function inboxView(state, articles, inspected, verified, checkedAt = now()) {
   const metadata = new Map(state.review.reports.map(entry => [entry.id, entry.report]));
   const runs = new Map(state.runs.map(run => [run.id, run]));
+  const originals = originalReports(state, inspected);
   const records = state.review.findings.map(record => {
     const verification = verified.get(record.finding.article);
     const notObserved = verification && !verification.findingIds.includes(record.finding.id);
@@ -245,6 +269,7 @@ export function inboxView(state, articles, inspected, verified, checkedAt = now(
     const report = metadata.get(record.reportId);
     return {
       ...record, freshness, observation: notObserved ? 'not-observed' : 'observed',
+      actions: findingActionView(record, originals.get(record.reportId)),
       reviewable: ['fresh', 'not-observed', 'checking'].includes(freshness) ||
         (freshness === 'unavailable' && verification?.canValidateOnSave === true),
       coverageToken: verification?.token,

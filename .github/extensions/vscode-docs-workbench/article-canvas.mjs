@@ -23,6 +23,8 @@ export const articleAssets = new Map([
   ['/release-tpis-app.mjs', ['release-tpis-app.mjs', 'text/javascript; charset=utf-8']],
   ['/review-chat.mjs', ['review-chat.mjs', 'text/javascript; charset=utf-8']],
   ['/article-app.mjs', ['article-app.mjs', 'text/javascript; charset=utf-8']],
+  ['/dom.mjs', ['dom.mjs', 'text/javascript; charset=utf-8']],
+  ['/presentation.mjs', ['presentation.mjs', 'text/javascript; charset=utf-8']],
   ['/article.css', ['article.css', 'text/css; charset=utf-8']]
 ]);
 

@@ -12,6 +12,7 @@ import audit from '../../../build/audit-state.js';
 import auditFindings from '../../../build/audit-findings.js';
 import { WorkbenchError, text } from './state.mjs';
 import { atomicJson, createArticleStore, format as inboxFormat, hash, isHash, isTime, now, ownedPath, readJson, uuid, validateRun } from './article-storage.mjs';
+import { decideFinding, findingActionView, findingSource } from './finding-actions.mjs';
 
 /* eslint-disable security/detect-non-literal-fs-filename -- Replay paths are fixed names beneath guarded workspace/run directories or explicitly reviewed workspace/profile paths. */
 /* eslint-disable security/detect-child-process -- Only discovered VS Code CLI scripts in standard installation directories receive the fixed --version argument. */
@@ -136,7 +137,7 @@ function profileDirectory(store) {
   return path.join(store.home, 'extension-data', inboxFormat, 'replay-profiles');
 }
 
-async function verifyReport(store, run, api) {
+async function verifyReport(store, run, api, historical = false) {
   const request = await readJson(await runFile(store, run.id, 'request.json'));
   const receipt = await readJson(await runFile(store, run.id, 'receipt.json'));
   if (request.format !== format || request.version !== 1 || request.id !== run.id || request.ownerSessionId !== run.ownerSessionId ||
@@ -161,7 +162,10 @@ async function verifyReport(store, run, api) {
   const evidence = await readJson(report.replay.evidence.file);
   if (evidence.capture) await ownedPath(output, path.relative(output, evidence.capture.file));
   const unsafeCleanup = report.findings.some(finding => finding.replayEvidence.category === 'cleanup');
-  try { api.assertReplayCurrent(report, { storyboard: await storyFile(store, run.config.storyboard), review: reviewFile }); }
+  try {
+    if (historical) replay.assertReplayEvidence(report, { review: reviewFile });
+    else api.assertReplayCurrent(report, { storyboard: await storyFile(store, run.config.storyboard), review: reviewFile });
+  }
   catch (error) {
     if (error.message.startsWith('Stale')) return { state: 'stale', message: error.message, report, reportHash, unsafeCleanup };
     throw error;
@@ -205,6 +209,13 @@ async function readiness(store, run) {
 
 export async function createReplayWorkflow(store, host, { api = replay, builds = installedReplayBuilds } = {}) {
   const stateFile = replayStore(store);
+  async function source(state, input) {
+    const record = state.review.findings.find(record => record.finding.id === input.findingId);
+    const run = state.runs.find(run => run.reportId === record?.reportId);
+    if (!run?.ingestedHash) throw new Error('Original replay evidence is unavailable.');
+    const result = await verifyReport(store, run, api, true);
+    return findingSource(record, result.report);
+  }
   async function options() { return { storyboards: await catalog(store), ...await builds() }; }
   async function prepare(input) {
     const selected = (await catalog(store)).find(item => item.file === input.storyboard);
@@ -341,6 +352,11 @@ export async function createReplayWorkflow(store, host, { api = replay, builds =
         latest.set(run.binding.storyboardId, run);
       }
     }
+    const originals = new Map();
+    for (const run of state.runs.filter(run => run.ingestedHash)) {
+      try { originals.set(run.reportId, await verifyReport(store, run, api, true)); }
+      catch (error) { originals.set(run.reportId, { message: error.message }); }
+    }
     const records = state.review.findings.map(record => {
       const original = state.runs.find(run => run.reportId === record.reportId);
       const last = latest.get(original.binding.storyboardId) || original;
@@ -353,6 +369,7 @@ export async function createReplayWorkflow(store, host, { api = replay, builds =
       const fresh = result?.state === 'valid';
       return {
         ...record, check: 'replay', freshness: fresh ? absent ? 'not-observed' : 'fresh' : result?.state === 'stale' ? 'stale' : 'unavailable',
+        actions: findingActionView(record, originals.get(record.reportId)?.report, originals.get(record.reportId)?.message),
         reviewable: fresh, coverageToken: hash(JSON.stringify([proofRun.id, proofRun.ingestedHash])),
         message: absent ? 'Not observed in the latest passed replay. Retained for an explicit decision, not automatically fixed.' : result?.message,
         provenance: { report: state.review.reports.find(item => item.id === record.reportId).report,
@@ -388,6 +405,8 @@ export async function createReplayWorkflow(store, host, { api = replay, builds =
   }
   return {
     options, prepare, launch, ownedRuns, sync,
+    finding: async input => source(await stateFile.read(), input),
+    decide: input => stateFile.update(async state => decideFinding(store, state.review, await source(state, input), input)),
     async snapshot() { await collect(); return view(await stateFile.read()); },
     async inspect({ id }) {
       const run = (await stateFile.read()).runs.find(item => item.id === id);

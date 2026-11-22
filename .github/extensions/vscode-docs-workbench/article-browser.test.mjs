@@ -49,7 +49,7 @@ async function browserFixture(t, options) {
   return { f, page, failures };
 }
 
-test('compact inbox loads automatically, filters, reviews directly, and preserves drafts and safe reruns', browserOptions, async t => {
+test('compact inbox loads automatically, filters, and preserves one-click decisions and safe reruns', browserOptions, async t => {
   const screenshotRoot = process.env.DOCS_ARTICLE_SCREENSHOTS
     ? await resolveScreenshotRoot(process.env.DOCS_ARTICLE_SCREENSHOTS) : undefined;
   let screenshotDirectory;
@@ -70,6 +70,8 @@ test('compact inbox loads automatically, filters, reviews directly, and preserve
   await indicator.getByText('Findings updated · 1 article(s)', { exact: true }).waitFor();
   assert.equal(f.requests.length, 1);
   assert.equal(await rows.count(), 9);
+  assert.equal(await page.getByRole('img', { name: 'Error', exact: true }).count(), 2);
+  assert.equal(await page.getByRole('img', { name: 'Unverified', exact: true }).count(), 7);
   assert.equal(await page.locator('#execution-details').evaluate(node => node.open), false);
   assert.equal(await page.locator('#report img').count(), 0);
   assert.equal(await page.getByRole('button', { name: 'Enable local review', exact: true }).count(), 0);
@@ -88,14 +90,12 @@ test('compact inbox loads automatically, filters, reviews directly, and preserve
 
   const toggle = page.getByRole('button', { name: /^docs\/article\.md:\d+ · setting\(fixture\.setting0\)$/ });
   await toggle.click();
-  const form = page.locator('.finding-detail:not([hidden]) form');
-  assert.equal(await form.count(), 1, 'Review requires no enable/import step.');
-  await form.getByLabel('Decision', { exact: true }).selectOption('dismissed');
-  await form.getByLabel('Reason', { exact: true }).fill('Explicit synthetic review.');
+  const actions = rows.filter({ hasText: 'fixture.setting0' }).locator('.finding-actions');
+  assert.equal(await actions.count(), 1, 'Review requires no enable/import step.');
+  assert.equal(await page.locator('.finding-detail form').count(), 0, 'State changes need no reason or Save form.');
   await page.getByRole('button', { name: 'Errors 2', exact: true }).click();
   await page.getByRole('button', { name: 'All 9', exact: true }).click();
-  assert.equal(await form.getByLabel('Reason', { exact: true }).inputValue(), 'Explicit synthetic review.');
-  await form.getByRole('button', { name: 'Save decision', exact: true }).click();
+  await actions.getByRole('button', { name: 'Dismiss', exact: true }).click();
   await page.getByText('Decision saved locally. Documentation and GitHub are unchanged.', { exact: true }).waitFor();
   await page.getByLabel('Review status', { exact: true }).selectOption('dismissed');
   assert.equal(await rows.count(), 1);
@@ -137,15 +137,15 @@ test('compact inbox loads automatically, filters, reviews directly, and preserve
       return { font: style.fontFamily, foreground: style.color, background: style.backgroundColor,
         inputBackground: getComputedStyle(node.querySelector('input')).backgroundColor,
         panelBackground: getComputedStyle(node.querySelector('.batch-panel')).backgroundColor,
-        unverifiedBackground: getComputedStyle(node.querySelector('.badge.unverified')).backgroundColor,
-        errorBackground: getComputedStyle(node.querySelector('.badge.error')).backgroundColor };
+        unverifiedColor: getComputedStyle(node.querySelector('.severity-icon.unverified')).color,
+        errorColor: getComputedStyle(node.querySelector('.severity-icon.error')).color };
     });
     appearances.set(theme, appearance);
     assert.ok(appearance.font);
     assert.notEqual(appearance.foreground, appearance.background);
     assert.notEqual(appearance.inputBackground, 'rgba(0, 0, 0, 0)');
     assert.notEqual(appearance.panelBackground, 'rgba(0, 0, 0, 0)');
-    assert.notEqual(appearance.unverifiedBackground, appearance.errorBackground);
+    assert.notEqual(appearance.unverifiedColor, appearance.errorColor);
     if (screenshotRoot) {
       if (!screenshotDirectory) {
         screenshotDirectory = await mkdtemp(path.join(screenshotRoot, 'vscode-docs-article-screenshots-'));
@@ -199,18 +199,17 @@ test('compact inbox loads automatically, filters, reviews directly, and preserve
   await page.getByLabel('Freshness', { exact: true }).selectOption('not-observed');
   assert.equal(await rows.count(), 9);
   await toggle.click();
-  await form.getByLabel('Decision', { exact: true }).selectOption('fixed');
-  await form.getByLabel('Reason', { exact: true }).fill('Confirmed removal in the clean scan.');
-  await form.getByRole('button', { name: 'Save decision', exact: true }).click();
+  await actions.getByRole('button', { name: 'Undo', exact: true }).click();
+  await actions.getByRole('button', { name: 'Mark fixed', exact: true }).click();
   await page.getByText('Decision saved locally. Documentation and GitHub are unchanged.', { exact: true }).waitFor();
+  await rows.filter({ hasText: 'fixture.setting0' }).locator('.review-state').getByText('fixed', { exact: true }).waitFor();
   assert.equal(await rows.filter({ hasText: 'fixture.setting0' }).locator('.review-state').innerText(), 'fixed');
-  await form.getByLabel('Reason', { exact: true }).fill('Do not carry this draft to changed evidence.');
   await page.getByLabel('Freshness', { exact: true }).selectOption('all');
   await writeFile(path.join(f.workspace, 'docs', 'article.md'), '# New context\n\n`setting(fixture.setting0)`');
   await launch.click();
   await rows.filter({ hasText: 'fixture.setting0' }).locator('.freshness').getByText('Fresh', { exact: true }).waitFor();
   assert.equal(await rows.filter({ hasText: 'fixture.setting0' }).locator('.review-state').innerText(), 'open');
-  assert.equal(await form.getByLabel('Reason', { exact: true }).inputValue(), '', 'Changed evidence must not inherit a stale reason draft.');
+  assert.equal(await actions.getByRole('button', { name: 'Mark fixed', exact: true }).isEnabled(), true);
   assert.deepEqual(failures, []);
 });
 
@@ -309,7 +308,7 @@ test('host outages leave accepted evidence reviewable and exact-byte regressions
   const launch = page.getByRole('button', { name: 'Run checks', exact: true });
   const refresh = page.getByRole('button', { name: 'Refresh', exact: true });
   const row = page.locator('.finding');
-  const form = page.locator('.finding-detail:not([hidden]) form');
+  const actions = row.locator('.finding-actions');
   await page.locator('#scope').fill('docs/article.md');
   await launch.click();
   await row.locator('.freshness').getByText('Fresh', { exact: true }).waitFor();
@@ -319,7 +318,7 @@ test('host outages leave accepted evidence reviewable and exact-byte regressions
   await refresh.click();
   await page.locator('#reload:enabled').waitFor();
   await row.locator('.freshness').getByText('Fresh', { exact: true }).waitFor();
-  assert.equal(await form.getByRole('button', { name: 'Save decision', exact: true }).isEnabled(), true);
+  assert.equal(await actions.getByRole('button', { name: 'Mark fixed', exact: true }).isEnabled(), true);
   assert.equal(await launch.isDisabled(), true);
   await page.locator('#execution-details > summary').click();
   await page.locator('#execution').getByText('Synthetic host lookup unavailable', { exact: true }).waitFor();
@@ -329,22 +328,18 @@ test('host outages leave accepted evidence reviewable and exact-byte regressions
   await refresh.click();
   await launch.click();
   await row.locator('.freshness').getByText('Not observed', { exact: true }).waitFor();
-  await form.getByLabel('Decision', { exact: true }).selectOption('fixed');
-  await form.getByLabel('Reason', { exact: true }).fill('Confirmed absence in the clean scan.');
-  await form.getByRole('button', { name: 'Save decision', exact: true }).click();
+  await actions.getByRole('button', { name: 'Mark fixed', exact: true }).click();
   await row.locator('.review-state').getByText('fixed', { exact: true }).waitFor();
-  await form.getByLabel('Reason', { exact: true }).fill('Draft for the previous verified absence.');
   await writeFile(path.join(f.workspace, 'docs', 'article.md'), content);
   await launch.click();
   await row.locator('.freshness').getByText('Fresh', { exact: true }).waitFor();
   assert.equal(await row.locator('.review-state').innerText(), 'open');
   await page.locator('.finding-detail').getByText(/^Reopened after reappearance:/).waitFor();
-  assert.equal(await form.getByLabel('Decision', { exact: true }).inputValue(), 'open');
-  assert.equal(await form.getByLabel('Reason', { exact: true }).inputValue(), '');
+  assert.equal(await actions.getByRole('button', { name: 'Mark fixed', exact: true }).isEnabled(), true);
   assert.deepEqual(failures, []);
 });
 
-test('checking history stays filterable and a new verification clears an obsolete review draft', browserOptions, async t => {
+test('checking history stays filterable without requiring a state form or launching extra checks', browserOptions, async t => {
   let holding = false;
   let release;
   const gate = new Promise(resolve => { release = resolve; });
@@ -370,14 +365,13 @@ test('checking history stays filterable and a new verification clears an obsolet
   await page.getByRole('button', { name: 'Refresh', exact: true }).click();
   await page.locator('.finding .freshness').getByText('Checking', { exact: true }).waitFor();
   await page.getByRole('button', { name: /^docs\/article\.md:\d+ · setting\(progressive\.example\)$/ }).click();
-  const form = page.locator('.finding-detail:not([hidden]) form');
-  await form.getByLabel('Reason', { exact: true }).fill('Draft for the last accepted verification.');
-  assert.equal(await form.getByRole('button', { name: 'Save decision', exact: true }).isEnabled(), true);
+  const actions = page.locator('.finding .finding-actions');
+  assert.equal(await actions.getByRole('button', { name: 'Mark fixed', exact: true }).isEnabled(), true);
   await page.getByLabel('Freshness', { exact: true }).selectOption('fresh');
   assert.equal(await page.locator('.finding').count(), 0, 'Checking evidence must not appear in the Fresh filter.');
   await page.getByLabel('Freshness', { exact: true }).selectOption('checking');
   assert.equal(await page.locator('.finding').count(), 1);
-  assert.equal(await form.getByLabel('Reason', { exact: true }).inputValue(), 'Draft for the last accepted verification.');
+  assert.equal(await actions.getByRole('button', { name: 'Dismiss', exact: true }).isEnabled(), true);
   assert.equal(f.requests.length, 1, 'Filtering pending verification never launches checks.');
   await page.getByLabel('Freshness', { exact: true }).selectOption('all');
   await launch.click();
@@ -385,7 +379,7 @@ test('checking history stays filterable and a new verification clears an obsolet
   release();
   await page.locator('#execution-indicator').getByText('Findings updated · 1 article(s)', { exact: true }).waitFor();
   await page.locator('.finding .freshness').getByText('Fresh', { exact: true }).waitFor();
-  assert.equal(await form.getByLabel('Reason', { exact: true }).inputValue(), '', 'A new coverage token cannot inherit an old draft.');
+  assert.equal(await page.locator('.finding-detail form').count(), 0);
   assert.equal((await f.workflow.store.read()).review.findings[0].history.length, 0);
   assert.deepEqual(failures, []);
 });

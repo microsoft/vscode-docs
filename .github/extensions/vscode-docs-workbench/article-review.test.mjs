@@ -20,8 +20,8 @@ const draft = () => ({
     message: 'The instruction does not identify its target.', suggestion: 'Name the control to select.', sources: [] }]
 });
 
-async function fixture(t, articleContent = content, articles = {}) {
-  const f = await createArticleFixture({ content: articleContent, articles });
+async function fixture(t, articleContent = content, articles = {}, editor) {
+  const f = await createArticleFixture({ content: articleContent, articles, workflowOptions: { editor } });
   let dispose = async () => {};
   t.after(async () => { try { await dispose(); } finally { await f.dispose(); } });
   let currentDraft = draft();
@@ -68,6 +68,148 @@ async function fixture(t, articleContent = content, articles = {}) {
     }
   };
 }
+
+test('one-click review decisions resolve corrected historical findings without rewriting review freshness', async t => {
+  const f = await fixture(t);
+  const run = await f.launch({ focus: 'editorial' });
+  const first = (await f.snapshot()).findings[0];
+  const input = record => ({ check: 'review', findingId: record.finding.id, evidenceHash: record.evidenceHash,
+    actionToken: record.actions.token });
+  await f.workflow.dispatch('finding-state', { ...input(first), status: 'dismissed' });
+  let record = (await f.snapshot()).findings[0];
+  assert.equal(record.finding.status, 'dismissed');
+  assert.match(record.history.at(-1).reason, /User dismissed.*Current article SHA-256/);
+  await assert.rejects(f.workflow.dispatch('finding-state', { ...input(first), status: 'open' }), /state changed/);
+  await f.workflow.dispatch('finding-state', { ...input(record), status: 'open' });
+  const originalReport = await readFile((await f.files(run)).report, 'utf8');
+  await writeFile(path.join(f.workspace, 'docs', 'article.md'), content.replace('Choose the thing.', 'Choose the named control.'));
+  f.setDraft({ status: 'complete', summary: 'No further observations.', limitations: [], findings: [] });
+  await f.launch({ focus: 'editorial' });
+  record = (await f.snapshot()).findings[0];
+  assert.equal(record.freshness, 'stale');
+  assert.equal(record.reviewable, false, 'Legacy verified-triage rules must remain strict.');
+  await f.workflow.dispatch('finding-state', { ...input(record), status: 'fixed' });
+  record = (await f.snapshot()).findings[0];
+  assert.equal(record.finding.status, 'fixed');
+  assert.equal(record.freshness, 'stale', 'Manual closure must not make the historical report current.');
+  assert.match(record.history.at(-1).reason, /User marked fixed/);
+  assert.equal(await readFile((await f.files(run)).report, 'utf8'), originalReport);
+  await assert.rejects(f.workflow.dispatch('finding-state', { ...input(record), status: 'accepted' }), /Choose Dismiss/);
+  const reopened = await f.reopen({ reviewOptions: { check: f.check } });
+  const saved = (await reopened.dispatch('refresh', {})).findings[0];
+  assert.equal(saved.finding.status, 'fixed');
+  await reopened.dispatch('finding-state', { ...input(saved), status: 'open' });
+  assert.equal((await reopened.dispatch('refresh', {})).findings[0].finding.status, 'open');
+  const files = await f.files(run);
+  const report = await readJson(files.report);
+  report.review.summary = 'Tampered original report';
+  await atomicJson(files.report, report);
+  await assert.rejects(f.workflow.dispatch('finding-state', { ...input(saved), status: 'dismissed' }), /report does not match/);
+});
+
+test('fix chat attaches only the selected owned finding and leaves decisions unchanged even when handoff fails', async t => {
+  const chats = [];
+  let fail = false;
+  const f = await fixture(t, content, {}, { available: true, async chat(input) {
+    chats.push(input);
+    if (fail) throw new Error('Chat timed out');
+    return { requested: true, message: 'Fix conversation requested.' };
+  } });
+  await f.launch({ focus: 'editorial' });
+  const record = (await f.snapshot()).findings[0];
+  const input = { check: 'review', findingId: record.finding.id, evidenceHash: record.evidenceHash,
+    actionToken: record.actions.token, confirmed: true, article: '../outside.md', message: 'Forged client message' };
+  f.session.rpc.tasks.list = async () => { throw new Error('No host lookup for a chat launch'); };
+  await f.workflow.dispatch('finding-fix-chat', input);
+  assert.equal(chats.length, 1);
+  assert.equal(chats[0].files[0], path.join(f.workspace, 'docs', 'article.md'));
+  assert.ok(chats[0].files[1].endsWith(path.join('skills', 'doc-writer', 'SKILL.md')));
+  const context = await readJson(chats[0].files[2]);
+  assert.equal(context.finding.id, record.finding.id);
+  assert.equal(context.finding.message, record.finding.message);
+  assert.equal(context.current.article, chats[0].files[0]);
+  assert.match(chats[0].prompt, /wait for approval/);
+  assert.match(chats[0].prompt, /Never change the finding's state/);
+  assert.doesNotMatch(chats[0].prompt, /Forged client message/);
+  for (const change of [{ confirmed: false }, { actionToken: 'changed' }, { findingId: 'missing' }, { check: 'other' }]) {
+    await assert.rejects(f.workflow.dispatch('finding-fix-chat', { ...input, ...change }));
+  }
+  fail = true;
+  await assert.rejects(f.workflow.dispatch('finding-fix-chat', input), /Chat timed out/);
+  assert.equal(chats.length, 2, 'A failed handoff must not retry automatically.');
+  const after = (await f.workflow.raw.snapshot({ verify: false })).findings[0];
+  assert.equal(after.finding.status, 'open');
+  assert.equal(after.history.length, 0);
+  assert.equal(f.tracked.length, 1, 'Chat launch must not create another background review.');
+});
+
+test('browser exposes accessible icon actions on collapsed findings and preserves post-edit closure', {
+  skip: !process.env.DOCS_ARTICLE_BROWSER && 'Set DOCS_ARTICLE_BROWSER to an installed browser.'
+}, async t => {
+  const chats = [];
+  let fail = false;
+  const f = await fixture(t, content, {}, { available: true, async chat(input) {
+    chats.push(input);
+    if (fail) throw new Error('Chat timed out');
+    return { requested: true, message: 'Fix conversation requested.' };
+  } });
+  await f.launch({ focus: 'editorial' });
+  await f.snapshot();
+  let browser;
+  const server = await createWorkbenchServer(f.workflow.raw, async () => {}, () => {}, { assetEntries: articleAssets });
+  f.beforeDispose(async () => { try { await browser?.close(); } finally { await server.close(); } });
+  browser = await chromium.launchPersistentContext(path.join(f.directory, 'browser'), {
+    executablePath: process.env.DOCS_ARTICLE_BROWSER, headless: true
+  });
+  const page = await browser.newPage();
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.route('**/*', route => new URL(route.request().url()).origin === server.url ? route.continue() : route.abort());
+  await page.goto(`${server.url}/findings`);
+  const row = page.locator('.finding');
+  await row.waitFor();
+  const actions = row.locator('.finding-actions');
+  assert.equal(await row.locator('.finding-toggle').getAttribute('aria-expanded'), 'false');
+  assert.equal(await actions.isVisible(), true);
+  assert.equal(await page.getByRole('img', { name: 'Warning', exact: true }).count(), 1);
+  for (const button of await actions.getByRole('button').all()) {
+    assert.equal(await button.getAttribute('title'), await button.getAttribute('aria-label'));
+    assert.equal(await button.locator('svg').count(), 1);
+  }
+  assert.equal(await page.locator('.finding-detail form, .finding-detail textarea').count(), 0);
+  await actions.getByRole('button', { name: 'Fix in chat', exact: true }).evaluate(button => { button.click(); button.click(); });
+  await page.getByText('Fix conversation requested.', { exact: true }).waitFor();
+  assert.equal(chats.length, 1);
+  assert.equal(await row.locator('.review-state').innerText(), 'open');
+  await actions.getByRole('button', { name: 'Dismiss', exact: true }).click();
+  await row.locator('.review-state').getByText('dismissed', { exact: true }).waitFor();
+  assert.equal(await row.locator('.finding-toggle').getAttribute('aria-expanded'), 'false');
+  await actions.getByRole('button', { name: 'Undo', exact: true }).click();
+  await row.locator('.review-state').getByText('open', { exact: true }).waitFor();
+  await writeFile(path.join(f.workspace, 'docs', 'article.md'), content.replace('Choose the thing.', 'Choose the named control.'));
+  await page.getByRole('button', { name: 'Refresh', exact: true }).click();
+  await row.locator('.freshness').getByText('Stale', { exact: true }).waitFor();
+  await actions.getByRole('button', { name: 'Mark fixed', exact: true }).click();
+  await row.locator('.review-state').getByText('fixed', { exact: true }).waitFor();
+  assert.equal(await row.locator('.freshness').innerText(), 'Stale');
+  await page.reload();
+  await row.locator('.review-state').getByText('fixed', { exact: true }).waitFor();
+  await actions.getByRole('button', { name: 'Undo', exact: true }).click();
+  await row.locator('.review-state').getByText('open', { exact: true }).waitFor();
+  fail = true;
+  await actions.getByRole('button', { name: 'Fix in chat', exact: true }).click();
+  await page.getByText(/Chat timed out.*Check VS Code Chat before trying again/).waitFor();
+  assert.equal(chats.length, 2);
+  assert.equal(await row.locator('.review-state').innerText(), 'open');
+  await page.setViewportSize({ width: 420, height: 800 });
+  assert.ok(await row.locator('.finding-mobile-status').isVisible());
+  assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+  for (const button of await actions.getByRole('button').all()) {
+    const bounds = await button.boundingBox();
+    assert.ok(bounds.x >= 0 && bounds.x + bounds.width <= 420);
+  }
+  assert.deepEqual(errors, []);
+});
 
 test('editorial batches deduplicate scope and preserve per-article decisions, freshness, and structural findings', async t => {
   const f = await fixture(t, content, { 'docs/other.md': content });
@@ -452,9 +594,7 @@ test('browser preserves saved article-review decisions and coverage without expo
   assert.equal(await page.locator('.finding').count(), 1);
   await page.locator('.finding .finding-toggle').click();
   await page.getByText('Suggested correction: Name the control to select.', { exact: true }).waitFor();
-  await page.getByLabel('Decision', { exact: true }).selectOption('dismissed');
-  await page.getByLabel('Reason', { exact: true }).fill('Reviewed the synthetic observation.');
-  await page.getByRole('button', { name: 'Save decision', exact: true }).click();
+  await page.locator('.finding:has(.finding-toggle[aria-expanded=true])').getByRole('button', { name: 'Dismiss', exact: true }).click();
   await page.getByText('Decision saved locally. Documentation and GitHub are unchanged.', { exact: true }).waitFor();
   await page.reload();
   await page.locator('.finding').first().waitFor();

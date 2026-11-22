@@ -134,6 +134,23 @@ test('replay launch is exact-review-bound and its coverage and decisions stay se
   assert.equal((await f.controller.snapshot()).findings[0].freshness, 'stale');
 });
 
+test('manual replay decisions remain available for historical source but reject tampered private evidence', async t => {
+  const f = await fixture(t);
+  const run = await f.launch();
+  let record = (await f.controller.snapshot()).findings[0];
+  assert.ok(record.actions.token, record.actions.error);
+  const input = { findingId: record.finding.id, evidenceHash: record.evidenceHash, actionToken: record.actions.token, status: 'fixed' };
+  f.changeSource();
+  await f.controller.decide(input);
+  record = (await f.controller.snapshot()).findings[0];
+  assert.equal(record.finding.status, 'fixed');
+  assert.equal(record.freshness, 'stale');
+  assert.equal(record.provenance.report.replay.status, 'mismatch', 'A manual decision must not turn a replay into a pass.');
+  const report = await readJson(await f.rawWorkflow.store.file(path.join('replay-runs', run.id, 'report.json')));
+  await writeFile(report.replay.evidence.file, '{}');
+  await assert.rejects(f.controller.decide({ ...input, actionToken: record.actions.token, status: 'open' }), /evidence changed/);
+});
+
 test('passed replays retain unseen findings and reappearing fixed findings reopen automatically', async t => {
   const f = await fixture(t);
   await f.launch();
@@ -255,9 +272,7 @@ test('canvas retains saved replay findings and recovery for existing runs withou
   await page.getByLabel('Check type', { exact: true }).selectOption('replay');
   assert.equal(await page.locator('.finding').count(), 1);
   await page.locator('.finding .finding-toggle').click();
-  await page.getByLabel('Decision', { exact: true }).selectOption('dismissed');
-  await page.getByLabel('Reason', { exact: true }).fill('Synthetic replay review.');
-  await page.getByRole('button', { name: 'Save decision', exact: true }).click();
+  await page.locator('.finding:has(.finding-toggle[aria-expanded=true])').getByRole('button', { name: 'Dismiss', exact: true }).click();
   await page.getByText('Decision saved locally. Documentation and GitHub are unchanged.', { exact: true }).waitFor();
   assert.deepEqual((await f.rawWorkflow.store.read()).coverage, before);
   assert.equal((await f.rawWorkflow.store.read()).review.findings.some(record => record.finding.kind === 'replay'), false);

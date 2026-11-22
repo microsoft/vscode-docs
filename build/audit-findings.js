@@ -211,4 +211,4 @@ function triageFinding(state, input, timestamp) {
 	return record;
 }
 
-module.exports = { importFindings, triageFinding, validateAuditFindings, reportId: hash };
+module.exports = { importFindings, triageFinding, validateAuditFindings, evidenceHash, reportId: hash };

@@ -1,3 +1,5 @@
+import { icon } from './dom.mjs';
+
 const $ = id => document.getElementById(id);
 let state;
 let token;
@@ -10,7 +12,6 @@ let actionPage;
 let severity = 'all';
 let catalogKey;
 const expanded = new Set();
-const drafts = new Map();
 const findingRows = new Map();
 const severityButtons = new Map();
 const executionKeys = new Map();
@@ -230,53 +231,60 @@ function render() {
     renderCoverage();
   }
 }
-function renderDecision(parent, record) {
+function renderFindingActions(parent, record) {
   const { finding } = record;
+  const input = { findingId: finding.id, check: checkType(finding), evidenceHash: record.evidenceHash,
+    actionToken: record.actions?.token };
+  const actions = element('div', undefined, 'finding-actions');
+  actions.setAttribute('role', 'group');
+  actions.setAttribute('aria-label', `Actions for ${finding.article}:${finding.line}`);
+  const action = (label, name, handler) => {
+    const button = control(actions, '', handler);
+    button.className = 'finding-icon-button';
+    button.title = label;
+    button.setAttribute('aria-label', label);
+    button.append(icon(name));
+    return button;
+  };
+  action('Fix in chat', 'chat', () => void perform(async () => {
+    notice('Opening a focused fix conversation...');
+    try {
+      const result = await request('finding-fix-chat', { ...input, confirmed: true });
+      notice(result.message);
+    } catch (error) {
+      throw new Error(`${error.message} Check VS Code Chat before trying again; the conversation may already have opened.`);
+    }
+  })).disabled = busy || !record.actions?.token || !state.editor?.available;
+  action('Open article at finding', 'external', () => void perform(async () => {
+    await request('open-article', { article: finding.article, line: finding.line });
+    notice('Opened the current article in the editor. Saved finding lines can be stale after edits.');
+  })).disabled = busy || !state.editor?.available;
+  const decide = status => void perform(async () => {
+    await request('finding-state', { ...input, status });
+    state = await request('poll');
+    notice('Decision saved locally. Documentation and GitHub are unchanged.');
+  }).then(() => {
+    const toggle = $(`finding-${finding.id}`);
+    if (toggle && !toggle.closest('tr').hidden) toggle.focus({ preventScroll: true });
+  });
+  if (['dismissed', 'fixed'].includes(finding.status)) {
+    action('Undo', 'undo', () => decide('open')).disabled = busy || !record.actions?.token;
+  } else {
+    action('Dismiss', 'close', () => decide('dismissed')).disabled = busy || !record.actions?.token;
+    action('Mark fixed', 'check', () => decide('fixed')).disabled = busy || !record.actions?.token;
+  }
+  parent.append(actions);
+}
+function renderFindingNotes(parent, record) {
+  if (!state.editor?.available) paragraph(parent, state.editor?.message || 'Native chat and editor opening are unavailable.', 'muted');
+  if (!record.actions?.token) paragraph(parent, record.actions?.error || 'Original finding evidence is unavailable. Refresh before continuing.', 'error');
   const latest = record.history.at(-1);
   if (latest) {
     const label = latest.action === 'triage' ? 'Last decision' :
       latest.action === 'finding-reappeared' ? 'Reopened after reappearance' : 'Reopened after evidence changed';
-    paragraph(parent, `${label}: ${time(latest.at)} · ${latest.reason}`, 'muted');
+    paragraph(parent, `${label}: ${time(latest.at)} · ${latest.action === 'triage' ? latest.to : latest.reason}`, 'muted');
   }
-  if (!record.reviewable) {
-    paragraph(parent, record.freshness === 'unavailable'
-      ? 'Current verification is unavailable. Refresh to retry; saved evidence remains available.'
-      : 'Read-only evidence. Run checks for this article before deciding.', 'muted');
-    return;
-  }
-  const draft = drafts.get(finding.id);
-  const reviewToken = JSON.stringify([record.coverageToken, latest]);
-  const current = draft?.evidenceHash === record.evidenceHash && draft.reviewToken === reviewToken
-    ? draft : { status: finding.status, reason: '' };
-  paragraph(parent, 'Saving validates the current article, dependencies, and artifacts again.', 'muted');
-  const form = element('form', undefined, 'decision-form');
-  const status = element('select');
-  status.id = `status-${finding.id}`;
-  const label = element('label', 'Decision'); label.htmlFor = status.id;
-  for (const value of ['open', 'accepted', 'dismissed', 'fixed']) {
-    const option = element('option', value); option.value = value; status.append(option);
-  }
-  status.value = current.status;
-  const reason = element('textarea');
-  reason.id = `reason-${finding.id}`; reason.required = true; reason.maxLength = 4000; reason.rows = 2; reason.value = current.reason;
-  const reasonLabel = element('label', 'Reason'); reasonLabel.htmlFor = reason.id;
-  const saveDraft = () => drafts.set(finding.id, { evidenceHash: record.evidenceHash, reviewToken, status: status.value, reason: reason.value });
-  status.addEventListener('change', saveDraft);
-  reason.addEventListener('input', saveDraft);
-  const submit = element('button', 'Save decision'); submit.type = 'submit'; submit.disabled = busy;
-  form.append(label, status, reasonLabel, reason, submit);
-  form.addEventListener('submit', event => {
-    event.preventDefault();
-    const decision = { findingId: finding.id, check: checkType(finding), evidenceHash: record.evidenceHash, coverageToken: record.coverageToken,
-      status: status.value, reason: reason.value };
-    void perform(async () => {
-      await request('triage', decision);
-      drafts.delete(finding.id);
-      state = await request('poll');
-      notice('Decision saved locally. Documentation and GitHub are unchanged.');
-    });
-  });
-  parent.append(form);
+  paragraph(parent, 'State changes are manual decisions, not renewed verification. Fix in chat leaves the state unchanged.', 'muted');
 }
 function findingContext(record) {
   const { finding } = record;
@@ -289,16 +297,17 @@ function currentCheckText(provenance) {
 function renderFinding(record) {
   const { finding, provenance } = record;
   const cached = findingRows.get(finding.id);
-  if (cached?.record === record && cached.expanded === expanded.has(finding.id) && (!cached.expanded || cached.busy === busy)) {
+  const editorKey = JSON.stringify(state.editor);
+  if (cached?.record === record && cached.expanded === expanded.has(finding.id) && cached.busy === busy && cached.editorKey === editorKey) {
     return cached.rows;
   }
-  const key = JSON.stringify([record, expanded.has(finding.id), expanded.has(finding.id) && busy]);
-  const reviewKey = JSON.stringify([record.evidenceHash, record.coverageToken, record.history, finding.status, record.reviewable, busy]);
+  const key = JSON.stringify([record, expanded.has(finding.id), busy, editorKey]);
+  const reviewKey = JSON.stringify([record.evidenceHash, record.coverageToken, record.history, finding.status, record.reviewable, record.actions, busy, editorKey]);
   const baseKey = JSON.stringify([finding.id, finding.article, finding.line, finding.kind,
     finding.severity, finding.evidence, finding.message]);
   if (cached?.key === key) { cached.record = record; return cached.rows; }
   if (cached && cached.expanded === expanded.has(finding.id) && cached.baseKey === baseKey &&
-      (!cached.expanded || cached.reviewKey === reviewKey)) {
+      cached.reviewKey === reviewKey) {
     const review = cached.rows[0].querySelector('.review-state');
     const freshness = cached.rows[0].querySelector('.freshness');
     if (review.textContent !== finding.status) review.textContent = finding.status;
@@ -306,6 +315,7 @@ function renderFinding(record) {
       freshness.textContent = Reflect.get(freshnessLabels, record.freshness);
       freshness.className = `freshness ${record.freshness}`;
     }
+    cached.rows[0].querySelector('.finding-mobile-status').textContent = `${finding.status} · ${Reflect.get(freshnessLabels, record.freshness)}`;
     if (cached.expanded) {
       cached.evidenceLine.textContent = findingContext(record);
       cached.message.textContent = record.message || '';
@@ -317,9 +327,15 @@ function renderFinding(record) {
     return cached.rows;
   }
   const row = element('tr', undefined, 'finding');
-  const level = element('td');
-  level.append(element('span', finding.severity, `badge ${finding.severity}`));
-  const description = element('td');
+  const level = element('td', undefined, 'finding-severity-cell');
+  const severityLabel = finding.severity[0].toUpperCase() + finding.severity.slice(1);
+  const symbol = element('span', undefined, `severity-icon ${finding.severity}`);
+  symbol.setAttribute('role', 'img');
+  symbol.setAttribute('aria-label', severityLabel);
+  symbol.title = severityLabel;
+  symbol.append(icon(finding.severity));
+  level.append(symbol);
+  const description = element('td', undefined, 'finding-description');
   const primary = finding.kind === 'claim' ? finding.evidence : finding.message;
   const toggle = control(description, '', () => {
     if (expanded.has(finding.id)) expanded.delete(finding.id); else expanded.add(finding.id);
@@ -333,20 +349,19 @@ function renderFinding(record) {
   toggle.setAttribute('aria-label', `${finding.article}:${finding.line} · ${primary}`);
   toggle.setAttribute('aria-expanded', String(expanded.has(finding.id)));
   toggle.setAttribute('aria-controls', `detail-${finding.id}`);
+  description.append(element('span', `${finding.status} · ${Reflect.get(freshnessLabels, record.freshness)}`, 'finding-mobile-status'));
+  const actions = element('td', undefined, 'finding-actions-cell');
+  renderFindingActions(actions, record);
   row.append(level, description, element('td', finding.status, 'review-state'),
-    element('td', Reflect.get(freshnessLabels, record.freshness), `freshness ${record.freshness}`));
+    element('td', Reflect.get(freshnessLabels, record.freshness), `freshness ${record.freshness}`), actions);
   const detail = element('tr', undefined, 'finding-detail');
   detail.id = `detail-${finding.id}`;
   detail.hidden = !expanded.has(finding.id);
-  const content = element('td'); content.colSpan = 4;
+  const content = element('td'); content.colSpan = 5;
   const detailFields = {};
   if (!detail.hidden) {
     paragraph(content, finding.message);
-    control(content, 'Open article at finding', () => void perform(async () => {
-      await request('open-article', { article: finding.article, line: finding.line });
-      notice('Opened the current article in the editor. Saved finding lines can be stale after edits.');
-    })).disabled = busy || !state.editor?.available;
-    if (!state.editor?.available) paragraph(content, state.editor?.message || 'Open the article at this line in your editor.', 'muted');
+    renderFindingNotes(content, record);
     if (finding.reviewEvidence) {
       const evidence = finding.reviewEvidence;
       paragraph(content, `Agent ${evidence.assessment === 'question' ? 'question' : 'judgment'} · ${evidence.category} · lines ${finding.line}-${evidence.endLine}`, 'muted');
@@ -362,7 +377,6 @@ function renderFinding(record) {
     detailFields.evidenceLine = paragraph(content, findingContext(record), 'muted');
     detailFields.message = paragraph(content, record.message || '', 'muted');
     detailFields.message.hidden = !record.message;
-    renderDecision(content, record);
     const details = element('details');
     details.append(element('summary', 'Evidence and provenance'));
     paragraph(details, `First observed ${time(finding.firstSeen)}. Last observed ${time(finding.lastSeen)}. Last accepted scan ${time(provenance.lastVerification)}.`);
@@ -370,11 +384,12 @@ function renderFinding(record) {
     paragraph(details, `Source revision: ${provenance.report.sourceRevision}. Checks: ${provenance.report.checks.join(', ')}. Latest selected scope: ${provenance.scope?.join(', ')}.`);
     paragraph(details, provenance.product);
     paragraph(details, `Evidence: ${record.evidenceHash}. Latest verification execution: ${provenance.runId}.`);
+    for (const entry of record.history) paragraph(details, `${time(entry.at)} · ${entry.to} · ${entry.reason}`, 'muted');
     content.append(details);
   }
   detail.append(content);
   const rows = [row, detail];
-  findingRows.set(finding.id, { key, baseKey, reviewKey, record, busy, expanded: expanded.has(finding.id), rows, ...detailFields });
+  findingRows.set(finding.id, { key, baseKey, reviewKey, record, busy, editorKey, expanded: expanded.has(finding.id), rows, ...detailFields });
   return rows;
 }
 function matches(record, filters) {
@@ -393,9 +408,6 @@ function clearFilters() {
 }
 function renderFindings() {
   if (!state) return;
-  const active = document.hasFocus() ? document.activeElement : undefined;
-  const selection = active instanceof HTMLTextAreaElement
-    ? [active.selectionStart, active.selectionEnd, active.selectionDirection] : undefined;
   const filters = {
     query: $('finding-search').value.toLowerCase(), article: $('article-filter').value.trim().toLowerCase(),
     check: $('check-filter').value, status: $('status-filter').value, freshness: $('freshness-filter').value
@@ -428,8 +440,10 @@ function renderFindings() {
     findingTable = element('table', undefined, 'findings-table');
     findingTable.setAttribute('aria-label', 'Findings');
     const head = element('thead'); const titles = element('tr');
-    for (const title of ['Severity', 'Finding', 'Review', 'Freshness']) {
-      const cell = element('th', title); cell.scope = 'col'; titles.append(cell);
+    for (const [title, name] of [['Severity', 'severity'], ['Finding', 'description'], ['Review', 'review'], ['Freshness', 'freshness'], ['Actions', 'actions']]) {
+      const cell = element('th', undefined, `finding-${name}-heading`); cell.scope = 'col';
+      cell.append(element('span', title, name === 'severity' ? 'sr-only' : undefined));
+      titles.append(cell);
     }
     head.append(titles);
     findingBody = element('tbody');
@@ -467,11 +481,6 @@ function renderFindings() {
     paragraph(emptyFindings, state.findings.length ? 'No findings match these filters.' :
       'No findings yet. Run checks for a scope; unchecked articles are not clean.', 'empty');
     if (state.findings.length) control(emptyFindings, 'Clear filters', clearFilters);
-  }
-  if (active?.isConnected && active.closest('.decision-form') && !active.closest('.finding-detail')?.hidden &&
-      document.hasFocus() && document.activeElement !== active) {
-    active.focus({ preventScroll: true });
-    if (selection) active.setSelectionRange(...selection);
   }
 }
 function renderCoverage() {

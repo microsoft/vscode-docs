@@ -6,7 +6,7 @@ import {
 } from './article-storage.mjs';
 import { prepareRequest } from './article-runner.mjs';
 import { loadRunArtifacts, reportHostStatus, reportRerunDecision } from './article-artifacts.mjs';
-import { inboxView, inspectInbox, inspectExecution, triageInbox } from './article-inbox.mjs';
+import { decideInboxFinding, inboxFindingSource, inboxView, inspectInbox, inspectExecution, triageInbox } from './article-inbox.mjs';
 import { createProgressiveVerification } from './article-verification.mjs';
 import { createReplayWorkflow } from './article-replay.mjs';
 import { createReviewWorkflow, editorialBatchLimit } from './article-review.mjs';
@@ -17,6 +17,7 @@ import mediaChat from '../../../build/media-chat.js';
 import writingChat from '../../../build/writing-chat.js';
 import { createReleaseTpis } from './release-tpis.mjs';
 import { createPrReviews } from './pr-reviews.mjs';
+import { fixFindingInChat } from './finding-actions.mjs';
 
 const description = id => `Docs article check ${id}`;
 const quote = value => `'${value.replaceAll("'", "''")}'`;
@@ -353,6 +354,18 @@ export async function createArticleWorkflow({
     if (input.check === 'review') return reviews.triage(input);
     return triageInbox(store, input, check, (entry, run) => verifier.verifyDecision(entry, run));
   }
+  async function findingSource(input) {
+    if (input.check === 'review') return reviews.finding(input);
+    if (input.check === 'replay') return replays.finding(input);
+    if (!['claims', 'links'].includes(input.check)) throw new Error('Choose a supported finding type.');
+    return inboxFindingSource(store, await store.read(), input);
+  }
+  function decideFinding(input) {
+    if (input.check === 'review') return reviews.decide(input);
+    if (input.check === 'replay') return replays.decide(input);
+    if (!['claims', 'links'].includes(input.check)) throw new Error('Choose a supported finding type.');
+    return decideInboxFinding(store, input);
+  }
   const actions = {
     launch, sync, refresh, poll,
     'tpi-load': tpis.load,
@@ -367,6 +380,8 @@ export async function createArticleWorkflow({
       return run ? inspectExecution(store, run) : replays.inspect({ id });
     },
     triage,
+    'finding-state': decideFinding,
+    'finding-fix-chat': async input => fixFindingInChat(store, sourceEditor, await findingSource(input), input),
     'replay-options': replays.options,
     'replay-prepare': replays.prepare,
     'replay-launch': replays.launch,

@@ -33,6 +33,29 @@ const decide = (f, record, overrides = {}) => f.workflow.dispatch('triage', {
 const coverage = (state, article) => state.coverage.find(entry => entry.article === article);
 const storedReview = async f => (await f.workflow.store.read()).review;
 
+test('one-click checker decisions bind current text without rewriting stale reports and reject changed evidence', async t => {
+  const f = await fixture(t, { content: '`setting(fixture.example)`' });
+  await f.launch();
+  const initial = await refresh(f);
+  const record = initial.findings[0];
+  assert.ok(record.actions.token, record.actions.error);
+  const input = { check: 'claims', findingId: record.finding.id, evidenceHash: record.evidenceHash,
+    actionToken: record.actions.token, status: 'fixed' };
+  await writeFile(path.join(f.workspace, 'docs', 'article.md'), '# Corrected article\n');
+  await f.workflow.dispatch('finding-state', input);
+  const fixed = (await refresh(f)).findings[0];
+  assert.equal(fixed.finding.status, 'fixed');
+  assert.equal(fixed.freshness, 'stale');
+  assert.match(fixed.history.at(-1).reason, /User marked fixed.*Current article SHA-256/);
+  await assert.rejects(f.workflow.dispatch('finding-state', { ...input, status: 'open' }), /state changed/);
+  await f.workflow.dispatch('finding-state', { ...input, actionToken: fixed.actions.token, status: 'open' });
+  const run = initial.runs[0];
+  await writeFile(await f.rawWorkflow.store.artifact(run.id, 'report.json'), '{}');
+  const after = await refresh(f);
+  assert.equal(after.findings[0].actions.token, undefined);
+  await assert.rejects(f.workflow.dispatch('finding-state', { ...input, status: 'dismissed' }), /Original finding evidence/);
+});
+
 function heldVerification() {
   let release;
   const gate = new Promise(resolve => { release = resolve; });
