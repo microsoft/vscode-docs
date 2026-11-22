@@ -27,7 +27,7 @@ We've open sourced the GitHub Copilot Chat extension under the MIT license and a
 
 This change does not affect current GitHub Copilot subscriptions. To use GitHub Copilot, you'll continue to need both a GitHub account, and access to a GitHub Copilot subscription.
 
-Individual developers who don't have access to Copilot through an organization or enterprise have access to the [GitHub Copilot free plan](https://aka.ms/github-docs-copilot-free) ([restrictions may apply](https://docs.github.com/en/site-policy/other-site-policies/github-and-trade-controls#github-copilot)). If that plan doesn't meet your needs, you can sign up for a Copilot paid plan or [bring your own model keys](/docs/agent-customization/language-models.md#bring-your-own-language-model-key).
+Individual developers who don't have access to Copilot through an organization or enterprise have access to the [GitHub Copilot free plan](https://docs.github.com/en/copilot/get-started/plans#github-copilot-plans) ([restrictions may apply](https://docs.github.com/en/site-policy/other-site-policies/github-and-trade-controls#github-copilot)). If that plan doesn't meet your needs, you can sign up for a Copilot paid plan or [bring your own model keys](/docs/agent-customization/language-models.md#bring-your-own-language-model-key).
 
 ### Will the GitHub Copilot backend services also be open sourced?
 

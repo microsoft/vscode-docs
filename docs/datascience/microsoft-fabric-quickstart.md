@@ -216,7 +216,7 @@ Now that you have Microsoft Fabric extensions set up in {% data variables.produc
 
 * [Learn about Microsoft Fabric for Data Science](https://learn.microsoft.com/en-us/fabric/data-science/tutorial-data-science-introduction).
 * [Set up your Fabric trial capacity](https://learn.microsoft.com/fabric/fundamentals/fabric-trial)
-* [Microsoft Fabric fundamentals](https://learn.microsoft.com/fabric/fundamentals/fabric-overview)
+* [Microsoft Fabric fundamentals](https://learn.microsoft.com/fabric/fundamentals/microsoft-fabric-overview)
 
 To engage with the community and get support:
 

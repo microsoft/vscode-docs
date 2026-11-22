@@ -20,7 +20,7 @@ No. {% data variables.product.prodname_vscode_shortname %} uses the [official Gi
 
 ### Can I use Team Foundation Version Control?
 
-Install the [Azure Repos extension](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) to add Team Foundation Version Control support to {% data variables.product.prodname_vscode_shortname %}.
+The former Azure Repos extension that provided TFVC support is deprecated and is no longer available from the Marketplace. For current TFVC clients and workflows, see the [TFVC documentation](https://learn.microsoft.com/azure/devops/repos/tfvc/what-is-tfvc?view=azure-devops).
 
 ### Can I use another source control provider?
 

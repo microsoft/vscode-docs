@@ -18,10 +18,10 @@ You can use **Format Document** command to format a Java file. If you didn't spe
 
 ### Applying formatter settings
 
-You can easily apply formatter settings from an existing formatter profile in Eclipse scheme. For example, if you want to apply [Google Style](https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml) for your Java project, then you can set the following property in `settings.json`:
+You can apply formatter settings from an existing formatter profile in Eclipse scheme. For example, to apply an [archived Google Style formatter profile](https://raw.githubusercontent.com/google/styleguide/eaa0a05ec282e893ba314f1e6aeb9ef9f6674249/eclipse-java-google-style.xml) to your Java project, set the following property in `settings.json`:
 
 ```json
-"java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+"java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/eaa0a05ec282e893ba314f1e6aeb9ef9f6674249/eclipse-java-google-style.xml",
 ```
 
 The property can be set to a URL or a local file path. If the formatter XML file contains more than one profile, you can specify the profile name:

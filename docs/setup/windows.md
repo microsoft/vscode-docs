@@ -164,7 +164,7 @@ As of version `1.78.1`, {% data variables.product.prodname_vscode_shortname %} o
 If your workflow relies on UNC paths in {% data variables.product.prodname_vscode_shortname %}, use one of these options:
 
 * Configure the host with the `setting(security.allowedUNCHosts)` setting. For example, add `server-a` when opening a path such as `\\server-a\path`.
-* [Map the UNC path as a network drive](https://support.microsoft.com/en-us/windows/map-a-network-drive-in-windows-29ce55d1-34e3-a7e2-4801-131475f9557d), and use the drive letter instead of the UNC path.
+* [Map the UNC path as a network drive](https://support.microsoft.com/en-us/windows/experience/connectivity-networking/file-sharing-over-a-network-in-windows#bkmk_map_network_drive), and use the drive letter instead of the UNC path.
 * Define a global environment variable named `NODE_UNC_HOST_ALLOWLIST` with a backslash-separated list of permitted host names. For example, `server-a\server-b` permits the hosts `server-a` and `server-b`.
 
 > [!NOTE]
