@@ -134,6 +134,22 @@ test('capture integration verifies cleanup, storyboard provenance, raw hashes, a
   assert.throws(() => prepareMedia({...options, captureSha256: sha256(fs.readFileSync(capture))}, f.deps), /Stale media/);
 });
 
+test('preserved storyboard snapshots remain bound to prepared media and exact approval', t => {
+  const f = fixture(t);
+  const bytes = fs.readFileSync(path.join(__dirname, 'storyboards', 'editor-find.json'));
+  const storyboard = JSON.parse(bytes);
+  const snapshot = path.join(f.output, 'storyboard.json');
+  fs.writeFileSync(snapshot, bytes);
+  const capture = path.join(f.output, 'capture.json');
+  overwriteJson(capture, {schemaVersion: 1, status: 'candidate', execution: 'attended', privacy: {textScan: 'passed'},
+    storyboard: {id: storyboard.id, article: storyboard.article, file: 'storyboard.json', sha256: sha256(bytes)},
+    asset: {file: 'source.png', sha256: f.options.sha256, bytes: f.bytes.length}});
+  const prepared = prepareMedia({...f.options, capture, captureSha256: sha256(fs.readFileSync(capture))}, f.deps);
+  recordReview(reviewOptions(prepared), f.deps);
+  assert.equal(verifyMedia({manifest: prepared.manifest}, f.deps).approval, 'approved');
+  fs.appendFileSync(snapshot, '\n');
+  assert.throws(() => verifyMedia({manifest: prepared.manifest}, f.deps), /snapshot changed/);
+});
 test('PNG full validation rejects bad checksums, truncation, oversized geometry, trailing data and broken deflate', t => {
   const f = fixture(t);
   const badCrc = Buffer.from(f.bytes); badCrc.writeUInt8(badCrc.at(30) ^ 1, 30);

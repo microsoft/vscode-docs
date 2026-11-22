@@ -35,6 +35,7 @@
     "replay": "node ./build/replay.js",
     "test:replay": "node --test --test-name-pattern=replay ./build/capture.test.js",
     "test:media": "node --test ./build/media.test.js",
+    "test:media-recipes": "node --test ./build/media-recipes.test.js",
     "test:sidebar": "node --test ./build/generate-sidebar.test.js",
     "test:serve": "node --test ./build/serve.test.js",
     "test:workbench": "node --test .github/extensions/vscode-docs-workbench/workbench.test.mjs .github/extensions/vscode-docs-workbench/server.test.mjs .github/extensions/vscode-docs-workbench/presentation.test.mjs .github/extensions/vscode-docs-workbench/archive.test.mjs .github/extensions/vscode-docs-workbench/article-workflow.test.mjs",

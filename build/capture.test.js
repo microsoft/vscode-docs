@@ -161,6 +161,8 @@ test('capture runner isolates state, verifies dimensions, and leaves candidates 
     assert.ok(state.launchOptions.env.USERPROFILE.startsWith(result.directory));
     assert.equal(state.launchOptions.env.NODE_OPTIONS, undefined);
     assert.equal(fs.existsSync(path.join(result.directory, 'runtime')), false);
+    assert.equal(result.manifest.storyboard.file, 'storyboard.json');
+    assert.deepEqual(fs.readFileSync(path.join(result.directory, 'storyboard.json')), fs.readFileSync(STORYBOARD));
     assert.equal(fs.existsSync(path.join(result.directory, 'editor-find.png')), true);
     assert.equal(JSON.parse(fs.readFileSync(path.join(result.directory, 'capture.json'), 'utf8')).status, 'candidate');
   });

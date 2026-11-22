@@ -716,8 +716,9 @@ Images are important to bring the product to life and clarify the written conten
 
 **Version control for images:**
 
-* Images are cached on the server, so don't update images in-place
-* Create a new file and add a version indicator (yyyymmddseq) to the filename when updating
+* Images and videos are cached on the server, so don't update published media in-place.
+* Create a new file and add a version indicator (`yyyymmddseq`) to the filename when updating, then update the corresponding Markdown image or video references.
+* For agent-created media, retain reusable capture and preparation instructions as described in [Regenerate media from reusable instructions](DOCS-AGENT-WORKFLOW.md#regenerate-media-from-reusable-instructions). Keep the recipe association current when the published filename changes.
 
 > [!IMPORTANT]
 > Make sure you have Git LFS enabled before committing images! See the [Git LFS setup](#git-lfs-setup) section.

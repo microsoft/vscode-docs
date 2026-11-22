@@ -1,6 +1,6 @@
 # Docs agent implementation plan
 
-Assessment date: 2026-11-22. Committed baseline before this slice: `ca86bbcb5`. This slice adds efficient finding actions and focused fix conversations.
+Assessment date: 2026-11-22. Committed baseline before this slice: `609af6506`. The current approved slice adds durable media recipes and cache-safe refresh; W6 remains paused.
 
 Current position: chat launchers cover writing, issue/TPI documentation, article and PR review, screenshots, videos, and advanced scripted procedure checks. Findings supports local claims/link checks and bounded editorial batch review. The bounded review-and-revise pilot is accepted as complete and successful, alongside the screenshot and video pilots. A live PR pilot completed a scoped technical pass and cleared a false comment-counter blocker. New-article, issue/TPI authoring, related-article revision, multi-asset capture, live finding-fix acceptance, and PR rejection-path validation remain separate opportunities. Broader technical batch review and article-driven UI validation are not implemented.
 
@@ -213,7 +213,7 @@ Before any next implementation or pilot, describe its end-to-end journey and obt
 
 ### M3: Create and refresh media
 
-**Current:** Independent screenshot/video launchers start docs-media in chat. One screenshot replacement and one annotated video insertion are validated through attended capture, full candidate review, exact-asset approval, and disposable-copy diffs. Multi-asset journeys still need bounded live acceptance; no further canvas-owned media pipeline is required.
+**Current:** Independent screenshot/video launchers start docs-media in chat. One screenshot replacement and one annotated video insertion are validated through attended capture, full candidate review, exact-asset approval, and disposable-copy diffs. Version-controlled recipes now associate stable outputs with published paths and reusable storyboards/preparation. New private captures retain exact storyboard bytes. Approved refresh plans use new versioned filenames and update Markdown references and recipe ownership together. The two pilot inputs are portable examples; registering them does not publish pilot media or approve another run. Multi-asset journeys still need bounded live acceptance; no further canvas-owned media pipeline is required.
 
 * Start from an article, regardless of whether it has a feature plan or draft. List its current media and allow selecting replacements or describing new screenshots/videos. Accept one or several assets in the same request.
 * Let the agent propose what each asset shows, why it helps, its article placement, and a capture procedure. For video, show a short scene/action sequence and intended duration. Keep storyboard JSON as implementation evidence, not author homework.

@@ -22,7 +22,7 @@ function assetCandidates(root, route) {
   }
   const directories = section === 'updates' ? ['release-notes', 'remote-release-notes']
     : ['docs', 'api', 'learn', 'remote'].includes(section) ? [section] : [];
-  if (!directories.length || !/\.(?:png|jpg|svg|gif|mp4|webp)$/i.test(route)) {
+  if (!directories.length || !/\.(?:png|jpg|svg|gif|mp4|webm|webp)$/i.test(route)) {
     return [];
   }
   const candidates = [];
@@ -64,9 +64,19 @@ function headingAnchor(heading, article) {
   return caseSensitive ? anchor : anchor.toLowerCase();
 }
 
-function htmlReferences(content, firstLine, references, anchors) {
+function htmlReferences(content, firstLine, references, anchors, spans = false, rawState = {}) {
   let position = 0;
   while (position < content.length) {
+    if (spans && rawState.tag) {
+      const lower = content.toLowerCase(), marker = `</${rawState.tag}`;
+      let closing = lower.indexOf(marker, position);
+      while (closing !== -1 && !/[\s/>]/.test(lower.at(closing + marker.length) || '')) closing = lower.indexOf(marker, closing + marker.length);
+      const end = closing === -1 ? -1 : content.indexOf('>', closing + marker.length);
+      if (end === -1) return;
+      position = end + 1;
+      rawState.tag = undefined;
+      continue;
+    }
     const start = content.indexOf('<', position);
     if (start === -1) {
       break;
@@ -96,17 +106,27 @@ function htmlReferences(content, firstLine, references, anchors) {
     if (!name) {
       continue;
     }
+    if (spans && ['script', 'style', 'textarea'].includes(name)) {
+      rawState.tag = name;
+      continue;
+    }
     const line = firstLine + content.slice(0, start).split('\n').length - 1;
-    const attributes = /(?:^|\s)(href|src|poster|id|name)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+))/gi;
+    const attributes = /(?:^|\s)(href|src|srcset|poster|id|name)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+))/gid;
+    const mediaType = spans ? /(?:^|\s)type\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+))/i.exec(tag) : undefined;
     for (const match of tag.matchAll(attributes)) {
       const attribute = match[1].toLowerCase();
       const value = markdown.utils.unescapeAll(match[2] ?? match[3] ?? match[4]);
+      const range = spans ? match.indices[match[2] !== undefined ? 2 : match[3] !== undefined ? 3 : 4] : undefined;
+      const position = range ? {start: start + range[0], end: start + range[1]} : {};
+      if (mediaType && attribute !== 'poster') position.mime = mediaType[1] ?? mediaType[2] ?? mediaType[3];
       if (attribute === 'id' || (attribute === 'name' && name === 'a')) {
         anchors.add(value);
       } else if (attribute === 'href' && name === 'a') {
-        references.push({ target: value, line, media: false });
+        references.push({ target: value, line, media: false, ...position });
       } else if (['img', 'video', 'source', 'audio'].includes(name) && ['src', 'poster'].includes(attribute)) {
-        references.push({ target: value, line, media: true });
+        references.push({ target: value, line, media: true, ...position });
+      } else if (spans && ['img', 'source'].includes(name) && attribute === 'srcset') {
+        references.push({target: value, line, media: true});
       }
     }
   }
@@ -302,7 +322,7 @@ function createLinkChecker(rootDirectory, variables, { documentCache = analyzeDo
     return documents.get(file);
   }
 
-  function resolveTarget(article, reference) {
+  function resolveTarget(article, reference, locateFile = false) {
     const target = reference.target;
     if (!target || target === '#') {
       return undefined;
@@ -409,8 +429,11 @@ function createLinkChecker(rootDirectory, variables, { documentCache = analyzeDo
         return { severity: 'error', message: `${target}: ${capture.problem}` };
       }
       if (capture.file) {
+        if (locateFile && resolvedFile && resolvedFile !== candidate) {
+          return {severity: 'unverified', message: `Ambiguous media target "${target}".`};
+        }
         resolvedFile = candidate;
-        break;
+        if (!locateFile) break;
       }
       directoryTarget ||= Boolean(capture.directory);
     }
@@ -443,11 +466,12 @@ function createLinkChecker(rootDirectory, variables, { documentCache = analyzeDo
         };
       }
     }
-    return undefined;
+    return locateFile ? {file: resolvedFile} : undefined;
   }
 
   return {
     resolve: resolveTarget,
+    mediaFile: (article, target) => resolveTarget(article, {target, media: true}, true),
     redirects() {
       return new Map(redirects);
     },
@@ -478,4 +502,4 @@ function createLinkChecker(rootDirectory, variables, { documentCache = analyzeDo
   };
 }
 
-module.exports = { analyzeDocument, createDocumentCache, createFileSnapshot, createLinkChecker, headingAnchor, maskFrontmatter };
+module.exports = { analyzeDocument, createDocumentCache, createFileSnapshot, createLinkChecker, headingAnchor, htmlReferences, maskFrontmatter };

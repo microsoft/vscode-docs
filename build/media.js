@@ -7,6 +7,7 @@ const {isDeepStrictEqual} = require('util');
 const {isWithinRoot} = require('./repository-paths');
 const {decodePng, framePng, framing, keys} = require('./media-png');
 const {conversionTools, convertMedia, readMedia, sha256, toolPath, validateMedia, videoHighlights} = require('./media-tools');
+const {validateStoryboard} = require('./storyboard');
 
 /* eslint-disable security/detect-non-literal-fs-filename -- Outputs are exclusive files in new, private directories; manifest paths are confined before use. */
 
@@ -66,6 +67,14 @@ function captureEvidence(file, expectedHash, source) {
   if (!m.storyboard || typeof m.storyboard.id !== 'string' || typeof m.storyboard.article !== 'string') throw new Error('Capture lacks storyboard provenance.');
   assertHash(m.storyboard.sha256);
   const directory = path.dirname(file);
+  if (m.storyboard.file !== undefined) {
+    if (m.storyboard.file !== 'storyboard.json') throw new Error('Invalid capture storyboard snapshot filename.');
+    const snapshot = jsonFile(confinedFile(directory, m.storyboard.file));
+    const storyboard = validateStoryboard(snapshot.value);
+    if (snapshot.sha256 !== m.storyboard.sha256 || storyboard.id !== m.storyboard.id || storyboard.article !== m.storyboard.article) {
+      throw new Error('Capture storyboard snapshot changed.');
+    }
+  }
   const entry = [m.asset, m.highlighted, m.video].find(asset => asset && path.join(directory, asset.file || '') === source);
   if (!entry || entry.status === 'failed' || (entry === m.video && entry.status !== 'candidate')) throw new Error('Source is not a successful asset in the capture manifest.');
   fingerprint(confinedFile(directory, entry.file), entry);
@@ -328,4 +337,4 @@ if (require.main === module) {
   catch (error) { console.error(error.message); process.exitCode = 1; }
 }
 
-module.exports = {captureEvidence, confinedFile, main, prepareMedia, privateDirectory, recordReview, verifyMedia};
+module.exports = {captureEvidence, confinedFile, main, preparationFrame, prepareMedia, privateDirectory, recordReview, verifyMedia, verifySources};

@@ -136,7 +136,8 @@ async function captureEditor(options, dependencies = {}) {
   const fixture = path.join(workspace, storyboard.workspace?.entry || storyboard.fixture.file);
   const manifest = {
     schemaVersion: 1,
-    storyboard: { id: storyboard.id, article: storyboard.article, sha256: crypto.createHash('sha256').update(storyboardBytes).digest('hex') },
+    storyboard: { id: storyboard.id, article: storyboard.article, file: 'storyboard.json',
+      sha256: crypto.createHash('sha256').update(storyboardBytes).digest('hex') },
     articleHash: crypto.createHash('sha256').update(fs.readFileSync(article)).digest('hex'),
     sourceRevision: execFileSync('git', ['rev-parse', 'HEAD'], {cwd: repository, encoding: 'utf8'}).trim(),
     runnerSha256: crypto.createHash('sha256').update(fs.readFileSync(__filename)).digest('hex'),
@@ -160,6 +161,7 @@ async function captureEditor(options, dependencies = {}) {
   let manifestPersisted = false;
   let stage = 'preparation';
   try {
+    fs.writeFileSync(path.join(runDirectory, manifest.storyboard.file), storyboardBytes, {flag: 'wx', mode: 0o600});
     if (storyboard.workspace) {
       workspaceSnapshot = snapshotWorkspace(workspace, storyboard.workspace.entry);
       manifest.workspace = {path: workspace, entry: storyboard.workspace.entry, files: workspaceSnapshot, check: 'pending'};
