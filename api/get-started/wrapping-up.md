@@ -29,7 +29,7 @@ VS Code users can report issues by using the **Help: Report Issue...** command (
 
 As an extension author, you can integrate your extension in the **Help: Report Issue...** issue reporter flow, instead of contributing a separate issue reporter command. This integration also enables you to attach any additional information when users report an issue.
 
-To integrate in the issue reporter flow, you need to contribute a custom command and a `issue/reporter` menu contribution point. This custom command will invoke `openIssueReporter`.
+To integrate in the issue reporter flow, you need to contribute a custom command and an `issue/reporter` menu contribution point. This custom command will invoke `openIssueReporter`.
 
 An example of a contributed command and menu for `contributes` in `package.json` (See [Contribution Points](/api/references/contribution-points) for adding a menu contribution and command):
 

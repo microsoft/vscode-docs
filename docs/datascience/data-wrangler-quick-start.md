@@ -33,7 +33,7 @@ If you have a Pandas data frame in your notebook, you’ll now see an **Open 'df
 
 ### Launch Data Wrangler directly from a file
 
-You can also launch Data Wrangler directly from a local file (such as a `.csv`). To do so, open any folder in {% data variables.product.prodname_vscode_shortname %} that contains the file you’d like to open. In the File Explorer view, right click the file and click **Open in Data Wrangler**.
+You can also launch Data Wrangler directly from a local file (such as a `.csv`). To do so, open any folder in {% data variables.product.prodname_vscode_shortname %} that contains the file you'd like to open. In the File Explorer view, right-click the file and select **Open in Data Wrangler**.
 
 ![a screenshot showing the entry point into Data Wrangler from a file](images/data-wrangler-quick-start/open-from-file.png)
 

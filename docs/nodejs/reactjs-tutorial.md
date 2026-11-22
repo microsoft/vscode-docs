@@ -84,7 +84,7 @@ Press `kbstyle(Escape)` to close the Peek window.
 
 ## Hello World
 
-Let's update the sample application to "Hello World!". Create a component inside `index.js` called `HelloWorld` that contains a H1 header with "Hello, world!" and replace the `<App />` tag in `root.render` with `<HelloWorld />`.
+Let's update the sample application to "Hello World!". Create a component inside `index.js` called `HelloWorld` that contains an H1 header with "Hello, world!" and replace the `<App />` tag in `root.render` with `<HelloWorld />`.
 
 ```js
 import React from 'react';
@@ -220,7 +220,7 @@ ESLint will now analyze open files and shows a warning in `index.js` about 'App'
 
 You can modify the ESLint [rules](https://eslint.org/docs/rules/) in the `.eslintrc.js` file.
 
-Let's add an error rule for extra semi-colons:
+Let's add an error rule for extra semicolons:
 
 ```js
  "rules": {

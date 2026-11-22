@@ -63,7 +63,7 @@ This will generate the SSH key. Press `kbstyle(Enter)` at the following prompt t
 
 ![ssh-keygen output](images/ssh-tutorial/ssh-keygen.png)
 
-You will then be prompted to enter a secure passphrase, but you can leave that blank. You should now have a `id_ed25519.pub` file which contains your new public SSH key.
+You will then be prompted to enter a secure passphrase, but you can leave that blank. You should now have an `id_ed25519.pub` file which contains your new public SSH key.
 
 >**Note**: If you are using a legacy system that doesn't support the Ed25519 algorithm, you can use rsa instead: `ssh-keygen -t rsa -b 4096`.
 

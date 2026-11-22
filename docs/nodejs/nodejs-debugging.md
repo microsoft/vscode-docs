@@ -439,7 +439,7 @@ Here are some things to try when your breakpoints turn gray:
 
 ### Overriding source map paths
 
-The debugger uses `sourceMapPathOverrides` to implement custom sourcemap-to-disk path mapping. Good defaults are in place for most tools, but in advanced cases you may need to customize it. The default paths overrides is an object map that looks like this:
+The debugger uses `sourceMapPathOverrides` to implement custom sourcemap-to-disk path mapping. Good defaults are in place for most tools, but in advanced cases you may need to customize it. The default path overrides form an object map that looks like this:
 
 ```js
 {

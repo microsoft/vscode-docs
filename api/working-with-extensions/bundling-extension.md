@@ -166,7 +166,7 @@ If you configure `.vscode/tasks.json` the following way, you will get a separate
 }
 ```
 
-This watch tasks depends on the extension [`connor4312.esbuild-problem-matchers`](https://marketplace.visualstudio.com/items?itemName=connor4312.esbuild-problem-matchers) for problem matching that you need to install for the task to report problems in the problems view.  This extension needs to be installed for the launch to complete.
+These watch tasks depend on the extension [`connor4312.esbuild-problem-matchers`](https://marketplace.visualstudio.com/items?itemName=connor4312.esbuild-problem-matchers) for problem matching that you need to install for the tasks to report problems in the problems view.  This extension needs to be installed for the launch to complete.
 
 To not forget that, add a `.vscode/extensions.json` file to the workspace:
 

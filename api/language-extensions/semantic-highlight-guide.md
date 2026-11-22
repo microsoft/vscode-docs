@@ -71,7 +71,7 @@ The semantic token provider API comes in two flavors to accommodate a language s
 
 Each token returned by the provider comes with a classification that consists of a token type, any number of token modifiers, and a token language.
 
-As seen in the example above, the provider names the types and modifiers it's going to use in a `SemanticTokensLegend`. That allows the `provide` APIs to return token types and modifies as an index to the legend.
+As seen in the example above, the provider names the types and modifiers it's going to use in a `SemanticTokensLegend`. That allows the `provide` APIs to return token types and modifiers as an index to the legend.
 
 ## Semantic token classification
 
@@ -163,7 +163,7 @@ In the example above, an extension declares a new type `templateType` and a new 
 }
 ```
 
-The `semanticTokenColors` value `"#ff0011"` shown above applies to both `type` and all it's subtypes, including `templateType`.
+The `semanticTokenColors` value `"#ff0011"` shown above applies to both `type` and all its subtypes, including `templateType`.
 
 Along with custom token types, extensions can define how these are mapped to TextMate scopes. This is described in the [Custom Mappings](#custom-textmate-scope-mappings) section. Note that custom mapping rules are not automatically inherited from the super type. Instead, subtypes need to redefine the mapping, preferably to more specific scopes.
 

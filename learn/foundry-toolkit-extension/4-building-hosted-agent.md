@@ -121,7 +121,7 @@ If any file role looks unclear here, stop and resolve it before deployment. Ambi
 
 ## Step 3: Verify Creation and Setup of Tools
 
-Now that you saw what was scaffolded at high level, let's dive into the tools that were setup as part of the scaffold.
+Now that you saw what was scaffolded at a high level, let's dive into the tools that were set up as part of the scaffold.
 
 In your open project, open the `toolbox.yaml` file and confirm that at least two tools were created: one for Microsoft Learn MCP and one for web search.
 
@@ -194,9 +194,9 @@ As you test prompts, watch the event timeline and trace views to confirm that re
 
 > TIP: After one clean trace, force a prompt that cannot be answered well without retrieval so tool wiring gets a real stress test.
 
-## Step 7: Follow up prompt to confirm retrieval behavior
+## Step 7: Follow-up prompt to confirm retrieval behavior
 
-At this point, the Agent is started and it's asking you follow up questions. Now we want to answer something back while also ensuring the agent is actually using the retrieval tools we configured.
+At this point, the Agent is started and it's asking you follow-up questions. Now we want to answer something back while also ensuring the agent is actually using the retrieval tools we configured.
 
 Type a prompt like so:
 

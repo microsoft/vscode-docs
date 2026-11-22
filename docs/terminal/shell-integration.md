@@ -170,10 +170,10 @@ This can be enabled with the `setting(terminal.integrated.stickyScroll.enabled)`
 
 Here are some of the built-in Quick Fixes:
 
-- When it's detected that a port is already being listened to, suggest to kill the process and re-run the previous command.
+- When it's detected that a port is already being listened to, suggest killing the process and re-run the previous command.
 - When `git push` fails due to an upstream not being set, suggest to push with the upstream set.
-- When a `git` subcommand fails with a similar command error, suggest to use the similar command(s).
-- When `git push` results in a suggestion to create a GitHub PR, suggest to open the link.
+- When a `git` subcommand fails with a similar command error, suggest using the similar command(s).
+- When `git push` results in a suggestion to create a GitHub PR, suggest opening the link.
 - When a `General` or `cmd-not-found` PowerShell feedback provider triggers, suggest each suggestion.
 
 The Quick Fix feature also supports [accessibility signals](/docs/configure/accessibility/accessibility.md#accessibility-signals) for additional feedback when a Quick Fix is available.
@@ -214,7 +214,7 @@ The keyboard shortcuts can be flipped when accessibility mode is off with the fo
 
 Similar to the run recent command feature, the **Terminal: Go to Recent Directory** command keeps track of directories that have been visited and allows quick filtering and navigating (`cd`) to them. `kbstyle(Alt)` can be held to write the text to the terminal without running it.
 
-The default keyboard shortcut for this command is `kb(workbench.action.terminal.goToRecentDirectory)` as it behaves similar to the **Go to Line/Column** command in the editor. Ctrl+G can be send to the shell with `kbstyle(Ctrl+Alt+G)`.
+The default keyboard shortcut for this command is `kb(workbench.action.terminal.goToRecentDirectory)` as it behaves similarly to the **Go to Line/Column** command in the editor. Ctrl+G can be sent to the shell with `kbstyle(Ctrl+Alt+G)`.
 
 ## Current working directory detection
 
@@ -260,11 +260,11 @@ These sequences should be ignored by other terminals, but unless other terminals
 - `OSC 633 ; D [; <exitcode>] ST`: Mark execution finished with an optional exit code.
 - `OSC 633 ; E ; <commandline> [; <nonce>] ST`: Explicitly set the command line with an optional nonce.
 
-  The E sequence allows the terminal to reliably get the exact command line interpreted by the shell. When this is not specified, the terminal may fallback to using the A, B and C sequences to get the command, or disable the detection all together if it's unreliable.
+  The E sequence allows the terminal to reliably get the exact command line interpreted by the shell. When this is not specified, the terminal may fall back to using the A, B and C sequences to get the command, or disable the detection altogether if it's unreliable.
 
   The optional nonce can be used to verify the sequence came from the shell integration script to prevent command spoofing. When the nonce is verified successfully, some protections before using the commands will be removed for an improved user experience.
 
-  The command line can escape ASCII characters using the `\xAB` format, where AB are the hexadecimal representation of the character code (case insensitive), and escape the `\` character using `\\`. It's required to escape semi-colon (`0x3b`) and characters 0x20 and below and this is particularly important for new line and semi-colon.
+  The command line can escape ASCII characters using the `\xAB` format, where AB is the hexadecimal representation of the character code (case insensitive), and escape the `\` character using `\\`. It's required to escape semicolons (`0x3b`) and characters 0x20 and below, which is particularly important for newlines and semicolons.
 
   Some examples:
 
