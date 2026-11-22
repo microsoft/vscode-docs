@@ -143,7 +143,7 @@ int main()
 }
 ```
 
-Now press `kb(workbench.action.files.save)` to save the file. You can also enable [AutoSave](/docs/editing/codebasics.md#save--auto-save) to automatically save your file changes, by checking **Auto Save** in the main **File** menu.
+Now press `kb(workbench.action.files.save)` to save the file. You can also enable [AutoSave](/docs/editing/codebasics.md#save-auto-save) to automatically save your file changes, by checking **Auto Save** in the main **File** menu.
 
 ## Run helloworld.cpp
 
