@@ -1,9 +1,9 @@
 ---
 ContentId: 2ad03b46-0779-4c9a-897e-6e6b628f598a
 DateApproved: 8/31/2021
-MetaDescription: Java on {% data variables.product.prodname_vscode %} Frequent Asked Questions and Troubleshooting Guide
+MetaDescription: Find answers to common Java questions and troubleshoot Java development in {% data variables.product.prodname_vscode %}.
 ---
-# Frequent Asked Questions
+# Frequently asked questions
 
 Thanks for your interest in Java on {% data variables.product.prodname_vscode %}! This FAQ will hopefully answer some of the questions you may have.
 

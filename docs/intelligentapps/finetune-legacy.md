@@ -121,7 +121,7 @@ The streaming log of the running fine-tuning job will be displayed in the Output
 
 > [!NOTE]
 > The job might be queued due to insufficient resources. If the log is not displayed, wait for a while and then execute the command to re-connect to the streaming log.
-> The streaming log may timeout and disconnect. However, it can be reconnected by execute the command again.
+> The streaming log may time out and disconnect. However, it can be reconnected by executing the command again.
 
 ## Inferencing with the fine-tuned model
 
@@ -266,7 +266,7 @@ You can find configuration parameters in `./infra/provision/inference.parameters
 
 ### Using existing Azure resources
 
-By default, the inference provision use the same Azure Container App Environment, Storage Account, Azure File Share, and Azure Log Analytics that were used for fine-tuning. A separate Azure Container App is created solely for the inference API.
+By default, the inference provision uses the same Azure Container App Environment, Storage Account, Azure File Share, and Azure Log Analytics that were used for fine-tuning. A separate Azure Container App is created solely for the inference API.
 
 If you have customized the Azure resources during the fine-tuning step or want to use your own existing Azure resources for inference, specify their names in the `./infra/inference.parameters.json` file. Then, run the `Foundry Toolkit: Provision Azure Container Apps for inference` command from the command palette. This updates any specified resources and creates any that are missing.
 

@@ -52,7 +52,7 @@ You can export your build to JAR from the projects view or by running the comman
 
 ## Configure Runtime for Projects
 
-As Java evolves, it's common that developers work with multiple versions of JDK. You can map them to your local installation paths via the setting: `java.configuration.runtimes`. The setting has following format:
+As Java evolves, it's common that developers work with multiple versions of the JDK. You can map them to your local installation paths via the setting: `java.configuration.runtimes`. The setting has the following format:
 
 ```json
 "java.configuration.runtimes": [
@@ -78,7 +78,7 @@ As Java evolves, it's common that developers work with multiple versions of JDK.
 ]
 ```
 
-> **Note**: You can set one of them to default by adding `"default":  true` to the entry. The default JDK will be used for your unmanaged folders (with out build tools).
+> **Note**: You can set one of them to default by adding `"default":  true` to the entry. The default JDK will be used for your unmanaged folders (without build tools).
 
 To see which JDKs are used for your projects, you can trigger the command **Java: Configure Java Runtime** in **Command Palette** (`kb(workbench.action.showCommands)`). This command opens a view displaying the runtime information for your projects:
 
@@ -90,7 +90,7 @@ If you want to change the JDK version for your Maven or Gradle projects, you nee
 
 ### Change JDK for unmanaged folders
 
-To change the JDK for unmanaged folders (with out any build tools), you can click the <span class="codicon codicon-edit"></span> button. It will list all the JDKs and you can select one for your unmanaged folders.
+To change the JDK for unmanaged folders (without any build tools), you can select the <span class="codicon codicon-edit"></span> button. It will list all the JDKs and you can select one for your unmanaged folders.
 
 ### Download JDKs
 

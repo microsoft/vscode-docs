@@ -28,7 +28,7 @@ VS Code has two new `Extensions` commands (`kb(workbench.action.showCommands)` t
 
 ![extension commands](images/0_10_0/extension-commands.png)
 
-The VS Code also has a [Marketplace](https://marketplace.visualstudio.com/VSCode) where you can browse and learn more about extensions.
+VS Code also has a [Marketplace](https://marketplace.visualstudio.com/VSCode) where you can browse and learn more about extensions.
 
 ## Extensibility SDK
 
@@ -122,7 +122,7 @@ You can now set your diff view preferences with two new settings:
 
 ![inline-diff-view](images/0_10_0/inline-diff-view.png)
 
-Previously these options where available in the editor's title bar.
+Previously these options were available in the editor's title bar.
 
 ## Notable Bug Fixes
 

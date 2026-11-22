@@ -1,7 +1,7 @@
 ---
 ContentId: 215832f9-d5bd-4cea-8cea-bfc4dc7ff7d1
 DateApproved: 11/18/2026
-MetaDescription:  Learn more about how to setup debugging in {% data variables.product.prodname_vscode %} with debugging recipes
+MetaDescription: Set up debugging in {% data variables.product.prodname_vscode %} with debugging recipes for common frameworks.
 MetaSocialImage: ../debugtest/images/debugging/debugging-social.png
 ---
 # JavaScript Debugging Recipes
@@ -27,7 +27,7 @@ The {% data variables.product.prodname_vscode %} editor supports debugging of Ja
 
 ![JavaScript, Edge, and Chrome logo](images/recipes/browsers.png)
 
-You can read more about debugging browsers works in the [Browser Debugging documentation](/docs/nodejs/browser-debugging.md).
+You can read more about how browser debugging works in the [Browser Debugging documentation](/docs/nodejs/browser-debugging.md).
 
 **Recipes:**
 

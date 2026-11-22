@@ -19,7 +19,7 @@ Downloads: [Windows](https://az764295.vo.msecnd.net/stable/f291f4ad600767626b24a
 
 ## Languages - JavaScript
 
-The [Salsa](https://github.com/microsoft/TypeScript/issues/4789) JavaScript language service was available as preview in January and it is now the default language service for JavaScript in the February update.
+The [Salsa](https://github.com/microsoft/TypeScript/issues/4789) JavaScript language service was available as a preview in January and it is now the default language service for JavaScript in the February update.
 
 ### Improvements
 
@@ -55,7 +55,7 @@ There is now support for React Native:
 
 It is now possible to have mixed TypeScript and JavaScript projects. To enable JavaScript inside a TypeScript project, you can set the `allowJs` property to `true` in the `tsconfig.json`.
 
->**Tip:** The `tsc` compiler does not detect the presence of a `jsconfig.json` file automatically. Use the `–p` argument to make `tsc` use your `jsconfig.json` file, e.g. `tsc -p jsconfig.json`.
+>**Tip:** The `tsc` compiler does not detect the presence of a `jsconfig.json` file automatically. Use the `-p` argument to make `tsc` use your `jsconfig.json` file, e.g. `tsc -p jsconfig.json`.
 
 Finally, the TypeScript compiler `tsc` can down-level compile JavaScript files from ES6 to another language level.
 
@@ -87,7 +87,7 @@ The previous JavaScript language service had a built-in list for folders that sh
 
 - `node` exclude the `node_modules` folder
 - `bower` exclude the `bower_components` folder
-- `ember` exclude the `tmp` and `temp` folder
+- `ember` exclude the `tmp` and `temp` folders
 - `jspm` exclude the `jspm_packages` folder
 - `webpack` then exclude the output folder, e.g., `dist`.
 
@@ -154,7 +154,7 @@ Additionally you can use the following commands from the commands menu (F1) or w
 
 - Fold (`kb(editor.fold)`) folds the innermost uncollapsed region at the cursor
 - Unfold (`kb(editor.unfold)`) unfolds the collapsed region at the cursor
-- Fold All (`kb(editor.foldAll)`) folds all region in the editor
+- Fold All (`kb(editor.foldAll)`) folds all regions in the editor
 - Unfold All (`kb(editor.unfoldAll)`) unfolds all regions in the editor
 
 The folding regions are evaluated solely based on the indentation of each line. This first version does not yet support language agnostic folding regions, or folding markers. This is in discussion for an upcoming release (see issue [#3422](https://github.com/microsoft/vscode/issues/3422)).
@@ -183,7 +183,7 @@ A new setting `files.eol` controls the default new line character when creating 
 
 ### Word navigation and word separators
 
-Word navigation and word deletion commands updated and now honor a new setting, `editor.wordSeparators`, when deciding what is a word, regardless of the current language of the file.
+Word navigation and word deletion commands have been updated and now honor a new setting, `editor.wordSeparators`, when deciding what is a word, regardless of the current language of the file.
 
 ### Improved usage of web workers
 
@@ -223,10 +223,10 @@ The performance of the in-product Extension Marketplace (via the **Extensions: I
 
 ### VS Code no longer 'fixes' Relative Paths in Launch Configurations
 
-In the January milestone, we deprecated the use of relative paths in launch configurations (but still continued to convert relative in absolute paths).
+In the January milestone, we deprecated the use of relative paths in launch configurations (but still continued to convert relative paths to absolute paths).
 With this milestone, we've dropped this automatic fixing in favor of a more transparent strategy: VS Code no longer modifies launch configuration paths when sending them to the debug adapter. This is now the same treatment of paths as for task configurations.
 
-If you haven't already fixed your launch configuration paths for the January release, then you will now see this (or similar) errors when starting a debug session:
+If you haven't already fixed your launch configuration paths for the January release, then you will now see these (or similar) errors when starting a debug session:
 
 ![install-mono-debug-help](images/February/relative-path-error.png)
 
@@ -290,7 +290,7 @@ A 'function breakpoint' is created by pressing the '+' button in the Breakpoints
 Since C# support in VS Code has been turned into an optional install, we have done the same with the Mono debugger.
 The Mono debugger has now become ['Mono Debug'](https://marketplace.visualstudio.com/items?itemName=ms-vscode.mono-debug) on the Visual Studio Marketplace.
 
-You can either install the **Mono Debug** extension with the VS Code **Extensions: Install Extension** command or if you already have a Mono based project with a `mono` launch configuration, simply by starting a debug session. VS Code will then suggest to download and install **Mono Debug** automatically:
+You can either install the **Mono Debug** extension with the VS Code **Extensions: Install Extension** command or, if you already have a Mono based project with a `mono` launch configuration, simply start a debug session. VS Code will then suggest downloading and installing **Mono Debug** automatically:
 
 ![install-mono-debug-help](images/February/mono-debug-install.png)
 
@@ -309,7 +309,7 @@ The `eslint-stylish` problem matcher changed to use absolute file paths by defau
 
 ### OS X Shell Command
 
-In OS X, two new commands were added to install the VS Code shell command in the `$PATH` environment variable list. This makes the previous alias in `~/.bash_profile` deprecated and we **recommend you to remove it** and use this command instead.
+In OS X, two new commands were added to install the VS Code shell command in the `$PATH` environment variable list. This makes the previous alias in `~/.bash_profile` deprecated and we **recommend that you remove it** and use this command instead.
 
 ![OS X Shell Commands](images/February/shell-command.png)
 
@@ -354,11 +354,11 @@ Support has been added to localize `package.json` files for extensions and Commo
 
 ### Always install a compatible version of the extension if possible
 
-VS Code will now fallback to installing the latest compatible version of an extension with its own version, in case the latest extension version isn't compatible. This prevents users from installing extensions that could fail to activate.
+VS Code will now fall back to installing the latest version of an extension compatible with its own version, in case the latest extension version isn't compatible. This prevents users from installing extensions that could fail to activate.
 
 ### Debug Adapter
 
-We now support more OS types for the `debuggers` contribution point (see [#1696](https://github.com/microsoft/vscode/issues/1696) for details). In addition to `win`, `linux`, and `osx`, adapters can now use `winx86` in their `package.json` to specify options specific to a 32-bit Windows:
+We now support more OS types for the `debuggers` contribution point (see [#1696](https://github.com/microsoft/vscode/issues/1696) for details). In addition to `win`, `linux`, and `osx`, adapters can now use `winx86` in their `package.json` to specify options specific to 32-bit Windows:
 
 ```json
 "debuggers": [{
