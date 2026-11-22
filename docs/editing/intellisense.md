@@ -26,7 +26,7 @@ You can trigger IntelliSense in any editor window by typing `kb(editor.action.tr
 <video src="images/intellisense/intellisense_packagejson.mp4" title="Video that shows IntelliSense triggered with 'Ctrl+Space' in a 'package.json' file." autoplay loop controls muted></video>
 
 > [!TIP]
-> The suggestions control supports CamelCase filtering, which means that you can type the letters that are upper cased in a method name to limit the suggestions. For example, "cra" brings up "createApplication".
+> The suggestions control supports CamelCase filtering, which means that you can type the uppercase letters in a method name to limit the suggestions. For example, "cra" brings up "createApplication".
 
 If you prefer, you can turn off IntelliSense while you type. See [Customizing IntelliSense](#customizing-intellisense), to learn how to disable or customize {% data variables.product.prodname_vscode_shortname %}'s IntelliSense features.
 

@@ -517,7 +517,7 @@ Eligible domains meet the following criteria:
 
 ### Extension pricing label
 
-You can opt-in to show a pricing label on your extension's Marketplace page to indicate that it is `Free` or `Free Trial`.
+You can opt in to show a pricing label on your extension's Marketplace page to indicate that it is `Free` or `Free Trial`.
 
 To show a pricing label, add the `pricing` property to your `package.json`. For example:
 
@@ -534,7 +534,7 @@ Allowed values are: `Free` and `Trial` (case-sensitive). When the `pricing` prop
 
 ### Extension Sponsor
 
-You can opt-in to sponsorship to give your users a way to support your work.
+You can opt in to sponsorship to give your users a way to support your work.
 
 To show a sponsor link, add the `sponsor` property to your `package.json`. For example:
 

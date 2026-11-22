@@ -21,7 +21,7 @@
                 "area": "agents",
                 "topics": [
                     ["Find a Guide", "/docs/agents/guides/overview"],
-                    ["Choose an AI Feature", "/docs/agents/reference/ai-features-cheat-sheet", { "secondary": true }],
+                    ["AI Features Cheat Sheet", "/docs/agents/reference/ai-features-cheat-sheet", { "secondary": true }],
                     ["Set Up GitHub Copilot", "/docs/setup/copilot"],
                     ["Agents Quickstart", "/docs/agents/quickstart"],
                     ["Agents Tutorial", "/docs/agents/agents-tutorial"],
@@ -35,13 +35,13 @@
                 "topics": [
                     ["Inline Suggestions", "/docs/editing/ai-powered-suggestions", { "secondary": true }],
                     ["Smart Actions", "/docs/editing/copilot-smart-actions", { "secondary": true }],
-                    ["Chat View and Layout", "/docs/agents/run/chat-view"],
+                    ["Use the Chat View", "/docs/agents/run/chat-view"],
                     ["Agents Window", "/docs/agents/run/agents-window"],
-                    ["Inline Chat & Quick Chat", "/docs/chat/inline-chat"],
-                    ["Chat Interactions", "/docs/chat/chat-overview"],
+                    ["Inline Chat and Quick Chat", "/docs/chat/inline-chat"],
+                    ["Chat Messages and Responses", "/docs/chat/chat-overview"],
                     ["Canvases", "/docs/agents/run/canvases"],
                     ["Add Prompt Context", "/docs/chat/copilot-chat-context"],
-                    ["Review & Revert Changes", "/docs/agents/run/review-code-edits"],
+                    ["Review and Undo Changes", "/docs/agents/run/review-code-edits"],
                     ["Configure the Agents Window", "/docs/agents/run/agents-window-configuration"],
 
                     ["", "", {
@@ -50,8 +50,8 @@
                         "topics": [
                             ["Plan Work", "/docs/agents/run/planning"],
                             ["Use Tools", "/docs/agents/run/tools"],
-                            ["Browser Tools", "/docs/agents/run/browser-tools"],
-                            ["Subagents", "/docs/agents/run/subagents"],
+                            ["Use Browser Tools", "/docs/agents/run/browser-tools"],
+                            ["Use Subagents", "/docs/agents/run/subagents"],
                             ["Automations", "/docs/agents/run/automations"]
                         ]
                     }],
@@ -61,7 +61,7 @@
                         "area": "agents/run/sessions",
                         "topics": [
                             ["Manage Sessions", "/docs/agents/run/sessions/manage-sessions"],
-                            ["Organize & Triage Sessions", "/docs/agents/run/sessions/organize-sessions"],
+                            ["Organize and Triage Sessions", "/docs/agents/run/sessions/organize-sessions"],
                             ["Memory", "/docs/agents/run/memory"],
                             ["Artifacts", "/docs/agents/run/artifacts"]
                         ]
@@ -71,9 +71,9 @@
                         "name": "Permissions and Security",
                         "area": "agents/run/security",
                         "topics": [
-                            ["Approvals & Permissions", "/docs/agents/run/approvals"],
-                            ["Agent Sandboxing", "/docs/agents/run/agent-sandboxing"],
-                            ["AI Security", "/docs/agents/run/security"]
+                            ["Approvals and Permissions", "/docs/agents/run/approvals"],
+                            ["Configure Agent Sandboxing", "/docs/agents/run/agent-sandboxing"],
+                            ["Secure Development with AI", "/docs/agents/run/security"]
                         ]
                     }]
                 ]
@@ -97,14 +97,14 @@
                 "noCollapse": false,
                 "topics": [
                     ["Overview", "/docs/agent-customization/overview"],
-                    ["Plugins", "/docs/agent-customization/agent-plugins"],
+                    ["Agent Plugins", "/docs/agent-customization/agent-plugins"],
                     ["Agent Skills", "/docs/agent-customization/agent-skills"],
-                    ["Instructions", "/docs/agent-customization/custom-instructions"],
+                    ["Custom Instructions", "/docs/agent-customization/custom-instructions"],
                     ["Custom Agents", "/docs/agent-customization/custom-agents"],
                     ["Copilot Connectors", "/docs/agent-customization/copilot-connectors"],
                     ["Add and Use MCP Servers", "/docs/agent-customization/mcp-servers"],
                     ["Manage MCP Servers", "/docs/agents/run/manage-mcp-servers"],
-                    ["Hooks", "/docs/agent-customization/hooks"],
+                    ["Agent Hooks", "/docs/agent-customization/hooks"],
                     ["Prompt Files", "/docs/agent-customization/prompt-files"],
                     ["Migrate Existing Customizations", "/docs/agent-customization/migrate-customizations"]
                 ]
@@ -114,7 +114,7 @@
                 "name": "Work Across Apps and Machines",
                 "area": "agents/continuation",
                 "topics": [
-                    ["Cloud Continuity Tutorial", "/docs/agents/cloud-continuity-tutorial"],
+                    ["Tutorial: Agent Continuity", "/docs/agents/cloud-continuity-tutorial"],
                     ["Remote Agent Sessions", "/docs/agents/run/remote-agent-sessions"],
                     ["Cloud Sessions", "/docs/agents/run/cloud-sandbox-sessions"],
                     ["Session History", "/docs/agents/run/sessions/session-history"]
@@ -122,7 +122,7 @@
             }],
 
             ["", "", {
-                "name": "Tutorials & Guides",
+                "name": "Tutorials and Guides",
                 "area": "agents/guides",
                 "topics": [
                     ["Find a Guide", "/docs/agents/guides/overview", { "secondary": true }],
@@ -137,8 +137,8 @@
                     ["Run Parallel Tasks", "/docs/agents/guides/delegate-two-tasks"],
                     ["Get Back on Track", "/docs/agents/guides/get-agent-back-on-track"],
                     ["Adapt Agents to Your Project", "/docs/agents/guides/customize-copilot-guide"],
-                    ["Context Engineering", "/docs/agents/guides/context-engineering-guide"],
-                    ["Jupyter Notebooks", "/docs/agents/guides/notebooks-with-ai"],
+                    ["Context Engineering Workflow", "/docs/agents/guides/context-engineering-guide"],
+                    ["Work with Jupyter Notebooks", "/docs/agents/guides/notebooks-with-ai"],
                     ["Reduce Credit Usage", "/docs/agents/guides/optimize-usage"],
                     ["Prompt Examples", "/docs/agents/guides/prompt-examples"]
                 ]
@@ -153,7 +153,7 @@
                     ["Context", "/docs/agents/concepts/context"],
                     ["Tools", "/docs/agents/concepts/tools"],
                     ["Sessions and Chats", "/docs/agents/concepts/sessions"],
-                    ["Trust & Safety", "/docs/agents/concepts/trust-and-safety"],
+                    ["Trust and Safety", "/docs/agents/concepts/trust-and-safety"],
                     ["Agent Harnesses", "/docs/agents/concepts/agent-harnesses"],
                     ["Agent Customization", "/docs/agents/concepts/customization"]
                 ]
@@ -167,10 +167,10 @@
                         "name": "Reference",
                         "area": "agents/reference",
                         "topics": [
-                            ["Cheat Sheet", "/docs/agents/reference/ai-features-cheat-sheet"],
-                            ["Tools and Context", "/docs/agents/reference/tools-reference"],
+                            ["AI Features Cheat Sheet", "/docs/agents/reference/ai-features-cheat-sheet"],
+                            ["Tool Names and Context References", "/docs/agents/reference/tools-reference"],
                             ["Workspace Context", "/docs/agents/reference/workspace-context"],
-                            ["Settings Reference", "/docs/agents/reference/ai-settings"],
+                            ["AI Settings", "/docs/agents/reference/ai-settings"],
                             ["VS Code Pet", "/docs/agents/reference/chat-pet"],
                             ["Custom Agent File Reference", "/docs/agents/reference/custom-agent-file-reference"],
                             ["Custom Instructions Reference", "/docs/agents/reference/custom-instructions-reference"],
@@ -326,7 +326,7 @@
           ["Fix an API Bug", "/docs/agents/guides/fix-a-bug-with-agents", { "secondary": true }],
           ["Add Tests", "/docs/agents/guides/test-code-with-ai", { "secondary": true }],
           ["Test-Driven Development", "/docs/agents/guides/test-driven-development-guide", { "secondary": true }],
-          ["Test Web Apps", "/docs/agents/guides/browser-agent-testing-guide", { "secondary": true }],
+          ["Test Web Apps", "/docs/agents/guides/browser-agent-testing-guide", { "secondary": true }]
         ]
         }
       ]
@@ -399,5 +399,5 @@
     "link": "/docs/extension-docs/overview",
     "toc": "extension-docs/toc.json",
     "topics": []
-  },
+  }
 ]

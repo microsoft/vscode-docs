@@ -419,7 +419,7 @@ Specify the full path to the browser executable as the settings value. Alternati
 
 ### Combine multiple logs into a single view
 
-The Output panel shows the output of various services. Each services typically has their own log. To analyze related log information from multiple services, you can combine multiple logs into a single _compound log_.
+The Output panel shows the output of various services. Each service typically has its own log. To analyze related log information from multiple services, you can combine multiple logs into a single _compound log_.
 
 Select **Create Compound Log...** from the overflow menu of the Output panel.
 

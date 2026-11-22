@@ -14,7 +14,7 @@ MetaDescription: C# Quick Actions and Refactorings in {% data variables.product.
 * [Add `DebuggerDisplay` attribute](#add-debuggerdisplay-attribute)
 * [Add explicit cast](#add-explicit-cast)
 * [Add file header](#add-file-header)
-* [Add missing `usings` / imports](#add-missing-usings--imports)
+* [Add missing `usings` / imports](#add-missing-usings-imports)
 * [Add named argument](#add-named-argument)
 * [Convert anonymous type to class](#convert-anonymous-type-to-class)
 * [Convert between auto property and full property](#convert-between-auto-property-and-full-property)

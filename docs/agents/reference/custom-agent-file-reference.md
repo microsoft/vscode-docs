@@ -199,7 +199,7 @@ agents: ['Researcher', 'Implementer']
 
 Agent names are case-sensitive. Explicitly listing an agent in `agents` permits invocation even if that worker sets `disable-model-invocation: true`. To allow a subagent to delegate further, enable `setting(chat.subagents.allowInvocationsFromSubagents)`. This also applies to an agent that lists itself. See [Nested subagents](/docs/agents/run/subagents.md#nested-subagents).
 
-For complete coordinator and worker files, see [Delegate implementation to a worker](/docs/agents/run/subagents.md#delegate-implementation-to-a-worker).
+These coordinator controls are Local-only. For the {% data variables.product.prodname_copilot_short %} workflow, see [Create and invoke a reusable subagent](/docs/agents/run/subagents.md#run-a-custom-agent-as-a-subagent).
 
 ### Visibility and invocation
 

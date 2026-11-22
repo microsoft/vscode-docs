@@ -34,7 +34,7 @@ Keyboard shortcuts:
 * New Find settings commands: toggle case-sensitive (`kb(toggleFindCaseSensitive)`), toggle regex (`kb(toggleFindRegex)`) and toggle whole word (`kb(toggleFindWholeWord)`)
 * `kb(actions.find)` puts focus in the Find input field.
 * `kb(editor.action.startFindReplaceAction)` puts focus in the Replace input field.
-* When focus is in the Find widget input fields, `kbstyle(Ctrl+Down)` put focus in the editor.
+* When focus is in the Find widget input fields, `kbstyle(Ctrl+Down)` puts focus in the editor.
 
 ## Changed defaults and key bindings
 
@@ -43,7 +43,7 @@ Keyboard shortcuts:
 
 ## Editor - Cursor Blinking Options
 
-New setting to configure cursor blinking: `editor.cursorBlinking` with values `blink`, `visible` and `hidden` thanks to [community contribution](https://github.com/microsoft/vscode/pull/500).
+New setting to configure cursor blinking: `editor.cursorBlinking` with values `blink`, `visible` and `hidden` thanks to a [community contribution](https://github.com/microsoft/vscode/pull/500).
 
 ## Editor - Select Current Line Command
 
@@ -70,14 +70,14 @@ Added support for function keys `kbstyle(f13-f19)` and for the numeric keypad ke
 
 ## Improvements for non US standard keyboard layouts
 
-VS Code dispatches key bindings based on [keyboard codes](https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731). In `keybindings.json` and in all the UI, we used to render the key codes with the produced characters under the US standard keyboard layout. We received feedback that this was very confusing, therefore, we created a new Node.js module [`native-keymap`](https://www.npmjs.com/package/native-keymap) that is used in VS Code to render the key bindings using the system's current keyboard layout.
+VS Code dispatches key bindings based on [keyboard codes](https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731). In `keybindings.json` and in all the UI, we used to render the key codes with the produced characters under the US standard keyboard layout. We received feedback that this was very confusing. Therefore, we created a new Node.js module [`native-keymap`](https://www.npmjs.com/package/native-keymap) that is used in VS Code to render the key bindings using the system's current keyboard layout.
 
 For example, `Split Editor` when using a French (France) keyboard layout is now rendered as `kbstyle(Ctrl+*)`:
 ![render key binding](images/December/render-key-binding.png)
 
 When editing `keybindings.json`, we now highlight misleading key bindings - those that are represented in the file with the character produced under the standard US keyboard layout, but which need pressing keys with different labels under the current system's keyboard layout.
 
-For example, here is how the `Default keybindings` rules look like when using a French (France) keyboard layout:
+For example, here is how the `Default keybindings` rules look when using a French (France) keyboard layout:
 
 ![keybindings.json guidance](images/December/keybindings-json.png)
 
@@ -117,7 +117,7 @@ The grammars used to colorize JS and JSX are now aligned.
 
 ## Extension Debugging
 
-We improved extension debugging when connecting the debugger to the extension. The debugger will no longer try to reconnect to the extension when you close the 'Extension Host`. In addition, the debugger will connect faster to your extension.
+We improved extension debugging when connecting the debugger to the extension. The debugger will no longer try to reconnect to the extension when you close the 'Extension Host'. In addition, the debugger will connect faster to your extension.
 
 ## Extensions Show Outdated Extensions
 
@@ -139,7 +139,7 @@ If an extension exports a function named `deactivate()`, VS Code now calls it on
 
 ## File Picker improvements and fuzzy search
 
-The file picker ("Quick Open") is now able to search on file paths when you include slash (Mac/Linux) or backslash (Windows) in the search term. This allows you to list all the files of a directory easily.
+The file picker ("Quick Open") is now able to search on file paths when you include a slash (Mac/Linux) or backslash (Windows) in the search term. This allows you to list all the files of a directory easily.
 
 ![Path Search in File Picker](images/December/path-search.png)
 
@@ -169,11 +169,11 @@ It is now possible to open a sub-directory of a Git repository in VS Code. VS Co
 
 ## Git Status Bar Actions
 
-There is now a **Synchronize** action in the Status Bar, next to the branch indicator, when the current checked out branch has an upstream branch configured.
+There is now a **Synchronize** action in the Status Bar, next to the branch indicator, when the currently checked out branch has an upstream branch configured.
 
 ![git status bar sync](images/December/git-status-bar-sync.png)
 
-If there is no upstream branch configured and the Git repository has remotes set up, a new **Publish** action is enabled. This will let you publish the current branch to remote.
+If there is no upstream branch configured and the Git repository has remotes set up, a new **Publish** action is enabled. This will let you publish the current branch to a remote.
 
 ![git status bar publish](images/December/git-status-bar-publish.png)
 
@@ -230,7 +230,7 @@ The source for these modules lives in the GitHub repository [vscode-debugadapter
 
 ## Engineering
 
-The VS Code GitHub repository supports continued integration for branches and pull requests:
+The VS Code GitHub repository supports continuous integration for branches and pull requests:
 
 * [Travis CI](https://travis-ci.org/Microsoft/vscode/) - Linux and OS X
 * [AppVeyor](https://ci.appveyor.com/project/VSCode/vscode) - Windows

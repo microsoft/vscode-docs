@@ -1,0 +1,294 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VS Code documentation findings report",
+  "type": "object",
+  "required": ["schemaVersion", "checks", "sourceRevision", "generatedAt", "scanPaths", "inputHash", "findings"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": { "enum": [4, 5, 6] },
+    "checks": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "enum": ["claims", "links", "navigation", "replay", "review"] },
+      "oneOf": [
+        {"contains": {"const": "claims"}, "not": {"anyOf": [{"contains": {"const": "replay"}}, {"contains": {"const": "review"}}]}},
+        {"const": ["replay"]},
+        {"const": ["review"]}
+      ]
+    },
+    "sourceRevision": { "$ref": "#/$defs/text" },
+    "generatedAt": { "$ref": "#/$defs/timestamp" },
+    "scanPaths": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "anyOf": [{ "const": "." }, { "$ref": "#/$defs/article" }] }
+    },
+    "inputHash": {
+      "$ref": "#/$defs/hash",
+      "description": "SHA-256 of claim-checker inputs and enabled checks, or of the exact reviewed replay binding."
+    },
+    "productManifest": { "$ref": "#/$defs/productManifest" },
+    "replay": { "$ref": "#/$defs/replay" },
+    "review": { "$ref": "#/$defs/review" },
+    "findings": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/finding" }
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"checks": {"const": ["review"]}}},
+      "then": {
+        "required": ["review"],
+        "properties": {
+          "schemaVersion": {"const": 6},
+          "findings": {"maxItems": 50, "items": {"required": ["reviewEvidence"], "properties": {"kind": {"const": "review"}}, "not": {"required": ["productEvidence"]}}}
+        },
+        "not": {"required": ["productManifest"]}
+      },
+      "else": {
+        "not": {"required": ["review"]},
+        "properties": {"findings": {"items": {"not": {"required": ["reviewEvidence"]}}}}
+      }
+    },
+    {
+      "if": {"properties": {"checks": {"contains": {"const": "replay"}}}},
+      "then": {
+        "required": ["replay"],
+        "properties": {
+          "schemaVersion": {"const": 5},
+          "findings": {"items": {"required": ["replayEvidence"], "properties": {"kind": {"const": "replay"}}, "not": {"required": ["productEvidence"]}}}
+        },
+        "not": {"required": ["productManifest"]}
+      },
+      "else": {
+        "not": {"required": ["replay"]},
+        "properties": {"findings": {"items": {"not": {"required": ["replayEvidence"]}}}}
+      }
+    }
+  ],
+  "$defs": {
+    "text": { "type": "string", "pattern": "\\S" },
+    "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$"
+    },
+    "article": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?![A-Za-z]:)(?!.*\\\\)(?!.*(?:^|/)(?:\\.|\\.\\.)(?:/|$))(?!.*//)(?!.*\\/$)[^\\u0000-\\u001f\\u007f]+$"
+    },
+    "finding": {
+      "type": "object",
+      "required": ["id", "kind", "severity", "article", "articleHash", "line", "evidence", "sourceRevision", "status", "message", "firstSeen", "lastSeen"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/hash" },
+        "kind": { "enum": ["claim", "link", "lifecycle", "replay", "review", "media-drift", "eval", "audit-proposal"] },
+        "severity": { "enum": ["error", "warning", "unverified"] },
+        "article": { "$ref": "#/$defs/article" },
+        "articleHash": { "$ref": "#/$defs/hash" },
+        "line": { "type": "integer", "minimum": 1 },
+        "evidence": { "$ref": "#/$defs/text" },
+        "sourceRevision": { "$ref": "#/$defs/text" },
+        "status": { "enum": ["open", "accepted", "dismissed", "fixed"] },
+        "message": { "$ref": "#/$defs/text" },
+        "firstSeen": { "$ref": "#/$defs/timestamp" },
+        "lastSeen": { "$ref": "#/$defs/timestamp" },
+        "productEvidence": { "$ref": "#/$defs/productEvidence" },
+        "replayEvidence": { "$ref": "#/$defs/replayEvidence" },
+        "reviewEvidence": { "$ref": "#/$defs/reviewEvidence" }
+      }
+    },
+    "review": {
+      "type": "object", "additionalProperties": false, "required": ["binding", "status", "summary", "limitations"],
+      "properties": {
+        "binding": {"$ref": "#/$defs/reviewBinding"},
+        "status": {"enum": ["complete", "incomplete"]},
+        "summary": {"$ref": "#/$defs/text"},
+        "limitations": {"type": "array", "maxItems": 20, "items": {"$ref": "#/$defs/text"}}
+      }
+    },
+    "reviewBinding": {
+      "type": "object", "additionalProperties": false,
+      "required": ["article", "articleHash", "sourceRevision", "channel", "focus", "guidelinesHash", "checkerInputHash"],
+      "properties": {
+        "article": {"$ref": "#/$defs/article"}, "articleHash": {"$ref": "#/$defs/hash"},
+        "sourceRevision": {"$ref": "#/$defs/text"}, "channel": {"enum": ["stable", "insiders"]},
+        "focus": {"enum": ["editorial", "technical", "both"]},
+        "guidelinesHash": {"$ref": "#/$defs/hash"}, "checkerInputHash": {"$ref": "#/$defs/hash"},
+        "section": {"$ref": "#/$defs/reviewSection"},
+        "product": {"$ref": "#/$defs/reviewProduct"}
+      }
+    },
+    "reviewProduct": {
+      "type": "object", "additionalProperties": false, "required": ["channel", "version", "revision", "source"],
+      "properties": {
+        "channel": {"enum": ["stable", "insiders"]}, "version": {"$ref": "#/$defs/text"},
+        "revision": {"type": "string", "pattern": "^[a-f0-9]{40}$"}, "source": {"$ref": "#/$defs/text"}
+      }
+    },
+    "reviewSection": {
+      "type": "object", "additionalProperties": false, "required": ["title", "startLine", "endLine"],
+      "properties": {
+        "title": {"$ref": "#/$defs/text"}, "startLine": {"type": "integer", "minimum": 1},
+        "endLine": {"type": "integer", "minimum": 1}
+      }
+    },
+    "reviewEvidence": {
+      "type": "object", "additionalProperties": false,
+      "required": ["category", "assessment", "endLine", "quote", "suggestion", "sources"],
+      "properties": {
+        "category": {"enum": ["accuracy", "style", "structure", "accessibility", "discoverability"]},
+        "assessment": {"enum": ["supported", "question"]},
+        "endLine": {"type": "integer", "minimum": 1}, "quote": {"$ref": "#/$defs/text"},
+        "suggestion": {"$ref": "#/$defs/text"},
+        "sources": {"type": "array", "maxItems": 10, "items": {
+          "type": "object", "additionalProperties": false, "required": ["url", "quote"],
+          "properties": {"url": {"$ref": "#/$defs/text"}, "quote": {"$ref": "#/$defs/text"}}
+        }}
+      }
+    },
+    "privateReference": {
+      "type": "object", "additionalProperties": false, "required": ["file", "sha256"],
+      "properties": {"file": {"$ref": "#/$defs/text"}, "sha256": {"$ref": "#/$defs/hash"}}
+    },
+    "replay": {
+      "type": "object", "additionalProperties": false, "required": ["binding", "review", "evidence", "status"],
+      "properties": {
+        "binding": {"$ref": "#/$defs/replayBinding"},
+        "review": {"$ref": "#/$defs/privateReference"},
+        "evidence": {"$ref": "#/$defs/privateReference"},
+        "status": {"enum": ["passed", "mismatch", "incomplete"]}
+      }
+    },
+    "replayBinding": {
+      "type": "object", "additionalProperties": false,
+      "required": ["article", "articleHash", "sourceRevision", "storyboardId", "storyboardHash", "runnerHash", "product"],
+      "properties": {
+        "article": {"$ref": "#/$defs/article"}, "articleHash": {"$ref": "#/$defs/hash"},
+        "sourceRevision": {"$ref": "#/$defs/text"}, "storyboardId": {"$ref": "#/$defs/text"},
+        "storyboardHash": {"$ref": "#/$defs/hash"}, "runnerHash": {"$ref": "#/$defs/hash"},
+        "product": {
+          "type": "object", "additionalProperties": false, "required": ["revision", "channel"],
+          "properties": {
+            "revision": {"type": "string", "pattern": "^[a-fA-F0-9]{40}$"},
+            "channel": {"enum": ["stable", "insiders"]}
+          }
+        },
+        "workspace": {"$ref": "#/$defs/text"}, "captureProfile": {"$ref": "#/$defs/text"}
+      },
+      "dependentRequired": {"workspace": ["captureProfile"], "captureProfile": ["workspace"]}
+    },
+    "replayEvidence": {
+      "type": "object", "additionalProperties": false, "required": ["category", "code"],
+      "properties": {
+        "category": {"enum": ["mismatch", "prerequisite", "environment", "privacy", "cleanup"]},
+        "code": {"type": "string", "pattern": "^[a-z][a-z-]+$"},
+        "phase": {"type": "string", "enum": ["steps", "video.steps", "video.reset"]},
+        "step": {"type": "integer", "minimum": 0, "maximum": 39},
+        "kind": {"enum": ["click", "hover", "key", "fill", "type", "check", "wait-for", "assert", "pause"]},
+        "target": {"$ref": "#/$defs/text"},
+        "expected": {
+          "oneOf": [
+            {"type": "object", "additionalProperties": false, "required": ["text", "match"],
+              "properties": {"text": {"$ref": "#/$defs/text"}, "match": {"enum": ["equals", "contains"]}}},
+            {"type": "object", "additionalProperties": false, "required": ["values"],
+              "properties": {"values": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/text"}}}}
+          ]
+        },
+        "observed": {"const": {"state": "visible", "matches": false}}
+      },
+      "dependentRequired": {"step": ["phase", "kind"], "phase": ["step", "kind"], "kind": ["step", "phase"]},
+      "allOf": [{
+        "if": {"properties": {"category": {"const": "mismatch"}}},
+        "then": {"required": ["step", "expected", "observed"]},
+        "else": {"not": {"anyOf": [{"required": ["expected"]}, {"required": ["observed"]}]}}
+      }]
+    },
+    "productManifest": {
+      "type": "object",
+      "required": ["sha256", "product", "sources"],
+      "additionalProperties": false,
+      "properties": {
+        "sha256": { "$ref": "#/$defs/hash" },
+        "product": {
+          "type": "object",
+          "required": ["channel", "version", "revision"],
+          "additionalProperties": false,
+          "properties": {
+            "channel": { "enum": ["stable", "insiders"] },
+            "version": { "$ref": "#/$defs/text" },
+            "revision": { "type": "string", "pattern": "^[a-fA-F0-9]{40}$" }
+          }
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/productSource" }
+        }
+      }
+    },
+    "productSource": {
+      "type": "object",
+      "required": ["kind", "mode", "platform", "file", "sha256"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": { "enum": ["settings", "keybindings"] },
+        "mode": { "enum": ["editor", "agents"] },
+        "platform": { "enum": ["win", "osx", "linux"] },
+        "file": { "$ref": "#/$defs/text" },
+        "sha256": { "$ref": "#/$defs/hash" }
+      }
+    },
+    "productEvidence": {
+      "type": "object",
+      "required": ["status", "matches"],
+      "additionalProperties": false,
+      "properties": {
+        "status": { "enum": ["observed", "not-observed", "not-covered"] },
+        "matches": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["source"],
+            "additionalProperties": false,
+            "properties": {
+              "source": { "type": "integer", "minimum": 0 },
+              "defaultValue": {},
+              "binding": { "$ref": "#/$defs/binding" },
+              "command": { "$ref": "#/$defs/text" },
+              "line": { "type": "integer", "minimum": 1 }
+            },
+            "oneOf": [
+              { "required": ["defaultValue"], "not": { "anyOf": [{ "required": ["binding"] }, { "required": ["command"] }, { "required": ["line"] }] } },
+              { "required": ["binding"], "not": { "anyOf": [{ "required": ["defaultValue"] }, { "required": ["command"] }, { "required": ["line"] }] } },
+              { "required": ["command", "line"], "not": { "anyOf": [{ "required": ["defaultValue"] }, { "required": ["binding"] }] } }
+            ]
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "observed" } } },
+          "then": { "properties": { "matches": { "minItems": 1 } } },
+          "else": { "properties": { "matches": { "maxItems": 0 } } }
+        }
+      ]
+    },
+    "binding": {
+      "type": "object",
+      "required": ["key", "command"],
+      "properties": {
+        "key": { "$ref": "#/$defs/text" },
+        "command": { "$ref": "#/$defs/text" },
+        "when": { "type": "string" },
+        "args": {}
+      }
+    }
+  }
+}

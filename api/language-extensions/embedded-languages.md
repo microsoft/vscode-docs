@@ -77,14 +77,14 @@ Here is a simple example:
 
 In this case, the server detects the `<style>` tag, and marks `.foo { }` as a CSS region.
 
-Given an auto completion request at a specific position, the server uses the following logic to compute a response:
+Given an autocompletion request at a specific position, the server uses the following logic to compute a response:
 
 - If the position falls into any region
   - Handle it with a virtual document with the region's language, while replacing all other regions with whitespace
 - If the position falls out of any region
   - Handle it with a virtual document in HTML, while replacing all regions with whitespace
 
-For example, when doing an auto completion in this position:
+For example, when doing an autocompletion in this position:
 
 ```html
 <div></div>
@@ -161,7 +161,7 @@ Here is the simple example again:
 <style>.foo { | }</style>
 ```
 
-Auto completion happens in this way:
+Autocompletion happens in this way:
 
 - The language client registers a virtual text document provider for `embedded-content` document using `workspace.registerTextDocumentContentProvider`.
 - The language client hijacks completion requests for `<FILE_URI>`.
@@ -197,7 +197,7 @@ workspace.registerTextDocumentContentProvider('embedded-content', {
 })
 ```
 
-By using the `middleware` option of language client, we hijack request for auto completion:
+By using the `middleware` option of the language client, we hijack the request for autocompletion:
 
 ```ts
 let clientOptions: LanguageClientOptions = {

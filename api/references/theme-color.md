@@ -247,7 +247,7 @@ Colors for list and trees like the File Explorer. An active list/tree has keyboa
 The Activity Bar is usually displayed either on the far left or right of the workbench and allows fast switching between views of the Side Bar.
 
 - `activityBar.background`: Activity Bar background color.
-- `activityBar.dropBorder`: Drag and drop feedback color for the activity bar items. The activity bar is showing on the far left or right and allows to switch between views of the side bar.
+- `activityBar.dropBorder`: Drag and drop feedback color for the activity bar items. The activity bar is showing on the far left or right and lets you switch between views of the side bar.
 - `activityBar.foreground`: Activity Bar foreground color (for example used for the icons).
 - `activityBar.inactiveForeground`: Activity Bar item foreground color when it is inactive.
 - `activityBar.border`: Activity Bar border color with the Side Bar.
@@ -256,12 +256,12 @@ The Activity Bar is usually displayed either on the far left or right of the wor
 - `activityBar.activeBorder`: Activity Bar active indicator border color.
 - `activityBar.activeBackground`: Activity Bar optional background color for the active element.
 - `activityBar.activeFocusBorder`: Activity bar focus border color for the active item.
-- `activityBarTop.foreground`: Active foreground color of the item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.
-- `activityBarTop.activeBorder`: Focus border color for the active item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.
-- `activityBarTop.inactiveForeground`: Inactive foreground color of the item in the Activity bar when it is on top. The activity allows to switch between views of the side bar.
-- `activityBarTop.dropBorder`: Drag and drop feedback color for the items in the Activity bar when it is on top. The activity allows to switch between views of the side bar.
+- `activityBarTop.foreground`: Active foreground color of the item in the Activity bar when it is on top. The Activity Bar lets you switch between views of the side bar.
+- `activityBarTop.activeBorder`: Focus border color for the active item in the Activity bar when it is on top. The Activity Bar lets you switch between views of the side bar.
+- `activityBarTop.inactiveForeground`: Inactive foreground color of the item in the Activity bar when it is on top. The Activity Bar lets you switch between views of the side bar.
+- `activityBarTop.dropBorder`: Drag and drop feedback color for the items in the Activity bar when it is on top. The Activity Bar lets you switch between views of the side bar.
 - `activityBarTop.background`: Background color of the activity bar when set to top / bottom.
-- `activityBarTop.activeBackground`: Background color for the active item in the Activity bar when it is on top / bottom. The activity allows to switch between views of the side bar.
+- `activityBarTop.activeBackground`: Background color for the active item in the Activity bar when it is on top / bottom. The Activity Bar lets you switch between views of the side bar.
 - `activityWarningBadge.foreground`: Foreground color of the warning activity badge
 - `activityWarningBadge.background`: Background color of the warning activity badge
 - `activityErrorBadge.foreground`: Foreground color of the error activity badge
@@ -1100,7 +1100,7 @@ The following customizations are available:
 - `terminalSymbolIcon.aliasForeground`: The foreground color for an alias icon. These icons will appear in the terminal suggest widget
 - `terminalSymbolIcon.branchForeground`: The foreground color for a branch icon. These icons will appear in the terminal suggest widget.
 - `terminalSymbolIcon.commitForeground`: The foreground color for a commit icon. These icons will appear in the terminal suggest widget.
-- `terminalSymbolIcon.flagForeground`: The foreground color for an flag icon. These icons will appear in the terminal suggest widget
+- `terminalSymbolIcon.flagForeground`: The foreground color for a flag icon. These icons will appear in the terminal suggest widget
 - `terminalSymbolIcon.optionForeground`: The foreground color for an option icon. These icons will appear in the terminal suggest widget.
 - `terminalSymbolIcon.optionValueForeground`: The foreground color for an enum member icon. These icons will appear in the terminal suggest widget.
 - `terminalSymbolIcon.methodForeground`: The foreground color for a method icon. These icons will appear in the terminal suggest widget.
@@ -1262,7 +1262,7 @@ The theme colors for snippets:
 
 ## Symbol Icons colors
 
-The theme colors for symbol icons that appears in the Outline view, breadcrumb navigation, and suggest widget:
+The theme colors for symbol icons that appear in the Outline view, breadcrumb navigation, and suggest widget:
 
 - `symbolIcon.arrayForeground`: The foreground color for array symbols.
 - `symbolIcon.booleanForeground`: The foreground color for boolean symbols.

@@ -506,7 +506,7 @@ You can use any of the validation JSON Schema properties to describe other const
 
 Not supported in the configuration section are:
 
-- `$ref` and `definition`: The configuration schemas needs to be self-contained and cannot make assumptions how the aggregated settings JSON schema document looks like.
+- `$ref` and `definition`: The configuration schemas need to be self-contained and cannot make assumptions about what the aggregated settings JSON schema document looks like.
 
 For more details on these and other features, see the [JSON Schema Reference](https://json-schema.org/overview/what-is-jsonschema).
 
@@ -1925,7 +1925,7 @@ SVGs are recommended for images given their ability to scale and their support f
 
 ### Completion events
 
-By default, if no `completionEvents` events are provided, the step will be checked off when any of it's buttons are clicked, or if the step has no buttons, when it is opened. If finer control is required, a list of `completionEvents` can be provided.
+By default, if no `completionEvents` events are provided, the step will be checked off when any of its buttons are clicked, or if the step has no buttons, when it is opened. If finer control is required, a list of `completionEvents` can be provided.
 
 Available completion events include:
 

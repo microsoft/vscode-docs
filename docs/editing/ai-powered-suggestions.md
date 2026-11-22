@@ -124,13 +124,13 @@ By default, edit suggestions are indicated by the gutter arrow and the code chan
 
 **Changing intent**
 
-* **Copilot suggests changes to the rest of your code that match a new change in intent.** For example, when changing a class from `Point` to `Point3D`, Copilot will suggest to add a `z` variable to the class definition. After accepting the change, Copilot NES next recommends adding `z` to the distance calculation:
+* **Copilot suggests changes to the rest of your code that match a new change in intent.** For example, when changing a class from `Point` to `Point3D`, Copilot will suggest adding a `z` variable to the class definition. After accepting the change, Copilot NES next recommends adding `z` to the distance calculation:
 
     ![NES gif for updating Point to Point3D](./images/inline-suggestions/nes-point.png)
 
 **Refactoring**
 
-* **Rename a variable once in a file, and Copilot will suggest to update it everywhere else.** If you use a new name or naming pattern, Copilot suggests to update subsequent code similarly.
+* **Rename a variable once in a file, and Copilot will suggest updating it everywhere else.** If you use a new name or naming pattern, Copilot suggests updating subsequent code similarly.
 
     ![Copilot NES suggesting change after updating function name](./images/inline-suggestions/nes-rename.png)
 

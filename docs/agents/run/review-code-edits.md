@@ -219,15 +219,19 @@ To restore your workspace to an earlier checkpoint:
 
 ## Require approval before sensitive edits
 
-Sensitive-file approval happens before the agent saves an edit, rather than during review. Use `setting(chat.tools.edits.autoApprove)` with glob patterns to require a diff and approval for edits to sensitive files.
+For supported edit tools, `setting(chat.tools.edits.autoApprove)` uses glob patterns to request confirmation before an edit is saved. This is separate from reviewing the resulting files afterward.
 
-This example automatically approves edits except to JSON files in the `.vscode` folder and files named `.env`:
+In {% data variables.product.prodname_copilot_short %} sessions, **Allow all**, global auto-approval, or an applicable saved approval for the exact file can allow an edit without another prompt. These rules don't prevent file reads or protect against every write made through terminal commands or other tools. See [approval behavior](/docs/agents/run/approvals.md) and [sandbox file restrictions](/docs/agents/run/agent-sandboxing.md#configure-file-system-access) for the corresponding controls.
+
+When these rules are evaluated, the following configuration automatically approves edits except to JSON files in `.vscode` folders and files named `.env`:
 
 ```json
-"chat.tools.edits.autoApprove": {
-  "**/*": true,
-  "**/.vscode/*.json": false,
-  "**/.env": false
+{
+  "chat.tools.edits.autoApprove": {
+    "**/*": true,
+    "**/.vscode/*.json": false,
+    "**/.env": false
+  }
 }
 ```
 

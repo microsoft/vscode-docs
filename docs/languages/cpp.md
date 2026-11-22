@@ -72,7 +72,7 @@ To understand the process, let's install Mingw-w64 via [MSYS2](https://www.msys2
 
 1. Download using [**this direct link to the MinGW installer**](https://github.com/msys2/msys2-installer/releases/download/2024-12-08/msys2-x86_64-20241208.exe).
 
-1. Run the installer and follow the steps of the installation wizard. Note, MSYS2 requires 64 bit Windows 8.1 or newer.
+1. Run the installer and follow the steps of the installation wizard. Note, MSYS2 requires 64-bit Windows 8.1 or newer.
 
 1. In the wizard, choose your desired Installation Folder. Record this directory for later. In most cases, the recommended directory is acceptable. The same applies when you get to setting the start menu shortcuts step. When complete, ensure the **Run MSYS2 now** box is checked and select **Finish**. A MSYS2 terminal window  will then automatically open.
 
@@ -109,7 +109,7 @@ To understand the process, let's install Mingw-w64 via [MSYS2](https://www.msys2
 
 ## Create a Hello World App
 
-To make sure the compiler is installed and configured correctly, lets create a Hello World C++ program.
+To make sure the compiler is installed and configured correctly, let's create a Hello World C++ program.
 
 ### Create a C++ file
 
@@ -143,7 +143,7 @@ int main()
 }
 ```
 
-Now press `kb(workbench.action.files.save)` to save the file. You can also enable [AutoSave](/docs/editing/codebasics.md#save--auto-save) to automatically save your file changes, by checking **Auto Save** in the main **File** menu.
+Now press `kb(workbench.action.files.save)` to save the file. You can also enable [AutoSave](/docs/editing/codebasics.md#save-auto-save) to automatically save your file changes, by checking **Auto Save** in the main **File** menu.
 
 ## Run helloworld.cpp
 

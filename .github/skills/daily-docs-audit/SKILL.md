@@ -23,19 +23,41 @@ The `frontmatter-description` and `content-redirect` skills are implementation-t
 Pending proposals persist across runs in untracked Git metadata. Use the state helper for every state operation; do not read or edit its JSON file directly:
 
 ```powershell
-node .github\skills\daily-docs-audit\manage-state.js list
+node build\audit-state.js list
 ```
 
-The helper resolves storage with `git rev-parse --git-path daily-docs-audit/pending.json`. If it reports malformed or unsupported state, report the error and stop. Do not overwrite, reset, or discard unreadable state.
+The helper resolves storage with `git rev-parse --git-path daily-docs-audit/pending.json`. The former `manage-state.js` path remains a compatibility wrapper. Use the helper from a trusted checkout, not code changed in a product or docs PR.
+
+State version 2 contains pending `proposals`, deduplicated `findings`, and shared report metadata. Reading version 1 state does not rewrite it. The first successful state mutation creates an exact `.v1.bak` backup and writes version 2. If the helper reports malformed or unsupported state, a conflicting backup, or a lock held by another writer, report the error and stop. Do not overwrite, reset, discard unreadable state, or automatically remove a lock.
 
 At the beginning of an audit:
 
 1. Load every pending proposal, including proposals from earlier audit windows.
 2. Repeat the GitHub deduplication searches from step 5 for each pending proposal.
-3. If an existing issue or docs PR covers a proposal, remove it with `manage-state.js remove <proposal-id>` and report the existing item.
+3. If an existing issue or docs PR covers a proposal, remove it with `audit-state.js remove <proposal-id>` and report the existing item.
 4. If a GitHub query fails, retain the proposal and report the failure.
 
 Do not remove a proposal merely because its source PR is outside the current audit window.
+
+### Retain deterministic evidence
+
+When checking affected documentation locally, run the trusted claim checker on the relevant files, with link and navigation checks where applicable. Follow the separate-worktree and revision-pinning procedure in [pr-review](../pr-review/SKILL.md), after screening external content. Save the raw report outside the working tree and validate freshness with `build/findings.js --check-current`, supplying the same source root and product manifest.
+
+Import a current, validated checker report into private audit state:
+
+```powershell
+Get-Content -Raw -LiteralPath $reportPath | node build\audit-state.js import-findings
+```
+
+The importer validates report structure, not current repository or product freshness. An import does not create issue proposals or establish that a product claim is correct. If validation or import fails, report it and preserve the existing state; do not write the JSON directly.
+
+* Findings deduplicate by their stable IDs. Imports preserve `firstSeen` and update `lastSeen` only for findings present in the new report.
+* Unchanged evidence retains prior triage decisions. Changed article contents, severity, diagnostic message, or captured product evidence reopen decided findings and record the reason. A new source commit, scan scope, input fingerprint, or observation timestamp alone does not reopen a finding.
+* Findings missing from a scan retain their previous status and observation. Absence, especially from a partial scan, never implies fixed.
+* Older observations and conflicting evidence at the same timestamp are rejected. Product observations remain unverified until separately checked against public availability.
+* Removing an issue proposal does not remove its associated findings or triage history.
+
+The `list` command includes the full state. Capture its output in a variable and inspect the relevant proposals or findings rather than printing an entire corpus report. Associate a proposal with relevant imported findings by supplying optional `findingIds` in its input. IDs must already exist in state. Omitting `findingIds` when refreshing a proposal preserves its links; explicitly pass an empty array to clear them.
 
 ## 2. Determine the audit window
 
@@ -142,10 +164,12 @@ Store the proposal by passing a JSON object to the state helper's standard input
 ```
 
 ```powershell
-$proposalJson | node .github\skills\daily-docs-audit\manage-state.js upsert
+$proposalJson | node build\audit-state.js upsert
 ```
 
 Before choosing an ID, compare the task with the pending list. Reuse an existing ID for the same task; otherwise choose a stable, descriptive, kebab-case ID. The helper preserves the original creation time when an existing proposal is refreshed.
+
+`findingIds` associate supporting observations with a proposal. They do not replace the required source PR markers, source verification, or GitHub deduplication.
 
 If staging fails, report the error and continue evaluating the remaining candidates. Do not fall back to creating the issue or writing the state file directly.
 
@@ -169,6 +193,27 @@ If the user chooses **Create issue**:
 
 If the user chooses **Reject proposal**, remove it with the state helper. Do not store a suppression record; a future audit may propose the task again. If removal fails, report the error and leave the proposal pending.
 
+### Review a finding's status
+
+Change a finding's triage status only in an interactive review after the user explicitly chooses the status and reason. Unattended audits may import observations but must not mark findings accepted, dismissed, or fixed.
+
+Load the current record and present its latest finding, source/report metadata, and prior decisions. After confirmation, pass a JSON object to the helper:
+
+```json
+{
+  "id": "<finding-id>",
+  "evidenceHash": "<current-evidence-hash>",
+  "status": "dismissed",
+  "reason": "<confirmed review reason>"
+}
+```
+
+```powershell
+$decisionJson | node build\audit-state.js triage
+```
+
+Statuses are `open`, `accepted`, `dismissed`, and `fixed`. The evidence hash prevents a decision based on an outdated observation from applying to changed evidence. Reload and request a new decision if the evidence changed. A triage status is local workflow state, not permission to create an issue or change documentation. Issue creation still requires confirmation of each exact proposal as described above.
+
 ## 8. Report results
 
 After an audit, return a concise report containing:
@@ -179,6 +224,7 @@ After an audit, return a concise report containing:
 * Existing issues or docs PRs that prevented duplicates
 * Candidates skipped because docs are current, the change is not public, or evidence is insufficient
 * Any GitHub query or proposal-staging failures
+* Imported, refreshed, or reopened findings, plus any import or state-migration failures
 
 After an interactive review, report proposals created, rejected, deduplicated against existing work, still pending, or retained after failures. Include created issue links and source PRs.
 

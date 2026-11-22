@@ -210,7 +210,7 @@ You can search multiple line text by pasting the text into the Find input box an
 
 <video src="images/codebasics/multiple-line-support.mp4" title="Video showing Multiple Line Support." autoplay loop controls muted></video>
 
-While searching long text, the default size of Find control might be too small. You can drag the left sash to enlarge the Find control or double click the left sash to maximize it or shrink it to its default size.
+While searching long text, the default size of the Find control might be too small. You can drag the left sash to enlarge the Find control or double-click the left sash to maximize it or shrink it to its default size.
 
 <video src="images/codebasics/resize-find-widget.mp4" title="Video showing Resize Find control." autoplay loop controls muted></video>
 
@@ -367,7 +367,7 @@ The `setting(search.searchEditor.reusePriorSearchConfiguration)` setting (defaul
 We'll always offer word completion, but for the rich [languages](/docs/languages/overview.md), such as JavaScript, JSON, HTML, CSS, SCSS, Less, C# and TypeScript, we offer a true IntelliSense experience. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type. You can always manually trigger it with `kb(editor.action.triggerSuggest)`.  By default, `kbstyle(Tab)` or `kbstyle(Enter)` are the accept keyboard triggers but you can also [customize these keyboard shortcuts](/docs/configure/keybindings.md).
 
 > [!TIP]
->  The suggestions filtering supports CamelCase, so you can type the letters which are upper cased in a method name to limit the suggestions. For example, "cra" will quickly bring up "createApplication".
+>  The suggestions filtering supports CamelCase, so you can type the uppercase letters in a method name to limit the suggestions. For example, "cra" will quickly bring up "createApplication".
 
 > [!TIP]
 > IntelliSense suggestions can be configured via the `setting(editor.quickSuggestions)` and `setting(editor.suggestOnTriggerCharacters)` [settings](/docs/configure/settings.md).

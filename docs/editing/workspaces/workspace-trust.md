@@ -55,7 +55,7 @@ If you configure your shell to prevent automatic code execution based on workspa
 
 ### Tasks
 
-{% data variables.product.prodname_vscode_shortname %} [tasks](/docs/debugtest/tasks.md) can run scripts and tool binaries. Because task definitions are defined in the workspace `.vscode` folder, they are part of the committed source code for a repo, and shared to every user of that repo. If someone would create a malicious task, it could be unknowingly run by anyone who cloned that repository.
+{% data variables.product.prodname_vscode_shortname %} [tasks](/docs/debugtest/tasks.md) can run scripts and tool binaries. Because task definitions are defined in the workspace `.vscode` folder, they are part of the committed source code for a repo and shared with every user of that repo. If someone creates a malicious task, it could be unknowingly run by anyone who cloned that repository.
 
 If you try to run or even enumerate tasks (**Tasks** > **Run Task**) while in Restricted Mode, {% data variables.product.prodname_vscode_shortname %} displays a prompt to confirm that you trust the folder and can continue executing the task. If you cancel the dialog, {% data variables.product.prodname_vscode_shortname %} stays in Restricted Mode.
 

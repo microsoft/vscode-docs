@@ -271,7 +271,7 @@ The currently selected line in the editor is indicated in the Markdown preview b
 
 ![Markdown Preview editor line marker](images/Markdown/preview-selection-marker.png)
 
-Additionally, double clicking an element in the Markdown preview will automatically open the editor for the file and scroll to the line nearest the clicked element.
+Additionally, double-clicking an element in the Markdown preview will automatically open the editor for the file and scroll to the line nearest the clicked element.
 
 <video src="images/Markdown/double-click-preview-switch.mp4" title="Video showing Markdown Preview double click switches to editor." autoplay loop controls muted></video>
 
