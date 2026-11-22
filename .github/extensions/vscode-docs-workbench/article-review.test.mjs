@@ -20,22 +20,27 @@ const draft = () => ({
     message: 'The instruction does not identify its target.', suggestion: 'Name the control to select.', sources: [] }]
 });
 
-async function fixture(t, articleContent = content) {
-  const f = await createArticleFixture({ content: articleContent });
+async function fixture(t, articleContent = content, articles = {}) {
+  const f = await createArticleFixture({ content: articleContent, articles });
   let dispose = async () => {};
   t.after(async () => { try { await dispose(); } finally { await f.dispose(); } });
   let currentDraft = draft();
   let held = false;
   let receiptError;
+  let failedLaunch;
+  const reviewRequests = [];
   const originalStart = f.session.rpc.tasks.startAgent;
   f.session.rpc.tasks.startAgent = async input => {
     if (!input.description.startsWith('Docs article review ')) return originalStart(input);
+    reviewRequests.push(input);
     const id = input.description.slice('Docs article review '.length);
     const task = { id: `agent-${id}`, type: 'agent', description: input.description, status: 'running', startedAt: now() };
     f.tracked.push(task);
+    if (reviewRequests.length === failedLaunch) throw new Error('Host acknowledgement lost');
     if (!held) {
       const requestFile = await f.rawWorkflow.store.file(path.join('review-runs', id, 'request.json'), false);
-      await atomicJson(path.join(path.dirname(requestFile), 'draft.json'), currentDraft);
+      await atomicJson(path.join(path.dirname(requestFile), 'draft.json'),
+        typeof currentDraft === 'function' ? currentDraft(await readJson(requestFile)) : currentDraft);
       try {
         await completeReviewRequest(requestFile, { workspace: f.workspace, home: f.home, check: f.check });
         task.status = 'completed';
@@ -46,10 +51,11 @@ async function fixture(t, articleContent = content) {
   const workflow = await f.reopen({ reviewOptions: { check: f.check }, replayOptions: {
     builds: async () => ({ builds: [], errors: [] })
   } });
-  return { ...f, workflow,
+  return { ...f, workflow, reviewRequests,
     beforeDispose(callback) { dispose = callback; },
     setDraft(value) { currentDraft = value; },
     hold() { held = true; },
+    failLaunchAt(number) { failedLaunch = number; },
     get receiptError() { return receiptError; },
     async launch(options = {}) {
       return workflow.dispatch('review-launch', { article: 'docs/article.md', channel: 'stable', focus: 'both', confirmed: true, ...options });
@@ -62,6 +68,147 @@ async function fixture(t, articleContent = content) {
     }
   };
 }
+
+test('editorial batches deduplicate scope and preserve per-article decisions, freshness, and structural findings', async t => {
+  const f = await fixture(t, content, { 'docs/other.md': content });
+  await f.workflow.dispatch('launch', { scope: ['docs'], confirmed: true });
+  await f.snapshot();
+  const structural = await f.rawWorkflow.store.read();
+  await f.launch({ focus: 'editorial' });
+  const first = (await f.snapshot()).findings.find(record => record.finding.kind === 'review');
+  await f.workflow.dispatch('triage', { check: 'review', findingId: first.finding.id, evidenceHash: first.evidenceHash,
+    coverageToken: first.coverageToken, status: 'dismissed', reason: 'Existing editorial decision.' });
+  const result = await f.workflow.dispatch('editorial-launch', {
+    scope: ['docs', 'docs/article.md'], channel: 'stable', concerns: 'Preserve the examples.', confirmed: true
+  });
+  assert.equal(result.runs.length, 2);
+  assert.equal(new Set(result.runs.map(run => run.batchId)).size, 1);
+  for (const run of result.runs) {
+    assert.equal(run.binding.focus, 'editorial');
+    const request = await readJson((await f.files(run)).request);
+    assert.equal(request.concerns, 'Preserve the examples.');
+    assert.equal(request.batchId, run.batchId);
+  }
+  const complete = await f.snapshot();
+  const findings = complete.findings.filter(record => record.finding.kind === 'review');
+  assert.equal(findings.length, 2);
+  assert.equal(findings.find(record => record.finding.article === 'docs/article.md').finding.status, 'dismissed');
+  const after = await f.rawWorkflow.store.read();
+  assert.deepEqual(after.coverage, structural.coverage);
+  assert.deepEqual(after.review, structural.review);
+  assert.deepEqual(after.runs.map(run => run.id), structural.runs.map(run => run.id));
+  const reopened = await f.reopen({ reviewOptions: { check: f.check } });
+  assert.equal((await reopened.dispatch('refresh', {})).runs.filter(run => run.batchId).length, 2);
+  await writeFile(path.join(f.workspace, 'docs', 'other.md'), content + '\nChanged context.\n');
+  const changed = (await f.snapshot()).findings.filter(record => record.finding.kind === 'review');
+  assert.equal(changed.find(record => record.finding.article === 'docs/article.md').freshness, 'fresh');
+  const stale = changed.find(record => record.finding.article === 'docs/other.md');
+  assert.equal(stale.freshness, 'stale');
+  await assert.rejects(f.workflow.dispatch('triage', { check: 'review', findingId: stale.finding.id,
+    evidenceHash: stale.evidenceHash, coverageToken: stale.coverageToken, status: 'fixed', reason: 'Not current.' }), /changed/);
+  assert.equal(await readFile(path.join(f.workspace, 'docs', 'article.md'), 'utf8'), content);
+});
+
+test('editorial batch preflight rejects oversized scopes or invalid members before starting any agent and accepts exactly five', async t => {
+  const extra = Object.fromEntries(Array.from({ length: 5 }, (_, i) => [`docs/extra${i}.md`, content]));
+  const f = await fixture(t, content, extra);
+  const input = { scope: ['docs'], channel: 'stable', confirmed: true };
+  await assert.rejects(f.workflow.dispatch('editorial-launch', input), /at most 5/);
+  await assert.rejects(f.workflow.dispatch('editorial-launch', { ...input, confirmed: false }), /Explicit/);
+  await assert.rejects(f.workflow.dispatch('editorial-launch', { ...input, scope: ['../outside.md'] }));
+  const scope = ['docs/article.md', 'docs/extra0.md'];
+  await writeFile(path.join(f.workspace, 'docs', 'extra0.md'), 'x'.repeat(500_001));
+  await assert.rejects(f.workflow.dispatch('editorial-launch', { ...input, scope }), /oversized/);
+  await writeFile(path.join(f.workspace, 'docs', 'extra0.md'), content);
+  await assert.rejects(f.workflow.dispatch('editorial-launch', { ...input, scope, channel: 'internal' }), /explicit channel/);
+  await assert.rejects(f.workflow.dispatch('editorial-launch', { ...input, scope, concerns: false }), /must be text/);
+  assert.equal(f.reviewRequests.length, 0);
+  assert.equal((await f.snapshot()).runs.length, 0);
+  const exact = await f.workflow.dispatch('editorial-launch', { ...input, scope: Object.keys(extra) });
+  assert.equal(exact.runs.length, 5);
+  assert.equal(f.reviewRequests.length, 5);
+});
+
+test('editorial batches retain earlier findings and successful coverage when individual reviews are incomplete or empty', async t => {
+  const f = await fixture(t, content, { 'docs/other.md': content });
+  const input = { scope: ['docs'], channel: 'stable', confirmed: true };
+  await f.workflow.dispatch('editorial-launch', input);
+  await f.snapshot();
+  f.setDraft(request => request.binding.article === 'docs/other.md'
+    ? { status: 'incomplete', summary: 'Review interrupted.', limitations: ['Fixture interruption.'], findings: [] }
+    : { status: 'complete', summary: 'No further observations.', limitations: [], findings: [] });
+  await f.workflow.dispatch('editorial-launch', input);
+  const result = await f.snapshot();
+  assert.equal(result.findings.filter(record => record.finding.kind === 'review').length, 2);
+  const incomplete = result.coverage.find(entry => entry.check === 'review' && entry.article === 'docs/other.md');
+  assert.equal(incomplete.state, 'incomplete');
+  assert.equal(incomplete.verification.report.review.status, 'complete');
+  assert.deepEqual(incomplete.review.limitations, ['Fixture interruption.']);
+  assert.equal(result.coverage.find(entry => entry.check === 'review' && entry.article === 'docs/article.md').state, 'reviewed');
+  assert.ok(result.findings.every(record => record.finding.status === 'open'));
+});
+
+test('editorial batches preflight every overlap and stop further starts after an unconfirmed launch', async t => {
+  const held = await fixture(t, content, { 'docs/other.md': content });
+  held.hold();
+  await held.launch({ article: 'docs/other.md' });
+  const input = { scope: ['docs'], channel: 'stable', confirmed: true };
+  await assert.rejects(held.workflow.dispatch('editorial-launch', input), /running/);
+  assert.equal(held.reviewRequests.length, 1, 'An eligible earlier article must not launch before later overlap checks.');
+  const failed = await fixture(t, content, { 'docs/b.md': content, 'docs/c.md': content });
+  failed.failLaunchAt(2);
+  const result = await failed.workflow.dispatch('editorial-launch', input);
+  assert.deepEqual(result.runs.map(run => run.launch), ['acknowledged', 'uncertain', 'not-started']);
+  assert.equal(failed.reviewRequests.length, 2);
+  const after = await failed.snapshot();
+  assert.equal(after.findings.length, 1);
+  await assert.rejects(failed.workflow.dispatch('editorial-launch', input), /running|unconfirmed/);
+  assert.equal(failed.reviewRequests.length, 2, 'An uncertain batch must not automatically restart.');
+});
+
+test('browser runs one bounded editorial batch and displays per-article results without replacing local checks', {
+  skip: !process.env.DOCS_ARTICLE_BROWSER && 'Set DOCS_ARTICLE_BROWSER to an installed browser.'
+}, async t => {
+  const extra = Object.fromEntries(Array.from({ length: 5 }, (_, i) => [`docs/extra${i}.md`, content]));
+  const f = await fixture(t, content, extra);
+  let browser;
+  const server = await createWorkbenchServer(f.workflow.raw, async () => {}, () => {}, { assetEntries: articleAssets });
+  f.beforeDispose(async () => { try { await browser?.close(); } finally { await server.close(); } });
+  browser = await chromium.launchPersistentContext(path.join(f.directory, 'browser'), {
+    executablePath: process.env.DOCS_ARTICLE_BROWSER, headless: true
+  });
+  const page = await browser.newPage();
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.route('**/*', route => new URL(route.request().url()).origin === server.url ? route.continue() : route.abort());
+  await page.goto(`${server.url}/findings`);
+  await page.locator('#reload:enabled').waitFor();
+  await page.getByLabel('Checks', { exact: true }).selectOption('editorial');
+  assert.equal(f.reviewRequests.length, 0, 'Selecting a focus must not start work.');
+  await page.locator('#scope').fill('docs');
+  await page.getByText('Select at most 5 articles for editorial review.', { exact: true }).waitFor();
+  assert.equal(await page.getByRole('button', { name: 'Run editorial review', exact: true }).isDisabled(), true);
+  await page.getByLabel('Checks', { exact: true }).selectOption('local');
+  assert.equal(await page.getByRole('button', { name: 'Run checks', exact: true }).isEnabled(), true);
+  await page.getByLabel('Checks', { exact: true }).selectOption('editorial');
+  await page.locator('#scope').fill('docs/article.md, docs/extra0.md');
+  await page.getByLabel('Editorial focus (optional)', { exact: true }).fill('Preserve the examples.');
+  await page.getByRole('button', { name: 'Run editorial review', exact: true }).evaluate(button => { button.click(); button.click(); });
+  await page.locator('#execution-indicator').getByText('Editorial batch: 2/2 reviewed', { exact: true }).waitFor();
+  assert.equal(f.reviewRequests.length, 2);
+  await page.getByLabel('Check type', { exact: true }).selectOption('review');
+  assert.equal(await page.locator('.finding').count(), 2);
+  await page.locator('#execution-details > summary').click();
+  assert.equal(await page.locator('#execution > section').count(), 2);
+  await page.reload();
+  await page.locator('#execution-indicator').getByText('Editorial batch: 2/2 reviewed', { exact: true }).waitFor();
+  assert.equal(f.reviewRequests.length, 2);
+  await page.getByLabel('Checks', { exact: true }).selectOption('editorial');
+  await page.setViewportSize({ width: 420, height: 800 });
+  assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+  assert.equal(await page.locator('#task-type, #review-form, #replay-form').count(), 0);
+  assert.deepEqual(errors, []);
+});
 
 test('review reports bind exact article lines and distinguish supported judgments from unanswered product questions', async t => {
   const f = await fixture(t);

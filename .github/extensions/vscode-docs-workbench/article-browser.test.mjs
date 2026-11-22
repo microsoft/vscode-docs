@@ -116,6 +116,15 @@ test('compact inbox loads automatically, filters, reviews directly, and preserve
   assert.equal(await page.locator('#execution img').count(), 0);
   await page.locator('#execution-details > summary').click();
 
+  await page.setViewportSize({ width: 1600, height: 1000 });
+  const contentBounds = await page.locator('#findings-page').boundingBox();
+  const navigationBounds = await page.locator('.page-navigation').boundingBox();
+  const headerBounds = await page.locator('.article-app > header').boundingBox();
+  assert.ok(contentBounds.width <= 1200, 'Findings should use the same readable frame as the TPI list.');
+  assert.equal(contentBounds.x, navigationBounds.x);
+  assert.equal(contentBounds.width, headerBounds.width);
+  assert.ok(await page.locator('.batch-panel').evaluate(node => parseFloat(getComputedStyle(node).borderTopWidth) > 0));
+  assert.ok(await page.locator('.results').evaluate(node => parseFloat(getComputedStyle(node).borderTopWidth) > 0));
   await page.setViewportSize({ width: 850, height: 800 });
   const tableBounds = await page.locator('.findings-table').boundingBox();
   assert.ok(tableBounds.height <= 400, `Nine collapsed findings should fit within 400px, got ${tableBounds.height}.`);
@@ -126,12 +135,17 @@ test('compact inbox loads automatically, filters, reviews directly, and preserve
     const appearance = await page.locator('.article-app').evaluate(node => {
       const style = getComputedStyle(node);
       return { font: style.fontFamily, foreground: style.color, background: style.backgroundColor,
-        inputBackground: getComputedStyle(node.querySelector('input')).backgroundColor };
+        inputBackground: getComputedStyle(node.querySelector('input')).backgroundColor,
+        panelBackground: getComputedStyle(node.querySelector('.batch-panel')).backgroundColor,
+        unverifiedBackground: getComputedStyle(node.querySelector('.badge.unverified')).backgroundColor,
+        errorBackground: getComputedStyle(node.querySelector('.badge.error')).backgroundColor };
     });
     appearances.set(theme, appearance);
     assert.ok(appearance.font);
     assert.notEqual(appearance.foreground, appearance.background);
     assert.notEqual(appearance.inputBackground, 'rgba(0, 0, 0, 0)');
+    assert.notEqual(appearance.panelBackground, 'rgba(0, 0, 0, 0)');
+    assert.notEqual(appearance.unverifiedBackground, appearance.errorBackground);
     if (screenshotRoot) {
       if (!screenshotDirectory) {
         screenshotDirectory = await mkdtemp(path.join(screenshotRoot, 'vscode-docs-article-screenshots-'));
@@ -143,6 +157,12 @@ test('compact inbox loads automatically, filters, reviews directly, and preserve
   assert.notEqual(appearances.get('dark').background, appearances.get('light').background);
   await page.setViewportSize({ width: 420, height: 800 });
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth), true);
+  await page.getByLabel('Checks', { exact: true }).selectOption('editorial');
+  for (const id of ['scope', 'batch-focus', 'launch', 'editorial-channel', 'editorial-concerns']) {
+    const bounds = await page.locator(`#${id}`).boundingBox();
+    assert.ok(bounds.x >= 0 && bounds.x + bounds.width <= 420, 'Editorial controls must fit the narrow viewport.');
+  }
+  await page.getByLabel('Checks', { exact: true }).selectOption('local');
   await page.setViewportSize({ width: 850, height: 800 });
   await writeFile(path.join(f.workspace, 'docs', 'article.md'), '# Changed after inspection\n');
   await refresh.click();

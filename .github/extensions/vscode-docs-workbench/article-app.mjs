@@ -135,7 +135,12 @@ function renderExecution(writing = false) {
   const details = $(writing ? 'writing-execution-details' : 'execution-details');
   const container = $(writing ? 'writing-execution' : 'execution');
   const latest = runs.at(-1);
-  const label = latest ? `${executionLabel(latest)} · ${latest.kind === 'authoring' ? 'feature documentation' : `${latest.articles.length} article(s)`}` : '';
+  const batch = latest?.batchId ? runs.filter(run => run.batchId === latest.batchId) : undefined;
+  const reviewed = batch?.filter(run => run.ingestedHash && run.result?.state === 'valid' && run.result.reviewStatus === 'complete').length;
+  const attention = batch?.filter(run => ['uncertain', 'not-started'].includes(run.launch) ||
+    ['execution-failed', 'invalid', 'stale'].includes(run.result?.state) || run.result?.reviewStatus === 'incomplete').length;
+  const label = batch ? `Editorial batch: ${reviewed}/${batch.length} reviewed${attention ? ` · ${attention} need attention` : ''}` :
+    latest ? `${executionLabel(latest)} · ${latest.kind === 'authoring' ? 'feature documentation' : `${latest.articles.length} article(s)`}` : '';
   if (indicator.textContent !== label) indicator.textContent = label;
   details.hidden = !latest;
   if (!latest || !details.open) {
@@ -143,7 +148,7 @@ function renderExecution(writing = false) {
     executionKeys.delete(writing);
     return;
   }
-  const relevant = runs.filter(run => run === latest || !run.rerun?.allowed);
+  const relevant = runs.filter(run => run === latest || (batch && run.batchId === latest.batchId) || !run.rerun?.allowed);
   const key = JSON.stringify([busy, relevant.map(run => [
     run.id, run.ownerSessionId, run.ownerMatches, run.agentId, run.scope, run.createdAt, run.launch, run.ingestedHash,
     run.result, run.observation, run.error, run.syncError, run.rerun, run.activity
@@ -153,7 +158,7 @@ function renderExecution(writing = false) {
   container.replaceChildren();
   for (const run of relevant) {
     const section = element('section');
-    paragraph(section, `${executionLabel(run)} · ${run.scope.join(', ')} · ${time(run.createdAt)}`);
+    paragraph(section, `${executionLabel(run)} · ${(run.batchId ? run.articles : run.scope).join(', ')} · ${time(run.createdAt)}`);
     paragraph(section, `Host: ${run.observation?.status || run.launch}. Owner: ${run.ownerSessionId}. Task: ${run.agentId || 'unacknowledged'}. Execution: ${run.id}.`, 'muted');
     if (run.observation) paragraph(section, `Host last observed ${time(run.observation.observedAt)}. Idle alone does not establish completion or a request for input.`, 'muted');
     if (run.result?.message) paragraph(section, run.result.message, 'muted');
@@ -191,12 +196,23 @@ function render() {
   const scope = scopeInput();
   const articles = state.articles.filter(article => inScope(article, scope));
   const valid = scope.length && scope.every(item => catalog.includes(item)) && articles.length;
-  const blocker = state.runs.find(run => !run.kind && run.articles.some(article => articles.includes(article)) && !run.rerun?.allowed);
+  const editorial = $('batch-focus').value === 'editorial';
+  const oversized = editorial && articles.length > state.editorialBatchLimit;
+  const blocker = state.runs.find(run => (editorial ? run.kind === 'review' : !run.kind) &&
+    run.articles.some(article => articles.includes(article)) && !run.rerun?.allowed);
   const catalogReady = !state.catalog || state.catalog.state === 'complete';
-  $('launch').disabled = busy || !catalogReady || state.hostSync?.state === 'checking' || !state.hostAvailable || !valid || !!blocker;
+  $('launch').disabled = busy || !catalogReady || state.hostSync?.state === 'checking' || !state.hostAvailable || !valid || oversized || !!blocker;
+  $('launch').textContent = editorial ? 'Run editorial review' : 'Run checks';
+  $('batch-focus').disabled = busy;
+  $('editorial-options').hidden = !editorial;
+  for (const id of ['editorial-channel', 'editorial-concerns']) $(id).disabled = busy;
+  $('batch-description').textContent = editorial
+    ? `Up to ${state.editorialBatchLimit} articles; one AI agent per article. Reviews text clarity, grammar, structure, and usefulness. Saves private judgments, not verified product claims. No media, content edits, or public changes. Uses AI credits.`
+    : 'Read-only claims and links checks. Saves private results and uses host credits. No content or public changes.';
   $('scope-count').textContent = catalogReady ? `${articles.length} article(s) selected` :
     state.catalog.state === 'failed' ? 'Article list unavailable' : 'Loading current article list';
-  $('launch-eligibility').textContent = blocker ? `Cannot overlap this scope: ${blocker.rerun?.reason}` : '';
+  $('launch-eligibility').textContent = oversized ? `Select at most ${state.editorialBatchLimit} articles for editorial review.` :
+    blocker ? `Cannot overlap this scope: ${blocker.rerun?.reason}` : '';
   $('reload').disabled = busy || state.verification?.terminating || state.verification?.state === 'cancelling';
   $('writing-reload').disabled = busy;
   $('stop-verification').hidden = state.verification?.state !== 'checking';
@@ -310,7 +326,7 @@ function renderFinding(record) {
     renderFindings();
     $(`finding-${finding.id}`).focus();
   });
-  toggle.append(element('span', `${finding.article.split('/').at(-1)}:${finding.line} · `, 'finding-location'), element('span', primary));
+  toggle.append(element('span', `${finding.article.split('/').at(-1)}:${finding.line} · `, 'finding-location'), element('span', primary, 'finding-primary'));
   toggle.id = `finding-${finding.id}`;
   toggle.className = 'finding-toggle';
   toggle.title = `${finding.article}:${finding.line}\n${finding.message}`;
@@ -884,6 +900,7 @@ function renderReplayRecovery() {
   $('replay-readiness').hidden = !$('replay-readiness').children.length;
 }
 $('scope').addEventListener('input', render);
+$('batch-focus').addEventListener('change', render);
 $('finding-search').addEventListener('input', renderFindings);
 $('article-filter').addEventListener('input', () => { renderFindings(); renderCoverage(); });
 for (const id of ['check-filter', 'status-filter', 'freshness-filter']) $(id).addEventListener('change', () => { renderFindings(); renderCoverage(); });
@@ -893,8 +910,20 @@ $('writing-execution-details').addEventListener('toggle', () => { if (state) ren
 $('launch-form').addEventListener('submit', event => {
   event.preventDefault();
   const scope = scopeInput();
+  const editorial = $('batch-focus').value === 'editorial';
   void perform(async () => {
     notice('Starting one bounded batch. Findings remain available while checks run.');
+    if (editorial) {
+      const result = await request('editorial-launch', { scope, channel: $('editorial-channel').value,
+        concerns: $('editorial-concerns').value, confirmed: true });
+      await refresh();
+      const acknowledged = result.runs.filter(run => run.launch === 'acknowledged').length;
+      const uncertain = result.runs.filter(run => run.launch === 'uncertain').length;
+      const notStarted = result.runs.filter(run => run.launch === 'not-started').length;
+      notice(`Editorial reviews requested: ${acknowledged}. Unconfirmed: ${uncertain}. Not started: ${notStarted}.${uncertain ? ' Inspect execution details and Chat before retrying.' : ''}`,
+        !!uncertain || !!notStarted);
+      return;
+    }
     const run = await request('launch', { scope, confirmed: true });
     await refresh();
     notice(run.launch === 'uncertain' ? 'Launch unconfirmed. Inspect execution details; do not retry.' : '', run.launch === 'uncertain');
