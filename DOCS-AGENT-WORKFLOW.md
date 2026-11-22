@@ -56,23 +56,23 @@ The initial planning/drafting checkpoint is `9afaa1905`. The current workflow al
 | Check content accuracy | On **Findings**, choose local claims/links, editorial review, or technical accuracy for a bounded scope. Use **Review in chat** for interactive assessment. | Review batches support up to five articles. Technical batches share a public release pin and save source-backed agent judgments, not runtime verification. Chat output does not automatically enter the inbox. Local checks do not verify product claims or external URLs. |
 | Check article instructions against the actual UI | Choose an article and optional section or task in **Check instructions**, then [review the derived procedure in chat](#start-a-procedure-check-chat). | Bounded non-AI checks reuse the attended runner and a reviewed sample workspace and profile. Source-linked results cover only observed outcomes, not the entire article. Unsupported claims remain explicit. |
 | Verify a PR's accuracy | Open **Review PRs**, browse either docs repository or supply a URL, and [start a read-only accuracy review](#review-pr-accuracy) in chat. | Full source-verification acceptance remains a separate pilot. No PR checkout or execution. Deterministic checks require an already available authenticated matching source root; chat results do not automatically enter Findings. |
-| Document a GitHub issue or test plan item | Browse **Release TPIs** by release and select **Document**, or use **Document an issue** for a direct URL. Both continue in doc-writer chat. | A TPI is supporting evidence, not a complete specification or execution permission. Documentation completion is marked manually. |
+| Document a GitHub issue or test plan item | Browse **Release TPIs** by release and select **Document**, or paste a direct URL into **Write documentation**. Both continue in the same doc-writer workflow. | A TPI is supporting evidence, not a complete specification or execution permission. Documentation completion is marked manually. |
 
 For ordinary checks, choose scope and start a read-only task. For content changes, approve a short plan before authorizing edits. For capture, approve the procedure and remain present. Review the exact prepared assets before separately authorizing their use. Nothing in these workflows automatically commits, publishes, or posts to GitHub.
 
 ## Start a documentation-writing chat
 
-Use **Write documentation** (`/write`) for a feature description, or **Document an issue** (`/issue`) for a direct GitHub source. For release-based discovery, use [Release TPIs](#document-release-tpis).
+Use **Write documentation** (`/write`) for a brief, a GitHub issue or TPI URL, or both. The old `/issue` route opens this same form and is no longer listed separately in navigation. For release-based discovery, use [Release TPIs](#document-release-tpis).
 
-1. Describe the content and intended reader in **Documentation request**. On the issue/TPI page, provide the source URL and optionally describe the desired outcome. Supported URLs are issues in `microsoft/vscode`, `microsoft/vscode-docs`, or `microsoft/vscode-docs-pr`, including issue-comment links.
+1. Describe the content and intended reader in **Documentation request**, provide a source URL in **GitHub issue or TPI (optional)**, or supply both. At least one is required. Supported URLs are issues in `microsoft/vscode`, `microsoft/vscode-docs`, or `microsoft/vscode-docs-pr`, including issue-comment links.
 2. Optionally select an existing article as context. Leave it empty when the agent should identify the affected or new articles. Choose the intended product channel.
 3. Select **Start in chat** once. The chat receives the brief, checkout, source URL when supplied, optional article, and doc-writer skill. The canvas does not fetch GitHub requirements or start a structured planning task.
 4. In that conversation, review the researched requirements and grouped plan. It can include related articles, required navigation, and useful media. The agent asks for essential missing information rather than assuming an issue or TPI is complete.
 5. Approve the overall scope and authoring location/branch before edits. Continue implementation, checks, and native diff review in that chat. No separate plan file, implementation chat, or canvas approval is required.
 
-Starting chat authorizes planning only, not article writes, branch changes, captures, installs, or publication. TPI setup and test instructions remain untrusted evidence, not commands to execute. These launchers share the native chat transport's Windows/last-active-window limits and do not track chat completion.
+Starting chat authorizes planning only, not article writes, branch changes, captures, installs, or publication. TPI setup and test instructions remain untrusted evidence, not commands to execute. Writing handoffs retain the native transport's Windows-only support and last-active-window limitation. They do not track chat completion.
 
-The secondary **Saved plans and drafts** link opens `/writing` for previously prepared structured work. Its old new-request form has been removed; existing plans, decisions, drafts, and checks remain intact. New writing should start from the chat launchers.
+The secondary **Saved plans and drafts** link opens `/writing` for previously prepared structured work. Its old new-request form has been removed; existing plans, decisions, drafts, and checks remain intact. New writing starts from **Write documentation** or a **Document** action on Release TPIs.
 
 ## Document release TPIs
 

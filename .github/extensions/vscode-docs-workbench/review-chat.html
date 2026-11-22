@@ -10,7 +10,6 @@
 <main class="article-app">
   <nav class="page-navigation" aria-label="Docs workflow pages">
     <a href="/write">Write documentation</a>
-    <a href="/issue">Document an issue</a>
     <a href="/tpis">Release TPIs</a>
     <a href="/prs">Review PRs</a>
     <a href="/review" aria-current="page">Review in chat</a>
@@ -37,7 +36,7 @@
       <select id="chat-operation" disabled><option value="create">Create new</option><option value="refresh">Refresh existing</option></select>
     </div>
     <div id="chat-issue-field" hidden>
-      <label id="chat-issue-label" for="chat-issue">Related GitHub issue/TPI (optional)</label>
+      <label id="chat-issue-label" for="chat-issue">GitHub issue or TPI (optional)</label>
       <input id="chat-issue" type="url" maxlength="2000" placeholder="https://github.com/microsoft/vscode/issues/..." disabled>
     </div>
     <label id="chat-request-label" for="chat-request">Additional request (optional)</label>

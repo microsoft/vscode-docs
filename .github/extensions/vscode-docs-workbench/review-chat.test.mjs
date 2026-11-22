@@ -384,7 +384,7 @@ test('browser clears old section choices and handles late responses, empty artic
   assert.deepEqual(errors, []);
 });
 
-test('browser launches writing and issue/TPI chats without mandatory article input and keeps saved work secondary', {
+test('browser unifies brief and issue writing, preserves the issue alias, and keeps saved work secondary', {
   skip: !process.env.DOCS_ARTICLE_BROWSER && 'Set DOCS_ARTICLE_BROWSER to an installed browser.'
 }, async t => {
   const calls = [];
@@ -405,6 +405,7 @@ test('browser launches writing and issue/TPI chats without mandatory article inp
   page.on('pageerror', error => errors.push(error.message));
   await page.route('**/*', route => new URL(route.request().url()).origin === server.url ? route.continue() : route.abort());
   await page.goto(`${server.url}/findings`);
+  assert.equal(await page.getByRole('link', {name: 'Document an issue', exact: true}).count(), 0);
   await page.getByRole('link', { name: 'Write documentation', exact: true }).click();
   await page.locator('#chat-request:enabled').waitFor();
   assert.equal(new URL(page.url()).pathname, '/write');
@@ -417,22 +418,34 @@ test('browser launches writing and issue/TPI chats without mandatory article inp
   await page.getByText('Documentation request sent to chat.', { exact: true }).waitFor();
   assert.equal(calls[0].files.length, 1);
   assert.match(calls[0].prompt, /Document the new workflow for extension authors/);
-  await page.getByRole('link', { name: 'Document an issue', exact: true }).click();
-  await page.locator('#chat-issue:enabled').waitFor();
-  assert.equal(new URL(page.url()).pathname, '/issue');
+  await page.getByLabel('Documentation request', {exact: true}).fill('');
   const url = 'https://github.com/microsoft/vscode/issues/123';
-  await page.getByLabel('GitHub issue or test plan item URL', { exact: true }).fill(url);
+  await page.getByLabel('GitHub issue or TPI (optional)', {exact: true}).fill(url);
+  assert.equal(await page.getByRole('button', {name: 'Start in chat', exact: true}).isEnabled(), true);
   await page.getByRole('button', { name: 'Start in chat', exact: true }).click();
   await page.getByText('Documentation request sent to chat.', { exact: true }).waitFor();
   assert.equal(calls.length, 2);
   assert.ok(calls[1].prompt.includes(url));
+  await page.goto(`${server.url}/issue`);
+  await page.locator('#chat-request:enabled').waitFor();
+  assert.equal(new URL(page.url()).pathname, '/issue');
+  assert.equal(await page.getByRole('heading', {name: 'Write documentation', exact: true}).count(), 1);
+  assert.equal(await page.getByRole('link', {name: 'Write documentation', exact: true}).getAttribute('aria-current'), 'page');
+  assert.equal(await page.getByRole('link', {name: 'Document an issue', exact: true}).count(), 0);
+  assert.equal(await page.getByLabel('GitHub issue or TPI (optional)', {exact: true}).getAttribute('required'), null);
+  await page.getByLabel('Documentation request', {exact: true}).fill('A brief also works through the legacy issue URL.');
+  await page.getByRole('button', {name: 'Start in chat', exact: true}).click();
+  await page.getByText('Documentation request sent to chat.', {exact: true}).waitFor();
+  assert.equal(calls.length, 3);
+  assert.match(calls[2].prompt, /A brief also works through the legacy issue URL/);
   assert.equal(f.tracked.length, 0);
   fail = true;
-  await page.getByLabel('Desired documentation outcome (optional)', { exact: true }).fill('Preserve these requirements on a failed handoff.');
+  await page.getByLabel('Documentation request', {exact: true}).fill('Preserve these requirements on a failed handoff.');
+  await page.getByLabel('GitHub issue or TPI (optional)', {exact: true}).fill(url);
   await page.getByRole('button', { name: 'Start in chat', exact: true }).click();
   await page.getByText(/Native writing chat timed out.*Check VS Code Chat before trying again/).waitFor();
-  assert.equal(calls.length, 3);
-  assert.equal(await page.getByLabel('GitHub issue or test plan item URL', { exact: true }).inputValue(), url);
+  assert.equal(calls.length, 4);
+  assert.equal(await page.getByLabel('GitHub issue or TPI (optional)', {exact: true}).inputValue(), url);
   await page.setViewportSize({ width: 420, height: 800 });
   assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
   assert.equal(await page.locator('.page-navigation a[href="/writing"]').count(), 0);
