@@ -130,7 +130,11 @@
       "additionalProperties": false,
       "required": ["entry"],
       "properties": {
-        "entry": {"$ref": "#/$defs/fileName"}
+        "entry": {"$ref": "#/$defs/fileName"},
+        "environment": {
+          "enum": ["isolated", "sample"],
+          "description": "Sample is an explicitly reviewed replay-only environment with persistent extensions, normal sign-in storage, Git enabled, and network access. Isolated remains the default."
+        }
       },
       "description": "Open a reviewed existing workspace, supplied separately with --workspace, without generating or editing its files."
     },
@@ -196,6 +200,7 @@
       "items": {
         "oneOf": [
           {"$ref": "#/$defs/clickStep"},
+          {"$ref": "#/$defs/hoverStep"},
           {"$ref": "#/$defs/keyStep"},
           {"$ref": "#/$defs/fillStep"},
           {"$ref": "#/$defs/typeStep"},
@@ -212,6 +217,10 @@
         "kind": {"const": "click"}, "target": {"$ref": "#/$defs/targetName"},
         "expectTextCycle": {"$ref": "#/$defs/textCycle"}
       }
+    },
+    "hoverStep": {
+      "type": "object", "additionalProperties": false, "required": ["kind", "target"],
+      "properties": {"kind": {"const": "hover"}, "target": {"$ref": "#/$defs/targetName"}}
     },
     "keyStep": {
       "type": "object", "additionalProperties": false, "required": ["kind", "key"],

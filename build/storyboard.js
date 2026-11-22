@@ -274,6 +274,9 @@ async function runSteps(page, storyboard, steps, checkPrivacy, phase = 'steps', 
         case 'key':
           await (target || page.keyboard).press(step.key);
           break;
+        case 'hover':
+          await target.hover();
+          break;
         case 'fill':
           await target.fill(step.text);
           break;

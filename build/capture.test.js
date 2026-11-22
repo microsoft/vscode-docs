@@ -469,6 +469,51 @@ function replayFake(overrides) {
   return {...fakeApplication(overrides), confirmReady: async () => true};
 }
 
+test('sample replay retains extension and sign-in storage paths without enabling the same mode for media', async () => {
+  await withOutput(async options => {
+    const workspace = path.join(options.output, 'sample');
+    const output = path.join(options.output, 'reports');
+    const captureProfile = path.join(options.output, 'sample-profile');
+    fs.mkdirSync(workspace);
+    fs.mkdirSync(output);
+    fs.writeFileSync(path.join(workspace, 'example.js'), 'Synthetic sample.');
+    const storyboard = JSON.parse(fs.readFileSync(STORYBOARD));
+    delete storyboard.fixture;
+    storyboard.workspace = {entry: 'example.js', environment: 'sample'};
+    const file = path.join(options.output, 'sample-storyboard.json');
+    fs.writeFileSync(file, JSON.stringify(storyboard));
+    const sampleOptions = {...options, storyboard: file, workspace, captureProfile, output};
+    await assert.rejects(() => captureEditor(sampleOptions, replayFake()), /instruction replay only/);
+    const first = replayFake();
+    await captureEditor({...sampleOptions, replay: true}, first);
+    const launch = first.state().launchOptions;
+    assert.equal(launch.args.includes('--disable-extensions'), false);
+    assert.equal(launch.args.includes('--use-inmemory-secretstorage'), false);
+    assert.equal(launch.args[launch.args.indexOf('--extensions-dir') + 1], path.join(captureProfile, 'extensions'));
+    assert.equal(launch.offline, false);
+    for (const key of ['HOME', 'USERPROFILE', 'APPDATA', 'LOCALAPPDATA', 'COPILOT_HOME']) {
+      assert.ok(Reflect.get(launch.env, key).startsWith(captureProfile));
+    }
+    const extensionMarker = path.join(captureProfile, 'extensions', 'retained.txt');
+    fs.writeFileSync(extensionMarker, 'Synthetic retained extension state.');
+    const settings = path.join(captureProfile, 'user-data', 'User', 'settings.json');
+    const preferences = {...JSON.parse(fs.readFileSync(settings)), 'editor.fontSize': 17};
+    fs.writeFileSync(settings, JSON.stringify(preferences));
+    const second = replayFake();
+    const result = await captureEditor({...sampleOptions, replay: true}, second);
+    assert.equal(second.state().launchOptions.env.APPDATA, launch.env.APPDATA);
+    assert.equal(fs.readFileSync(extensionMarker, 'utf8'), 'Synthetic retained extension state.');
+    assert.equal(JSON.parse(fs.readFileSync(settings))['editor.fontSize'], 17);
+    assert.equal(result.manifest.settings['editor.fontSize'], undefined);
+    assert.equal(result.manifest.environment, 'persistent-sample');
+    assert.equal(result.manifest.settings['git.enabled'], true);
+    assert.equal(result.manifest.settings['chat.disableAIFeatures'], false);
+    assert.equal(result.manifest.settings['chat.mcp.access'], 'none');
+    assert.equal(result.manifest.captureProfile.lockRetained, false);
+    assert.equal(second.state().photographed, false);
+  });
+});
+
 test('replay saves source-linked instruction outcomes and distinguishes unobserved claims from passed assertions', async () => {
   await withOutput(async options => {
     const storyboard = JSON.parse(fs.readFileSync(STORYBOARD));

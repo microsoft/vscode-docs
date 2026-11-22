@@ -8,7 +8,8 @@ const { execFileSync } = require('child_process');
 const { createInterface } = require('node:readline/promises');
 const { isWithinRoot } = require('./repository-paths');
 const { runSteps, validateStoryboard } = require('./storyboard');
-const {WORKSPACE_SETTINGS, acquireCaptureProfile, replyToReadiness, snapshotWorkspace, waitForReadiness} = require('./capture-preparation');
+const {WORKSPACE_SETTINGS, SAMPLE_WORKSPACE_SETTINGS, acquireCaptureProfile, prepareSampleSettings,
+  replyToReadiness, snapshotWorkspace, waitForReadiness} = require('./capture-preparation');
 const {assertStableHighlights, collectHighlightRectangles, renderHighlights} = require('./capture-highlights');
 const {ProcedureFailure, failureDetails} = require('./replay-errors');
 
@@ -87,6 +88,8 @@ async function captureEditor(options, dependencies = {}) {
   const repository = fs.realpathSync(path.resolve(__dirname, '..'));
   const storyboardBytes = fs.readFileSync(options.storyboard);
   const storyboard = validateStoryboard(JSON.parse(storyboardBytes.toString('utf8')));
+  const sample = storyboard.workspace?.environment === 'sample';
+  if (sample && !options.replay) throw new Error('The persistent sample environment is for instruction replay only, not media capture.');
   const article = fs.realpathSync(path.resolve(repository, ...storyboard.article.split('/')));
   if (!isWithinRoot(repository, article) || !fs.statSync(article).isFile()) {
     throw new Error('Storyboard article must be an existing file inside the repository.');
@@ -163,17 +166,24 @@ async function captureEditor(options, dependencies = {}) {
   try {
     fs.writeFileSync(path.join(runDirectory, manifest.storyboard.file), storyboardBytes, {flag: 'wx', mode: 0o600});
     if (storyboard.workspace) {
-      workspaceSnapshot = snapshotWorkspace(workspace, storyboard.workspace.entry);
+      workspaceSnapshot = snapshotWorkspace(workspace, storyboard.workspace.entry, sample ? 'sample' : 'isolated');
       manifest.workspace = {path: workspace, entry: storyboard.workspace.entry, files: workspaceSnapshot, check: 'pending'};
-      captureProfile = acquireCaptureProfile(options.captureProfile, workspace, storyboard.channel, runDirectory);
+      captureProfile = acquireCaptureProfile(options.captureProfile, workspace, storyboard.channel, runDirectory, sample ? 'sample' : 'isolated');
       manifest.captureProfile = {path: captureProfile.root, retained: true, lockRetained: true};
       // Workspace Trust uses application-shared storage under the home directory, not only user-data.
       environment.HOME = path.join(captureProfile.root, 'home');
       environment.USERPROFILE = environment.HOME;
+      if (sample) {
+        environment.APPDATA = path.join(captureProfile.root, 'appdata');
+        environment.LOCALAPPDATA = path.join(captureProfile.root, 'localappdata');
+        environment.COPILOT_HOME = path.join(captureProfile.root, 'copilot');
+        manifest.environment = 'persistent-sample';
+      }
     }
     const userData = captureProfile?.userData || path.join(runtime, 'profile');
+    const extensions = path.join(sample ? captureProfile.root : runtime, 'extensions');
     for (const directory of new Set([
-      userData, ...['extensions', 'workspace'].map(name => path.join(runtime, name)),
+      userData, extensions, path.join(runtime, 'workspace'),
       environment.HOME, environment.APPDATA, environment.LOCALAPPDATA, environment.TEMP, environment.COPILOT_HOME
     ])) {
       fs.mkdirSync(directory, { recursive: true });
@@ -187,31 +197,36 @@ async function captureEditor(options, dependencies = {}) {
       'workbench.tips.enabled': false,
       'workbench.secondarySideBar.defaultVisibility': 'hidden',
       'breadcrumbs.enabled': false,
-      'chat.disableAIFeatures': true,
+      'chat.disableAIFeatures': !sample,
       'telemetry.telemetryLevel': 'off',
       'update.mode': 'none',
       'extensions.autoUpdate': false,
       'extensions.autoCheckUpdates': false,
-      ...(storyboard.workspace ? WORKSPACE_SETTINGS : {})
+      ...(storyboard.workspace ? sample ? SAMPLE_WORKSPACE_SETTINGS : WORKSPACE_SETTINGS : {})
     };
-    manifest.settings = settings;
-    fs.writeFileSync(path.join(userDirectory, 'settings.json'), JSON.stringify(settings, null, 2));
+    const settingsFile = path.join(userDirectory, 'settings.json');
+    if (sample) {
+      manifest.settings = prepareSampleSettings(settingsFile, settings);
+    } else {
+      manifest.settings = settings;
+      fs.writeFileSync(settingsFile, JSON.stringify(settings, null, 2));
+    }
     if (storyboard.fixture) fs.writeFileSync(fixture, storyboard.fixture.content);
     stage = 'launch';
     application = await launch({
       executablePath: executable,
       args: [
-        '--new-window', '--disable-extensions', '--skip-welcome', '--skip-release-notes',
-        '--disable-updates', '--disable-telemetry', '--use-inmemory-secretstorage',
+        '--new-window', ...(!sample ? ['--disable-extensions', '--use-inmemory-secretstorage'] : []),
+        '--skip-welcome', '--skip-release-notes', '--disable-updates', '--disable-telemetry',
         '--force-device-scale-factor=1', '--locale=en',
         '--user-data-dir', userData,
-        '--extensions-dir', path.join(runtime, 'extensions'),
+        '--extensions-dir', extensions,
         ...(storyboard.workspace || storyboard.fixture?.openFolder ? [workspace, '--goto'] : []), fixture
       ],
       env: environment,
       cwd: workspace,
       timeout: 60000,
-      offline: true,
+      offline: !sample,
       acceptDownloads: false
     });
     closed = false;
@@ -385,7 +400,7 @@ async function captureEditor(options, dependencies = {}) {
     }
     if (workspaceSnapshot) {
       try {
-        if (JSON.stringify(snapshotWorkspace(workspace, storyboard.workspace.entry)) !== JSON.stringify(workspaceSnapshot)) {
+        if (JSON.stringify(snapshotWorkspace(workspace, storyboard.workspace.entry, sample ? 'sample' : 'isolated')) !== JSON.stringify(workspaceSnapshot)) {
           throw new Error('The workspace entry or configuration files changed during capture. No changes were rolled back.');
         }
         manifest.workspace.check = 'unchanged';

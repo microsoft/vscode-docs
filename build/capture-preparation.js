@@ -17,7 +17,33 @@ const WORKSPACE_SETTINGS = Object.freeze({
   'typescript.disableAutomaticTypeAcquisition': true
 });
 
-function snapshotWorkspace(workspace, entry) {
+const SAMPLE_WORKSPACE_SETTINGS = Object.freeze({
+  ...WORKSPACE_SETTINGS,
+  'chat.disableAIFeatures': false,
+  'git.enabled': true,
+  'git.autofetch': false
+});
+
+function prepareSampleSettings(file, defaults) {
+  if (!fs.existsSync(file)) {
+    fs.writeFileSync(file, JSON.stringify(defaults, null, 2), {flag: 'wx'});
+    return defaults;
+  }
+  const errors = [];
+  const settings = parse(fs.readFileSync(file, 'utf8'), errors, {allowTrailingComma: true});
+  if (errors.length || !settings || typeof settings !== 'object' || Array.isArray(settings)) {
+    throw new Error('Cannot verify the retained sample profile settings.');
+  }
+  for (const [key, expected] of Object.entries(SAMPLE_WORKSPACE_SETTINGS)) {
+    if (Reflect.get(settings, key) !== expected) {
+      throw new Error(`Sample profile setting must remain ${JSON.stringify(expected)}: ${key}`);
+    }
+  }
+  return Object.fromEntries(Object.keys(defaults).filter(key => Object.hasOwn(settings, key))
+    .map(key => [key, Reflect.get(settings, key)]));
+}
+
+function snapshotWorkspace(workspace, entry, environment = 'isolated') {
   const files = {};
   for (const name of new Set([
     entry, '.vscode/settings.json', '.vscode/tasks.json', '.vscode/launch.json', '.vscode/mcp.json', '.mcp.json'
@@ -38,7 +64,7 @@ function snapshotWorkspace(workspace, entry) {
       if (errors.length || !settings || typeof settings !== 'object' || Array.isArray(settings)) {
         throw new Error(`Cannot verify workspace settings: ${errors.map(error => printParseErrorCode(error.error)).join(', ') || 'expected an object'}`);
       }
-      for (const [key, expected] of Object.entries(WORKSPACE_SETTINGS)) {
+      for (const [key, expected] of Object.entries(environment === 'sample' ? SAMPLE_WORKSPACE_SETTINGS : WORKSPACE_SETTINGS)) {
         if (Object.hasOwn(settings, key) && Reflect.get(settings, key) !== expected) {
           throw new Error(`Workspace setting overrides a capture startup control: ${key}`);
         }
@@ -51,7 +77,7 @@ function snapshotWorkspace(workspace, entry) {
   return files;
 }
 
-function acquireCaptureProfile(directory, workspace, channel, captureDirectory) {
+function acquireCaptureProfile(directory, workspace, channel, captureDirectory, environment = 'isolated') {
   if (!path.isAbsolute(directory)) {
     throw new Error('Supply an absolute dedicated capture-profile path.');
   }
@@ -69,13 +95,14 @@ function acquireCaptureProfile(directory, workspace, channel, captureDirectory) 
       throw new Error('Refusing to adopt a nonempty directory as a capture profile.');
     }
     fs.writeFileSync(marker, JSON.stringify({
-      schemaVersion: 1, purpose: 'vscode-docs-capture', workspace, channel
+      schemaVersion: 1, purpose: 'vscode-docs-capture', workspace, channel,
+      ...(environment === 'sample' ? {environment} : {})
     }, null, 2), {flag: 'wx'});
   }
   const identity = JSON.parse(fs.readFileSync(marker, 'utf8'));
   if (identity.schemaVersion !== 1 || identity.purpose !== 'vscode-docs-capture' ||
-      identity.workspace !== workspace || identity.channel !== channel) {
-    throw new Error('Capture profile belongs to a different workspace or product channel.');
+      identity.workspace !== workspace || identity.channel !== channel || (identity.environment || 'isolated') !== environment) {
+    throw new Error('Capture profile belongs to a different workspace or product channel, or environment.');
   }
   const lock = path.join(root, 'capture.lock');
   try {
@@ -135,4 +162,5 @@ async function waitForReadiness(directory, workspace, timeoutMs = 300000) {
   throw new Error('Human readiness confirmation timed out.');
 }
 
-module.exports = {WORKSPACE_SETTINGS, acquireCaptureProfile, replyToReadiness, snapshotWorkspace, waitForReadiness};
+module.exports = {WORKSPACE_SETTINGS, SAMPLE_WORKSPACE_SETTINGS, acquireCaptureProfile, prepareSampleSettings,
+  replyToReadiness, snapshotWorkspace, waitForReadiness};

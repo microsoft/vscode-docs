@@ -5,7 +5,8 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const test = require('node:test');
-const {acquireCaptureProfile, replyToReadiness, snapshotWorkspace, waitForReadiness} = require('./capture-preparation');
+const {SAMPLE_WORKSPACE_SETTINGS, acquireCaptureProfile, prepareSampleSettings,
+  replyToReadiness, snapshotWorkspace, waitForReadiness} = require('./capture-preparation');
 
 /* eslint-disable security/detect-non-literal-fs-filename -- These fixtures live in test-owned temporary directories. */
 
@@ -55,6 +56,27 @@ test('readiness requires the matching live request and an explicit ready or canc
   await assert.rejects(() => waitForReadiness(directory, 'Test workspace', 0), /timed out/);
   const request = JSON.parse(fs.readFileSync(path.join(directory, 'readiness-request.json'), 'utf8'));
   assert.throws(() => replyToReadiness(directory, request.token, true), /stale/);
+});
+
+test('sample profiles retain user settings and cannot be substituted for an isolated profile', t => {
+  const directory = temporaryDirectory(t);
+  const workspace = path.join(directory, 'workspace');
+  fs.mkdirSync(workspace);
+  const profile = path.join(directory, 'sample-profile');
+  const first = acquireCaptureProfile(profile, workspace, 'stable', undefined, 'sample');
+  first.release();
+  assert.throws(() => acquireCaptureProfile(profile, workspace, 'stable'), /environment/);
+  const second = acquireCaptureProfile(profile, workspace, 'stable', undefined, 'sample');
+  second.release();
+  const settings = path.join(directory, 'settings.json');
+  prepareSampleSettings(settings, SAMPLE_WORKSPACE_SETTINGS);
+  const retained = JSON.stringify({...SAMPLE_WORKSPACE_SETTINGS, 'editor.fontSize': 17, 'sample.privateValue': 'do not record'});
+  fs.writeFileSync(settings, retained);
+  const recorded = prepareSampleSettings(settings, SAMPLE_WORKSPACE_SETTINGS);
+  assert.equal(fs.readFileSync(settings, 'utf8'), retained);
+  assert.equal(recorded['sample.privateValue'], undefined);
+  fs.writeFileSync(settings, JSON.stringify({...SAMPLE_WORKSPACE_SETTINGS, 'task.allowAutomaticTasks': 'on'}));
+  assert.throws(() => prepareSampleSettings(settings, SAMPLE_WORKSPACE_SETTINGS), /Sample profile setting/);
 });
 
 test('workspace checks detect configuration changes and reject startup-control overrides without editing files', t => {

@@ -158,6 +158,8 @@ Results link each instruction to its expected outcome, observed assertion or vis
 
 An attended Stable 1.147.0 pilot verified Ctrl+F, searching for three matches without Enter, and forward and backward match navigation. The sample and dedicated profile were retained. Replacement, visual highlighting, and settings persistence were not checked. That pilot used the earlier scripted report format, not the source-map output described below.
 
+A subsequent Stable Source Control quickstart check verified initialization, README review, staging, and unstaging with source-linked expected and observed outcomes. The first attempt stopped before initialization because the welcome button was incorrectly scoped to the repository tree. Its incomplete evidence was preserved, and a separately approved locator correction passed. Postchecks confirmed unchanged sample files, an empty index, zero commits and remotes, released profile ownership, and application shutdown. The status decoration, commit workflow, graph, and publishing were not checked. The initialized repository is retained for later scenarios rather than automatically reset.
+
 ## Target canvas experience
 
 This is the revised design, not a description of additional controls already shipped. The eight workflows remain the scope, but they do not all need to happen inside the canvas.
@@ -570,6 +572,16 @@ node .\build\capture.js --confirm-ready '<run-directory>' --token '<request-toke
 Use `--cancel-ready` instead to relay cancellation. Never infer readiness from an open window or a previous trust decision. Stale, mismatched, or duplicate responses are rejected. Readiness is permission to proceed with capture, not approval of the resulting media.
 
 The capture profile persists after successful shutdown; temporary runtime directories do not. A failed shutdown retains the profile lock and runtime for recovery. Inspect the owning run and application process before removing a stale lock, and never reuse a profile while that application is still running.
+
+### Reuse a signed-in sample for instruction checks
+
+For an explicitly approved reusable sample workspace, set `workspace.environment` to `sample` in its reviewed storyboard and use the existing replay commands. Keep the workspace, dedicated profile, and per-run evidence in separate private directories. This mode is for replay only. Media capture retains the isolated defaults and refuses sample mode.
+
+The sample profile retains home, user-data, extensions, application data, and Copilot runtime data. It uses normal sign-in storage instead of the isolated runner's in-memory secret storage. Git and AI UI remain enabled, extensions are not globally disabled, and renderer network access is available. The human can trust the selected folder, enable needed extensions, and sign in once. Do not copy trust or credentials from another profile, inspect account secrets, or repeat setup authorization for the same approved sample. An available account does not authorize model requests.
+
+Settings are seeded once and then preserved. Automatic tasks, MCP access and autostart, Git autofetch, and automatic TypeScript acquisition must remain disabled. Conflicting retained settings fail explicitly rather than being silently overwritten. Extension files and user preferences survive runtime cleanup, but the runner still closes its own application after a bounded check. Procedure review and attended readiness remain required.
+
+Reviewed Git actions can change metadata inside the synthetic sample repository. Keep commits, remote operations, and destructive actions outside scope unless explicitly approved. The workspace snapshot is not a complete Git or filesystem audit, and the sample is not a security sandbox. Check the relevant local repository state after each procedure. No extra extensions are downloaded or installed by this mode.
 
 ### Record an editor video candidate
 

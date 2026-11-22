@@ -106,6 +106,7 @@ function fakePage() {
     }})
   };
   const button = {
+    hover: async () => state.events.push('hovered'),
     click: async () => {
       state.clicks++;
       state.text = state.text === 'Beta' ? 'Gamma' : state.text === 'Gamma' ? 'Alpha' : 'Beta';
@@ -159,11 +160,12 @@ test('executes input primitives and treats asserted text as literal, not a regul
     {kind: 'check', target: 'advance', checked: false},
     {kind: 'key', target: 'advance', key: 'Enter'},
     {kind: 'key', key: 'Escape'},
+    {kind: 'hover', target: 'advance'},
     {kind: 'wait-for', target: 'advance', state: 'hidden'},
     {kind: 'pause', ms: 500}
   ];
   await runSteps(fake.page, {targets}, steps, async () => {});
-  assert.deepEqual(fake.state.events, [['type', 'test', 180], 'checked', 'unchecked', 'Enter', 'Escape', 'hidden', 500]);
+  assert.deepEqual(fake.state.events, [['type', 'test', 180], 'checked', 'unchecked', 'Enter', 'Escape', 'hovered', 'hidden', 500]);
   await assert.rejects(() => runSteps(fake.page, {targets}, [
     {kind: 'assert', target: 'position', text: 'wrong', match: 'equals'}, advance
   ], async () => {}), /steps\[0\].*Unexpected visible text/);

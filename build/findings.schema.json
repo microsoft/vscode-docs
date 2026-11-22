@@ -183,7 +183,7 @@
         "code": {"type": "string", "pattern": "^[a-z][a-z-]+$"},
         "phase": {"type": "string", "enum": ["steps", "video.steps", "video.reset"]},
         "step": {"type": "integer", "minimum": 0, "maximum": 39},
-        "kind": {"enum": ["click", "key", "fill", "type", "check", "wait-for", "assert", "pause"]},
+        "kind": {"enum": ["click", "hover", "key", "fill", "type", "check", "wait-for", "assert", "pause"]},
         "target": {"$ref": "#/$defs/text"},
         "expected": {
           "oneOf": [
