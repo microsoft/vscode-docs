@@ -30,6 +30,8 @@ For an unsent **New Session** request in the {% data variables.copilot.agents_wi
 
 If the list isn't visible in the {% data variables.copilot.chat_view %}, right-click in an empty chat and select **Show Sessions**. For display options, see [sessions list layout](/docs/agents/run/chat-view.md#sessions-list-layout).
 
+With [editor worktree support](/docs/agents/run/chat-view.md#work-in-separate-worktrees) `feature(editor-worktrees)` enabled, opening a chat can also switch the editor's folder location to that chat's worktree. Check **Folder Location** in the Status Bar before editing or running commands.
+
 ### Find a missing session
 
 Check these items before creating a replacement session:
@@ -130,7 +132,7 @@ Choose a conversation based on whether you need the discussion so far:
 
 ### Start an agent session
 
-For an independent task, follow the steps to start a session in the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md#start-a-session) beside your editor, or in the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md#start-an-agent-session) across workspaces. Choose the workspace, harness, and code isolation before sending the first prompt.
+For an independent task, follow the steps to start a session in the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md#start-a-session) beside your editor, or in the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md#start-an-agent-session) across workspaces. Choose the workspace, harness, and [folder or worktree isolation](/docs/agents/run/worktrees.md#choose-folder-or-worktree-isolation) before sending the first prompt.
 
 On Windows, you can also open the {% data variables.copilot.agents_window %} by right-clicking the {% data variables.product.prodname_vscode_shortname %} taskbar icon and selecting **Agents Window**.
 

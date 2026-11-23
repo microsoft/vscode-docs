@@ -73,27 +73,19 @@ Choose a task with a clear outcome and checks you can run to verify it. The foll
 
 ### Choose where an agent makes changes
 
-For a Git workspace you can choose between applying changes in the current branch or a new worktree. Use the isolation dropdown above the input to choose where the agent edits files.
+For a Git workspace, use the isolation dropdown above the input to choose where the agent edits files:
+
+* **Branch**: Work directly in the selected folder. If you choose another local branch, switching branches requires a clean working tree.
+* **New Worktree**: Work in a separate directory and branch. Use the branch picker to choose the base branch before sending the prompt. Choosing a base branch doesn't switch the branch in your active workspace.
 
 ![Screenshot showing the isolation dropdown with Branch and New Worktree options above the input.](../images/agent-harnesses/agents-window-new-worktree-2.png)
 
-| Aspect | **Branch** | **New Worktree** |
-|--------|------------|------------------|
-| Best for | Working with your current files and uncommitted changes | Independent tasks running in parallel |
-| Where edits go | Your current folder | A separate [Git worktree](/docs/sourcecontrol/branches-worktrees.md#understanding-worktrees) |
-| Starting point | Your current files, or another existing local branch | Committed files from the selected base branch |
-| Requirements | A clean working tree **when switching branches** | A Git repository with at least one commit |
-| Uncommitted and untracked files | Available in the current folder | Not copied from the current folder |
-| Integration | Edits are already in your selected folder | Integrate the reviewed worktree branch afterward |
-
-Choosing a base branch for **New Worktree** doesn't switch the branch in your active workspace.
-
-Git-ignored files, including dependencies and local configuration, are also absent from new worktrees by default. Run your project's setup or [configure which ignored files to include](#configure-isolation-defaults).
+For the folder-versus-worktree comparison, Git requirements, and dependency setup, see [Work with agents in worktrees](/docs/agents/run/worktrees.md). To change the initial choice, [configure isolation defaults](#configure-isolation-defaults).
 
 Dev Container sessions work directly in the container workspace and don't support **New Worktree**. See [Run a session in a Dev Container](#run-a-session-in-a-dev-container).
 
 > [!IMPORTANT]
-> Worktrees isolate working files, not the agent's access to your machine or external services. Either isolation mode supports the permission levels offered by your harness. For operating system-level restrictions, configure [agent sandboxing](/docs/agents/run/agent-sandboxing.md) or use [cloud sessions](/docs/agents/run/cloud-sandbox-sessions.md).
+> Worktrees isolate working files, not the agent's access to your machine or external services. Review the [permission and sandboxing considerations](/docs/agents/run/worktrees.md#choose-folder-or-worktree-isolation) before starting a task.
 
 ### Save and resume drafts
 
@@ -436,7 +428,7 @@ By default, the **Chats** group remains visible even when empty. Set `setting(se
 
 The `setting(sessions.useWorktree)` setting controls the initial isolation choice for a workspace that hasn't started a session before. After you start a session, {% data variables.product.prodname_vscode_shortname %} remembers that workspace's isolation choice instead. The branch selection isn't remembered.
 
-Use `setting(git.worktreeIncludeFiles)` to [copy ignored files into new worktrees](/docs/sourcecontrol/branches-worktrees.md#include-files-when-creating-a-worktree). For large folders, `setting(git.worktreeSymlinkFolders)` (Experimental) can [symlink a folder instead](/docs/sourcecontrol/branches-worktrees.md#symlink-ignored-folders-when-creating-a-worktree). Changes through the symlink affect the original folder, so don't use it for files that must stay isolated.
+For dependencies and ignored files, see [Prepare a worktree](/docs/agents/run/worktrees.md#prepare-a-worktree).
 
 ## Limitations
 

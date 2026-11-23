@@ -60,6 +60,32 @@ The new session appears in the sessions list. To continue an existing conversati
 
 If you already have a conversation running in the CLI, [continue it in the {% data variables.copilot.chat_view %}](/docs/agents/run/sessions/manage-sessions.md#continue-a-cli-session-in-vs-code-experimental) with `/code` (Experimental).
 
+## Work in separate worktrees
+
+`feature(editor-worktrees)`
+
+Keep changes from parallel agent tasks separate without opening another editor window. Each chat can work in its own Git worktree, and the editor's folder location follows the chat you open. For isolation choices, starting code, and dependency setup, see [Work with agents in worktrees](/docs/agents/run/worktrees.md).
+
+This workflow requires {% data variables.product.prodname_vscode_shortname %} Insiders, a single local Git folder with at least one commit, and a harness that supports worktree isolation, such as {% data variables.product.prodname_copilot_short %}.
+
+1. Enable `setting(chat.editorWindow.enableWorktree)`, which is off by default.
+1. Start a new chat and choose your harness.
+1. Select **New Worktree** before sending the first prompt. If the chat input shows a folder picker, open it to select **New Worktree**.
+1. Describe the task and send your prompt. The chat works in a new worktree on its own branch, separate from your original folder.
+
+If the **Work in Parallel** callout appears, choose **Use New Worktree** to separate the task's changes, or **Continue in Folder** to share the folder. Later new chats use your answer as their default.
+
+### Switch between locations
+
+Open a chat from the sessions list to work in its location. Explorer and Source Control show that location's files, changes, and branch. To switch locations directly, select **Folder Location** in the Status Bar, then choose the original folder or an entry under **Worktrees**. Check the location and branch before editing or committing.
+
+<!-- TODO: Add an attended, human-approved screenshot showing an active worktree chat, the Explorer worktree indicator, and the Folder Location picker with the current location identified. -->
+
+> [!IMPORTANT]
+> Existing terminals keep their working directories when the editor changes location. Check a terminal's directory before running commands, or open a new terminal in the current location. A user-initiated location switch asks you to stop affected debug sessions and tasks with **Stop and Switch**. Automatic location changes can leave them running in the previous location.
+
+Switching locations doesn't integrate changes. When the task is ready, [review and integrate the worktree changes](/docs/agents/run/worktrees.md#review-and-integrate-changes).
+
 ## Work with the agent
 
 Keep the code and its checks beside the conversation as you work:

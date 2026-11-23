@@ -93,6 +93,10 @@
       "label": "Editor working set",
       "state": "experimental"
     },
+    "editor-worktrees": {
+      "label": "Editor worktree support",
+      "state": "experimental"
+    },
     "forked-skill-context": {
       "label": "Forked skill context",
       "state": "experimental"

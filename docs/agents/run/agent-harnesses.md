@@ -81,7 +81,7 @@ Switching agents doesn't change the harness. You can also select [custom agents]
 
 <a name="choose-code-isolation"></a>
 
-Your harness choice is separate from where the session changes code. In the {% data variables.copilot.agents_window %}, you can also [choose between a folder and a worktree](/docs/agents/run/agents-window.md#choose-where-an-agent-makes-changes) or [run a session in a Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container).
+Your harness choice is separate from where the session changes code. For supported sessions in either interface, [choose between a folder and a worktree](/docs/agents/run/worktrees.md#choose-folder-or-worktree-isolation). In the {% data variables.copilot.agents_window %}, you can also [run a session in a Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container).
 
 ### Identify your current harness
 

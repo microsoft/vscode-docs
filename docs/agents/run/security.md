@@ -42,7 +42,7 @@ Choose a control based on what you want to limit:
 | Stop offering an optional capability. | [Tool availability](/docs/agents/run/tools.md#manage-available-tools) or the [MCP server controls](/docs/agents/run/manage-mcp-servers.md#control-or-remove-a-server). | Not every built-in tool can be deselected. A tool selection is different from approving its actions. |
 | Restrict command access to files or networks. | [Agent sandboxing](/docs/agents/run/agent-sandboxing.md#understand-the-sandbox-boundary). | It covers supported processes, not every tool. Developer-tool directories and credentials can add access beyond the workspace. |
 | Ask before supported edits to sensitive files. | [Sensitive-edit approval](/docs/agents/run/review-code-edits.md#require-approval-before-sensitive-edits). | It isn't a file-read restriction or a guarantee against changes from commands and other tools. Auto-approval modes can bypass these checks. |
-| Keep concurrent code changes separate. | [Separate worktrees](/docs/agents/run/agents-window.md#choose-where-an-agent-makes-changes). | A worktree separates working files, not access to the machine or external services. |
+| Keep concurrent code changes separate. | [Separate worktrees](/docs/agents/run/worktrees.md#choose-folder-or-worktree-isolation). | A worktree separates working files, not access to the machine or external services. |
 
 If a sandboxed command is blocked, review the path or destination it needs. Prefer [narrow additional access](/docs/agents/run/agent-sandboxing.md#control-approval-and-fallback-behavior) over running the command outside the sandbox. Approval to run a command doesn't expand its sandbox access.
 

@@ -88,7 +88,7 @@ For this walkthrough:
 
 * Open a trusted Git repository with at least one commit and a Git remote.
 * Make sure you can run the relevant tests. Resolve setup problems before comparing models.
-* Preserve unrelated work and commit the starting code. Worktrees don't include your uncommitted changes. See [worktree requirements](/docs/agents/run/agents-window.md#choose-where-an-agent-makes-changes).
+* Preserve unrelated work and commit the starting code. Worktrees don't include your uncommitted changes. See [worktree requirements](/docs/agents/run/worktrees.md#prepare-a-worktree).
 
 Choose a bounded task with a result you can check. For example, if your app has a profile form:
 
