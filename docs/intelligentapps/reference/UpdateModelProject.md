@@ -51,6 +51,6 @@ The UX for showing the parameters may not work. In this case, you could check `o
 
 ## What the model project version means
 
-When recipes in the [olive-recipes](https://github.com/microsoft/olive-recipes) are updated, the version will be increased. The recipes could be updated multiple times between two Foundry Toolkit releases. So when you see the version, you may notice that the numbers are not continuous.
+When recipes in the [qiowu-olive-recipes repository](https://github.com/microsoft/qiowu-olive-recipes) are updated, the version will be increased. The recipes could be updated multiple times between two Foundry Toolkit releases. So when you see the version, you may notice that the numbers are not continuous.
 
 For the same reason, an update could impact one, all, or none of the workflows — sometimes it's just an inference sample update without any workflow changes. So in general, we suggest using the converted model in existing history if it still works well after the update.

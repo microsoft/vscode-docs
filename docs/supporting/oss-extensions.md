@@ -16,33 +16,25 @@ As more and more teams in Microsoft contribute extensions, we realize that it ca
 
 | Extension | Source Code Available | License |
 |-----------|-----|---------|
-| [Ansible](https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible) | ✔ | [MIT](https://marketplace.visualstudio.com/items/vscoss.vscode-ansible/license) |
-| [Arduino](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino) | ✔ | [MIT](https://marketplace.visualstudio.com/items/vsciot-vscode.vscode-arduino/license) |
 | [Atom Keymap](https://marketplace.visualstudio.com/items?itemName=ms-vscode.atom-keybindings) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.atom-keybindings/license) |
-| [AutoRest](https://marketplace.visualstudio.com/items?itemName=ms-vscode.autorest) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.autorest/license) |
 | [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.azure-account/license) |
 | [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azureappservice/license) |
-| [Azure Application Insights](https://marketplace.visualstudio.com/items?itemName=VisualStudioOnlineApplicationInsights.application-insights)| | [Microsoft](https://marketplace.visualstudio.com/items/VisualStudioOnlineApplicationInsights.application-insights/license) |
 | [Azure Cache](https://marketplace.visualstudio.com/items?itemName=ms-azurecache.vscode-azurecache) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-azurecache.vscode-azurecache/license) |
 | [Azure CLI Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.azurecli/license) |
 | [Azure Databases](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-cosmosdb) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-cosmosdb/license) |
 | [Azure Data Lake Tools](https://marketplace.visualstudio.com/items/usqlextpublisher.usql-vscode-ext) |  | [Microsoft](https://marketplace.visualstudio.com/items/usqlextpublisher.usql-vscode-ext/license) |
-| [Azure Data Studio Debug](https://marketplace.visualstudio.com/items/ms-mssql.sqlops-debug)| ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-mssql.sqlops-debug/license) |
-| [Azure Dev Spaces](https://marketplace.visualstudio.com/items/azuredevspaces.azds/) | | [Microsoft](https://marketplace.visualstudio.com/items/azuredevspaces.azds/license) |
 | [Azure Event Grid](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azureeventgrid) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azureeventgrid/license) |
 | [Azure Functions](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azurefunctions) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azurefunctions/license) |
 | [Azure IoT Edge](https://marketplace.visualstudio.com/items/vsciot-vscode.azure-iot-edge) | ✔ | [MIT](https://marketplace.visualstudio.com/items/vsciot-vscode.azure-iot-edge/license) |
 | [Azure IoT Hub](https://marketplace.visualstudio.com/items/vsciot-vscode.azure-iot-toolkit) | ✔ | [MIT](https://marketplace.visualstudio.com/items/vsciot-vscode.azure-iot-toolkit/license) |
-| [Azure IoT Device Workbench](https://marketplace.visualstudio.com/items/vsciot-vscode.vscode-iot-workbench) | ✔ | [MIT](https://marketplace.visualstudio.com/items/vsciot-vscode.vscode-iot-workbench/license) |
 | [Azure Logic Apps](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-logicapps) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-logicapps/license) |
 | [Azure Machine Learning](https://marketplace.visualstudio.com/items/ms-toolsai.vscode-ai) |  | [Microsoft](https://marketplace.visualstudio.com/items/ms-toolsai.vscode-ai/license) |
 | [Azure Pipelines](https://marketplace.visualstudio.com/items/ms-azure-devops.azure-pipelines)| ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-azure-devops.azure-pipelines/license) |
-| [Azure Repos](https://marketplace.visualstudio.com/items/ms-vsts.team)| ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vsts.team/license) |
+| [Azure Repos](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-repos) | | [Microsoft](https://marketplace.visualstudio.com/items/ms-vscode.azure-repos/license) |
 | [Azure Resource Manager (ARM) Tools](https://marketplace.visualstudio.com/items/msazurermtools.azurerm-vscode-tools)| ✔ | [MIT](https://marketplace.visualstudio.com/items/msazurermtools.azurerm-vscode-tools/license) |
 | [Azure Storage](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azurestorage)| ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azurestorage/license) |
 | [Azure Stream Analytics Tools](https://marketplace.visualstudio.com/items/ms-bigdatatools.vscode-asa)|  | [Microsoft](https://marketplace.visualstudio.com/items/ms-bigdatatools.vscode-asa/license) |
 | [Azure Terraform](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azureterraform)| ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-azureterraform/license) |
-| [Blockchain Development Kit for Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) | ✔ | [MIT](https://marketplace.visualstudio.com/items/AzBlockchain.azure-blockchain/license) |
 | [C/C++](https://marketplace.visualstudio.com/items/ms-vscode.cpptools)  | | [Microsoft](https://marketplace.visualstudio.com/items/ms-vscode.cpptools/license) |
 | [C#](https://marketplace.visualstudio.com/items/ms-dotnettools.csharp) | ✔ ([Repo](https://github.com/OmniSharp/omnisharp-vscode))  | [Microsoft](https://marketplace.visualstudio.com/items/ms-dotnettools.csharp/license) |
 | [Container Tools](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-containers) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-containers/license) |
@@ -55,7 +47,7 @@ As more and more teams in Microsoft contribute extensions, we realize that it ca
 | [Duffle](https://marketplace.visualstudio.com/items/ms-kubernetes-tools.duffle-vscode) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-kubernetes-tools.duffle-vscode/license) |
 | [Duffle Coat](https://marketplace.visualstudio.com/items/ms-kubernetes-tools.duffle-coat) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-kubernetes-tools.duffle-coat/license) |
 | [Dynamics AL Language](https://marketplace.visualstudio.com/items/ms-dynamics-smb.al) |  | [Microsoft](https://marketplace.visualstudio.com/items/ms-dynamics-smb.al/license) |
-| [GitHub Issues](https://marketplace.visualstudio.com/items/ms-vscode.github-issues-prs) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.github-issues-prs/license) |
+| [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) | ✔ | [MIT](https://marketplace.visualstudio.com/items/GitHub.vscode-pull-request-github/license) |
 | [IntelliCode](https://marketplace.visualstudio.com/items/VisualStudioExptTeam.vscodeintellicode) |  | [Microsoft](https://marketplace.visualstudio.com/items/VisualStudioExptTeam.vscodeintellicode/license) |
 | [Project Manager for Java](https://marketplace.visualstudio.com/items/vscjava.vscode-java-dependency) | ✔ | [MIT](https://marketplace.visualstudio.com/items/vscjava.vscode-java-dependency/license) |
 | [JavaScript Atom Grammar](https://marketplace.visualstudio.com/items/ms-vscode.js-atom-grammar) | ✔ ([Repo](https://github.com/microsoft/vscode-js-atom-grammar)) | [Microsoft](https://marketplace.visualstudio.com/items/ms-vscode.js-atom-grammar/license) |
@@ -65,10 +57,8 @@ As more and more teams in Microsoft contribute extensions, we realize that it ca
 | [Markdown Theme Kit](https://marketplace.visualstudio.com/items/ms-vscode.Theme-MarkdownKit) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.Theme-MarkdownKit/license) |
 | [Maven for Java](https://marketplace.visualstudio.com/items/vscjava.vscode-maven) | ✔ | [MIT](https://marketplace.visualstudio.com/items/vscjava.vscode-maven/license) |
 | [Mezzurite](https://marketplace.visualstudio.com/items/mezzurite-devs.mezzurite) | ✔ | [MIT](https://marketplace.visualstudio.com/items/mezzurite-devs.mezzurite/license) |
-| [Mono Debug](https://marketplace.visualstudio.com/items/ms-vscode.mono-debug) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.mono-debug/license) |
 | [Notepad++ Keymap](https://marketplace.visualstudio.com/items/ms-vscode.notepadplusplus-keybindings) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.notepadplusplus-keybindings/license) |
-| [OpenPAI {% data variables.product.prodname_vscode_shortname %} Client](https://marketplace.visualstudio.com/items/OpenPAIVSCodeClient.pai-vscode) | ✔ | [MIT](https://marketplace.visualstudio.com/items/OpenPAIVSCodeClient.pai-vscode/license) |
-| [PostgreSQL](https://marketplace.visualstudio.com/items/ms-ossdata.vscode-postgresql) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-ossdata.vscode-postgresql/license) |
+| [PostgreSQL](https://marketplace.visualstudio.com/items?itemName=ms-ossdata.vscode-pgsql) | | [Microsoft](https://marketplace.visualstudio.com/items/ms-ossdata.vscode-pgsql/license) |
 | [PowerShell](https://marketplace.visualstudio.com/items/ms-vscode.PowerShell) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.PowerShell/license) |
 | [Predawn Theme](https://marketplace.visualstudio.com/items/ms-vscode.Theme-PredawnKit) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.Theme-PredawnKit/license) |
 | [Pyright](https://marketplace.visualstudio.com/items?itemName=ms-pyright.pyright) | ✔ | [MIT](https://raw.githubusercontent.com/microsoft/pyright/master/LICENSE.txt) |
@@ -77,9 +67,7 @@ As more and more teams in Microsoft contribute extensions, we realize that it ca
 | [Dev Containers](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-containers) |  | [Microsoft](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-containers/license)  |
 | [Remote - SSH](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-ssh) |  | [Microsoft](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-ssh/license) |
 | [WSL](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-wsl) |  | [Microsoft](https://marketplace.visualstudio.com/items/ms-vscode-remote.remote-wsl/license)  |
-| [Reference Search View](https://marketplace.visualstudio.com/items/ms-vscode.references-view) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.references-view/license) |
 | [Resharper 9 keyboard shortcuts](https://marketplace.visualstudio.com/items/ms-vscode.resharper9-keybindings) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-vscode.resharper9-keybindings/license)|
-| [Service Fabric Reliable Services](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-service-fabric-reliable-services) | ✔ | [MIT](https://marketplace.visualstudio.com/items/ms-azuretools.vscode-service-fabric-reliable-services/license) |
 | [Spring Boot Dashboard](https://marketplace.visualstudio.com/items/vscjava.vscode-spring-boot-dashboard) | ✔ | [MIT](https://marketplace.visualstudio.com/items/vscjava.vscode-spring-boot-dashboard/license) |
 | [Spark & Hive Tools](https://marketplace.visualstudio.com/items/mshdinsight.azure-hdinsight) |  | [Microsoft](https://marketplace.visualstudio.com/items/mshdinsight.azure-hdinsight/license) |
 | [Spring Initializr Java Support](https://marketplace.visualstudio.com/items/vscjava.vscode-spring-initializr) | ✔ | [MIT](https://marketplace.visualstudio.com/items/vscjava.vscode-spring-initializr/license) |

@@ -42,7 +42,7 @@ Creating a project in model conversion is the first step toward converting, opti
 
 ### Supported models
 
-Model Conversion currently supports a growing list of models, including top Hugging Face models in PyTorch format. For detailed model list, refer: [Model List](https://github.com/microsoft/olive-recipes/blob/main/.aitk/docs/guide/ModelList.md)
+Model Conversion currently supports a growing list of models, including top Hugging Face models in PyTorch format. View the available models when you [create a project](#create-project).
 
 ### (Optional) Add model into existing project
 

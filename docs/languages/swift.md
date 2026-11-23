@@ -61,7 +61,7 @@ editor. Use these links to see the {% data variables.product.prodname_vscode_sho
 - [Go to definition](/docs/editing/editingevolved.md#go-to-definition)
 - [Find all references](/docs/editing/editingevolved.md#peek)
 - [Rename refactoring](/docs/editing/refactoring.md#rename-symbol)
-- [Diagnostics](/docs/editing/editingevolved.md#errors-and-warnings)
+- [Diagnostics](/docs/editing/editingevolved.md#errors-warnings)
 - [Quick Fixes](/docs/editing/editingevolved.md#code-action)
 
 SourceKit LSP also provides code actions to automate common tasks. Code actions in {% data variables.product.prodname_vscode_shortname %}

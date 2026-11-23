@@ -45,7 +45,7 @@ That's why we've introduced a new feature in VS Code for orchestrating all your 
 
 ## Agent Sessions
 
-There's a new view in the VS Code side bar called "[Agent Sessions](https://code.visualstudio.com/docs/agents/run/sessions/manage-sessions#_sessions-list)". It gives you one place to manage all your agents, whether they're running locally or in the cloud.
+There's a new view in the VS Code side bar called "[Agent Sessions](https://code.visualstudio.com/docs/agents/run/sessions/manage-sessions#_find-and-resume-a-session)". It gives you one place to manage all your agents, whether they're running locally or in the cloud.
 
 ![VS Code window with Agent Sessions sidebar showing Copilot, Coding Agent, CLI, and Codex statuses against a calm gray workspace](agent-sessions.webp)
 

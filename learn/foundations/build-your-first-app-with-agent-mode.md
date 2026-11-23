@@ -165,7 +165,7 @@ Watch for future sections covering MCP, custom instructions and skills, and more
 * [Choose and use an agent harness in VS Code](https://code.visualstudio.com/docs/agents/run/agent-harnesses)
 * [Planning with agents in VS Code](https://code.visualstudio.com/docs/agents/run/planning)
 * [Reviewing AI-generated code edits in VS Code](https://code.visualstudio.com/docs/agents/run/review-code-edits)
-* [Checkpoints and editing requests in VS Code](https://code.visualstudio.com/docs/agents/run/review-code-edits#_edit-requests-and-restore-checkpoints)
+* [Checkpoints and editing requests in VS Code](https://code.visualstudio.com/docs/agents/run/review-code-edits#_restore-a-checkpoint)
 * [Agent Logs and Chat Debug view](https://code.visualstudio.com/docs/chat/chat-debug-view)
 * [FastAPI](https://fastapi.tiangolo.com/)
 * [Python sqlite3](https://docs.python.org/3/library/sqlite3.html)

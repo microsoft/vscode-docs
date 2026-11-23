@@ -84,14 +84,14 @@ CodeLens features include:
 
 - Pester symbol support
 
-  ![CodeLens Pester Symbol Support][38]
+  <video src="images/powershell/codeLensPesterSymbol.mp4" title="Video showing CodeLens support for Pester symbols." autoplay loop controls muted></video>
 
 - Function, variable, class, and other symbol references
 
   CodeLens reference support shows the number of times a symbol is referenced within your
   code and allows you to jump to specific references.
 
-  ![CodeLens Function Reference Support][37]
+  <video src="images/powershell/codeLensFuncRef.mp4" title="Video showing CodeLens reference navigation for PowerShell symbols." autoplay loop controls muted></video>
 
 ### PSScriptAnalyzer integration
 
@@ -252,8 +252,6 @@ If you find a bug, [open an issue][22] and revert to the stable version while we
 [34]: https://pester.dev/docs/introduction/installation
 [35]: https://twitter.com/r_keith_hill
 [36]: images/powershell/codeGear.png
-[37]: images/powershell/codeLensFuncRef.gif
-[38]: images/powershell/codeLensPesterSymbol.gif
 [39]: images/powershell/pesterCodeLens.png
 [40]: images/powershell/PowerShellExtension.png
 [41]: images/powershell/prerelease-switch.png

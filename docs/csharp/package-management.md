@@ -9,7 +9,7 @@ NuGet is the package manager for .NET. It defines how packages for .NET are crea
 
 In {% data variables.product.prodname_vscode %}, you can manage your NuGet packages either directly from the C# Dev Kit Solution explorer, or by using the Command Palette.
 
-* [NuGet Commands in C# Dev Kit](#nuget-commands-in-c-dev-kit)
+* [NuGet Commands in C# Dev Kit](#nuget-commands-in-chash-dev-kit)
 * [Dependency Management](#dependency-management)
 
 To learn more about NuGet, go to the [NuGet documentation](https://learn.microsoft.com/nuget/what-is-nuget).
