@@ -70,7 +70,7 @@ Two topics that will help you are [Basic Editing](/docs/editing/codebasics.md) a
 
 ## Debugging
 
-By default, your Unity project is setup with a debugger configuration to attach the Unity debugger to the Unity Editor instance opened on the project. Press `kb(workbench.action.debug.start)` to start a debugging session.
+By default, your Unity project is set up with a debugger configuration to attach the Unity debugger to the Unity Editor instance opened on the project. Press `kb(workbench.action.debug.start)` to start a debugging session.
 
 If you want to debug a Unity standalone player, the easiest way is to use the **Attach Unity Debugger** command.
 

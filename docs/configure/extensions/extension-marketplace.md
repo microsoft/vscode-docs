@@ -17,7 +17,7 @@ The Extensions view shows a list of the most popular {% data variables.product.p
 
 ![Screenshot showing popular extensions listed in the Extensions view.](images/extension-marketplace/extensions-popular.png)
 
-Each extension in the list includes a brief description, the publisher, the download count, and a five star rating. Select an extension item to display its details page, where you can learn more.
+Each extension in the list includes a brief description, the publisher, the download count, and a five-star rating. Select an extension item to display its details page, where you can learn more.
 
 > [!NOTE]
 > If your computer's Internet access goes through a proxy server, you need to configure the proxy server. See [Proxy server support](/docs/setup/network.md#proxy-server-support) for details.
@@ -89,7 +89,7 @@ If an extension doesn't provide the functionality you want, you can always **Uni
 
 ![Screenshot showing the Uninstall option for the TODO Highlight extension.](images/extension-marketplace/todo-highlight-uninstall.png)
 
-This walkthrough shows one example of how to install and use an extension. The {% data variables.product.prodname_vs_marketplace %} has thousands of extensions supporting hundreds of programming languages and tasks. Options range from full featured language support for [Java](https://marketplace.visualstudio.com/items?itemName=redhat.java), [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python), [Go](https://marketplace.visualstudio.com/items?itemName=golang.Go), and [C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools), to simple extensions that [create GUIDs](https://marketplace.visualstudio.com/items?itemName=nwallace.createGUID), change the [color theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme), or add [virtual pets](https://marketplace.visualstudio.com/items?itemName=tonybaloney.vscode-pets) to the editor.
+This walkthrough shows one example of how to install and use an extension. The {% data variables.product.prodname_vs_marketplace %} has thousands of extensions supporting hundreds of programming languages and tasks. Options range from full-featured language support for [Java](https://marketplace.visualstudio.com/items?itemName=redhat.java), [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python), [Go](https://marketplace.visualstudio.com/items?itemName=golang.Go), and [C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools), to simple extensions that [create GUIDs](https://marketplace.visualstudio.com/items?itemName=nwallace.createGUID), change the [color theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme), or add [virtual pets](https://marketplace.visualstudio.com/items?itemName=tonybaloney.vscode-pets) to the editor.
 
 ### Install a pre-release extension version
 
@@ -304,7 +304,7 @@ You can see the extension ID on the extension details page under the Marketplace
 
 ### Where are extensions installed?
 
-Extensions are installed in a per user extensions folder. Depending on your platform, the location is in the following folder:
+Extensions are installed in a per-user extensions folder. Depending on your platform, the location is in the following folder:
 
 * **Windows** `%USERPROFILE%\.vscode\extensions`
 * **macOS** `~/.vscode/extensions`

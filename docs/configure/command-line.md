@@ -305,7 +305,7 @@ Read on to find out about:
 
 Your OS cannot find the {% data variables.product.prodname_vscode_shortname %} binary `code` on its path. The {% data variables.product.prodname_vscode_shortname %} Windows and Linux installations should have installed {% data variables.product.prodname_vscode_shortname %} on your path. Try uninstalling and reinstalling {% data variables.product.prodname_vscode_shortname %}. If `code` is still not found, consult the platform-specific setup topics for [Windows](/docs/setup/windows.md) and [Linux](/docs/setup/linux.md).
 
-On macOS, you need to manually run the **Shell Command: Install 'code' command in PATH** command (available through the **Command Palette** `kb(workbench.action.showCommands)`). Consult the [macOS](/docs/setup/mac.md) specific setup topic for details.
+On macOS, you need to manually run the **Shell Command: Install 'code' and optionally 'copilot' commands in PATH** command (available through the **Command Palette** `kb(workbench.action.showCommands)`). Consult the [macOS](/docs/setup/mac.md) specific setup topic for details.
 
 ### How do I get access to a command line (terminal) from within {% data variables.product.prodname_vscode_shortname %}?
 

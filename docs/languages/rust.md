@@ -106,7 +106,7 @@ cargo build
 
 ![Cargo build output in the integrated terminal](images/rust/cargo-build.png)
 
-You will now have `target\debug` folder with build output include an executable called `hello_world.exe`.
+You will now have a `target\debug` folder with build output including an executable called `hello_world.exe`.
 
 ### Running Hello World
 

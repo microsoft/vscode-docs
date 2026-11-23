@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "initialization": "module",
+  "canvases": [
+    {
+      "id": "vscode-docs-workbench",
+      "displayName": "Docs workbench",
+      "description": "Track documentation PRs, release TPIs, issues, and media tasks with approved background-agent workflows.",
+      "actions": [
+        {
+          "name": "queue-summary",
+          "description": "Read queue counts, refresh errors, milestone, and local work status without fetching GitHub."
+        },
+        {
+          "name": "refresh-queues",
+          "description": "Refresh GitHub queues, preserving cached data and reporting any individual queue errors."
+        },
+        {
+          "name": "inspect-item",
+          "description": "Read the current source, comments, and stored workflow history for a work item.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "key": { "type": "string", "description": "Canonical identity, for example microsoft/vscode-docs:pr:1234." }
+            },
+            "required": ["key"],
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "start-workflow",
+          "description": "Start a host-approved background review, documentation plan, approved implementation, or media task.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "key": { "type": "string", "description": "Canonical identity, for example microsoft/vscode-docs:pr:1234." },
+              "workflow": { "type": "string", "enum": ["review", "document", "close-comment", "implement", "screenshot", "video"] },
+              "plan": { "type": "string" },
+              "base": { "type": "string", "enum": ["main", "vnext"] }
+            },
+            "required": ["key", "workflow"],
+            "additionalProperties": false
+          }
+        },
+        {
+          "name": "sync-tasks",
+          "description": "Read actual host background-agent states and save their results."
+        },
+        {
+          "name": "attach-media",
+          "description": "Attach a genuine PNG, WebM, or MP4 from the task private media directory for human visual review.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "key": { "type": "string", "description": "Canonical identity, for example microsoft/vscode-docs:pr:1234." },
+              "file": { "type": "string" },
+              "description": { "type": "string" }
+            },
+            "required": ["key", "file", "description"],
+            "additionalProperties": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "vscode-docs-article-checks",
+      "displayName": "Docs workflow",
+      "description": "Write documentation on a dedicated authoring page and review checks in a separate persistent findings inbox.",
+      "actions": [
+        {
+          "name": "status",
+          "description": "Load the private findings inbox and coverage, incorporating validated confirmed results without making review decisions."
+        },
+        {
+          "name": "inspect-report",
+          "description": "Inspect an owned execution receipt and report bundle without making review decisions. Use status for current evidence freshness.",
+          "inputSchema": {
+            "type": "object",
+            "properties": { "id": { "type": "string" } },
+            "required": ["id"],
+            "additionalProperties": false
+          }
+        }
+      ]
+    }
+  ]
+}

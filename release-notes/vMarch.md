@@ -13,9 +13,9 @@ March was the end game milestone leading up to our [1.0 release](/blogs/2016/04/
 Here are a few highlights in this release:
 
 * Added 9 localized display languages.
-* Improved JavaScript support with new TypeScript language service, codename "Salsa".
+* Improved JavaScript support with the new TypeScript language service, codename "Salsa".
 * Simplified `jsconfig.json` and `tasks.json` file creation.
-* Support adding new file extensions to existing languages.
+* Added support for adding new file extensions to existing languages.
 * Implemented editor column text selection.
 
 Downloads: [Windows](https://az764295.vo.msecnd.net/stable/fa6d0f03813dfb9df4589c30121e9fcffa8a8ec8/VSCodeSetup-stable.exe) |
@@ -37,9 +37,9 @@ Some users want to use syntax constructs like the proposed **ES7 Object Rest/Spr
 
 ### Guidance in creating a jsconfig.json file
 
-The JavaScript experience is much better when you have a `jsconfig.json` file in your workspace that defines the project context. Without a `jsconfig.json`, each JavaScript file is treated as an island. Only the file itself and the JavaScript files it references are considered for features like IntelliSense. By adding a `jsconfig.json` file, you can the define the root of your project, the folders to exclude, etc. For this reason we now provide a hint to create a `jsconfig.json` file.
+The JavaScript experience is much better when you have a `jsconfig.json` file in your workspace that defines the project context. Without a `jsconfig.json`, each JavaScript file is treated as an island. Only the file itself and the JavaScript files it references are considered for features like IntelliSense. By adding a `jsconfig.json` file, you can define the root of your project, the folders to exclude, etc. For this reason we now provide a hint to create a `jsconfig.json` file.
 
-![The jsconfig hint is located towards the end of in the status bar](images/March/jsconfig-hint.png)
+![The jsconfig hint is located towards the end of the status bar](images/March/jsconfig-hint.png)
 
 The hint creates a template for a `jsconfig.json`, with an exclusion list for you to edit:
 
@@ -65,7 +65,7 @@ To make it easy to distinguish between diagnostics from external linters and the
 
 Previously you did not get IntelliSense when using ES6 style import statements in **React Native** as used in the [getting started guide](https://reactnative.dev/docs/getting-started).
 
-In the snippet, below you get no IntelliSense for `React`:
+In the snippet below, you get no IntelliSense for `React`:
 
 ```js
 import React from 'react-native';
@@ -237,7 +237,7 @@ There are new folding actions to collapse source code regions based on their fol
 There are actions to fold level 1 (`kb(editor.foldLevel1)`) to level 5 (`kb(editor.foldLevel5)`).
 To unfold, use **Unfold All** (`kb(editor.unfoldAll)`).
 
-The level folding actions do not apply to region containing the current cursor.
+The level folding actions do not apply to the region containing the current cursor.
 
 ### IntelliSense on Tab only
 
@@ -274,7 +274,7 @@ For example:
 
 ### Toggle Whitespace
 
-There is a new action under **View** > **Toggle Render Whitespace** that quickly toggles the rendering of whitespace for the current opened file.
+There is a new action under **View** > **Toggle Render Whitespace** that quickly toggles the rendering of whitespace for the currently opened file.
 
 ### UTF-8 BOM support
 
@@ -298,13 +298,13 @@ There is now an Extensions icon in the bottom left corner of the workbench. This
 
 ![](images/March/extension-widget.png)
 
-Update notifications will also be notified in this widget:
+Update notifications will also be shown in this widget:
 
 ![](images/March/extension-widget-notification.png)
 
 ### Exclude files from watching
 
-When you open VS Code on a folder, it installs a file watcher service on the folder and every file and folder contained within to be notified when something changes. If the folder is very large, this can consume many resources right at startup. A new setting, `files.watcherExclude`, now allows to explicitly exclude large directories from file watching.
+When you open VS Code on a folder, it installs a file watcher service on the folder and every file and folder contained within to be notified when something changes. If the folder is very large, this can consume many resources right at startup. A new setting, `files.watcherExclude`, now allows you to explicitly exclude large directories from file watching.
 
 This setting has the following defaults:
 
@@ -331,7 +331,7 @@ Please note: The **Run** action is always available, but a debugger extension ha
 
 ### Improved thread handling
 
-Thanks to this [pull request](https://github.com/microsoft/vscode/pull/3990), VS Code debugger UI now supports multiple stopped threads and the call stack for each thread is now requested lazily. This improves the debugger's stepping performance in multi-threaded programs.
+Thanks to this [pull request](https://github.com/microsoft/vscode/pull/3990), the VS Code debugger UI now supports multiple stopped threads and the call stack for each thread is now requested lazily. This improves the debugger's stepping performance in multi-threaded programs.
 
 ## Tasks
 
@@ -345,7 +345,7 @@ Configuring the task runner now offers you a list of templates to choose from. T
 
 ### Linux packages
 
-.deb and .rpm packages are now being offered as the primary way to install and start using VS Code on Linux. The packages will install the program, a desktop entry, a bin command as well as integrating VS Code into the [Debian alternatives system](https://wiki.debian.org/DebianAlternatives).
+.deb and .rpm packages are now being offered as the primary way to install and start using VS Code on Linux. The packages will install the program, a desktop entry, and a bin command, as well as integrate VS Code into the [Debian alternatives system](https://wiki.debian.org/DebianAlternatives).
 
 Installing can be done through a package manager GUI by running the file through the file explorer or through the command line:
 
@@ -374,11 +374,11 @@ For example, Git allows you to configure an external editor and here are the ste
         * Linux: Make sure you installed Code via our new .deb or .rpm packages.
 2. From the command line, run `git config --global core.editor "code --wait"`
 
-Now you can run `git config --global -e` and use VS Code as editor for configuring Git.
+Now you can run `git config --global -e` and use VS Code as an editor for configuring Git.
 
 ![](images/March/gitconfig.png)
 
-Add the following to enable support for using VS Code as diff tool:
+Add the following to enable support for using VS Code as a diff tool:
 
 ```bash
 [diff]
@@ -391,14 +391,14 @@ This leverages the new `--diff` option you can pass to VS Code to compare two fi
 
 To summarize, here are some examples of where you can use Git with VS Code:
 
-* `git rebase HEAD~3 -i` allows to interactive rebase using VS Code
-* `git commit` allows to use VS Code for the commit message
+* `git rebase HEAD~3 -i` allows you to rebase interactively using VS Code
+* `git commit` allows you to use VS Code for the commit message
 * `git add -p` followed by `kbstyle(e)` for interactive add
-* `git difftool <commit>^ <commit>` allows to use VS Code as diff editor for changes
+* `git difftool <commit>^ <commit>` allows you to use VS Code as a diff editor for changes
 
 ## Accessibility
 
-We have added accessibility improvements to the suggestion widget, parameter hints widget and to the quick fix widget (Lightbulb), which now announce each suggestion, as they are selected, to screen readers.
+We have added accessibility improvements to the suggestion widget, parameter hints widget and to the quick fix widget (Lightbulb), which now announce each suggestion, as it is selected, to screen readers.
 
 > Tip: If you use the [NVDA screen reader](https://www.nvaccess.org), it is possible to navigate suggestions using `kb(editor.action.moveLinesUpAction)` and `kb(editor.action.moveLinesDownAction)`, to dismiss the suggestions with `kb(hideSuggestWidget)` and if suggestions get in your way, you can disable the auto-popup of suggestions with the `editor.quickSuggestions` setting.
 
@@ -430,7 +430,7 @@ For Insiders, these are the changes:
 * The TIME-SENSITIVE SOFTWARE clause which indicated that the software will stop running on 31/12/2016 (day/month/year) has been changed to a TERM clause which specifies the license agreement is for 90 days.
 * The license clarifies that extensions downloaded are covered by the license provided by the extension author, not the VS Code license (same as Stable).
 
-You can view the Insiders license at https://code.visualstudio.com/license/insiders, there are no localized Insider licenses.
+You can view the Insiders license at https://code.visualstudio.com/license/insiders. There are no localized Insiders licenses.
 
 
 ## Notable Bug Fixes
