@@ -107,7 +107,7 @@ You can view the indexing status in the Copilot status dashboard in the {% data 
 
 The index source determines availability and how quickly the index becomes available for the first time:
 
-* **GitHub repositories**: GitHub indexes the GitHub repositories in your workspace. Sign in with your GitHub account to use them. This index only needs to be built once per repository, which means it is often instantly available. GitHub builds and updates this index when needed. This is fast for small and medium sized projects, but might take some time if your repository contains hundreds of thousands of files. Remote indexing works for repositories hosted on GitHub.com or GitHub Enterprise Cloud. It is not supported for GitHub Enterprise Server.
+* **GitHub repositories**: GitHub indexes the GitHub repositories in your workspace. Sign in with your GitHub account to use them. This index only needs to be built once per repository, which means it is often instantly available. GitHub builds and updates this index when needed. This is fast for small and medium-sized projects, but might take some time if your repository contains hundreds of thousands of files. Remote indexing works for repositories hosted on GitHub.com or GitHub Enterprise Cloud. It is not supported for GitHub Enterprise Server.
 
 * **Azure DevOps repositories**: Indexes are automatically built and maintained. Sign in with your Microsoft account in {% data variables.product.prodname_vscode_shortname %} for Copilot to start using the index. Check the Copilot Status Bar item for the current index status.
 

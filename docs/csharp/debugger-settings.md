@@ -104,7 +104,7 @@ Example:
 * `executablePath` - An absolute or relative path to the executable.
 * `workingDirectory` - Sets the working directory of the command.
 * `launchBrowser` - Set to `true` if the browser should be launched.
-* `applicationUrl` - A semi-colon delimited list of URL(s) to configure for the web server.
+* `applicationUrl` - A semicolon-delimited list of URL(s) to configure for the web server.
 * `sslPort` - The SSL port to use for the web site.
 * `httpPort` - The HTTP port to use for the web site.
 

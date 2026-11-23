@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "editor-find-replace",
+  "storyboard": "build/storyboards/editor-find-replace-stable.json",
+  "outputs": [
+    {
+      "id": "advanced-options",
+      "base": "docs/editing/images/codebasics/search-replace-advanced-options",
+      "source": "highlighted",
+      "prepare": {
+        "format": "png",
+        "crop": {"x": 1128, "y": 88, "width": 648, "height": 124},
+        "padding": {"top": 0, "right": 0, "bottom": 0, "left": 0},
+        "background": "#1F1F1F"
+      },
+      "assets": ["docs/editing/images/codebasics/search-replace-advanced-options.png"]
+    }
+  ]
+}

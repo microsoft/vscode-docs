@@ -204,7 +204,7 @@ Once the container image is built, it should appear in the Container Registry wi
 
    Use the button and verify that your change is reflected on the site.
 
-Congratulations, you've used Python in {% data variables.product.prodname_vscode_shortname %} to create an deploy a web site that's hosted in the cloud and live on the internet!
+Congratulations, you've used Python in {% data variables.product.prodname_vscode_shortname %} to create and deploy a web site that's hosted in the cloud and live on the internet!
 
 ## Free up resources
 

@@ -62,7 +62,7 @@ Learn more about file icon themes and how they consume language default icons in
 
 ## Programmatic language features
 
-Programmatic Language Features include auto completion, error checking, and jump to definition. These features are often powered by a Language Server, a program that analyzes your project to provide the dynamic features.
+Programmatic Language Features include autocompletion, error checking, and jump to definition. These features are often powered by a Language Server, a program that analyzes your project to provide the dynamic features.
 One example is the [`typescript-language-features`](https://github.com/microsoft/vscode/tree/main/extensions/typescript-language-features) extension bundled in VS Code. It utilizes the [TypeScript Language Service](https://github.com/microsoft/TypeScript/wiki/Using-the-Language-Service-API) to offer Programmatic Language Features such as:
 
 - Hover information ([`vscode.languages.registerHoverProvider`](/api/references/vscode-api#languages.registerHoverProvider))

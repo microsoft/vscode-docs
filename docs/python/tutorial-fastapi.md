@@ -115,7 +115,7 @@ Let's create the application!
 
     This automatically creates a debug configuration that invokes uvicorn to start the application server through the debugger and allows you to step through the source code to inspect its behavior. You should see something like the following in the terminal:
 
-    ![Uvicorn server running message displayed in the terminal, with an URL to access the app](images/fastapi-tutorial/fastapi_debug_terminal.png)
+    ![Screenshot showing the Uvicorn server running message in the terminal, with a URL to access the app.](images/fastapi-tutorial/fastapi_debug_terminal.png)
 
    >**Tip**: In the case where your default port is already in use, stop the debugger and open the Command Palette (`kb(workbench.action.showCommands)`), search for **Debug: Add Configuration**, select Python Debugger, and then FastAPI. This will create a custom config file in `.vscode/launch.json` that you can edit. Add the following to `"args":[]` to set a custom port: `"--port=5000"`. Save the file, and restart the debugger using (`kb(workbench.action.debug.start)`).
 
@@ -215,7 +215,7 @@ Now we need a place to store the grocery list items. For simplicity, let's start
 
     ![Inlay function return and variable type hints being displayed by Pylance throughout the sample code](images/fastapi-tutorial/pylance_inlay_hints.png)
 
-    Now let's check if this route is working as expected. The fastest way to do so is to use both {% data variables.product.prodname_vscode_shortname %}'s debugger as well as FastAPI's `/docs` endpoint, which provides information about all the available API routes and lets you interact with the API to explore their parameters and responses. This documentation is generated dynamically based on the metadata and type hints defined in the FastAPI application.
+    Now let's check if this route is working as expected. The fastest way to do so is to use both {% data variables.product.prodname_vscode_shortname %}'s debugger and FastAPI's `/docs` endpoint, which provides information about all the available API routes and lets you interact with the API to explore their parameters and responses. This documentation is generated dynamically based on the metadata and type hints defined in the FastAPI application.
 
 4. Add a breakpoint next to the `if quantity <= 0` statement, by clicking on the left margin of the line number (or `kb(editor.debug.action.toggleBreakpoint)`). The debugger will stop prior to the execution of that line, so you can inspect the code line by line.
 

@@ -203,7 +203,7 @@ For example, follow these steps to open one of the "try" repositories in a Repos
 
     ![Input box with a repository name in it](images/containers/vscode-remote-try-node.png)
 
-    > **Tip:** If you choose a private repository, you may want to setup a credential manager or add your SSH keys to your SSH agent. See [Sharing Git credentials with your container](/remote/advancedcontainers/sharing-git-credentials.md).
+    > **Tip:** If you choose a private repository, you may want to set up a credential manager or add your SSH keys to your SSH agent. See [Sharing Git credentials with your container](/remote/advancedcontainers/sharing-git-credentials.md).
 
 3. If your repository does not have a `.devcontainer/devcontainer.json` file in it, you'll be asked to pick a starting point from a filterable list or an existing [Dockerfile](https://docs.docker.com/engine/reference/builder/) or [Docker Compose file](https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples) (if one exists).
 
@@ -332,7 +332,7 @@ Similar to how you can [set extensions to always be installed](#always-installed
 
 It's also easy to create and publish your own Dev Container Features. Published Features can be stored and shared as [OCI Artifacts](https://github.com/opencontainers/artifacts) from any supporting public or private container registry. You can see the list of current published Features on [containers.dev](https://containers.dev/features).
 
-A Feature is a self contained entity in a folder with at least a `devcontainer-feature.json` and `install.sh` entrypoint script:
+A Feature is a self-contained entity in a folder with at least a `devcontainer-feature.json` and `install.sh` entrypoint script:
 
 ```
 +-- feature

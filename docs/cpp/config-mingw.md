@@ -33,7 +33,7 @@ To install the MinGW-w64 toolchain, check out this video or follow the steps bel
 
 1. You can download the latest installer from the MSYS2 page or use this [**direct link to the installer**](https://github.com/msys2/msys2-installer/releases/download/2025-08-30/msys2-x86_64-20250830.exe).
 
-1. Run the installer and follow the steps of the installation wizard. Note that MSYS2 requires 64 bit Windows 10 (version 1809 or later).
+1. Run the installer and follow the steps of the installation wizard. Note that MSYS2 requires 64-bit Windows 10 (version 1809 or later).
 
 1. In the wizard, choose your desired Installation Folder. Record this directory for later. In most cases, the recommended directory is acceptable. The same applies when you get to setting the start menu shortcuts step. When complete, ensure the **Run MSYS2 now** box is checked and select **Finish**. This will open a MSYS2 terminal window for you.
 
@@ -75,7 +75,7 @@ You should see output that states which versions of GCC, g++ and GDB you have in
 
 ## Create a Hello World app
 
-First, lets get a project set up.
+First, let's get a project set up.
 
 1. Launch a Windows command prompt (Enter **Windows command prompt** in the Windows search bar).
 1. Run the following commands. These will create an empty folder called `projects` where you can place all your {% data variables.product.prodname_vscode_shortname %} projects. There, the next commands will create and navigate to a subfolder called `helloworld`. From there, you will open `helloworld` directly in {% data variables.product.prodname_vscode_shortname %}.
@@ -129,7 +129,7 @@ Now press `kb(workbench.action.files.save)` to save the file. Notice how the fil
 
 ![File Explorer](images/mingw/file-explorer-mingw.png)
 
-You can also enable [Auto Save](/docs/editing/codebasics.md#save--auto-save) to automatically save your file changes, by selecting **File** > **Auto Save**.  You can find out more about the other views in the {% data variables.product.prodname_vscode_shortname %} [User Interface documentation](/docs/editing/getting-started/userinterface.md).
+You can also enable [Auto Save](/docs/editing/codebasics.md#save-auto-save) to automatically save your file changes, by selecting **File** > **Auto Save**.  You can find out more about the other views in the {% data variables.product.prodname_vscode_shortname %} [User Interface documentation](/docs/editing/getting-started/userinterface.md).
 
 >**Note**: When you save or open a C++ file, you may see a notification from the C/C++ extension about the availability of an Insiders version, which lets you test new features and fixes. You can ignore this notification by selecting the `X` (**Clear Notification**).
 

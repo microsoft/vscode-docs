@@ -26,7 +26,7 @@ MetaDescription: UX guidelines for views in a Visual Studio Code extension.
 * Repeat existing functionality
 * Use tree items as single action items (for example, firing a Command on click)
 * Use custom Webview Views if not necessary
-* Use a Activity Bar Item (View Container) to open a Webview in the Editor
+* Use an Activity Bar Item (View Container) to open a Webview in the Editor
 
 ![Views example](images/examples/view.png)
 

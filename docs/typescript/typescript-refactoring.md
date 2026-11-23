@@ -47,7 +47,7 @@ Available TypeScript refactorings include:
 
    ![Converting a named import to a namespace import](images/refactoring/refactor-convert-import.gif)
 
-* **Convert between default export and named export** - Convert from using a `export default` and having a named export (`export const Foo = ...`).
+* **Convert between default export and named export** - Convert from using an `export default` and having a named export (`export const Foo = ...`).
 
 * **Convert parameters to destructured object** - Rewrite a function that takes a long list of arguments to take a single arguments object.
 

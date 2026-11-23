@@ -33,7 +33,7 @@ Extension may wish to give user control for extension specific telemetry indepen
 
 We understand that telemetry can be a sensitive topic for many users and we aim to be as transparent as possible. The core VS Code product and most first party extensions ship with a `telemetry.json` file in their root. This allows a user to use the VS Code CLI with the `--telemetry` flag to receive a dump of all telemetry that VS Code produces. Extension authors may include a `telemetry.json` file in their root and it will also appear in the CLI dump.
 
-## Do's and Don'ts
+## Dos and don'ts
 
 ✔️ Do
 

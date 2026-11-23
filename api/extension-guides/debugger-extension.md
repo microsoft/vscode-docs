@@ -83,14 +83,14 @@ To try Mock Debug:
 - Create a new empty folder `mock test` and open it in VS Code.
 - Create a file `readme.md` and enter several lines of arbitrary text.
 - Switch to the Run and Debug view (`kb(workbench.view.debug)`) and select the **create a launch.json file** link.
-- VS Code will let you select an "debugger" in order to create a default launch configuration. Pick "Mock Debug".
+- VS Code will let you select a "debugger" in order to create a default launch configuration. Pick "Mock Debug".
 - Press the green **Start** button and then `kbstyle(Enter)` to confirm the suggested file `readme.md`.
 
 A debug session starts and you can "step" through the readme file, set and hit breakpoints, and run into exceptions (if the word `exception` appears in a line).
 
 ![Mock Debugger running](images/debugger-extension/mock-debug.gif)
 
-Before using Mock Debug as a starting point for your own development, we recommend to uninstall the pre-built version first:
+Before using Mock Debug as a starting point for your own development, we recommend uninstalling the pre-built version first:
 
 - Switch to the Extensions viewlet and click on the gear icon of the Mock Debug extension.
 - Run the "Uninstall" action and then "Reload" the window.
@@ -348,7 +348,7 @@ A better approach for expensive debug extensions is to use more fine-grained act
 - `onDebugInitialConfigurations` is fired just before the `provideDebugConfigurations` method of the `DebugConfigurationProvider` is called.
 - `onDebugResolve:type` is fired just before the `resolveDebugConfiguration` or `resolveDebugConfigurationWithSubstitutedVariables` methods of the `DebugConfigurationProvider` for the specified type is called.
 
-**Rule of thumb:** If activation of a debug extensions is cheap, use `onDebug`. If it is expensive, use `onDebugInitialConfigurations` and/or `onDebugResolve` depending on whether the `DebugConfigurationProvider` implements the corresponding methods `provideDebugConfigurations` and/or `resolveDebugConfiguration`.
+**Rule of thumb:** If activation of a debug extension is cheap, use `onDebug`. If it is expensive, use `onDebugInitialConfigurations` and/or `onDebugResolve` depending on whether the `DebugConfigurationProvider` implements the corresponding methods `provideDebugConfigurations` and/or `resolveDebugConfiguration`.
 
 ## Publishing your debugger extension
 

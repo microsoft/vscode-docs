@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Docs workflow</title>
+  <link rel="stylesheet" href="/article.css">
+</head>
+<body>
+<main class="article-app">
+  <nav class="page-navigation" aria-label="Docs workflow pages">
+    <a href="/write">Write documentation</a>
+    <a href="/tpis">Release TPIs</a>
+    <a href="/prs">Review PRs</a>
+    <a href="/review">Review in chat</a>
+    <a href="/screenshots">Screenshots</a>
+    <a href="/videos">Demo videos</a>
+    <a href="/instructions">Check instructions</a>
+    <a href="/findings" data-page="findings" aria-current="page">Findings</a>
+  </nav>
+  <header>
+    <h1 id="page-title" tabindex="-1">Findings inbox</h1>
+    <p id="page-description" class="muted">Check a scope. Review findings across articles, independently of when checks ran.</p>
+  </header>
+  <section id="findings-page" aria-label="Findings page">
+  <section class="batch-panel" aria-labelledby="batch-heading">
+  <h2 id="batch-heading">Run batch checks</h2>
+  <form id="launch-form" class="launch-bar">
+    <div class="article-picker">
+      <label for="scope">Check scope <span class="muted">(articles or folders, separated by commas)</span></label>
+      <input id="scope" list="scopes" required autocomplete="off" placeholder="docs/debugtest, docs/editing/codebasics.md">
+      <datalist id="scopes"></datalist>
+    </div>
+    <div class="batch-focus">
+      <label for="batch-focus">Checks</label>
+      <select id="batch-focus"><option value="local">Local claims and links</option><option value="editorial">Editorial review (AI)</option><option value="technical">Technical accuracy (AI)</option></select>
+    </div>
+    <button id="launch" type="submit" disabled>Run checks</button>
+    <div id="editorial-options" class="editorial-options" hidden>
+      <div><label id="review-channel-label" for="editorial-channel">Product channel (context only)</label><select id="editorial-channel"><option value="stable">Stable</option><option value="insiders">Insiders</option></select></div>
+      <div id="technical-release" hidden><label for="technical-version">Stable version (optional)</label><input id="technical-version" maxlength="40" placeholder="Latest public Stable, or for example 1.147.0"></div>
+      <div class="editorial-brief"><label id="review-concerns-label" for="editorial-concerns">Editorial focus (optional)</label><textarea id="editorial-concerns" rows="2" maxlength="4000" placeholder="Reader needs, concerns, or exclusions"></textarea></div>
+    </div>
+    <p class="launch-scope muted"><span id="scope-count">0 articles selected</span>. <span id="batch-description">Read-only claims and links checks. Saves private results and uses host credits. No content or public changes.</span></p>
+    <p id="launch-eligibility" class="error"></p>
+  </form>
+  </section>
+  <p id="notice" role="status" aria-live="polite" class="muted">Loading...</p>
+  <section class="results" aria-labelledby="report-heading">
+    <div class="section-heading">
+      <h2 id="report-heading">Findings <span id="finding-count" class="badge"></span></h2>
+      <span id="execution-indicator" role="status" aria-live="polite" class="muted"></span>
+      <button id="stop-verification" type="button" class="secondary" hidden>Stop verification</button>
+      <button id="reload" type="button" class="secondary">Refresh</button>
+    </div>
+    <p id="verification-status" role="status" aria-live="polite" class="muted"></p>
+    <div class="finding-toolbar">
+      <div><label for="article-filter">Article or folder</label><input id="article-filter" list="scopes" placeholder="All articles"></div>
+      <div><label for="finding-type-filter">Finding type</label><select id="finding-type-filter"><option value="all">All types</option></select></div>
+      <div><label for="check-filter">Check type</label><select id="check-filter"><option value="all">All checks</option><option value="claims">Claims</option><option value="links">Links</option><option value="review">Article review</option><option value="replay">Replay</option></select></div>
+      <div><label for="status-filter">Review status</label><select id="status-filter"><option value="all">All statuses</option><option value="open">Open</option><option value="accepted">Accepted</option><option value="dismissed">Dismissed</option><option value="fixed">Fixed</option></select></div>
+      <div><label for="freshness-filter">Freshness</label><select id="freshness-filter"><option value="all">All evidence</option><option value="checking">Checking</option><option value="fresh">Fresh</option><option value="stale">Stale</option><option value="not-observed">Not observed</option><option value="unavailable">Unavailable</option></select></div>
+    </div>
+    <div class="finding-tools">
+      <div id="filters" class="filters" aria-label="Filter by severity"></div>
+      <label for="finding-search" class="sr-only">Filter findings</label>
+      <input id="finding-search" type="search" placeholder="Search findings...">
+    </div>
+    <div id="report"></div>
+    <p id="evidence-note" class="muted"></p>
+    <details id="coverage-details">
+      <summary id="coverage-summary">Coverage</summary>
+      <div id="coverage-list"></div>
+    </details>
+    <details id="execution-details" hidden>
+      <summary>Execution details and recovery</summary>
+      <div id="execution"></div>
+      <div id="replay-readiness" role="status" aria-live="polite" hidden></div>
+    </details>
+  </section>
+  <footer>
+    <details>
+      <summary>Scope, prerequisites, and privacy</summary>
+      <p>Local checks validate data variables, lifecycle IDs, product-reference syntax, internal links, fragments, and media paths in one host task. Editorial review assesses text in up to five articles, using one agent per article. These modes make no external website requests. Technical review uses the same five-article limit and per-article agents, with a shared public release pin and read-only product-source research. All modes resolve the fixed article set at launch.</p>
+      <p>Local checks do not verify product availability, prose accuracy, external links, rendered media, navigation, or generated content. Product references can remain unverified because no product manifest is supplied. Editorial judgments do not verify product behavior or media.</p>
+      <p>Requires installed Node.js and checker dependencies, a trusted checkout, and a Copilot host with background-task APIs. The host can require permissions. It owns execution; this canvas does not sandbox agents, create worktrees, schedule runs, install tools, or interpret article text as instructions.</p>
+      <p id="workspace"></p>
+      <p id="host-contract"></p>
+      <p id="ownership"></p>
+      <p>Saved findings appear while current freshness is checked in a local worker. Checking is not Fresh. Complete, confirmed reports enter the inbox only after full validation. Dismiss, Mark fixed, and Undo record manual decisions against current article bytes while preserving original evidence and freshness. Fix in chat never changes state. Changed observed evidence can reopen decisions. Findings absent from a later applicable scan are never automatically fixed. Failed or incomplete attempts preserve earlier results.</p>
+      <p>Recent host activity is not saved as a transcript. Hidden execution references support provenance and recovery, not run-history navigation. The task API returns no host deep links. Stopping local freshness verification never cancels a host task. Local review never authorizes documentation edits, GitHub writes, media approval, publication, host-task cancellation, or archiving.</p>
+      <p>Article review produces scoped agent judgments, not a correctness verdict. Product citations are agent-supplied, and Fresh describes unchanged local inputs. Replay is attended and covers only its reviewed assertions. PR selection, feature documentation, audits, media, and docs-as-eval remain separate workflows.</p>
+    </details>
+  </footer>
+  </section>
+  <section id="writing-page" aria-label="Docs writing page" hidden>
+    <div class="section-heading writing-progress">
+      <span id="writing-execution-indicator" role="status" aria-live="polite" class="muted"></span>
+      <button id="writing-reload" type="button" class="secondary" disabled>Refresh</button>
+    </div>
+    <p id="writing-notice" role="status" aria-live="polite" class="muted"></p>
+    <p>Continue previously prepared plans and drafts here. For new work, use <a href="/write">Write documentation</a> with a brief, a GitHub issue or TPI URL, or both.</p>
+    <p id="writing-host-status" class="error"></p>
+    <section id="feature-plans-section" hidden aria-labelledby="feature-plans-heading">
+      <h2 id="feature-plans-heading">Plans and drafts</h2>
+      <p class="muted">Review the proposed changes or continue with your draft.</p>
+      <div id="feature-plans"></div>
+    </section>
+    <details id="writing-execution-details" hidden>
+      <summary>Execution details and recovery</summary>
+      <div id="writing-execution"></div>
+    </details>
+    <footer>
+      <details>
+        <summary>Writing scope and privacy</summary>
+        <p>GitHub issues are optional. Planning can research product sources but cannot edit articles or generate media. Plan approval alone starts no edits.</p>
+        <p>Drafting requires separate confirmation of the location, branch, and file writes. Captures are attended and require exact-asset approval before use. No staging, commits, or publication occur automatically.</p>
+        <p>Saved plans, approvals, drafts, and checks persist independently of this page. The host owns agent execution; this page is not a security sandbox.</p>
+      </details>
+    </footer>
+  </section>
+  <footer><a href="/writing" data-page="writing">Saved plans and drafts</a></footer>
+</main>
+<script type="module" src="/article-app.mjs"></script>
+</body>
+</html>

@@ -57,7 +57,7 @@ Now that you are more familiar with Python in {% data variables.product.prodname
 
 There are a few ways to run Python code in {% data variables.product.prodname_vscode_shortname %}.
 
-To run the Python script you have open on the editor, select the **Run Python File in Terminal** play button in the top-right of the editor.
+To run the Python script you have open in the editor, select the **Run Python File in Terminal** play button in the top-right of the editor.
 
 ![Image showing the Run Python File in Terminal play button.](images/tutorial/run-python-file-in-terminal-button.png)
 

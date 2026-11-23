@@ -18,7 +18,7 @@ If you run into any issues when using the features below, you can contact us by 
 
 ### Exploring Maven project
 
-Once a Maven project is loaded, the extension will be activated and it will automatically scan for `pom.xml` files in your workspace and displays all Maven projects and their modules in the side bar.
+Once a Maven project is loaded, the extension will be activated and it will automatically scan for `pom.xml` files in your workspace and display all Maven projects and their modules in the side bar.
 
 ![Maven Explorer](images/java-build/maven-explorer.png)
 
@@ -31,12 +31,12 @@ The Maven extension also supports searching Maven Central to resolve unknown typ
 
 ### Working with POM.xml
 
-The extension provides code snippets and auto completion for adding Maven dependencies based on local Maven repositories. See how easy it is to add a new dependency to your `pom.xml` with those convenient features.
+The extension provides code snippets and autocompletion for adding Maven dependencies based on local Maven repositories. See how easy it is to add a new dependency to your `pom.xml` with those convenient features.
 
 <video src="images/java-build/maven-pom-editing.mp4" autoplay loop muted playsinline controls title="Add a new dependency to POM file">
 </video>
 
-The extension also enables you to generate effective POM.
+The extension also enables you to generate an effective POM.
 
 <video src="images/java-build/maven-effective-pom.mp4" autoplay loop muted playsinline controls title="Generate effective POM">
 </video>

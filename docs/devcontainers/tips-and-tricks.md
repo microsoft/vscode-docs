@@ -217,7 +217,7 @@ There is [known issue with Docker for Mac](https://github.com/docker/for-mac/iss
 
 ## Using an SSH tunnel to connect to a remote Docker host
 
-The [Develop inside a container on a remote Docker Machine or SSH host](/remote/advancedcontainers/develop-remote-host.md) article covers how to setup {% data variables.product.prodname_vscode_shortname %} when working with a remote Docker host. This is often as simple as setting the [Container Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) `containers.environment` property in `settings.json` or the `DOCKER_HOST` environment variable to a `ssh://` or `tcp://` URI.
+The [Develop inside a container on a remote Docker Machine or SSH host](/remote/advancedcontainers/develop-remote-host.md) article covers how to set up {% data variables.product.prodname_vscode_shortname %} when working with a remote Docker host. This is often as simple as setting the [Container Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers) `containers.environment` property in `settings.json` or the `DOCKER_HOST` environment variable to an `ssh://` or `tcp://` URI.
 
 However, you may run into situations where this does not work in your environment due to SSH configuration complexity or other limitations. In this case, an SSH tunnel can be used as a fallback.
 
