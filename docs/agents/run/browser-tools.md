@@ -110,6 +110,9 @@ By default, an agent can't access browser pages that you opened. To grant access
 
 A visual indicator shows that the page is shared. Select **Share with Agent** again to revoke access immediately.
 
+> [!NOTE]
+> For sites that use HTTP Basic authentication, enter your credentials yourself in the browser's sign-in dialog. Agents can answer JavaScript page dialogs, but can't submit credentials to the HTTP Basic sign-in dialog.
+
 If an agent needs access to an unshared tab, it can ask you to share one. In autopilot mode, {% data variables.product.prodname_vscode_shortname %} declines these requests automatically to protect your privacy.
 
 ## Use Chrome or Edge with browser use (Preview)
