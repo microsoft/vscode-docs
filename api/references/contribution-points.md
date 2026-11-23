@@ -1082,8 +1082,8 @@ Here is an example `mcpServerDefinitionProviders` contribution:
 
 Each entry in the `mcpServerDefinitionProviders` array supports the following properties:
 
-- `id` - Unique identifier for the MCP server collection, matching the ID passed to `vscode.lm.registerMcpServerDefinitionProvider`.
-- `label` - Human-readable display name for the collection.
+- `id` - (required) Unique identifier for the MCP server collection, matching the ID passed to `vscode.lm.registerMcpServerDefinitionProvider`.
+- `label` - (required) Human-readable display name for the collection.
 - `when` - (optional) A [when clause](/api/references/when-clause-contexts) controlling when the collection is enabled.
 
 See the [MCP extension guide](/api/extension-guides/ai/mcp#register-an-mcp-server-in-your-extension) for implementation details.
