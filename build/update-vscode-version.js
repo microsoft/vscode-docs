@@ -88,7 +88,11 @@ async function main() {
 	const { commitHash, version } = await getInputs();
 
 	const rootDir = path.join(__dirname, '..');
-	const templateFiles = glob.sync('**/*.template{,.md}', { cwd: rootDir, absolute: true });
+	const templateFiles = glob.sync('**/*.template{,.md}', {
+		cwd: rootDir,
+		absolute: true,
+		ignore: ['**/node_modules/**', '**/.git/**']
+	});
 
 	let updatedCount = 0;
 
