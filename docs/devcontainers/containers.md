@@ -548,7 +548,7 @@ For example, adding this to `.devcontainer/devcontainer.json` will set the Java 
     // Configure properties specific to {% data variables.product.prodname_vscode_shortname %}.
     "vscode": {
         "settings": {
-            "java.home": "/docker-java-home"
+            "java.jdt.ls.java.home": "/docker-java-home"
         }
     }
 }
