@@ -52,7 +52,6 @@ if (writing) {
   $('chat-start').textContent = 'Start in chat';
   $('chat-permissions').textContent = 'Uses chat credits and doc-writer guidance. Planning comes first. Approve the overall scope and authoring location in chat before edits begin.';
   $('chat-scope').textContent = 'No separate plan file or canvas implementation task. Related articles and useful media can be included in the plan. No edits, captures, commits, or publication start from this page. Batch findings remain separate.';
-  $('saved-writing-link').hidden = false;
   const form = $('review-chat-form');
   form.insertBefore($('chat-request-label'), $('chat-article-label'));
   form.insertBefore($('chat-request'), $('chat-article-label'));

@@ -186,6 +186,9 @@ test('browser loads release TPIs, launches one chat, and persists the reversible
     'Release selection and refresh should align as one control group.');
   assert.ok(searchBounds.y > releaseBounds.y + releaseBounds.height, 'List filters should sit beneath the release controls.');
   assert.ok((await page.locator('.tpi-content').boundingBox()).width <= 1200, 'Wide views should keep a readable content width.');
+  const sidebarBounds = await page.locator('.workflow-sidebar').boundingBox();
+  assert.ok(sidebarBounds.x + sidebarBounds.width <= (await page.locator('.tpi-content').boundingBox()).x);
+  assert.equal(await page.getByRole('link', { name: 'Release TPIs', exact: true }).getAttribute('aria-current'), 'page');
   assert.ok((await page.locator('#tpi-rows tr').first().boundingBox()).height < 100, 'Collapsed rows should stay compact.');
   assert.equal(await page.getByRole('cell', { name: 'Closed', exact: true }).count(), 1);
   assert.equal(await page.locator('img').count(), 0, 'GitHub titles must remain text, not markup.');

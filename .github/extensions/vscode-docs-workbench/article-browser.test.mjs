@@ -129,10 +129,11 @@ test('compact inbox loads automatically, filters, and preserves one-click decisi
 
   await page.setViewportSize({ width: 1600, height: 1000 });
   const contentBounds = await page.locator('#findings-page').boundingBox();
-  const navigationBounds = await page.locator('.page-navigation').boundingBox();
-  const headerBounds = await page.locator('.article-app > header').boundingBox();
+  const sidebarBounds = await page.locator('.workflow-sidebar').boundingBox();
+  const headerBounds = await page.locator('.workflow-content > header').boundingBox();
   assert.ok(contentBounds.width <= 1200, 'Findings should use the same readable frame as the TPI list.');
-  assert.equal(contentBounds.x, navigationBounds.x);
+  assert.ok(sidebarBounds.x + sidebarBounds.width <= contentBounds.x, 'Navigation should sit beside the findings, not above them.');
+  assert.equal(contentBounds.x, headerBounds.x);
   assert.equal(contentBounds.width, headerBounds.width);
   assert.ok(await page.locator('.batch-panel').evaluate(node => parseFloat(getComputedStyle(node).borderTopWidth) > 0));
   assert.ok(await page.locator('.results').evaluate(node => parseFloat(getComputedStyle(node).borderTopWidth) > 0));
@@ -225,6 +226,54 @@ test('compact inbox loads automatically, filters, and preserves one-click decisi
   await rows.filter({ hasText: 'fixture.setting0' }).locator('.freshness').getByText('Fresh', { exact: true }).waitFor();
   assert.equal(await rows.filter({ hasText: 'fixture.setting0' }).locator('.review-state').innerText(), 'open');
   assert.equal(await actions.getByRole('button', { name: 'Mark fixed', exact: true }).isEnabled(), true);
+  assert.deepEqual(failures, []);
+});
+
+test('workflow sidebar keeps launchers and saved work reachable in both themes and narrow panels without starting tasks', browserOptions, async t => {
+  const { f, page, failures } = await browserFixture(t);
+  const pages = [
+    ['/write', 'Write documentation'],
+    ['/review', 'Review in chat'],
+    ['/screenshots', 'Screenshots'],
+    ['/videos', 'Demo videos'],
+    ['/instructions', 'Check instructions'],
+    ['/writing', 'Saved plans and drafts'],
+    ['/findings', 'Findings']
+  ];
+  const backgrounds = [];
+  for (const colorScheme of ['light', 'dark']) {
+    await page.emulateMedia({ colorScheme });
+    for (const [route, name] of pages) {
+      await page.setViewportSize({ width: 1400, height: 900 });
+      const sidebar = page.locator('.workflow-sidebar');
+      await sidebar.getByRole('link', { name, exact: true }).click();
+      await sidebar.locator(`a[href="${route}"][aria-current="page"]`).waitFor();
+      assert.equal(new URL(page.url()).pathname, route);
+      assert.equal(await sidebar.locator('a[aria-current="page"]').count(), 1);
+      const sidebarBounds = await sidebar.boundingBox();
+      const contentBounds = await page.locator('.workflow-content').boundingBox();
+      assert.ok(sidebarBounds.x + sidebarBounds.width <= contentBounds.x, `${route}: desktop navigation must stay beside the content.`);
+      assert.ok(sidebarBounds.height >= 900, `${route}: the sidebar should fill the viewport.`);
+      const appearance = await sidebar.evaluate(element => ({
+        sidebar: getComputedStyle(element).backgroundColor,
+        content: getComputedStyle(element.nextElementSibling).backgroundColor
+      }));
+      assert.notEqual(appearance.sidebar, appearance.content);
+      if (route === '/findings') backgrounds.push(appearance);
+      await page.setViewportSize({ width: 420, height: 800 });
+      const mobileSidebar = await sidebar.boundingBox();
+      const mobileContent = await page.locator('.workflow-content').boundingBox();
+      assert.ok(mobileSidebar.y + mobileSidebar.height <= mobileContent.y, `${route}: narrow navigation must move above the content.`);
+      assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${route}: the page must not overflow horizontally.`);
+      assert.ok(await page.locator('.page-navigation').evaluate(element => element.scrollWidth > element.clientWidth),
+        `${route}: only the navigation strip should scroll to reveal more pages.`);
+      assert.ok(await sidebar.getByRole('link', { name: 'Saved plans and drafts', exact: true }).isVisible());
+    }
+  }
+  assert.notEqual(backgrounds[0].sidebar, backgrounds[1].sidebar);
+  assert.notEqual(backgrounds[0].content, backgrounds[1].content);
+  assert.equal(f.requests.length, 0, 'Page navigation must not launch checks.');
+  assert.equal(f.tracked.length, 0);
   assert.deepEqual(failures, []);
 });
 

@@ -7,18 +7,34 @@
   <link rel="stylesheet" href="/article.css">
 </head>
 <body>
-<main class="article-app">
+<div class="article-app">
+  <aside class="workflow-sidebar" aria-label="Docs workflow navigation">
+  <a class="workflow-brand" href="/write" aria-label="Docs workflow home">
+    <span class="workflow-brand-mark" data-icon="book"></span>
+    <span>Docs<span class="workflow-brand-secondary">workflow</span></span>
+  </a>
   <nav class="page-navigation" aria-label="Docs workflow pages">
-    <a href="/write">Write documentation</a>
-    <a href="/tpis">Release TPIs</a>
-    <a href="/prs">Review PRs</a>
-    <a href="/review">Review in chat</a>
-    <a href="/screenshots">Screenshots</a>
-    <a href="/videos">Demo videos</a>
-    <a href="/instructions">Check instructions</a>
-    <a href="/findings" data-page="findings" aria-current="page">Findings</a>
+    <p class="workflow-nav-label">Writing</p>
+    <a href="/write"><span data-icon="book"></span>Write documentation</a>
+    <a href="/tpis"><span data-icon="release"></span>Release TPIs</a>
+    <p class="workflow-nav-label">Review</p>
+    <a href="/prs"><span data-icon="pull"></span>Review PRs</a>
+    <a href="/review"><span data-icon="chat"></span>Review in chat</a>
+    <p class="workflow-nav-label">Media</p>
+    <a href="/screenshots"><span data-icon="media"></span>Screenshots</a>
+    <a href="/videos"><span data-icon="media"></span>Demo videos</a>
+    <p class="workflow-nav-label">Checks</p>
+    <a href="/instructions"><span data-icon="check"></span>Check instructions</a>
+    <a href="/findings" data-page="findings" aria-current="page"><span data-icon="search"></span>Findings</a>
   </nav>
+  <div class="workflow-sidebar-footer">
+    <a href="/writing" data-page="writing"><span data-icon="archive"></span>Saved plans and drafts</a>
+    <p>Private documentation workflows</p>
+  </div>
+  </aside>
+  <main class="workflow-content">
   <header>
+    <p class="workflow-eyebrow">Docs workflow</p>
     <h1 id="page-title" tabindex="-1">Findings inbox</h1>
     <p id="page-description" class="muted">Check a scope. Review findings across articles, independently of when checks ran.</p>
   </header>
@@ -119,8 +135,9 @@
       </details>
     </footer>
   </section>
-  <footer><a href="/writing" data-page="writing">Saved plans and drafts</a></footer>
 </main>
+</div>
+<script type="module" src="/workflow-shell.mjs"></script>
 <script type="module" src="/article-app.mjs"></script>
 </body>
 </html>

@@ -47,6 +47,8 @@ The initial planning/drafting checkpoint is `9afaa1905`. The current workflow al
 
 **Review in chat is a launcher, separate from batch findings.** Use it to continue an interactive task with the relevant skills. Use **Findings** for the batch-like experience: bounded checks, persistent structured results, coverage, filtering, and triage. Both remain first-class; chat output is not automatically imported or treated as resolved findings.
 
+Choose a page from the Docs workflow sidebar. On narrow panels, the page links scroll horizontally above the content. **Saved plans and drafts** remains available separately from new writing requests.
+
 | Task | What you can use today | Remaining handoff |
 |---|---|---|
 | Write new feature content | Open **Write documentation**, describe the desired content, and [start doc-writer in chat](#start-a-documentation-writing-chat). No existing article or issue is required. | Launcher tests do not prove full new-article creation and navigation; that needs separate end-to-end acceptance. |

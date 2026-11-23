@@ -7,17 +7,32 @@
   <link rel="stylesheet" href="/article.css">
 </head>
 <body>
-<main class="article-app tpi-page pr-page">
+<div class="article-app tpi-page pr-page">
+  <aside class="workflow-sidebar" aria-label="Docs workflow navigation">
+  <a class="workflow-brand" href="/write" aria-label="Docs workflow home">
+    <span class="workflow-brand-mark" data-icon="book"></span>
+    <span>Docs<span class="workflow-brand-secondary">workflow</span></span>
+  </a>
   <nav class="page-navigation" aria-label="Docs workflow pages">
-    <a href="/write">Write documentation</a>
-    <a href="/tpis">Release TPIs</a>
-    <a href="/prs" aria-current="page">Review PRs</a>
-    <a href="/review">Review in chat</a>
-    <a href="/screenshots">Screenshots</a>
-    <a href="/videos">Demo videos</a>
-    <a href="/instructions">Check instructions</a>
-    <a href="/findings">Findings</a>
+    <p class="workflow-nav-label">Writing</p>
+    <a href="/write"><span data-icon="book"></span>Write documentation</a>
+    <a href="/tpis"><span data-icon="release"></span>Release TPIs</a>
+    <p class="workflow-nav-label">Review</p>
+    <a href="/prs" aria-current="page"><span data-icon="pull"></span>Review PRs</a>
+    <a href="/review"><span data-icon="chat"></span>Review in chat</a>
+    <p class="workflow-nav-label">Media</p>
+    <a href="/screenshots"><span data-icon="media"></span>Screenshots</a>
+    <a href="/videos"><span data-icon="media"></span>Demo videos</a>
+    <p class="workflow-nav-label">Checks</p>
+    <a href="/instructions"><span data-icon="check"></span>Check instructions</a>
+    <a href="/findings"><span data-icon="search"></span>Findings</a>
   </nav>
+  <div class="workflow-sidebar-footer">
+    <a href="/writing"><span data-icon="archive"></span>Saved plans and drafts</a>
+    <p>Private documentation workflows</p>
+  </div>
+  </aside>
+  <main class="workflow-content">
   <div class="tpi-content">
   <header class="tpi-header">
     <p class="tpi-repository">VS Code documentation</p>
@@ -65,6 +80,8 @@
   </footer>
   </div>
 </main>
+</div>
+<script type="module" src="/workflow-shell.mjs"></script>
 <script type="module" src="/pr-reviews-app.mjs"></script>
 </body>
 </html>

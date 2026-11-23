@@ -178,6 +178,8 @@ test('browser lists both PR repositories, handles search and failed refresh, and
   assert.equal(f.chats.length, 3);
   await page.setViewportSize({ width: 1400, height: 900 });
   assert.ok((await page.locator('.tpi-content').boundingBox()).width <= 1200);
+  const sidebarBounds = await page.locator('.workflow-sidebar').boundingBox();
+  assert.ok(sidebarBounds.x + sidebarBounds.width <= (await page.locator('.tpi-content').boundingBox()).x);
   assert.ok((await page.locator('#pr-rows tr').first().boundingBox()).height < 100);
   const backgrounds = [];
   for (const colorScheme of ['light', 'dark']) {

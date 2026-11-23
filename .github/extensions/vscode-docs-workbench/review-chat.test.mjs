@@ -412,7 +412,11 @@ test('browser unifies brief and issue writing, preserves the issue alias, and ke
   assert.equal(await page.getByRole('button', { name: 'Start in chat', exact: true }).isDisabled(), true);
   await page.getByLabel('Documentation request', { exact: true }).fill('Document the new workflow for extension authors.');
   const requestBounds = await page.locator('#chat-request').boundingBox();
-  assert.ok(requestBounds.width >= (await page.locator('#review-chat-form').boundingBox()).width - 2);
+  const formContentWidth = await page.locator('#review-chat-form').evaluate(form => {
+    const style = getComputedStyle(form);
+    return form.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
+  });
+  assert.ok(requestBounds.width >= formContentWidth - 2, 'The request should fill the panel content width.');
   assert.ok(requestBounds.y < (await page.locator('#chat-article').boundingBox()).y, 'The author brief must come before optional article context.');
   await page.getByRole('button', { name: 'Start in chat', exact: true }).click();
   await page.getByText('Documentation request sent to chat.', { exact: true }).waitFor();
