@@ -137,7 +137,11 @@ Use your project's normal setup procedure in each worktree, and provide only con
 
 **Check your setup:** Confirm that the two sessions report different worktree paths and branches, but the same starting commit. Run `git worktree list` in your primary workspace to check the paths and branches. If both tasks are using the same directory, stop them and correct the isolation before they continue.
 
-<!-- TODO: Add a screenshot showing the two task sessions in the Agents window, with their distinct worktree paths and branches visible. -->
+In the {% data variables.copilot.agents_window %}, hover over each session to compare its **Worktree** and **Branch**. These example tasks share a workspace but use separate worktrees:
+
+| README task | Quarterly-total task |
+|---|---|
+| ![Screenshot showing the README task's session details with its isolated worktree path and branch.](../images/delegate-two-tasks/agents-readme-worktree-2026112301.png) | ![Screenshot showing the quarterly-total task's session details with a different isolated worktree path and branch.](../images/delegate-two-tasks/agents-totals-worktree-2026112301.png) |
 
 ## 4. Monitor both tasks
 

@@ -79,7 +79,7 @@ If the **Work in Parallel** callout appears, choose **Use New Worktree** to sepa
 
 Open a chat from the sessions list to work in its location. Explorer and Source Control show that location's files, changes, and branch. To switch locations directly, select **Folder Location** in the Status Bar, then choose the original folder or an entry under **Worktrees**. Check the location and branch before editing or committing.
 
-<!-- TODO: Add an attended, human-approved screenshot showing an active worktree chat, the Explorer worktree indicator, and the Folder Location picker with the current location identified. -->
+![Screenshot showing the Folder Location menu with two worktrees and the current worktree identified in the menu and Status Bar.](../images/chat-view/editor-worktree-location-2026112301.png)
 
 > [!IMPORTANT]
 > Existing terminals keep their working directories when the editor changes location. Check a terminal's directory before running commands, or open a new terminal in the current location. A user-initiated location switch asks you to stop affected debug sessions and tasks with **Stop and Switch**. Automatic location changes can leave them running in the previous location.
