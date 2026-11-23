@@ -348,10 +348,27 @@ Turning off `setting(chat.remoteSessions.tools.enabled)` removes the remote dele
 | Symptom | What to check |
 |---------|---------------|
 | Remote connection options are missing | Confirm that `setting(chat.remoteAgentHostsEnabled)` is on. Turning it off prevents this client from connecting to remote agent hosts. For {% data variables.copilot.github_environments %}, also check the feature-specific requirements below. |
-| The host is offline or won't connect | Keep the host awake and online, with its application or Agent Host running. Connecting to an offline registered machine doesn't start the host. Check [SSH setup](/docs/remote/ssh.md) or [dev tunnel setup](/docs/remote/tunnels.md) for your connection method. |
+| The host is offline or won't connect | Keep the host awake and online, with its application or Agent Host running. Connecting to an offline registered machine doesn't start the host. Use [connection troubleshooting](#troubleshoot-a-connection-experimental) for diagnostics and recovery actions, or check [SSH setup](/docs/remote/ssh.md) or [dev tunnel setup](/docs/remote/tunnels.md) for your connection method. |
 | A session is missing | Check the connected host, supported session types, workspace group, and [sessions list filters](/docs/agents/run/sessions/manage-sessions.md#find-a-missing-session). Starting a new session doesn't resume a missing one. |
 | A transcript is visible but can't accept messages | Reconnect to the host. A cached transcript or [synced history](/docs/agents/run/sessions/session-history.md) is not a live connection. |
 | **Sandbox trusted CA is not installed** appears, or sandboxed tools report certificate errors | For Windows and macOS hosts, follow the [remote certificate-trust steps](/docs/agents/run/agent-sandboxing.md#remote-environments). Run the certificate commands on the host, not the client computer. |
+
+### Troubleshoot a connection (Experimental)
+
+In the {% data variables.copilot.agents_window %}, use **Troubleshoot Connection** to review connection details and find suggested recovery actions.
+
+1. Run **Agents: Manage Remote Environments** from the Command Palette (`kb(workbench.action.showCommands)`).
+
+1. On the environment's row, select **More Actions** (`...`) > **Troubleshoot Connection**.
+
+1. Review the details and follow the suggested actions for your connection type. Retry the connection after addressing the problem.
+
+When a connection attempt in **Remote Environments** fails, select **Troubleshoot** in its notification while the editor remains open to reach the same page.
+
+Use **Open Diagnostic Report** to review the collected details, or **Copy Report** to copy them. Reports can include names, addresses, and local logs for all environments. Review the report and remove sensitive details before sharing.
+
+> [!CAUTION]
+> **Restart Distribution** stops all programs and agent sessions in that WSL distribution before reconnecting. Save your work first.
 
 ### Troubleshoot {% data variables.copilot.github_environments %}
 
