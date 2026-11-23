@@ -1,6 +1,6 @@
 ---
 ContentId: e68aa172-9a87-4962-a0df-70c02a2988d2
-DateApproved: 11/18/2026
+DateApproved: 11/25/2026
 MetaDescription: Deploy {% data variables.product.prodname_vscode %} to managed devices, validate organizational controls, and plan ongoing servicing.
 MetaSocialImage: images/policies/allowed-extensions-managed-by-organization.png
 ---

@@ -1,6 +1,6 @@
 ---
 ContentId: 7379b898-2d55-4a46-8694-f2dd894389cc
-DateApproved: 11/18/2026
+DateApproved: 11/25/2026
 MetaDescription: Organize agent sessions and triage work that needs attention in the {% data variables.copilot.agents_window %} without archiving it.
 MetaSocialImage: ../../images/agents-window/agents-window-ui-annotated.png
 ---

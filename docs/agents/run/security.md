@@ -1,6 +1,6 @@
 ---
 ContentId: c99a8442-e202-4427-b7c3-695469a00f92
-DateApproved: 11/18/2026
+DateApproved: 11/25/2026
 MetaDescription: Choose controls for AI agent access, protect sensitive information, and review changes in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - security

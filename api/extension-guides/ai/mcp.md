@@ -1,7 +1,7 @@
 ---
 # DO NOT TOUCH — Managed by doc writer
 ContentId: e655f324-ed0b-452d-aff3-52cdca3978a5
-DateApproved: 11/18/2026
+DateApproved: 11/25/2026
 
 # Summarize the whole topic in less than 300 characters for SEO purpose
 MetaDescription: Integrate MCP servers with {% data variables.product.prodname_copilot_short %} across compatible clients, with configuration and editor guidance.

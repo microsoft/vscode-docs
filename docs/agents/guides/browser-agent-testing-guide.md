@@ -1,6 +1,6 @@
 ---
 ContentId: 3f9e2b7d-6a8c-4d1e-9f2a-8c4b5d7e9f1a
-DateApproved: 11/18/2026
+DateApproved: 11/25/2026
 MetaDescription: Validate a web app with AI browser tools in {% data variables.product.prodname_vscode_shortname %}, reproduce a defect, and verify the fix.
 Keywords:
 - ai

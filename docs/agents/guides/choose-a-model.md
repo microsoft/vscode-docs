@@ -1,6 +1,6 @@
 ---
 ContentId: e0f478a1-d3e4-4d38-b312-f292b6a2c748
-DateApproved: 11/18/2026
+DateApproved: 11/25/2026
 MetaDescription: Decide when to use Copilot Fusion, Auto, or an individual model, and compare models on coding tasks to balance quality, time, and cost.
 MetaSocialImage: ../images/compare-models/bake-off-results.png
 Keywords:

@@ -1,6 +1,6 @@
 ---
 ContentId: b850af5c-5578-4981-a810-62050e0abfb8
-DateApproved: 11/18/2026
+DateApproved: 11/25/2026
 MetaDescription: Fix an API bug with an agent in {% data variables.product.prodname_vscode_shortname %}, add regression tests, and verify the result.
 Keywords:
 - ai
