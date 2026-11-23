@@ -43,24 +43,26 @@ The [implementation plan](DOCS-AGENT-PLAN.md) defines the eight core workflows, 
 
 ## Choose a daily workflow
 
-The initial planning/drafting checkpoint is `9afaa1905`. The current workflow also includes screenshot handoff, article revisions, native editor actions, and **Review in chat**.
+The initial planning/drafting checkpoint is `9afaa1905`. The current workflow also includes screenshot handoff, article revisions, native editor actions, and **Review article**.
 
-**Review in chat is a launcher, separate from batch findings.** Use it to continue an interactive task with the relevant skills. Use **Findings** for the batch-like experience: bounded checks, persistent structured results, coverage, filtering, and triage. Both remain first-class; chat output is not automatically imported or treated as resolved findings.
+**Review article is a chat launcher, separate from batch findings.** Use it to continue an interactive task with the relevant skills. Use **Findings** for the batch-like experience: bounded checks, persistent structured results, coverage, filtering, and triage. Both remain first-class; chat output is not automatically imported or treated as resolved findings.
 
 Choose a page from the Docs workflow sidebar. On narrow panels, the page links scroll horizontally above the content. **Saved plans and drafts** remains available separately from new writing requests.
 
 | Task | What you can use today | Remaining handoff |
 |---|---|---|
 | Write new feature content | Open **Write documentation**, describe the desired content, and [start doc-writer in chat](#start-a-documentation-writing-chat). No existing article or issue is required. | Launcher tests do not prove full new-article creation and navigation; that needs separate end-to-end acceptance. |
-| Review and revise an article | Use **Review in chat** for an interactive skill-driven review and update. Findings retains earlier structured review results, not a competing review launcher. | The author accepted the bounded live review-and-revise pilot as complete and successful. Its automated native-diff inspection limitation remains recorded; native opening is currently Windows VS Code only. |
+| Review and revise an article | Use **Review article** for an interactive skill-driven review and update. Findings retains earlier structured review results, not a competing review launcher. | The author accepted the bounded live review-and-revise pilot as complete and successful. Its automated native-diff inspection limitation remains recorded; native opening is currently Windows VS Code only. |
 | Create or refresh screenshots | Open **Screenshots**, select an article and create/refresh, then [start docs-media in chat](#start-a-screenshot-or-video-chat). One request can cover several assets. | A single screenshot refresh and approved disposable-copy handoff are validated. Multi-image acceptance and production use remain separate. |
 | Generate short demo videos | Open **Demo videos** and [start docs-media in chat](#start-a-screenshot-or-video-chat) with the article and desired demos. Capture, playback review, and approval happen there. | One annotated MP4 demo and approved disposable-copy insertion are validated. Multi-video acceptance and production use remain separate. |
-| Check content accuracy | On **Findings**, choose local claims/links, editorial review, or technical accuracy for a bounded scope. Use **Review in chat** for interactive assessment. | Review batches support up to five articles. Technical batches share a public release pin and save source-backed agent judgments, not runtime verification. Chat output does not automatically enter the inbox. Local checks do not verify product claims or external URLs. |
+| Check content accuracy | On **Findings**, choose local claims/links, editorial review, or technical accuracy for a bounded scope. Use **Review article** for interactive assessment. | Review batches support up to five articles. Technical batches share a public release pin and save source-backed agent judgments, not runtime verification. Chat output does not automatically enter the inbox. Local checks do not verify product claims or external URLs. |
 | Check article instructions against the actual UI | Choose an article and optional section or task in **Check instructions**, then [review the derived procedure in chat](#start-a-procedure-check-chat). | Bounded non-AI checks reuse the attended runner and a reviewed sample workspace and profile. Source-linked results cover only observed outcomes, not the entire article. Unsupported claims remain explicit. |
 | Verify a PR's accuracy | Open **Review PRs**, browse either docs repository or supply a URL, and [start a read-only accuracy review](#review-pr-accuracy) in chat. | Full source-verification acceptance remains a separate pilot. No PR checkout or execution. Deterministic checks require an already available authenticated matching source root; chat results do not automatically enter Findings. |
 | Document a GitHub issue or test plan item | Browse **Release TPIs** by release and select **Document**, or paste a direct URL into **Write documentation**. Both continue in the same doc-writer workflow. | A TPI is supporting evidence, not a complete specification or execution permission. Documentation completion is marked manually. |
 
 For ordinary checks, choose scope and start a read-only task. For content changes, approve a short plan before authorizing edits. For capture, approve the procedure and remain present. Review the exact prepared assets before separately authorizing their use. Nothing in these workflows automatically commits, publishes, or posts to GitHub.
+
+All chat handoffs, including **Fix in chat**, prepare an unsubmitted request in the editor's Chat view. Choose the model, agent, and permissions before sending it yourself. The CLI adds file context without a prompt, then a native chat link fills the input. If VS Code asks to open that link, confirm it there. Both steps use the last active window; keep the intended editor window active until the draft appears. No request is automatically submitted.
 
 ## Start a documentation-writing chat
 
@@ -81,6 +83,7 @@ The secondary **Saved plans and drafts** link opens `/writing` for previously pr
 Open **Release TPIs** (`/tpis`):
 
 1. Select a release from the GitHub milestone list. The page remembers the last selection for this workspace and GitHub account. On a first visit, choose the release explicitly rather than assuming a current milestone.
+   The intended product channel defaults to **Insiders**. Select **Stable** when documenting an already released feature.
 2. Browse issues in `microsoft/vscode` labeled `testplan-item`. Both open and closed issues are included; titles containing **Verification TPI** are excluded. Search by title, number, or assignee, and filter by **All**, **Not documented**, or **Documented**.
 3. Select **Document** on a row to open doc-writer in chat with that TPI URL and release context. Optional instructions can be entered on the row before launching. The issue title opens GitHub; no intermediate preview or copied URL is required.
 4. Continue research, grouped planning, approval, and implementation in chat. The selected release does not establish that the feature is publicly available, and TPI test steps do not authorize execution.
@@ -111,12 +114,12 @@ Results stay in chat rather than automatically entering Findings. Native opening
 
 ## Start a skill-driven review chat
 
-On **Review in chat** (`/review`):
+On **Review article** (`/review`):
 
 1. Choose an article and any combination of **Technical accuracy**, **Clarity and grammar**, **Screenshots and videos**, and **Links and references**. Technical and editorial review are selected initially. You can also clear the presets and use only a free-form request.
 2. Add any concerns, exclusions, or desired outcomes in **Additional request** and choose the intended product channel.
-3. Select **Start review in chat**. The installed Windows VS Code CLI opens the native Chat view in agent mode with the article and doc-writer skill attached. It uses the last active VS Code window.
-4. Continue there. Doc-writer uses specialized skills as needed, proposes grouped changes in the conversation, and waits for your overall approval before editing. The review can include media and justified changes to related articles. No separate plan file or implementation chat is required.
+3. Select **Start review in chat**. The installed Windows VS Code CLI opens the native Chat view with the article and doc-writer skill attached, then a native link prefills the request without submitting it. It uses the last active VS Code window.
+4. Choose your chat options and send the request. Doc-writer uses specialized skills as needed, proposes grouped changes in the conversation, and waits for your overall approval before editing. The review can include media and justified changes to related articles. No separate plan file or implementation chat is required.
 
 This launcher does not create a background workflow task or depend on an old task remaining discoverable. Existing reports and decisions remain untouched. It also does not have a chat-session identifier or completion callback: a successful launch means the CLI accepted the request, not that the review completed. Inspect Chat before retrying a failed or timed-out handoff.
 
@@ -725,11 +728,11 @@ Technical agents check relevant public exposure, settings, commands, defaults, s
 
 Freshness remains local: it checks captured article bytes, dependencies, guidance, and saved evidence, not whether the pinned release is still latest. Refresh never silently repins the product or reruns research. Existing editorial reports without a product pin remain readable, and editorial behavior is unchanged.
 
-For a selected finding, use **Fix in chat**. Use **Review in chat** for a broader interactive assessment and grouped revision plan. Batch execution does not authorize article edits. Run `npm run test:article-workflow` with `DOCS_ARTICLE_BROWSER` set to an installed browser to include the review-batch and finding-action UI checks. These fixtures validate execution and result handling, not the quality of a live agent's judgment. The resolver has also been checked against public Stable and published Insiders metadata. A live technical-batch agent pilot remains separately approved work.
+For a selected finding, use **Fix in chat**. Use **Review article** for a broader interactive assessment and grouped revision plan. Batch execution does not authorize article edits. Run `npm run test:article-workflow` with `DOCS_ARTICLE_BROWSER` set to an installed browser to include the review-batch and finding-action UI checks. These fixtures validate execution and result handling, not the quality of a live agent's judgment. The resolver has also been checked against public Stable and published Insiders metadata. A live technical-batch agent pilot remains separately approved work.
 
 ### Saved article-review results
 
-Start new interactive reviews on [Review in chat](#start-a-skill-driven-review-chat), not Findings. The earlier structured review adapter remains available for saved evidence and existing integrations, but its launch form and section picker are no longer exposed on Findings.
+Start new interactive reviews on [Review article](#start-a-skill-driven-review-chat), not Findings. The earlier structured review adapter remains available for saved evidence and existing integrations, but its launch form and section picker are no longer exposed on Findings.
 
 Filter **Check type** to **Article review** to inspect saved quotations, suggested corrections, product citations, and review decisions. **Coverage** retains the review summary, limitations, and separate deterministic prechecks. Section findings remain scoped to the originally selected heading and nested subsections; their freshness is bound to the whole article and its dependencies.
 

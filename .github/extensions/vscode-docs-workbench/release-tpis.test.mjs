@@ -176,6 +176,7 @@ test('browser loads release TPIs, launches one chat, and persists the reversible
   await page.goto(`${server.url}/findings`);
   await page.getByRole('link', { name: 'Release TPIs', exact: true }).click();
   await page.locator('#tpi-release:enabled').waitFor();
+  assert.equal(await page.getByLabel('Intended product channel', { exact: true }).inputValue(), 'insiders');
   await page.getByLabel('Release', { exact: true }).selectOption('10');
   await page.getByText('2 of 2 TPIs', { exact: true }).waitFor();
   await page.setViewportSize({ width: 1400, height: 900 });
@@ -199,6 +200,7 @@ test('browser loads release TPIs, launches one chat, and persists the reversible
   await page.getByText('Documentation request sent to chat.', { exact: true }).waitFor();
   assert.equal(f.chats.length, 1);
   assert.match(f.chats[0].prompt, /Keep the examples/);
+  assert.match(f.chats[0].prompt, /Intended product channel: insiders/);
   const checkbox = page.getByRole('checkbox', { name: 'Mark microsoft/vscode#123 as documented', exact: true });
   assert.equal(await checkbox.isChecked(), false);
   await checkbox.check();
@@ -207,6 +209,7 @@ test('browser loads release TPIs, launches one chat, and persists the reversible
   await page.getByText('1 of 2 TPIs', { exact: true }).waitFor();
   await page.reload();
   await page.getByText('2 of 2 TPIs', { exact: true }).waitFor();
+  await page.getByLabel('Intended product channel', { exact: true }).selectOption('stable');
   assert.equal(await page.getByLabel('Release', { exact: true }).inputValue(), '10');
   assert.equal(await checkbox.isChecked(), true);
   await checkbox.uncheck();
@@ -221,6 +224,7 @@ test('browser loads release TPIs, launches one chat, and persists the reversible
   await first.getByRole('button', { name: 'Document', exact: true }).click();
   await page.getByText(/Chat timed out.*Check VS Code Chat before trying again/).waitFor();
   assert.equal(f.chats.length, 2);
+  assert.match(f.chats[1].prompt, /Intended product channel: stable/);
   assert.equal(await checkbox.isChecked(), false);
   const appearances = [];
   for (const colorScheme of ['light', 'dark']) {

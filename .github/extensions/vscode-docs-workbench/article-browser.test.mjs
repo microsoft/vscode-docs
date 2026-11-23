@@ -233,7 +233,7 @@ test('workflow sidebar keeps launchers and saved work reachable in both themes a
   const { f, page, failures } = await browserFixture(t);
   const pages = [
     ['/write', 'Write documentation'],
-    ['/review', 'Review in chat'],
+    ['/review', 'Review article'],
     ['/screenshots', 'Screenshots'],
     ['/videos', 'Demo videos'],
     ['/instructions', 'Check instructions'],

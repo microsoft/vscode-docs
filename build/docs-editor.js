@@ -52,8 +52,17 @@ async function createEditor({ executable = process.execPath, run = execute } = {
       if (!help.stdout?.includes('--add-file') || !help.stdout.includes('--mode')) {
         throw new Error('This VS Code installation does not expose the required native chat launcher.');
       }
-      await launch(['chat', '--reuse-window', '--mode', 'agent', ...files.flatMap(file => ['--add-file', file]), prompt]);
-      return { requested: true, message: "Sent the request to VS Code Chat. Continue there; this canvas does not track that chat's completion." };
+      const product = JSON.parse(await fs.readFile(path.join(path.dirname(cli), '..', 'product.json'), 'utf8'));
+      if (typeof product.urlProtocol !== 'string' || typeof product.defaultChatAgent?.chatExtensionId !== 'string') {
+        throw new Error('This VS Code installation does not expose the native chat draft link. No request was submitted.');
+      }
+      const draft = new URL(`${product.urlProtocol}://${product.defaultChatAgent.chatExtensionId}/chat`);
+      draft.searchParams.set('mode', 'agent');
+      draft.searchParams.set('prompt', prompt);
+      // The chat CLI submits a supplied prompt; the native link only fills the input.
+      await launch(['chat', '--reuse-window', '--mode', 'agent', ...files.flatMap(file => ['--add-file', file])]);
+      await launch(['--reuse-window', '--open-url', '--', draft.href]);
+      return { requested: true, message: "Requested an unsubmitted draft in VS Code Chat. If prompted, allow the native chat link, then choose your chat options and send it. This canvas does not track chat completion." };
     }
   };
 }

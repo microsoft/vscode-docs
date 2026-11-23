@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Review in chat</title>
+  <title>Review article</title>
   <link rel="stylesheet" href="/article.css">
 </head>
 <body>
@@ -19,7 +19,7 @@
     <a href="/tpis"><span data-icon="release"></span>Release TPIs</a>
     <p class="workflow-nav-label">Review</p>
     <a href="/prs"><span data-icon="pull"></span>Review PRs</a>
-    <a href="/review" aria-current="page"><span data-icon="chat"></span>Review in chat</a>
+    <a href="/review" aria-current="page"><span data-icon="chat"></span>Review article</a>
     <p class="workflow-nav-label">Media</p>
     <a href="/screenshots"><span data-icon="media"></span>Screenshots</a>
     <a href="/videos"><span data-icon="media"></span>Demo videos</a>
@@ -35,7 +35,7 @@
   <main class="workflow-content">
   <header>
   <p class="workflow-eyebrow">Docs workflow</p>
-  <h1 id="chat-title">Review in chat</h1>
+  <h1 id="chat-title">Review article</h1>
   <p id="chat-description" class="muted">Choose what to review. Continue with doc-writer and its specialized skills in VS Code Chat.</p>
   </header>
   <form id="review-chat-form" class="review-chat-form">
@@ -64,6 +64,7 @@
     <div><button id="chat-start" type="submit" disabled>Start review in chat</button></div>
     <p id="chat-permissions" class="muted">Opens an interactive chat with the article and doc-writer guidance. Uses chat credits. Review first; approve proposed changes in chat before any edits.</p>
   </form>
+  <p class="muted chat-draft-guidance">Requests open as unsubmitted drafts in the editor's Chat view. Choose your chat options and send when ready. If VS Code asks to open the native chat link, confirm it there.</p>
   <p id="chat-notice" role="status" aria-live="polite">Loading...</p>
   <p id="chat-scope" class="muted">No background review task, separate plan file, or implementation handoff. Existing findings remain on the Findings page. This launcher does not track chat completion.</p>
 </main>
