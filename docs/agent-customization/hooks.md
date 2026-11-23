@@ -49,6 +49,8 @@ Sharing a hook file location does not establish runtime compatibility. Event nam
 
 Follow the [hook migration procedure and compatibility matrix](/docs/agent-customization/migrate-customizations.md#migrate-hooks) before reusing a hook. Select the destination harness and start a test session; changing only the language model does not test migration.
 
+For hook files marked as using the deprecated Local format, start with [Migrate with Agent](/docs/agent-customization/migrate-customizations.md#migrate-local-format-hooks-with-the-agent). The migration reviews the configuration and its supporting scripts together.
+
 ## Reuse hooks from a plugin
 
 For an existing automation workflow, [browse customization marketplaces](/docs/agent-customization/overview.md#discover-and-install-existing-customizations-preview) for a plugin that includes hooks and their supporting scripts.
@@ -140,7 +142,7 @@ The Copilot harness reads inline hook settings in `.github/copilot/settings.json
 
 Applicable hooks from multiple sources run together. A new repository hook does not replace a user or plugin hook for the same event. Check for duplicates before enabling a migrated copy.
 
-Also preserve disabled state. Local settings such as `chat.useHooks` do not prevent the Copilot harness from loading a configuration. Follow the [preparation steps](/docs/agent-customization/migrate-customizations.md#prepare-hooks-for-migration) before switching.
+Also preserve disabled state. [Execution controls](#control-which-hooks-run) differ between harnesses and hook sources. Follow the [preparation steps](/docs/agent-customization/migrate-customizations.md#prepare-hooks-for-migration) before switching.
 
 In remote sessions and containers, the user folder and executable dependencies belong to the environment where the runtime runs. Local editor settings such as `chat.hookFilesLocations` do not configure Copilot discovery.
 
@@ -156,6 +158,15 @@ To use a new hook across repositories:
 For example, adapt the [diagnostic hook](#create-your-first-copilot-hook) by placing `log-tool-use.cjs` in the user hook folder and updating its command path. Start a new session and verify its log as described above. Check the **Hooks** page for duplicate commands before testing.
 
 If you prefer to create the files directly, use `~/.copilot/hooks/`, or `$COPILOT_HOME/hooks/` when `COPILOT_HOME` is set, for the configuration and script.
+
+## Control which hooks run
+
+In Copilot sessions, repository hooks require a [trusted working folder](/docs/editing/workspaces/workspace-trust.md). Hooks declared by custom agents run only when every folder in the session is trusted. The **Hooks** page shows hooks that cannot run with a **Won't run** badge and an explanation.
+
+To turn off repository and custom-agent hooks, set `setting(chat.useHooks)` to `false` in **User** settings. Copilot uses the User setting or an enforced `ChatHooks` policy, not the workspace setting. An open chat applies the change from its next message, after any running background subagents finish.
+
+> [!IMPORTANT]
+> This setting is not a global hook switch. User hooks, policy hooks, and hooks that the runtime loads from installed plugin folders still run. Administrators can use [managed hook-source controls](/docs/enterprise/manage-ai-settings.md#restrict-hook-sources) to restrict which sources are eligible.
 
 ## Configure commands and event data
 
@@ -182,7 +193,7 @@ Choose an event for the action you need:
 | Check whether the agent should finish its turn | `agentStop` |
 | Clean up when the session terminates | `sessionEnd` |
 
-See the [event reference](https://docs.github.com/en/copilot/reference/hooks-reference#hook-event-input-payloads) for the full event list, timing, fields, and subagent coverage. Not all outputs are consumed by every event. For example, command-hook output is ignored for `userPromptSubmitted`; programmatic SDK prompt rewriting is a different API.
+See the [event reference](https://docs.github.com/en/copilot/reference/hooks-reference#hook-event-input-payloads) for the full event list, timing, fields, and subagent coverage. Not all outputs are consumed by every event.
 
 Event names also select the input format. `preToolUse` receives `toolName` and `toolArgs`. The compatible `PreToolUse` alias receives snake_case fields, but can report Claude-style tool names such as `Read`, `Write`, and `Edit`. Neither format guarantees the same tool arguments as an old Local hook.
 
@@ -198,6 +209,8 @@ For `preToolUse`, return a documented top-level decision:
 ```
 
 Return `{}` for no decision. `ask` requires an interactive approval flow; do not assume it will pause an unattended session for approval. A `postToolUse` hook can add top-level `additionalContext`, but cannot undo an action that has already completed.
+
+A hook can also block a submitted prompt before it reaches the model. See [Troubleshoot hooks](#troubleshoot-hooks) for how blocked prompts, denied tools, and hook failures appear in chat.
 
 Treat error handling as part of the hook contract. GitHub documents command `preToolUse` errors as denying the tool call, but timeouts as falling through to normal permissions, including for policy hooks. Other events and HTTP hooks have different failure behavior. Test the [exit-code and timeout rules](https://docs.github.com/en/copilot/reference/hooks-reference#exit-codes-for-command-hooks) instead of assuming that every failure blocks work.
 
@@ -229,7 +242,7 @@ Keep agent-specific automation in the agent's frontmatter. Moving a command to a
 Use this section only to identify an existing Local setup before [migrating it](/docs/agent-customization/migrate-customizations.md#migrate-hooks).
 
 * Local discovers repository and user hook files, configured `chat.hookFilesLocations`, and agent or plugin hooks. Claude settings files require `chat.useClaudeHooks`.
-* `chat.useHooks` controls Local execution. These settings do not configure the shared Copilot runtime.
+* `setting(chat.useHooks)` controls Local execution and also [controls some Copilot hook sources](#control-which-hooks-run). `chat.hookFilesLocations` and `chat.useClaudeHooks` do not configure the shared Copilot runtime.
 * The Local parser accepts PascalCase and Copilot event aliases, command aliases, and nested Claude command groups. It ignores matcher values and still sends Local payloads.
 * Local agent-scoped hooks require a trusted workspace and `chat.useHooks`. A scoped `Stop` hook is treated as `SubagentStop` when the agent runs as a subagent.
 
@@ -238,12 +251,17 @@ The [Local reference](/docs/agents/reference/hooks-reference.md) retains the con
 ## Troubleshoot hooks
 
 1. Confirm the **Session Target**, installed runtime version, and hook source.
+1. Open **Hooks** in the Agent Customizations editor. Review any **Won't run** explanation and notices about hook files that could not load. For a deprecated Local-format hook, follow [Migrate with Agent](/docs/agent-customization/migrate-customizations.md#migrate-local-format-hooks-with-the-agent).
 1. Check whether another user, repository, settings, agent, or plugin source contributes the same command.
 1. Run the script directly with a non-sensitive event fixture. Check its exit status and exact JSON output, including malformed-input behavior.
 1. Start a disposable session and confirm the hook fires for the expected event and tool. A file shown in the editor is not proof that its script executed.
 1. Check dependencies, path quoting, `cwd`, and permissions in the execution environment. Test timeouts separately from command errors.
 
-Use the [agent debug logs](/docs/agents/agent-troubleshooting/chat-debug-view.md#agent-debug-logs-panel) and the provider's diagnostics to investigate. Avoid logging complete prompts, arguments, results, or environment variables that might contain sensitive data.
+In a live Copilot chat, a blocked prompt shows the hook's reason instead of a model reply. Tool calls denied by a hook show the reason and are identified as blocked by hooks rather than ordinary failures. When the runtime identifies a failed hook's source, the diagnostic also names its configuration file. A warning about unusable output means that the runtime did not use the reported output, not that it disabled the hook.
+
+Use `setting(chat.hooks.showWarnings)` to show hook execution errors and warnings. It is on by default in Insiders. **Disable Hook Warnings** hides these diagnostics without disabling hooks. Blocked-prompt errors remain visible even with warnings off.
+
+Some hook notices and blocked-tool details are not retained when you reopen a chat. Use the [agent debug logs](/docs/agents/agent-troubleshooting/chat-debug-view.md#agent-debug-logs-panel) and the provider's diagnostics to investigate. Avoid logging complete prompts, arguments, results, or environment variables that might contain sensitive data.
 
 For an old Local setup, **Chat: Configure Hooks** lists its files, and the **GitHub Copilot Chat Hooks** output channel shows its command errors.
 
