@@ -151,7 +151,7 @@ The arguments passed to a handler registered with `registerCommand` depend on ho
 | Command URI | The elements of the JSON array in the URI query, as described in [Command URIs](#command-uris). |
 | Command Palette | No arguments for a command contributed by your extension. An active editor or Explorer selection does not add arguments. |
 | Keyboard shortcut | The keybinding's `args` value as a single argument, if specified. An array in `args` is passed as one array, not as separate arguments. See [Command arguments](/docs/configure/keybindings.md#command-arguments). |
-| Menu item | Context supplied by the menu, such as a document URI or selected resources. See [Menu command arguments](/api/references/contribution-points.md#menu-command-arguments). |
+| Menu item | Context supplied by the menu, such as a document URI or selected resources. See [Menu command arguments](/api/references/contribution-points.md#Menu-command-arguments). |
 
 A `when` clause controls whether a menu item is visible. It does not pass its context keys to the command handler.
 

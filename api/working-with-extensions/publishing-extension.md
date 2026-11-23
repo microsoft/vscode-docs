@@ -72,8 +72,8 @@ extensions without storing long-lived secrets such as Personal Access Tokens
 
 | CI/CD provider | Secure publishing method |
 | -------------- | ------------------------ |
-| GitHub Actions | [Publish with GitHub Actions and Trusted Publishing](#publish-with-github-actions-and-trusted-publishing). |
-| Azure Pipelines | [Publish from Azure Pipelines with Microsoft Entra ID.](#publish-from-azure-pipelines-with-microsoft-entra-id) |
+| GitHub Actions | Publish with GitHub Actions and Trusted Publishing (see below). |
+| Azure Pipelines | Publish from Azure Pipelines with Microsoft Entra ID (see below). |
 | Other CI/CD providers | Marketplace Trusted Publishing isn't supported. |
 
 Marketplace Trusted Publishing doesn't currently support other OIDC providers.
@@ -230,7 +230,7 @@ A **publisher** is an identity that can publish extensions to the Visual Studio 
 To create a publisher:
 
 1. Go to the [Visual Studio Marketplace publisher management page](https://marketplace.visualstudio.com/manage).
-1. Log in with the same Microsoft account you used to create the [Personal Access Token](#get-a-personal-access-token) in the previous section.
+1. Log in with your Microsoft account. If you use a [Personal Access Token](#publish-an-extension-using-personal-access-tokens-not-recommended), sign in with the same account that created it.
 1. Click **Create publisher** in the pane on the left.
 1. In the new page, specify the mandatory parameters for a new publisher - identifier and name (**ID** and **Name** fields respectively):
 
@@ -496,7 +496,7 @@ To verify a publisher:
 
    ![Validation submitted](images/publishing-extension/validation-submitted.png)
 
-   Once your TXT record has been validated, the Marketplace team will review your request and let you know the result within 5 business days. The validation includes, but is not limited to: domain, website and extensions [prerequisites for track record](#prerequisites), content eligibility, legitimacy, trust and positive reputation.
+   Once your TXT record has been validated, the Marketplace team will review your request and let you know the result within 5 business days. The validation includes, but is not limited to: domain, website and extensions [prerequisites for track record](#verify-a-publisher), content eligibility, legitimacy, trust and positive reputation.
 
 If validation is passed, you will see the corresponding badge next to your publisher name in the Visual Studio Marketplace publisher management page:
 
@@ -618,7 +618,7 @@ Starting with version `1.61.0`, VS Code looks for the extension package that mat
 
 Platform-specific extensions are useful if your extension has platform-specific libraries or dependencies, so you can control the exact binaries that are included in a platform package. A common use case is the use of **native node modules**.
 
-Platform-specific extensions are published as separate packages containing platform-specific content. You can specify the target platform by passing the [`--target` flag](#publishing). If you don't pass this flag, that package will be used as a fallback for all platforms that have no platform-specific package.
+Platform-specific extensions are published as separate packages containing platform-specific content. You can specify the target platform by passing the `--target` flag, as shown below. If you don't pass this flag, that package will be used as a fallback for all platforms that have no platform-specific package.
 
 The currently available platforms are: `win32-x64`, `win32-arm64`, `linux-x64`, `linux-arm64`, `linux-armhf`, `alpine-x64`, `alpine-arm64`, `darwin-x64`, `darwin-arm64` and `web`.
 

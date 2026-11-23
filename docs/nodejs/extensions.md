@@ -33,7 +33,7 @@ Marketplace - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeu
 
 Publisher - [Microsoft](https://marketplace.visualstudio.com/publishers/Microsoft)
 
-Easily integrate [ESLint](https://eslint.org/) into your project. If ESLint isn't your favorite linter, choose among a variety of other linter extensions, including [JSHint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint), [JSCS](https://marketplace.visualstudio.com/items?itemName=ms-vscode.jscs), and [JS Standard](https://marketplace.visualstudio.com/items?itemName=chenxsan.vscode-standardjs).
+Easily integrate [ESLint](https://eslint.org/) into your project. If ESLint isn't your favorite linter, choose among a variety of other linter extensions, including [JSHint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint) and [JS Standard](https://marketplace.visualstudio.com/items?itemName=chenxsan.vscode-standardjs).
 
 Read more about setting up JavaScript linters in the {% data variables.product.prodname_vscode_shortname %} [documentation](/docs/languages/javascript.md#linters).
 

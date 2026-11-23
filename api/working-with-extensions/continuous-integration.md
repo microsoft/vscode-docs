@@ -216,7 +216,7 @@ test:
 
 ### GitLab CI automated publishing
 
-1. Set up `VSCE_PAT` as a masked variable using the [GitLab CI documentation](https://docs.gitlab.com/ee/ci/variables/README.html#mask-a-cicd-variable).
+1. Set up `VSCE_PAT` as a masked variable using the [GitLab CI documentation](https://docs.gitlab.com/ci/variables/#mask-a-cicd-variable).
 2. Install `vsce` as a `devDependencies` (`npm install @vscode/vsce --save-dev`).
 3. Declare a `deploy` script in `package.json` without the PAT.
 

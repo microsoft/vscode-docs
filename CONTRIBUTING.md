@@ -673,8 +673,6 @@ GitHub and Docsify previews may display the literal marker in an ordinary
 blockquote. Verify the final rendering in the website preview, and publish
 posts using this syntax only after the website support is deployed.
 
-See the [blog authoring guide](blogs/README.md#pull-quotes) for guidance.
-
 ### Links
 
 For links within our own documentation, use a site relative link like `/docs/editing/codebasics.md`.

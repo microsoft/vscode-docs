@@ -146,6 +146,6 @@ In the [next guide](/learn/foundations/agent-sessions-and-where-agents-run.md), 
 ## Learn more
 
 * [Reviewing AI-generated code edits in VS Code](https://code.visualstudio.com/docs/agents/run/review-code-edits)
-* [Checkpoints and editing requests in VS Code](https://code.visualstudio.com/docs/agents/run/review-code-edits#_edit-requests-and-restore-checkpoints)
+* [Checkpoints and editing requests in VS Code](https://code.visualstudio.com/docs/agents/run/review-code-edits#_restore-a-checkpoint)
 * [Create and manage chat sessions](https://code.visualstudio.com/docs/agents/run/sessions/manage-sessions)
 * [Chat overview in VS Code](https://code.visualstudio.com/docs/chat/chat-overview)

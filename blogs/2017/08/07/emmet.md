@@ -77,7 +77,7 @@ There are a few other changes that we have documented in the new Emmet [page](/d
 * Changes to how you write [custom snippets in Emmet](/docs/languages/emmet.md#using-custom-emmet-snippets)
 * Changes to available [Emmet settings](/docs/languages/emmet.md#emmet-configuration)
 * To wrap individual lines in a single selection in separate tags, use the command **Emmet: Wrap Individual Lines with Abbreviation** instead of **Emmet: Wrap with Abbreviation**.
-* [Known issues in Emmet 2.0](/docs/languages/emmet.md#known-issues-in-emmet-20) that we are working on in August 2017
+* Known issues in Emmet 2.0 that we are working on in August 2017
 
 ## People who made Emmet 2.0 happen
 

@@ -32,7 +32,7 @@ You can also install the [SonarLint](https://marketplace.visualstudio.com/items?
 
 Spring Boot is an open source, microservice-based Java web framework that is very popular among Java developers. There are great extensions provided by VMware and Microsoft for Spring Boot development.
 
-We recommend installing the [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=vvmware.vscode-boot-dev-pack) that contains the following extensions:
+We recommend installing the [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-boot-dev-pack) that contains the following extensions:
 
 1. [Spring Boot Tools](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-spring-boot)
 2. [Spring Initializr Java Support](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr)
@@ -80,10 +80,6 @@ We'd also like to recommend a couple of other extensions that are useful for rem
 ## Azure on {% data variables.product.prodname_vscode %}
 
 The Azure extensions for {% data variables.product.prodname_vscode %} provide seamless integration with Azure and the cloud. There are a few Azure extensions we'd like to recommend.
-
-### Team development
-
-* The [Azure Repos](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) extension makes it easy to connect to your Azure DevOps Servers, allowing you to easily monitor builds, pull requests, and work items for your TFVC or Git source repositories.
 
 ### Internet of Things
 

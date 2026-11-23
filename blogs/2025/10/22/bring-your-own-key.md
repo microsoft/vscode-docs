@@ -49,7 +49,7 @@ For extension developers interested in contributing their own models, check out 
 
 ## OpenAI-compatible Models
 
-For developers using OpenAI-compatible models, you can use the custom **OpenAI Compatible** provider for any OpenAI-compatible API endpoint and [configure the models for use in chat](https://code.visualstudio.com/docs/agent-customization/language-models#_use-an-openaicompatible-model). This feature is currently available in VS Code Insiders only.
+For developers using OpenAI-compatible models, you can use the custom **OpenAI Compatible** provider for any OpenAI-compatible API endpoint and [configure the models for use in chat](https://code.visualstudio.com/docs/agent-customization/language-models#_add-a-custom-endpoint-model). This feature is currently available in VS Code Insiders only.
 
 ![Screenshot showing OpenAI-compatible model configuration in VS Code.](manage-openai-compatible.webp)
 

@@ -10,12 +10,7 @@ The C# support in {% data variables.product.prodname_vscode %} is optimized for 
 
 ![C# language within {% data variables.product.prodname_vscode_shortname %}](images/csharp/csharp-hero.png)
 
-{% data variables.product.prodname_vscode_shortname %} supports debugging of C# applications running on either .NET or Mono.
-
-For detailed instructions on:
-
-* .NET debugging - see the [C# Dev Kit debugging documentation](/docs/csharp/debugging.md).
-* Mono debugging - see the [Mono Debug extension's README](https://marketplace.visualstudio.com/items?itemName=ms-vscode.mono-debug).
+For instructions on debugging .NET applications, see the [C# Dev Kit debugging documentation](/docs/csharp/debugging.md).
 
 ## Installing C&#35; support
 
