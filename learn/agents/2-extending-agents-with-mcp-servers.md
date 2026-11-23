@@ -167,7 +167,7 @@ Next, you will see how agent plugins package skills, agents, hooks, and MCP serv
 
 ## Learn more
 
-* [Add and manage MCP servers in VS Code](https://code.visualstudio.com/docs/copilot/customization/mcp-servers)
-* [MCP configuration reference](https://code.visualstudio.com/docs/copilot/reference/mcp-configuration)
-* [MCP sandbox configuration](https://code.visualstudio.com/docs/copilot/reference/mcp-configuration#sandbox-configuration)
+* [Add and manage MCP servers in VS Code](https://code.visualstudio.com/docs/agent-customization/mcp-servers)
+* [MCP configuration reference](https://code.visualstudio.com/docs/agents/reference/mcp-configuration)
+* [MCP sandbox configuration](https://code.visualstudio.com/docs/agents/reference/mcp-configuration#sandbox-configuration)
 * [Use tools with agents](https://code.visualstudio.com/docs/agents/run/tools)

@@ -1,6 +1,6 @@
 ---
 name: docs-product-alignment
-description: 'Audit and update docs/copilot/ documentation to accurately reflect current VS Code AI capabilities. Use when: competitive analysis reveals gaps, product launches new features, docs use outdated framing, or keyword coverage needs strengthening for discoverability by users and AI agents. Produces a gap analysis plus targeted edits across affected files.'
+description: 'Audit and update docs/agents/ documentation to accurately reflect current VS Code AI capabilities. Use when: competitive analysis reveals gaps, product launches new features, docs use outdated framing, or keyword coverage needs strengthening for discoverability by users and AI agents. Produces a gap analysis plus targeted edits across affected files.'
 ---
 
 # Documentation Product Alignment
@@ -24,9 +24,8 @@ Audit VS Code Copilot documentation against current product capabilities and pro
 5. **Verify.** Search changed files for banned words, em-dashes, and MetaDescription length violations. Confirm that each changed page still serves its recorded primary persona and reader intent.
 
 **High-traffic pages to always check:**
-- [docs/copilot/overview.md](/docs/copilot/overview.md), [docs/copilot/concepts/overview.md](/docs/agents/concepts/overview.md), [docs/agents/reference/ai-features-cheat-sheet.md](/docs/agents/reference/ai-features-cheat-sheet.md)
-- [docs/copilot/getting-started.md](/docs/copilot/getting-started.md), [docs/agents/overview.md](/docs/agents/overview.md)
-- [docs/agents/reference/workspace-context.md](/docs/agents/reference/workspace-context.md), [docs/agents/agent-troubleshooting/faq.md](/docs/agents/agent-troubleshooting/faq.md)
+- [docs/agents/overview.md](/docs/agents/overview.md), [docs/agents/concepts/overview.md](/docs/agents/concepts/overview.md), [docs/agents/reference/ai-features-cheat-sheet.md](/docs/agents/reference/ai-features-cheat-sheet.md)
+- [docs/agents/quickstart.md](/docs/agents/quickstart.md), [docs/agents/reference/workspace-context.md](/docs/agents/reference/workspace-context.md), [docs/agents/agent-troubleshooting/faq.md](/docs/agents/agent-troubleshooting/faq.md)
 
 ## Terminology
 

@@ -117,7 +117,7 @@ Tool sets solve the problem of repeatedly rebuilding the same tool selection. Th
 
 ## Limit tools for a custom agent
 
-When you build a [custom agent](https://code.visualstudio.com/docs/copilot/customization/custom-agents), you can list the tools and tool sets it has access to in the `tools` field of the agent's Markdown frontmatter:
+When you build a [custom agent](https://code.visualstudio.com/docs/agent-customization/custom-agents), you can list the tools and tool sets it has access to in the `tools` field of the agent's Markdown frontmatter:
 
 ```yaml
 ---
@@ -182,6 +182,6 @@ Now that you know how to use tools, the next course shows how MCP servers add ex
 ## Learn more
 
 * [Use tools with agents](https://code.visualstudio.com/docs/agents/run/tools)
-* [Tools concepts](https://code.visualstudio.com/docs/copilot/concepts/tools)
-* [Agent sandboxing](https://code.visualstudio.com/docs/copilot/concepts/trust-and-safety#agent-sandboxing)
+* [Tools concepts](https://code.visualstudio.com/docs/agents/concepts/tools)
+* [Agent sandboxing](https://code.visualstudio.com/docs/agents/concepts/trust-and-safety#agent-sandboxing)
 * [Agent approvals and permissions](https://code.visualstudio.com/docs/agents/run/approvals#permission-levels)

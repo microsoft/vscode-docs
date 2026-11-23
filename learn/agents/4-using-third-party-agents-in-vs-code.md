@@ -147,6 +147,6 @@ You now have the four course topics covered. Review the tool choices, MCP server
 
 ## Learn more
 
-* [Third-party agents in Visual Studio Code](https://code.visualstudio.com/docs/copilot/agents/third-party-agents)
-* [Agents overview](https://code.visualstudio.com/docs/copilot/agents/overview)
-* [Security considerations](https://code.visualstudio.com/docs/copilot/security)
+* [Third-party agents in Visual Studio Code](https://code.visualstudio.com/docs/agents/run/agent-harnesses)
+* [Agents overview](https://code.visualstudio.com/docs/agents/overview)
+* [Security considerations](https://code.visualstudio.com/docs/agents/run/security)

@@ -246,7 +246,7 @@ You are building reliability now, not patching it later.
 If you want to deepen this chapter after the hands-on flow, use the resources below as a guided extension path. Start with agent fundamentals, then move into implementation and deployment references so each link builds on the previous one.
 This order mirrors how teams usually mature from prompt-agent prototypes to production-ready agent workflows.
 
-- **Copilot Chat workflows**: [Review Copilot Chat guidance in Visual Studio Code docs](https://code.visualstudio.com/docs/copilot/chat/copilot-chat).
+- **Copilot Chat workflows**: [Review Copilot Chat guidance in Visual Studio Code docs](https://code.visualstudio.com/docs/chat/chat-overview).
 - **Azure AI Foundry overview**: [Understand the broader platform and workflow surface](https://learn.microsoft.com/azure/ai-foundry/).
 - **Azure AI Agents overview**: [Review core agent concepts and lifecycle guidance](https://learn.microsoft.com/azure/ai-services/agents/overview).
 - **Azure AI Agents quickstart**: [Build and run a practical agent end-to-end](https://learn.microsoft.com/azure/ai-services/agents/quickstart).

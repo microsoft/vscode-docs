@@ -221,9 +221,9 @@ deleting the row, and asserting each result along the way.
 ## Learn more
 
 - [Model Context Protocol](https://modelcontextprotocol.io) — the specification and its core concepts.
-- [MCP servers in Visual Studio Code](https://code.visualstudio.com/docs/copilot/chat/mcp-servers) — configuration, trust, and tool management.
+- [MCP servers in Visual Studio Code](https://code.visualstudio.com/docs/agent-customization/mcp-servers) — configuration, trust, and tool management.
 - [Spring AI reference documentation](https://docs.spring.io/spring-ai/reference/) — the MCP server starter and its annotations.
-- [Use agent mode in Visual Studio Code](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode) — how tool selection and confirmation work.
+- [Use agent mode in Visual Studio Code](https://code.visualstudio.com/docs/agents/overview) — how tool selection and confirmation work.
 - [Demo source on GitHub](https://github.com/microsoft/github-copilot-java-mcp-demo) — the sample used in every chapter.
 
 ---

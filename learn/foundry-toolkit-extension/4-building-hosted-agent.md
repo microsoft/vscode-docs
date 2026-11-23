@@ -257,7 +257,7 @@ Success target: you can explain the full path from prompt input to hosted output
 If you want to go deeper after this chapter, the best path is to pair platform guidance with hosted-agent deployment references. This gives you production context and practical next steps for what to do next.
 Use the links below as a practical continuation path.
 
-- **GitHub Copilot in Visual Studio Code**: [Review Copilot workflows in Visual Studio Code docs](https://code.visualstudio.com/docs/copilot/overview).
+- **GitHub Copilot in Visual Studio Code**: [Review Copilot workflows in Visual Studio Code docs](https://code.visualstudio.com/docs/agents/overview).
 - **Azure AI Foundry overview**: [Understand the broader Azure AI Foundry platform and workflows](https://learn.microsoft.com/azure/ai-foundry/).
 - **Azure AI Agents overview**: [Review hosted-agent concepts and lifecycle guidance](https://learn.microsoft.com/azure/ai-services/agents/overview).
 - **Azure Developer CLI documentation**: [Use azd for repeatable setup and deployment workflows](https://learn.microsoft.com/azure/developer/azure-developer-cli/).
