@@ -580,13 +580,23 @@ The capture profile persists after successful shutdown; temporary runtime direct
 
 ### Reuse a signed-in sample for instruction checks
 
-For an explicitly approved reusable sample workspace, set `workspace.environment` to `sample` in its reviewed storyboard and use the existing replay commands. Keep the workspace, dedicated profile, and per-run evidence in separate private directories. This mode is for replay only. Media capture retains the isolated defaults and refuses sample mode.
+For an explicitly approved reusable sample workspace, set `workspace.environment` to `sample` in its reviewed storyboard and use the existing replay commands. Keep the workspace, dedicated profile, and per-run evidence in separate private directories. Ordinary media capture retains the isolated defaults and refuses sample mode. Prepared-session screenshots require the separate opt-in below.
 
 The sample profile retains home, user-data, extensions, application data, and Copilot runtime data. It uses normal sign-in storage instead of the isolated runner's in-memory secret storage. Git and AI UI remain enabled, extensions are not globally disabled, and renderer network access is available. The human can trust the selected folder, enable needed extensions, and sign in once. Do not copy trust or credentials from another profile, inspect account secrets, or repeat setup authorization for the same approved sample. An available account does not authorize model requests.
 
 Settings are seeded once and then preserved. Automatic tasks, MCP access and autostart, Git autofetch, and automatic TypeScript acquisition must remain disabled. Conflicting retained settings fail explicitly rather than being silently overwritten. Extension files and user preferences survive runtime cleanup, but the runner still closes its own application after a bounded check. Procedure review and attended readiness remain required.
 
 Reviewed Git actions can change metadata inside the synthetic sample repository. Keep commits, remote operations, and destructive actions outside scope unless explicitly approved. The workspace snapshot is not a complete Git or filesystem audit, and the sample is not a security sandbox. Check the relevant local repository state after each procedure. No extra extensions are downloaded or installed by this mode.
+
+### Capture prepared agent sessions
+
+Use the existing sample workspace and a dedicated profile bound to the intended product channel. Prepare real sessions separately, with explicit permission for sample commits, worktrees, and any model requests. Sign-in and Workspace Trust remain human work. Never copy credentials or trust decisions from another profile.
+
+For an attended screenshot of a prepared scene, set `workspace.environment` to `sample`, `capture.mode` to `prepared-session`, and `capture.surface` to `editor` or `agents`. Keep `ai: none`: the runner does not initiate model requests. Steps can only assert text, wait for visibility, or pause. There is no automated typing, clicking, or code execution in this capture mode, and it cannot be combined with video or replay.
+
+Validate the storyboard, then add `--prepared-session` to the existing `build/capture.js` command with the approved workspace, matching capture profile, pinned executable/revision, private output directory, and `--wait-for-ready`. The runner verifies the requested window type. The canvas's approved feature-media path uses the same opt-in for a reviewed prepared-session storyboard.
+
+Arrange the already prepared scene during the 15-minute readiness window, then explicitly confirm in chat or the canvas. The agent can arrange approved UI navigation before confirmation; the human handles trust and authentication prompts. Setup changes that require sign-in, requests, or code edits belong before this capture run. The existing profile locks, privacy checks, workspace snapshots, shutdown checks, private preparation, and exact-asset approval still apply. Existing isolated captures and sample instruction replays keep their previous behavior and readiness timeout.
 
 ### Record an editor video candidate
 

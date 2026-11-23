@@ -46,6 +46,8 @@
       "properties": {
         "file": {"type": "string", "pattern": "^(?!con\\.|prn\\.|aux\\.|nul\\.|com[1-9]\\.|lpt[1-9]\\.)[a-z][a-z0-9-]{0,63}\\.png$"},
         "alt": {"type": "string", "maxLength": 240, "pattern": "^Screenshot showing .+\\.$"},
+        "mode": {"const": "prepared-session"},
+        "surface": {"enum": ["editor", "agents"]},
         "highlights": {"$ref": "#/$defs/highlights"}
       }
     },
@@ -133,7 +135,7 @@
         "entry": {"$ref": "#/$defs/fileName"},
         "environment": {
           "enum": ["isolated", "sample"],
-          "description": "Sample is an explicitly reviewed replay-only environment with persistent extensions, normal sign-in storage, Git enabled, and network access. Isolated remains the default."
+          "description": "Sample is an explicitly reviewed environment for replay or opt-in prepared-session screenshots, with persistent extensions, normal sign-in storage, Git enabled, and network access. Isolated remains the default."
         }
       },
       "description": "Open a reviewed existing workspace, supplied separately with --workspace, without generating or editing its files."

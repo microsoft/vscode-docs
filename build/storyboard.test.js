@@ -49,6 +49,31 @@ test('requires outcome assertions and bounds typing and pause time', () => {
   }
 });
 
+test('prepared-session screenshots require a sample, a surface, and observation-only steps', () => {
+  const storyboard = structuredClone(find);
+  delete storyboard.fixture;
+  delete storyboard.video;
+  storyboard.workspace = {entry: 'example.js', environment: 'sample'};
+  storyboard.capture.mode = 'prepared-session';
+  storyboard.capture.surface = 'editor';
+  storyboard.steps = [find.steps.at(-1)];
+  validateStoryboard(storyboard);
+  for (const change of [
+    value => { delete value.capture.mode; },
+    value => { delete value.capture.surface; },
+    value => { value.capture.surface = 'browser'; },
+    value => { delete value.workspace.environment; },
+    value => { value.video = structuredClone(find.video); },
+    value => { value.steps.unshift({kind: 'click', target: 'tab'}); },
+    value => { value.steps.unshift({kind: 'key', key: 'Enter'}); },
+    value => { value.steps.unshift({kind: 'fill', target: 'query', text: 'Send a prompt'}); }
+  ]) {
+    const invalid = structuredClone(storyboard);
+    change(invalid);
+    assert.throws(() => validateStoryboard(invalid), /Invalid storyboard/);
+  }
+});
+
 test('instruction source maps require exact line ranges and an observable outcome for each runnable check', () => {
   const storyboard = structuredClone(find);
   delete storyboard.video;

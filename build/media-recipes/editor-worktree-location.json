@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "id": "editor-worktree-location",
+  "storyboard": "build/storyboards/editor-worktree-location.json",
+  "outputs": [
+    {
+      "id": "location",
+      "base": "docs/agents/images/chat-view/editor-worktree-location",
+      "source": "highlighted",
+      "prepare": {"format": "png", "crop": {"x": 0, "y": 938, "width": 1920, "height": 142}},
+      "assets": ["docs/agents/images/chat-view/editor-worktree-location-2026112301.png"]
+    }
+  ]
+}
