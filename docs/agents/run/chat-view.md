@@ -112,7 +112,7 @@ You can also keep using [inline suggestions](/docs/editing/ai-powered-suggestion
 
 ## Layout options
 
-The {% data variables.copilot.chat_view %} offers several layout options within the main {% data variables.product.prodname_vscode_shortname %} window. Choose the layout that best fits your workflow:
+With the default chat layout, the {% data variables.copilot.chat_view %} offers several options within the main {% data variables.product.prodname_vscode_shortname %} window. Choose the layout that best fits your workflow:
 
 * **Side bar** (default): select **New Chat (+)** > **New Chat**, or run the **Chat: New Chat** command. Best for keeping chat visible alongside your code.
 
@@ -120,9 +120,21 @@ The {% data variables.copilot.chat_view %} offers several layout options within 
 
 * **Separate window**: select **New Chat (+)** > **New Chat Window**, or run the **Chat: New Chat Window** command. Best for multi-monitor setups.
 
+### Open session chats in another area (Experimental)
+
+In {% data variables.product.prodname_vscode_shortname %} Insiders, use `setting(chat.viewSessions.openChatIn)` to choose where conversations open when you select a session in a local editor window:
+
+* `chatPanel` (default): Open the conversation in the {% data variables.copilot.chat_view %}.
+* `chatArea`: Open the conversation in a dedicated chat area beside the {% data variables.copilot.chat_view %}, keeping it separate from your code editors.
+* `editorArea`: Open the conversation as an editor tab. Selecting an already-open session reveals its tab.
+
+Keep `setting(chat.viewSessions.orientation)` set to `sideBySide`. With either alternate layout, the {% data variables.copilot.chat_view %} shows the sessions list rather than the open conversation.
+
+Use `chatPanel` to return to the default layout or work with Local harness sessions.
+
 ## Interface overview
 
-The {% data variables.copilot.chat_view %} keeps the agent next to your code, so you can prompt, review, and edit in the same window. The {% data variables.copilot.chat_view %} has the following main areas:
+The {% data variables.copilot.chat_view %} keeps the agent next to your code, so you can prompt, review, and edit in the same window. With the default chat layout, it has the following main areas:
 
 1. **Sessions list**: at the top of the view, where you can view and manage your sessions for the current workspace. Learn more about the [sessions list](/docs/agents/run/sessions/manage-sessions.md#find-and-resume-a-session).
 
@@ -137,7 +149,7 @@ The {% data variables.copilot.chat_view %} keeps the agent next to your code, so
 
 ### Sessions list layout
 
-Use the toggle control in the top-right corner of the {% data variables.copilot.chat_view %} to switch between two layouts:
+With the default chat layout, use the toggle control in the top-right corner of the {% data variables.copilot.chat_view %} to switch between two layouts:
 
 * **Compact**: The sessions list and conversation share the same panel. Select a session to open it, then use the back button to return to the list.
 * **Side-by-side**: The sessions list stays visible next to the conversation. Select a session to open its details. Use `setting(chat.viewSessions.orientation)` to configure the orientation.
@@ -146,7 +158,7 @@ To hide or show the list, right-click in an empty chat and toggle **Show Session
 
 ### Switch chats within a session
 
-With a harness that supports multiple chats, a session can contain a main chat and nested sessions. In the **Sessions** view, expand the main chat row and select a nested session to open its conversation in the {% data variables.copilot.chat_view %}.
+With a harness that supports multiple chats, a session can contain a main chat and nested sessions. In the **Sessions** view, expand the main chat row and select a nested session to open its conversation.
 
 You can continue nested sessions created in the {% data variables.copilot.agents_window %} without starting a new conversation. For creation steps, navigation options, and interface-specific controls, see [Run multiple chats in a session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session).
 
