@@ -1,1 +1,9 @@
-[]
+[
+    { "from": "/api/extension-guides/chat", "to": "/api/extension-guides/ai/chat", "status": 301 },
+    { "from": "/api/extension-guides/chat-tutorial", "to": "/api/extension-guides/ai/chat-tutorial", "status": 301 },
+    { "from": "/api/extension-guides/language-model", "to": "/api/extension-guides/ai/language-model", "status": 301 },
+    { "from": "/api/extension-guides/language-model-tutorial", "to": "/api/extension-guides/ai/language-model-tutorial", "status": 301 },
+    { "from": "/api/extension-guides/mcp", "to": "/api/extension-guides/ai/mcp", "status": 301 },
+    { "from": "/api/extension-guides/prompt-tsx", "to": "/api/extension-guides/ai/prompt-tsx", "status": 301 },
+    { "from": "/api/extension-guides/tools", "to": "/api/extension-guides/ai/tools", "status": 301 }
+]
