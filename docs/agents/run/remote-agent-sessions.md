@@ -12,6 +12,8 @@ The machines have two roles:
 * **Host machine:** Runs the agent and contains the project, tools, and session.
 * **Client machine:** Runs the application you use to connect and interact with the session.
 
+`setting(sessions.keepAwakeWhileWorking)` can prevent idle sleep while an Agent Host chat is working. Configure it on the host machine, not the client. See the [AI settings reference](/docs/agents/reference/ai-settings.md#agent-host) for its modes and platform limitations.
+
 Keep the host machine awake, online, and its Agent Host or owning application running. Connecting doesn't transfer the session or copy the project to the client machine.
 
 [Make a host available for remote access](#make-a-host-available-for-remote-access), then [connect to an existing session](#continue-an-existing-remote-session) or [start a new remote session](#start-a-remote-session). To edit and debug the remote project alongside chat, see [Use remote sessions in the {% data variables.copilot.chat_view %}](#use-remote-sessions-in-the-chat-view).
