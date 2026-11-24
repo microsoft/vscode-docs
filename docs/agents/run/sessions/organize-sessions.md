@@ -38,28 +38,21 @@ Group sessions by workspace or topic when you want to find a conversation. Use I
 
 ### Turn on Inbox mode
 
-* In the sessions list, select **Filter Sessions** > **Grouping** > **Inbox Mode**.
+1. Enable `setting(sessions.list.inboxEnabled)` in Settings (`kb(workbench.action.openSettings)`).
 
-The `setting(sessions.list.inboxEnabled)` setting chooses Inbox as the initial default only when you haven't selected a grouping. Changing the setting doesn't override a saved grouping choice.
-
-<!-- TODO: Update the Inbox screenshot to show the workspace and environment pickers, Acknowledged category, and separate archived sessions. -->
-
-![Screenshot showing Inbox mode in the Agents window sessions list.](../../images/organize-sessions/inbox-mode-sessions-list.png)
+1. Turn on the Inbox toggle in the sessions list.
 
 **Pinned** and **Inbox** appear above the other categories. Pinned sessions stay in **Pinned** when acknowledged, held, or snoozed, but still follow the workspace and environment filters.
 
 | Category | What to look for |
 |---|---|
-| **Inbox** | Work needing attention, such as questions, approval requests, errors, failing pull request checks, or completed responses to review. |
+| **Inbox** | Work needing attention, such as questions, approval requests, errors, failing pull request checks, completed responses to review, or pull requests ready to merge. |
 | **Working** | Sessions whose agents are still working. |
-| **Ready to merge** | Sessions whose relevant open pull requests are all non-draft and have passing CI, with no other requests for attention. |
 | **On hold** | Sessions you've put on hold or snoozed. |
 | **Acknowledged** | Work whose current activity you've handled without archiving it. Expand this category to find acknowledged sessions. |
 | **Done** or **Archived** | Archived sessions. The label follows the session archive action's wording. |
 
-Failed, pending, or absent checks don't qualify a session for **Ready to merge**. Passing CI doesn't guarantee that a pull request can be merged. Review the changes before merging.
-
-For sessions whose provider supports merging, select **Merge** on the **Ready to merge** row to merge its pull request.
+For eligible sessions whose provider supports merging, right-click the session and select **Merge Pull Request**. Review the changes before merging.
 
 ### Focus on a workspace or environment
 
@@ -69,7 +62,7 @@ These filters don't change the **New Session** destination or filter the **Autom
 
 ### Acknowledge, defer, or finish work
 
-Right-click a session to choose a triage action. You can select multiple sessions to apply the same action together. **Acknowledge** is also available as the eye action on Inbox rows.
+Right-click a session to choose a triage action. You can select multiple sessions to apply the same action together. **Acknowledge** is also available in the session's toolbar.
 
 | Action | Effect |
 |---|---|
@@ -86,13 +79,22 @@ When an acknowledgement or snooze ends, unpinned sessions return to the category
 
 You can also drag one or more sessions onto **Pinned**, **On hold**, or the archive section to apply the corresponding action. To release a hold or snooze, select **Return to Inbox** or drag the session into the category matching its current activity.
 
-To return to project-based organization, choose another option under **Grouping**. Switching grouping preserves your custom organization and saved triage choices.
+Turn off the Inbox toggle to restore your previous grouping. Your custom organization and saved triage choices are preserved.
 
 ### Work through the Inbox
 
-Open a conversation from **Inbox** and send a reply. After the request is accepted, the next visible Inbox conversation opens in the current order, within your workspace and environment filters. At the end of the list, the previous remaining conversation opens. If no visible Inbox conversations remain, focus returns to the **Inbox** heading.
+Use `setting(sessions.list.inboxAutoAdvance)` to choose where focus moves after you send a reply or explicitly approve a tool request in an Inbox conversation.
 
-Starting a new session, sending in the background to another conversation, or replying outside **Inbox** doesn't advance through the Inbox.
+| Value | Behavior |
+|---|---|
+| `auto` (default) | Open another visible Inbox conversation, unless a screen reader is attached. |
+| `on` | Open another visible Inbox conversation, even with a screen reader attached. |
+| `off` | Stay in the current conversation. |
+| `newSession` | Open **New Session** with its input focused, even with a screen reader attached. |
+
+Advancing to another Inbox conversation respects your workspace and environment filters. If none remain visible, focus moves to the **Inbox** heading.
+
+Starting a new session, replying outside **Inbox**, and background actions don't trigger auto-advance. Neither do denied or automatic approvals.
 
 ## Fix checks and address comments from the sessions list
 
