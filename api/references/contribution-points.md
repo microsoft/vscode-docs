@@ -1165,7 +1165,7 @@ Here's a command menu item:
 }
 ```
 
-![menus extension point example](images/contribution-points/menus.png)
+The `resourceLangId == markdown` condition matches the language of the editor's resource, so this menu item applies to Markdown source files. It does not identify a Markdown preview webview. To add an action to a webview panel's title, use `activeWebviewPanelId`; see [Editor title actions in the Webview guide](/api/extension-guides/webview#editor-title-actions).
 
 Similarly, here's a command menu item added to a particular view. The example below contributes to an arbitrary view like the terminal:
 

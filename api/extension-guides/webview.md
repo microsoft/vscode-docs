@@ -595,6 +595,31 @@ The following video formats can be used in webviews:
 
 For video files, make sure that both the video and audio track's media formats are supported. Many `.mp4` files for example use `H.264` for video and `AAC` audio. VS Code will be able to play the video part of the `mp4`, but since `AAC` audio is not supported there won't be any sound. Instead you need to use `mp3` for the audio track.
 
+### Editor title actions
+
+To add a command to a webview panel's editor title, contribute it to `editor/title` and use `activeWebviewPanelId` to match the panel's view type. The view type is the first argument passed to [`window.createWebviewPanel`](/api/references/vscode-api#window.createWebviewPanel):
+
+```json
+"contributes": {
+  "menus": {
+    "editor/title": [
+      {
+        "command": "catCoding.doRefactor",
+        "when": "activeWebviewPanelId == 'catCoding'",
+        "group": "navigation"
+      }
+    ]
+  },
+  "commands": [
+    {
+      "command": "catCoding.doRefactor",
+      "title": "Refactor",
+      "category": "Cat Coding"
+    }
+  ]
+}
+```
+
 ### Context menus
 
 Advanced webviews can customize the context menu that shows when a user right-clicks inside of a webview. This is done using a [contribution point](/api/references/contribution-points) similarly to VS Code's normal context menus, so custom menus fit right in with the rest of the editor. Webviews can also show custom context menus for different sections of the webview.
