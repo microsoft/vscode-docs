@@ -7,17 +7,32 @@
   <link rel="stylesheet" href="/article.css">
 </head>
 <body>
-<main class="article-app tpi-page pr-page">
+<div class="article-app tpi-page pr-page">
+  <aside class="workflow-sidebar" aria-label="Docs workflow navigation">
+  <a class="workflow-brand" href="/write" aria-label="Docs workflow home">
+    <span class="workflow-brand-mark" data-icon="book"></span>
+    <span>Docs<span class="workflow-brand-secondary">workflow</span></span>
+  </a>
   <nav class="page-navigation" aria-label="Docs workflow pages">
-    <a href="/write">Write documentation</a>
-    <a href="/tpis">Release TPIs</a>
-    <a href="/prs" aria-current="page">Review PRs</a>
-    <a href="/review">Review in chat</a>
-    <a href="/screenshots">Screenshots</a>
-    <a href="/videos">Demo videos</a>
-    <a href="/instructions">Check instructions</a>
-    <a href="/findings">Findings</a>
+    <p class="workflow-nav-label">Writing</p>
+    <a href="/write"><span data-icon="book"></span>Write documentation</a>
+    <a href="/tpis"><span data-icon="release"></span>Release TPIs</a>
+    <p class="workflow-nav-label">Review</p>
+    <a href="/prs" aria-current="page"><span data-icon="pull"></span>Review PRs</a>
+    <a href="/review"><span data-icon="chat"></span>Review article</a>
+    <p class="workflow-nav-label">Media</p>
+    <a href="/screenshots"><span data-icon="media"></span>Screenshots</a>
+    <a href="/videos"><span data-icon="media"></span>Demo videos</a>
+    <p class="workflow-nav-label">Checks</p>
+    <a href="/instructions"><span data-icon="check"></span>Check instructions</a>
+    <a href="/findings"><span data-icon="search"></span>Findings</a>
   </nav>
+  <div class="workflow-sidebar-footer">
+    <a href="/writing"><span data-icon="archive"></span>Saved plans and drafts</a>
+    <p>Private documentation workflows</p>
+  </div>
+  </aside>
+  <main class="workflow-content">
   <div class="tpi-content">
   <header class="tpi-header">
     <p class="tpi-repository">VS Code documentation</p>
@@ -29,7 +44,6 @@
       <div><label for="pr-repository">Repository</label><select id="pr-repository" disabled><option value="microsoft/vscode-docs">microsoft/vscode-docs</option><option value="microsoft/vscode-docs-pr">microsoft/vscode-docs-pr</option></select></div>
       <button id="pr-refresh" type="button" class="secondary" disabled>Refresh</button>
     </div>
-    <div class="tpi-channel-field"><label for="pr-channel">Intended product channel</label><select id="pr-channel"><option value="stable">Stable</option><option value="insiders">Insiders</option></select></div>
   </section>
   <p id="pr-notice" role="status" aria-live="polite">Loading pull requests...</p>
   <p id="pr-error" class="error" role="alert"></p>
@@ -56,15 +70,17 @@
       <label for="pr-request">Review focus (optional)</label>
       <textarea id="pr-request" rows="2" maxlength="4000" placeholder="Specific concerns, claims, or exclusions"></textarea>
       <div><button id="pr-direct-start" type="submit" disabled>Start PR review in chat</button></div>
-      <p class="muted">Use a URL from either documentation repository, including closed PRs. Uses the product channel selected above.</p>
+      <p class="muted">Use a URL from either documentation repository, including closed PRs.</p>
     </form>
   </details>
   <footer class="tpi-footer">
     <p>Includes all open PRs, including drafts, ordered by most recently updated. Review uses chat credits and verifies a pinned revision, not this list's cached metadata.</p>
-    <p>No PR checkout, execution, article edits, or GitHub comments. Results stay in chat; launching does not track completion or populate batch Findings. Check Chat before retrying a failed handoff.</p>
+    <p>Review opens an unsubmitted <code>/pr-review &lt;PR link&gt;</code> draft in a new chat, followed by any instructions you entered. Choose your chat options and send when ready. No PR checkout, execution, article edits, or GitHub comments. Results stay in chat; launching does not track completion or populate batch Findings. Check Chat before retrying a failed handoff.</p>
   </footer>
   </div>
 </main>
+</div>
+<script type="module" src="/workflow-shell.mjs"></script>
 <script type="module" src="/pr-reviews-app.mjs"></script>
 </body>
 </html>

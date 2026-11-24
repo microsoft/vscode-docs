@@ -90,27 +90,24 @@ test('PR refresh retains the identified last successful list on failure but neve
   await assert.rejects(f.load('elsewhere/repo'), /supported/);
 });
 
-test('PR review hands off canonical source and review boundaries without fetching GitHub or changing findings', async t => {
+test('PR review hands off only the slash command, canonical link, and optional instructions without changing findings', async t => {
   const f = await fixture(t);
   await f.launch();
   await f.workflow.dispatch('refresh', {});
   const before = await f.rawWorkflow.store.read();
   const tasks = f.tracked.length;
   f.session.rpc.tasks.list = async () => { throw new Error('No historical host lookup is allowed'); };
-  const input = { url: `https://github.com/${privateRepo}/pull/345#discussion_r123`, channel: 'insiders',
-    request: 'Check the command and default value; leave wording alone.', confirmed: true };
+  const input = { url: `https://github.com/${privateRepo}/pull/345#discussion_r123`,
+    request: '  Check the command and default value;\nleave wording alone.  ', confirmed: true };
   await f.workflow.dispatch('pr-chat', input);
   assert.equal(f.chats.length, 1);
-  assert.equal(f.chats[0].files.length, 1);
-  assert.ok(f.chats[0].files[0].endsWith(path.join('skills', 'pr-review', 'SKILL.md')));
-  assert.ok(f.chats[0].prompt.includes(`https://github.com/${privateRepo}/pull/345\n`));
-  assert.match(f.chats[0].prompt, /Requested product channel: insiders/);
-  assert.match(f.chats[0].prompt, /Check the command and default value; leave wording alone/);
-  assert.match(f.chats[0].prompt, /First capture and screen/);
-  assert.match(f.chats[0].prompt, /recheck both revisions/);
-  assert.match(f.chats[0].prompt, /Never check out the PR/);
-  assert.match(f.chats[0].prompt, /explicitly report them unavailable/);
-  for (const change of [{ confirmed: false }, { channel: 'internal' }, { request: 'x'.repeat(4001) },
+  assert.deepEqual(f.chats[0], { files: [],
+    prompt: `/pr-review https://github.com/${privateRepo}/pull/345 Check the command and default value;\nleave wording alone.` });
+  for (const request of [undefined, '', ' \n ']) {
+    await f.workflow.dispatch('pr-chat', { ...input, url: `https://github.com/${publicRepo}/pull/123/`, request });
+    assert.deepEqual(f.chats.at(-1), { files: [], prompt: `/pr-review https://github.com/${publicRepo}/pull/123` });
+  }
+  for (const change of [{ confirmed: false }, { request: false }, { request: 'x'.repeat(4001) },
     { request: '\0' }, { url: false }, { url: `https://github.com/${publicRepo}/issues/123` },
     { url: `https://github.com@elsewhere.test/${publicRepo}/pull/123` },
     { url: `https://user@github.com/${publicRepo}/pull/123` },
@@ -121,7 +118,7 @@ test('PR review hands off canonical source and review boundaries without fetchin
   }
   const unsupported = await f.reopen({ editor: { available: false, message: 'No native chat' } });
   await assert.rejects(unsupported.dispatch('pr-chat', input), /No native chat/);
-  assert.equal(f.chats.length, 1);
+  assert.equal(f.chats.length, 4);
   assert.equal(f.reads.length, 0);
   assert.equal(f.tracked.length, tasks);
   assert.deepEqual(await f.rawWorkflow.store.read(), before);
@@ -144,6 +141,7 @@ test('browser lists both PR repositories, handles search and failed refresh, and
   await page.goto(`${server.url}/findings`);
   await page.getByRole('link', { name: 'Review PRs', exact: true }).click();
   await page.getByText('2 of 2 PRs', { exact: true }).waitFor();
+  assert.equal(await page.getByLabel('Intended product channel', { exact: true }).count(), 0);
   assert.equal(await page.getByRole('link', { name: 'Review PRs', exact: true }).getAttribute('aria-current'), 'page');
   assert.equal(await page.locator('img').count(), 0);
   assert.equal(await page.getByRole('cell', { name: 'Draft', exact: true }).count(), 1);
@@ -155,7 +153,8 @@ test('browser lists both PR repositories, handles search and failed refresh, and
   await draft.getByRole('button', { name: `Review ${publicRepo}#124`, exact: true }).evaluate(button => { button.click(); button.click(); });
   await page.getByText('PR review requested in chat.', { exact: true }).waitFor();
   assert.equal(f.chats.length, 1);
-  assert.match(f.chats[0].prompt, /Verify the experimental gate/);
+  assert.deepEqual(f.chats[0], { files: [],
+    prompt: `/pr-review https://github.com/${publicRepo}/pull/124 Verify the experimental gate.` });
   await page.getByLabel('Search PRs').fill('');
   await page.getByLabel('Repository', { exact: true }).selectOption(privateRepo);
   await page.getByText(/Showing microsoft\/vscode-docs-pr\./).waitFor();
@@ -171,13 +170,16 @@ test('browser lists both PR repositories, handles search and failed refresh, and
   await page.getByRole('button', { name: 'Start PR review in chat', exact: true }).click();
   await page.getByText('PR review requested in chat.', { exact: true }).waitFor();
   assert.equal(f.chats.length, 2);
-  assert.match(f.chats[1].prompt, /Review this closed PR/);
+  assert.deepEqual(f.chats[1], { files: [],
+    prompt: `/pr-review https://github.com/${publicRepo}/pull/999 Review this closed PR.` });
   f.failChat();
   await page.getByRole('button', { name: 'Start PR review in chat', exact: true }).click();
   await page.getByText(/Chat timed out.*Check VS Code Chat before trying again/).waitFor();
   assert.equal(f.chats.length, 3);
   await page.setViewportSize({ width: 1400, height: 900 });
   assert.ok((await page.locator('.tpi-content').boundingBox()).width <= 1200);
+  const sidebarBounds = await page.locator('.workflow-sidebar').boundingBox();
+  assert.ok(sidebarBounds.x + sidebarBounds.width <= (await page.locator('.tpi-content').boundingBox()).x);
   assert.ok((await page.locator('#pr-rows tr').first().boundingBox()).height < 100);
   const backgrounds = [];
   for (const colorScheme of ['light', 'dark']) {
@@ -185,7 +187,7 @@ test('browser lists both PR repositories, handles search and failed refresh, and
     backgrounds.push(await page.locator('main').evaluate(element => getComputedStyle(element).backgroundColor));
     await page.setViewportSize({ width: 420, height: 800 });
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
-    for (const id of ['pr-repository', 'pr-refresh', 'pr-channel', 'pr-search', 'pr-url']) {
+    for (const id of ['pr-repository', 'pr-refresh', 'pr-search', 'pr-url']) {
       const bounds = await page.locator(`#${id}`).boundingBox();
       assert.ok(bounds.x >= 0 && bounds.x + bounds.width <= 420);
     }

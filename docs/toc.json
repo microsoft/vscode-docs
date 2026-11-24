@@ -37,6 +37,7 @@
                     ["Smart Actions", "/docs/editing/copilot-smart-actions", { "secondary": true }],
                     ["Use the Chat View", "/docs/agents/run/chat-view"],
                     ["Agents Window", "/docs/agents/run/agents-window"],
+                    ["Work with Agents in Worktrees", "/docs/agents/run/worktrees"],
                     ["Inline Chat and Quick Chat", "/docs/chat/inline-chat"],
                     ["Chat Messages and Responses", "/docs/chat/chat-overview"],
                     ["Canvases", "/docs/agents/run/canvases"],

@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "id": "agents-readme-worktree",
+  "storyboard": "build/storyboards/agents-readme-worktree.json",
+  "outputs": [{
+    "id": "detail", "base": "docs/agents/images/delegate-two-tasks/agents-readme-worktree",
+    "source": "screenshot", "prepare": {"format": "png", "crop": {"x": 402, "y": 247, "width": 665, "height": 192}},
+    "assets": ["docs/agents/images/delegate-two-tasks/agents-readme-worktree-2026112301.png"]
+  }]
+}

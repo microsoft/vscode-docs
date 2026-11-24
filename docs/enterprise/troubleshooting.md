@@ -1,6 +1,6 @@
 ---
 ContentId: 946d6a8c-7912-45c2-b3ab-2681f743d26e
-DateApproved: 11/18/2026
+DateApproved: 11/25/2026
 MetaDescription: Diagnose managed {% data variables.product.prodname_vscode_shortname %} policy and access issues, and collect safe escalation evidence.
 MetaSocialImage: images/policies/allowed-extensions-managed-by-organization.png
 ---

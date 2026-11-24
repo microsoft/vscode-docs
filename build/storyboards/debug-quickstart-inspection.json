@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 2,
+  "id": "debug-quickstart-inspection",
+  "article": "docs/debugtest/quickstart.md",
+  "channel": "stable",
+  "execution": "attended",
+  "ai": "none",
+  "profile": {
+    "platform": "win32",
+    "theme": "Dark Modern",
+    "width": 1920,
+    "height": 1080,
+    "deviceScaleFactor": 1,
+    "zoomLevel": 2,
+    "wideContent": false,
+    "fonts": "product-defaults"
+  },
+  "workspace": {
+    "entry": "app.js"
+  },
+  "targets": {
+    "editor": {"selector": ".monaco-editor .view-lines", "first": true},
+    "pausedLine": {"selector": ".monaco-editor .debug-top-stack-frame-line", "first": true},
+    "variables": {"selector": ".debug-variables"},
+    "callStack": {"selector": ".debug-call-stack"},
+    "console": {"selector": ".repl .monaco-list-rows"}
+  },
+  "steps": [
+    {"kind": "wait-for", "target": "pausedLine", "state": "visible"},
+    {"kind": "assert", "target": "editor", "text": "return total;", "match": "contains"},
+    {"kind": "assert", "target": "callStack", "text": "calculateTotal", "match": "contains"},
+    {"kind": "assert", "target": "variables", "text": "total", "match": "contains"},
+    {"kind": "assert", "target": "variables", "text": "13", "match": "contains"},
+    {"kind": "assert", "target": "console", "text": "price * quantity", "match": "contains"},
+    {"kind": "assert", "target": "console", "text": "30", "match": "contains"}
+  ],
+  "instructions": {
+    "setup": "Use the reviewed debugging-practice folder and dedicated Stable profile. During attended preparation, start app.js at the line 2 breakpoint, choose Node.js if prompted, open Run and Debug, and expand Local. Select Step Over once to pause on return total at line 3. Open View > Debug Console, enter price * quantity, and press Enter. Raise the panel divider to just below line 10, about 415 pixels from the top of the 1920 by 1080 capture, so the expression and result fit the saved crop. Keep Local total 13, the expression result 30, the paused line, and Debug toolbar visible. The human handles native prompts and explicitly confirms readiness; UI arrangement may be agent-assisted after capture approval. Do not continue, edit the file, create launch.json, install anything, sign in, or use AI.",
+    "checks": [
+      {
+        "source": {
+          "line": 90,
+          "endLine": 100,
+          "quote": "1. In the Debug toolbar, select **Step Over** (`kb(workbench.action.debug.stepOver)`) once.\n\n    The debugger runs the calculation and pauses on `return total;`. Hover over `total` in the editor or find it under **VARIABLES**. Its value is `13`.\n\n1. Select **View** > **Debug Console**. At the input prompt, enter the following expression and press `kbstyle(Enter)`:\n\n    ```javascript\n    price * quantity\n    ```\n\n    The result is `30`. The inputs are correct, but the code adds them instead of multiplying them. Evaluating this expression doesn't change the source file."
+        },
+        "action": "Observe the stepped calculation and the evaluated Debug Console expression.",
+        "expected": "Execution is paused on line 3 with Local total 13 and the Debug Console expression price * quantity returning 30. Exact line, values, and framing require visual review in addition to the container assertions.",
+        "steps": [0, 1, 2, 3, 4, 5, 6]
+      }
+    ]
+  },
+  "capture": {
+    "file": "debug-quickstart-inspection.png",
+    "alt": "Screenshot showing the debugger paused on return total, Local total equal to 13, and price * quantity returning 30 in the Debug Console."
+  },
+  "privacy": {
+    "denyText": ["@", "Bearer ", "ghp_", "github_pat_"],
+    "humanVisualReviewRequired": true
+  }
+}

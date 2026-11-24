@@ -1,6 +1,6 @@
 ---
 ContentId: f8a9c3d2-4e7b-5f1a-b6c8-9d0e2f3a7b4c
-DateApproved: 11/18/2026
+DateApproved: 11/25/2026
 MetaDescription: Manage enterprise AI controls that affect {% data variables.product.prodname_vscode_shortname %} and {% data variables.product.prodname_copilot_short %}.
 ---
 
@@ -399,8 +399,10 @@ To prevent transcript text from being sent to a language model, set `DictationLL
 
 Hook controls depend on the selected harness. For {% data variables.product.prodname_copilot_short %} harness sessions, use [Policy Hooks](#verify-policy-hook-coverage) and the [managed hook-source controls](#restrict-hook-sources) below.
 
+The `ChatHooks` policy enforces `setting(chat.useHooks)`. In Copilot sessions, setting it to `false` stops repository hooks and hooks declared by custom agents. It does not stop user hooks, policy hooks, or hooks that the runtime loads from installed plugin folders. Do not treat it as a global hook-disable policy. Review [hook execution controls](/docs/agent-customization/hooks.md#control-which-hooks-run) and verify the sources your developers use.
+
 > [!NOTE]
-> **For Local harness sessions:** `feature(local-harness)` Set the `ChatHooks` policy to `false` to disable hooks. This policy controls `setting(chat.useHooks)` and does not apply to {% data variables.product.prodname_copilot_short %} harness sessions.
+> **For Local harness sessions:** `feature(local-harness)` Set the `ChatHooks` policy to `false` to disable hook execution in that harness.
 
 <a name="use-the-sdk-harness-for-policy-hooks"></a>
 

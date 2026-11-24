@@ -1,10 +1,9 @@
-import { fileURLToPath } from 'node:url';
 import reviewChat from '../../../build/review-chat.js';
 import { createGitHub } from './github.mjs';
 import { isTime, now } from './article-storage.mjs';
 import { text } from './state.mjs';
 
-export function createPrReviews(store, editor, { github = createGitHub() } = {}) {
+export function createPrReviews(editor, { github = createGitHub() } = {}) {
   let cache;
   return {
     async load({ repository = reviewChat.prRepositories[0] }) {
@@ -33,9 +32,8 @@ export function createPrReviews(store, editor, { github = createGitHub() } = {})
     async review(input) {
       if (input.confirmed !== true) throw new Error('Start the PR review explicitly before opening chat.');
       if (!editor.available || typeof editor.chat !== 'function') throw new Error(editor.message || 'Native chat opening is unavailable in this host.');
-      const skill = fileURLToPath(new URL('../../skills/pr-review/SKILL.md', import.meta.url));
-      const prompt = reviewChat.prPrompt({ workspace: store.workspace, skill, url: input.url, request: input.request, channel: input.channel });
-      return editor.chat({ files: [skill], prompt });
+      const prompt = reviewChat.prPrompt({ url: input.url, request: input.request });
+      return editor.chat({ files: [], prompt });
     }
   };
 }

@@ -1,6 +1,6 @@
 ---
 ContentId: 8966BBFD-C66D-4283-9DCA-8CAC0179886E
-DateApproved: 11/18/2026
+DateApproved: 11/25/2026
 MetaDescription: {% data variables.product.prodname_vscode %} is a first class editor - but it's also so much more with features such as IntelliSense and smart code navigation.
 ---
 # Code Navigation

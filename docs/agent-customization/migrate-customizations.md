@@ -1,6 +1,6 @@
 ---
 ContentId: 5e55509e-3fe2-4475-b85c-2b20fdd6c24d
-DateApproved: 11/18/2026
+DateApproved: 11/25/2026
 FeatureStatus: user-customization-migration
 MetaDescription: Migrate agent customizations and resolve harness compatibility gaps in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
@@ -38,7 +38,7 @@ The Local harness `feature(local-harness)` is deprecated and will be removed by 
 | Workspace or user prompt files | Project or user skills | [Convert prompt files](#convert-prompt-files-to-skills). Use **Migrate with Agent** when the workflow also needs an agent or tool configuration. | Explicit invocation and any omitted `agent`, `model`, or `tools` properties |
 | Agents and instructions in profile user data | Copilot user folders | [Move user customizations](#move-user-agents-and-instructions). | Discovery and behavior in a new Copilot session |
 | Files in configured search locations | Native workspace or user folders | [Move files from configured locations](#move-customizations-from-configured-locations). | Destination scope and duplicate active copies |
-| Hooks in files, settings, agents, or plugins | Supported Copilot hook sources and scripts | [Migrate hooks manually](#migrate-hooks). No automatic hook conversion is available. | Event timing, script inputs and outputs, approvals, and failure paths |
+| Hooks in files, settings, agents, or plugins | Supported Copilot hook sources and scripts | Use [Migrate with Agent](#migrate-local-format-hooks-with-the-agent) for detected Local-format files, or [migrate manually](#prepare-hooks-for-migration). No automatic hook conversion is available. | Event timing, script inputs and outputs, approvals, and failure paths |
 | User-defined tool sets | Workflow-specific tool configuration | [Replace tool-set references](#replace-tool-sets). | Required capabilities and tool restrictions |
 | Chat participants | A publisher-provided replacement or a direct agent request | [Replace participant workflows](#replace-chat-participants). | Service access, attached context, and expected results |
 | Plugins or extension-provided customizations | A compatible installation | [Manage these separately](#customizations-without-automatic-migration). | Publisher setup, harness compatibility, and required extensions |
@@ -290,7 +290,7 @@ The migration list does not automatically convert every customization type:
 * **Custom agents with Local harness-specific behavior**: use **Migrate with Agent** when an agent depends on Local harness `feature(local-harness)` tool names, tool sets, hooks, or other behavior that needs semantic changes.
 * **Tool sets**: deprecated and not supported in the Copilot harness. [Replace tool-set references](#replace-tool-sets) with tools configured for the workflow.
 * **Chat participants**: deprecated and not supported in the Copilot harness. [Replace participant capabilities](#replace-chat-participants) with plugins that combine skills, MCP tools, and, when needed, MCP Apps.
-* **Hooks**: there is no automatic hook migration. Follow [Migrate hooks](#migrate-hooks) to review discovery, command configuration, script inputs, and output decisions.
+* **Hooks**: there is no automatic hook conversion. Use [Migrate with Agent](#migrate-local-format-hooks-with-the-agent) for detected Local-format files. For other sources or manual migration, follow [Migrate hooks](#migrate-hooks) to review discovery, command configuration, script inputs, and output decisions.
 * **Plugins and marketplaces**: manage these separately from the migration list. See [Discover and install plugins](/docs/agent-customization/agent-plugins.md#discover-and-install-plugins).
 * **Extension-provided customizations**: extensions can provide tools, MCP servers, custom agents, skills, and instructions. Keep the contributing extension installed. Extension tools are available only in editor chat while the extension runs. Learn how to [manage extension tools for the Copilot harness](/docs/agents/run/tools.md#add-extension-tools-for-the-copilot-harness).
 
@@ -302,12 +302,26 @@ This procedure applies to personal hooks as well as shared hooks. {% data variab
 
 The [Copilot hooks reference](https://docs.github.com/en/copilot/reference/hooks-reference) documents the shared configuration and command-hook payloads. The [Local hooks reference](/docs/agents/reference/hooks-reference.md) describes the source format for an existing Local hook.
 
+### Migrate Local-format hooks with the agent
+
+The Agent Customizations editor marks detected Local-format hooks as **Needs attention**. This warning identifies a compatibility risk, not proof that the hook is broken.
+
+1. Complete [Prepare hooks for migration](#prepare-hooks-for-migration) before starting.
+1. In **Hooks**, open the affected hook and select **Review Migrations**. Alternatively, [open the migration list](#open-the-migration-list) directly.
+1. Review the **Local-Format Hooks** group, which lists your detected workspace and user hook files.
+1. Select **Migrate with Agent** in a local **Copilot** session. The agent reviews the hook file and its scripts together and asks before changing the intended behavior.
+1. Review the resulting changes and [verify the migration](#verify-the-migration) before relying on the hook.
+
+Unlike a file move, hook migration can update the configuration and scripts in place. The recovery bundle includes the hook file and directly referenced scripts within the workspace or hook folder. Keep your own backup of other dependencies. For plugin or administrator-managed hooks, work with the publisher or administrator instead of changing an installed copy.
+
+To migrate manually, use the preparation, source inventory, and conversion guidance below.
+
 ### Prepare hooks for migration
 
 Before editing a configuration or starting a Copilot session:
 
 1. Back up the original configuration **and** its scripts, including user settings that are not in source control.
-1. Record which hooks are enabled, disabled, or excluded by Local discovery settings. `chat.useHooks`, `chat.useClaudeHooks`, and `chat.hookFilesLocations` do not preserve those choices in the Copilot harness. A previously ignored file can become active without being moved.
+1. Record which hooks are enabled, disabled, or excluded by Local discovery settings. In Copilot sessions, `setting(chat.useHooks)` uses User settings or policy to control repository and custom-agent hooks, but does not stop user hooks, policy hooks, or hooks loaded directly from plugin folders. `chat.useClaudeHooks` and `chat.hookFilesLocations` do not configure Copilot discovery. A previously ignored file can become active without being moved. Review [hook execution controls](/docs/agent-customization/hooks.md#control-which-hooks-run).
 1. Keep unvalidated configurations outside discovered sources. For example, stage a standalone file with a `.json.disabled` suffix, and use a new script filename rather than overwriting the original. For inline settings, prepare the new `hooks` entries separately before merging them.
 1. Preserve intentionally disabled hooks using the destination's controls. Do not activate the original and converted configurations together.
 
@@ -360,7 +374,7 @@ Use this table to find the event that corresponds to the same point in the agent
 | Local event | Copilot event | Behavior to verify |
 |-------------|---------------|--------------------|
 | `SessionStart` | `sessionStart` | Copilot includes new and resumed sessions. Do not assume `source` is always `new`. |
-| `UserPromptSubmit` | `userPromptSubmitted` | Runs for a submitted prompt. Command-hook output is ignored for this event; programmatic SDK prompt rewriting is not a shell-hook feature. |
+| `UserPromptSubmit` | `userPromptSubmitted` | Runs before the submitted prompt reaches the model. Verify any prompt-blocking behavior and the reason shown in chat. |
 | `PreToolUse` | `preToolUse` | Runs before a tool executes. Verify the tool name, argument schema, and permission result. |
 | `PostToolUse` | `postToolUse` | Runs after a successful tool. Copilot has a separate `postToolUseFailure` event. |
 | `PreCompact` | `preCompact` | Copilot documents manual and automatic triggers. It is a notification, not a way to prevent compaction. |

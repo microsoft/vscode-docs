@@ -1,6 +1,6 @@
 ---
 ContentId: 8b3c9f5e-4d2a-6f9b-3e1c-7a8d5f2e9b0c
-DateApproved: 11/18/2026
+DateApproved: 11/25/2026
 MetaDescription: Delegate tasks and create reusable subagents in {% data variables.product.prodname_vscode_shortname %}, then inspect their work and review results.
 Keywords:
 - subagents

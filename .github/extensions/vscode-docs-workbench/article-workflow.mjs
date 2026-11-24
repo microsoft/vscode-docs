@@ -48,7 +48,7 @@ export async function createArticleWorkflow({
   const store = await createArticleStore(workspace, home);
   const sourceEditor = editor || await editorTools.createEditor();
   const tpis = createReleaseTpis(store, sourceEditor, tpiOptions);
-  const prs = createPrReviews(store, sourceEditor, prOptions);
+  const prs = createPrReviews(sourceEditor, prOptions);
   const ownerSessionId = text(session.sessionId, 'Host session ID');
   const activity = new Map();
   const tasks = session.rpc?.tasks;

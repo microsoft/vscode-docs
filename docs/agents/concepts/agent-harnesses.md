@@ -1,6 +1,6 @@
 ---
 ContentId: 7f1d9a52-3c84-4e17-9a2b-6d5c8e4f0b19
-DateApproved: 11/18/2026
+DateApproved: 11/25/2026
 MetaDescription: Understand agent harnesses, model access, execution environments, and code isolation in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - copilot
@@ -102,7 +102,7 @@ The diagram shows where sessions work on code, not where you connect from or whe
 
 Selecting a Dev Container changes the execution environment, not the harness. For supported hosts, interfaces, and setup, see [run a session in a Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container).
 
-For sessions that offer folder and worktree options, code isolation controls which working directory receives changes. Folder isolation applies edits directly to your current workspace, including its uncommitted changes. Worktree isolation gives the session a separate [Git worktree](/docs/sourcecontrol/branches-worktrees.md#understanding-worktrees) based on committed Git state. Dev Container sessions work directly in the container workspace and don't support **New Worktree**.
+For sessions that offer folder and worktree options, code isolation controls which working directory receives changes. Folder isolation applies edits directly to your current workspace. Worktree isolation gives the session a separate working directory based on committed Git state. For the comparison, requirements, and setup in either interface, see [Work with agents in worktrees](/docs/agents/run/worktrees.md).
 
 A worktree is a Git code-isolation boundary, not a security boundary. It does not restrict commands, network access, or access to files outside the worktree. Use [agent sandboxing](/docs/agents/run/agent-sandboxing.md) for operating system-level file system and network restrictions.
 

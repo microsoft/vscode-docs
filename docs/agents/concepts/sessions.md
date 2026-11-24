@@ -1,6 +1,6 @@
 ---
 ContentId: c4a81e63-9d27-4b5f-8e10-2a7f6c9d3b04
-DateApproved: 11/18/2026
+DateApproved: 11/25/2026
 MetaDescription: Understand sessions and chats in {% data variables.product.prodname_vscode_shortname %}, and choose when to start a chat, fork, or create a session.
 Keywords:
 - copilot
@@ -46,7 +46,7 @@ Supported nested sessions can use a different folder or worktree, and some harne
 
 For example, you're adding a sign-in form. Use one chat to build the form and another chat in the same session to write tests. The test-writing chat can read the implementation files once they're saved, but it doesn't inherit the first chat's conversation. Include requirements such as rejecting an empty email address in the second chat's prompt, rather than relying on your earlier discussion.
 
-Both chats can edit the same files if they use the same folder or worktree. When you need separate working directories, choose **New Worktree** for a nested session, where supported, or use separate top-level sessions with [worktree isolation](/docs/agents/run/agents-window.md#choose-where-an-agent-makes-changes).
+Both chats can edit the same files if they use the same folder or worktree. When you need separate working directories, choose **New Worktree** for a nested session, where supported, or use separate top-level sessions with [worktree isolation](/docs/agents/run/worktrees.md#choose-folder-or-worktree-isolation).
 
 ## Choose a new chat, a fork, or a new session
 
@@ -61,7 +61,7 @@ Continue in the same chat when you're working on the same task and its conversat
 A fork can open as another chat in the same session or as a new session, depending on the harness. Forking a conversation isn't the same as creating a Git branch or a separate worktree. For example, a fork of a Copilot worktree session continues to use the original worktree.
 
 > [!IMPORTANT]
-> Separate conversations don't guarantee separate files. If two chats or sessions use the same folder or worktree, their edits affect the same files. Choose separate worktrees for nested or top-level sessions, where supported, when changes must stay separate. Learn how to [choose where an agent makes changes](/docs/agents/run/agents-window.md#choose-where-an-agent-makes-changes).
+> Separate conversations don't guarantee separate files. If two chats or sessions use the same folder or worktree, their edits affect the same files. Choose separate worktrees for nested or top-level sessions, where supported, when changes must stay separate. Learn how to [choose where an agent makes changes](/docs/agents/run/worktrees.md#choose-folder-or-worktree-isolation).
 
 Sessions can run in parallel and keep running when you switch between them. To return an existing conversation and affected workspace files to an earlier point instead of branching the conversation, see [Restore a checkpoint](/docs/agents/run/review-code-edits.md#restore-a-checkpoint).
 

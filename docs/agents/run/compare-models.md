@@ -1,6 +1,6 @@
 ---
 ContentId: 924a518d-d9de-4f32-aaf4-b16919f0e66b
-DateApproved: 11/18/2026
+DateApproved: 11/25/2026
 MetaDescription: Compare model responses and code changes side by side in the {% data variables.copilot.agents_window %}, then continue with the strongest result.
 MetaSocialImage: ../images/agents-window/agents-window-ui-annotated.png
 Keywords:
@@ -75,7 +75,7 @@ Select **Run N Attempts**, where `N` is the number of attempts you configured. A
 
 ![Screenshot showing two model comparison attempts running side by side in a grid.](../images/compare-models/bake-off-grid.png)
 
-For repository comparisons, each attempt works in its own Git worktree based on the repository's committed state. It doesn't include changes that are uncommitted in your original working tree. Git-ignored files and dependencies might also be absent. For worktree requirements, ignored files, and **Allow all** permission behavior, see [Choose where an agent makes changes](/docs/agents/run/agents-window.md#choose-where-an-agent-makes-changes).
+For repository comparisons, each attempt works in its own Git worktree based on the repository's committed state. It doesn't include changes that are uncommitted in your original working tree. Git-ignored files and dependencies might also be absent. For requirements and dependency setup, see [Prepare a worktree](/docs/agents/run/worktrees.md#prepare-a-worktree).
 
 > [!CAUTION]
 > Repository comparisons started from **Compare Models** use worktree sessions with **Allow all**, which skips tool approval prompts. Worktrees separate edits, not the agent's access to your machine or network. Review [approvals and permissions](/docs/agents/run/approvals.md) and [agent sandboxing](/docs/agents/run/agent-sandboxing.md) before you run a comparison.

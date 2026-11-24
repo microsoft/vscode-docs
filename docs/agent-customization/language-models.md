@@ -1,6 +1,6 @@
 ---
 ContentId: 33e63aa1-1d8f-4d23-9733-1475f8c9f502
-DateApproved: 11/18/2026
+DateApproved: 11/25/2026
 MetaDescription: Configure chat, inline, and voice models in {% data variables.product.prodname_vscode_shortname %}. Use your own API key or run models on your device.
 Keywords:
 - language models
@@ -119,6 +119,95 @@ To use Copilot Fusion:
 1. In the model picker, select **Copilot Fusion**, then choose an available tier: **Standard**, **High**, or **Max**.
 
 Enabling the setting doesn't grant access to Fusion tiers. If the service doesn't offer a Fusion tier that your account can run, the picker continues to show **Auto** instead.
+
+## Use model routers
+
+`feature(model-routers)`
+
+Unlike Auto or Fusion, which choose models for you, a model router uses your own model choices and routing criteria. Define routes for recurring work, such as a faster model for small edits and a reasoning model for multi-file changes.
+
+> [!NOTE]
+> Model routers are available in {% data variables.product.prodname_vscode_shortname %} Insiders for [Copilot harness sessions](/docs/agents/run/agent-harnesses.md#copilot) and are off by default.
+
+### Create and select a router
+
+1. Enable `setting(chat.copilot.modelRouter.enabled)` in the Settings editor.
+
+1. Open a local folder in the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) and start a **Copilot** chat.
+
+1. In the model picker, select **Routers** > **Create a Router**, or **New Router** if you already have one.
+
+1. The action adds `/model-router` to your draft. Describe your routing preferences and send the request:
+
+    ```prompt
+    /model-router Use a reasoning model for debugging and multi-file changes, and a faster model for small edits. Choose models available to my account.
+    ```
+
+1. Review the router and any file or tool approvals. The skill validates it with `check_model_router`. Reopen **Routers** and select your router.
+
+Send a task. The routing line identifies the route, model, and effort. The response footer identifies the answering model.
+
+Open a router's **Details** to inspect its routes, model configurations, and switching mode. Select its file name to edit it. New and changed files are detected without reloading.
+
+### Write a router file
+
+Alternatively, create `<name>.model-router.yaml` in `~/.agents/model-routers/` on macOS or Linux, or `%USERPROFILE%\.agents\model-routers\` on Windows. Use lowercase letters, digits, and single hyphens for `<name>`, such as `daily-driver`.
+
+Routers in `~/.copilot/model-routers/` are also supported. For duplicate names, `~/.agents/` takes precedence.
+
+Adapt this example's models to your account, manually or with `/model-router`:
+
+```yaml
+version: 1
+display-name: Daily Driver
+description: Reasoning for multi-file work, faster responses for small edits.
+routes:
+  - name: build
+    model: opus
+    effort: high
+    when: Debugging, implementing features, or changing behavior across files.
+    guidance: Inspect the relevant code before editing. Run the relevant tests after changes.
+  - name: quick
+    model: haiku
+    effort: low
+    when: Small, well-defined edits, such as renaming a local variable or updating a comment.
+```
+
+* **Models:** Use a family for its newest available released model, an exact ID for a particular version, or a preference list such as `[opus, haiku]`.
+* **Criteria:** Describe the work in `when`, with optional `examples` to distinguish requests. Put your preferred fallback first: an unclear first request uses the first available route.
+* **Effort:** Set a supported `effort` level, or let the router choose when routing a request. Top-level `effort: off` keeps model defaults and ignores route effort.
+* **Context:** Set `context-size: long` for a larger supported window. Once a chat uses long context, subsequent models retain it where supported.
+
+After manual edits, ask `/model-router` to check for unavailable models, unsupported effort levels, and invalid YAML.
+
+### Control switching and route guidance
+
+By default, the first message after you select a router determines its route for the rest of the chat. To switch routes as the work changes, add at the top level:
+
+```yaml
+switching: auto
+```
+
+Short continuation replies generally keep the current route. Evaluate edited routing criteria in a new chat.
+
+A route's `guidance` instructs the main agent, including steps, [skills](/docs/agent-customization/agent-skills.md), or [custom agents](/docs/agent-customization/custom-agents.md) to use. Switching routes replaces that guidance. Running background subagents delay guidance changes until a routed turn after they finish.
+
+Top-level `guidance` influences routing decisions, not the agent's work. Put instructions such as running tests in route guidance. Guidance doesn't enforce workflows or permissions.
+
+Switching models resets the prompt cache and can increase [AI credit usage](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs). Guidance changes, higher effort, and larger context windows can also add cost.
+
+### Check unexpected routing
+
+For unexpected choices, ask `/model-router` to review overlapping criteria and add representative examples. Models must be available to your account and permitted by organization policies.
+
+| Condition | Behavior |
+|---|---|
+| All models in a route are unavailable | The route is skipped. |
+| Router file is invalid, missing, or has no available models | The chat keeps its current model and shows a notice. |
+| Routing is unavailable for the first request | The first available route is used, with a notice. |
+| Routing fails for a later request | The current route is kept. |
+
+A fallback isn't necessarily the best match for your task.
 
 <a name="use-on-device-models-experimental"></a>
 

@@ -1,6 +1,6 @@
 ---
 ContentId: 3b7e6d52-0c41-4f8a-9d2e-1a5c7b9e4f60
-DateApproved: 11/18/2026
+DateApproved: 11/25/2026
 MetaDescription: Choose approval controls for each agent harness and manage terminal command approvals in {% data variables.product.prodname_vscode_shortname %}.
 keywords:
 - copilot
