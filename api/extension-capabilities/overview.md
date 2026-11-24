@@ -77,7 +77,7 @@ Although we provide a listing of [language features](/api/language-extensions/pr
 - Create a new, interactive TreeView in the Side Bar.
 - Define a new Activity Bar view.
 - Show new information in the Status Bar.
-- Render custom content using the `WebView` API.
+- Render custom content using the `Webview` API.
 - Contribute Source Control providers.
 
 ## Debugging
