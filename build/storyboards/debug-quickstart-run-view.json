@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 2,
+  "id": "debug-quickstart-run-view",
+  "article": "docs/debugtest/quickstart.md",
+  "channel": "stable",
+  "execution": "attended",
+  "ai": "none",
+  "profile": {
+    "platform": "win32",
+    "theme": "Dark Modern",
+    "width": 1920,
+    "height": 1080,
+    "deviceScaleFactor": 1,
+    "zoomLevel": 2,
+    "wideContent": false,
+    "fonts": "product-defaults"
+  },
+  "workspace": {"entry": "app.js"},
+  "targets": {
+    "runAndDebug": {"scope": ".part.activitybar", "role": "tab", "name": "Run and Debug", "exact": false},
+    "editor": {"selector": ".monaco-editor .view-lines", "first": true},
+    "pausedLine": {"selector": ".monaco-editor .debug-top-stack-frame-line", "first": true},
+    "variables": {"selector": ".debug-variables"},
+    "callStack": {"selector": ".debug-call-stack"}
+  },
+  "steps": [
+    {"kind": "wait-for", "target": "runAndDebug", "state": "visible"},
+    {"kind": "wait-for", "target": "pausedLine", "state": "visible"},
+    {"kind": "assert", "target": "editor", "text": "price + quantity;", "match": "contains"},
+    {"kind": "assert", "target": "callStack", "text": "calculateTotal", "match": "contains"},
+    {"kind": "assert", "target": "variables", "text": "price", "match": "contains"},
+    {"kind": "assert", "target": "variables", "text": "10", "match": "contains"},
+    {"kind": "assert", "target": "variables", "text": "quantity", "match": "contains"},
+    {"kind": "assert", "target": "variables", "text": "3", "match": "contains"}
+  ],
+  "instructions": {
+    "setup": "Use the reviewed debugging-practice folder, unchanged buggy app.js, and dedicated Stable profile. During attended preparation, start app.js with its line 2 breakpoint, choose Node.js if prompted, open Run and Debug from the Activity Bar, and expand Local. Keep the Activity Bar, Run and Debug view, paused line, and toolbar visible; hide the bottom panel. The human handles native prompts and explicitly confirms readiness. UI arrangement may be agent-assisted after capture approval. Do not edit the file, install anything, sign in, or use AI.",
+    "checks": [
+      {
+        "source": {
+          "line": 82,
+          "endLine": 84,
+          "quote": "1. Open the **Run and Debug** view (`kb(workbench.view.debug)`) if it isn't already visible.\n\nExecution pauses on line 2. The current-line highlight indicates the line that runs next, not a line that has already run. Under **VARIABLES**, expand **Local** to find `price` with a value of `10` and `quantity` with a value of `3`."
+        },
+        "action": "Observe the Run and Debug Activity Bar control and the opened view while paused.",
+        "expected": "A two-pixel red rectangle identifies the Run and Debug Activity Bar control. The open view shows Local price 10 and quantity 3 beside app.js paused on line 2.",
+        "steps": [0, 1, 2, 3, 4, 5, 6, 7]
+      }
+    ]
+  },
+  "capture": {
+    "file": "debug-quickstart-run-view.png",
+    "alt": "Screenshot showing the Run and Debug icon highlighted with a red rectangle, and Local variables beside app.js paused on line 2.",
+    "highlights": {
+      "strokeWidth": 2,
+      "targets": [{"target": "runAndDebug", "padding": -4}]
+    }
+  },
+  "privacy": {
+    "denyText": ["@", "Bearer ", "ghp_", "github_pat_"],
+    "humanVisualReviewRequired": true
+  }
+}

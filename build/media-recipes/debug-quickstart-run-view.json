@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "debug-quickstart-run-view",
+  "storyboard": "build/storyboards/debug-quickstart-run-view.json",
+  "outputs": [
+    {
+      "id": "run-and-debug",
+      "base": "docs/debugtest/images/quickstart/run-and-debug",
+      "source": "highlighted",
+      "prepare": {
+        "format": "png",
+        "crop": {"x": 0, "y": 52, "width": 1192, "height": 320}
+      },
+      "assets": ["docs/debugtest/images/quickstart/run-and-debug-2026112401.png"]
+    }
+  ]
+}
