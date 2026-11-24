@@ -63,9 +63,15 @@ test('native chat preserves file attachments and prefills an unsubmitted editor 
   assert.equal(draft.searchParams.get('mode'), 'agent');
   assert.equal(draft.searchParams.get('prompt'), prompt);
   assert.equal(calls.some(([, args]) => args.includes(prompt)), false, 'The prompt must never be passed to the submitting chat CLI.');
+  const prPrompt = '/pr-review https://github.com/microsoft/vscode-docs/pull/123 Verify defaults.';
+  await editor.chat({ files: [], prompt: prPrompt });
+  assert.equal(calls.length, 6);
+  assert.deepEqual(calls[4][1].slice(1), ['chat', '--reuse-window', '--mode', 'agent']);
+  assert.equal(new URL(calls[5][1].at(-1)).searchParams.get('prompt'), prPrompt);
+  assert.equal(calls.some(([, args]) => args.includes(prPrompt)), false, 'Attachment-free slash commands must also remain unsubmitted.');
   await writeFile(productFile, '{}');
   await assert.rejects(editor.chat({ files, prompt }), /native chat draft link.*No request was submitted/);
-  assert.equal(calls.length, 4, 'Missing draft support must not open or submit a chat.');
+  assert.equal(calls.length, 7, 'Missing draft support must not open or submit a chat.');
   const old = await editorTools.createEditor({ executable, async run() { return { stdout: 'No chat options' }; } });
   await assert.rejects(old.chat({ files, prompt }), /native chat launcher/);
   const failed = await editorTools.createEditor({ executable, async run() { throw new Error('CLI unavailable'); } });

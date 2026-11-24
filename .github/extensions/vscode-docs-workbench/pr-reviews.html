@@ -44,7 +44,6 @@
       <div><label for="pr-repository">Repository</label><select id="pr-repository" disabled><option value="microsoft/vscode-docs">microsoft/vscode-docs</option><option value="microsoft/vscode-docs-pr">microsoft/vscode-docs-pr</option></select></div>
       <button id="pr-refresh" type="button" class="secondary" disabled>Refresh</button>
     </div>
-    <div class="tpi-channel-field"><label for="pr-channel">Intended product channel</label><select id="pr-channel"><option value="stable">Stable</option><option value="insiders">Insiders</option></select></div>
   </section>
   <p id="pr-notice" role="status" aria-live="polite">Loading pull requests...</p>
   <p id="pr-error" class="error" role="alert"></p>
@@ -71,12 +70,12 @@
       <label for="pr-request">Review focus (optional)</label>
       <textarea id="pr-request" rows="2" maxlength="4000" placeholder="Specific concerns, claims, or exclusions"></textarea>
       <div><button id="pr-direct-start" type="submit" disabled>Start PR review in chat</button></div>
-      <p class="muted">Use a URL from either documentation repository, including closed PRs. Uses the product channel selected above.</p>
+      <p class="muted">Use a URL from either documentation repository, including closed PRs.</p>
     </form>
   </details>
   <footer class="tpi-footer">
     <p>Includes all open PRs, including drafts, ordered by most recently updated. Review uses chat credits and verifies a pinned revision, not this list's cached metadata.</p>
-    <p>Requests open as unsubmitted drafts in the editor's Chat view. Choose your chat options and send when ready. No PR checkout, execution, article edits, or GitHub comments. Results stay in chat; launching does not track completion or populate batch Findings. Check Chat before retrying a failed handoff.</p>
+    <p>Review opens an unsubmitted <code>/pr-review &lt;PR link&gt;</code> draft in a new chat, followed by any instructions you entered. Choose your chat options and send when ready. No PR checkout, execution, article edits, or GitHub comments. Results stay in chat; launching does not track completion or populate batch Findings. Check Chat before retrying a failed handoff.</p>
   </footer>
   </div>
 </main>

@@ -31,7 +31,7 @@ async function perform(action) {
 async function review(url, focus) {
   $('pr-notice').textContent = 'Opening PR review chat...';
   try {
-    const result = await request('pr-chat', { url, request: focus, channel: $('pr-channel').value, confirmed: true });
+    const result = await request('pr-chat', { url, request: focus, confirmed: true });
     $('pr-notice').textContent = result.message;
   } catch (error) {
     $('pr-notice').textContent = '';
@@ -41,7 +41,6 @@ async function review(url, focus) {
 function render() {
   $('pr-repository').disabled = busy || !token;
   $('pr-refresh').disabled = busy || !token;
-  $('pr-channel').disabled = busy;
   $('pr-direct-start').disabled = busy || !available || !$('pr-url').value.trim();
   $('pr-chat-status').textContent = available ? '' : chatMessage || 'Native chat opening is unavailable in this host. You can still browse PRs.';
   const cache = state?.cache;

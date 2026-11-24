@@ -43,7 +43,7 @@ async function createEditor({ executable = process.execPath, run = execute } = {
       return { opened: true, file, ...(before ? { before, comparison: 'Captured draft baseline against the current editor file.' } : { line }) };
     },
     async chat({ files, prompt }) {
-      if (!Array.isArray(files) || !files.length || files.length > 4 ||
+      if (!Array.isArray(files) || files.length > 4 ||
           files.some(file => typeof file !== 'string' || !path.isAbsolute(file) || /[\r\n\0]/.test(file)) ||
           typeof prompt !== 'string' || !prompt.trim() || prompt.length > 12000 || prompt.includes('\0')) {
         throw new Error('Invalid chat request.');

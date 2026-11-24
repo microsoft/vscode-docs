@@ -100,9 +100,9 @@ The [release-TPI helper](.github/extensions/vscode-docs-workbench/release-tpis.m
 Open **Review PRs** (`/prs`):
 
 1. Select `microsoft/vscode-docs` or `microsoft/vscode-docs-pr`. The list includes all open PRs, including drafts, ordered by most recently updated. Search by title, number, or author.
-2. Select the intended product channel. Expand a row's **Optional instructions** to narrow the review or identify concerns.
-3. Select **Review** to open an interactive pr-review chat. Alternatively, expand **Review a PR by URL** to supply a URL from either repository, including a closed PR.
-4. Read the source-backed findings and coverage limitations in that conversation. The review screens untrusted GitHub inputs, records full head and base hashes, reviews changed passages with complete articles as context, and rechecks the revisions before reporting. Suspicious instructions require human confirmation to continue ignoring them.
+2. Expand a row's **Optional instructions** to narrow the review or identify concerns.
+3. Select **Review** to prepare a new, unsubmitted chat draft containing only `/pr-review <PR link>` followed by any instructions you entered. Alternatively, expand **Review a PR by URL** to supply a URL from either repository, including a closed PR.
+4. Choose your chat options and send the request. The pr-review skill owns the review procedure; the canvas adds no review boilerplate or file attachments.
 
 The list is discovery context, not a pinned review snapshot. **Refresh** retrieves all pages. A failure retains the previous successful list with its original repository, account, and fetch time; a different selected repository is explicitly identified. The provider keeps only this temporary cache, not a persistent PR queue or completion state.
 
