@@ -21,10 +21,10 @@
     },
     {
       "type": "release",
-      "title": "Schedule requests with Send Later",
-      "description": "This week, save requests as drafts or schedule them for later. When you're ready, let a model router match the task to your preferred model. And when a result is easier to show than explain, ask for a chart or mockup.",
-      "link": "/updates/v1_147",
-      "image": "/assets/updates/1_147/release-highlights.webp"
+      "title": "Keep agents working while you step away",
+      "description": "Prevent idle sleep while agents work on supported hosts, even after you close the window. Create isolated Dev Containers, clean up remote worktrees, tailor remote sandbox profiles, and get faster-starting chat responses.",
+      "link": "/updates/v1_148",
+      "image": "/assets/updates/1_148/release-highlights.webp"
     }
   ]
 }
