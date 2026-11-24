@@ -308,6 +308,8 @@ Keep these behaviors in mind:
 
   These connection-removal actions don't delete files on the remote machine. **Delete Dev Container** for a standalone container is different: it removes the container and its Docker volumes, including workspace files, and its sessions can no longer continue. Save any work you need elsewhere first.
 
+To reclaim disk space from agent-managed worktrees on a connected host, use [Worktree Cleanup](/docs/agents/run/worktrees.md#clean-up-session-worktrees) in {% data variables.product.prodname_vscode_shortname %} Insiders. Unlike disconnecting or forgetting a host, cleanup removes selected worktree folders on that host. Review the host identity and preservation rules before confirming.
+
 #### Choose how agents run on a remote
 
 On an SSH host or dev tunnel's row, select **More Actions** (`...`) > **Configure Agent Run Behavior** to choose how agent tasks run:

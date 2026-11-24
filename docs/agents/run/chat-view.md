@@ -86,6 +86,8 @@ Open a chat from the sessions list to work in its location. Explorer and Source 
 
 Switching locations doesn't integrate changes. When the task is ready, [review and integrate the worktree changes](/docs/agents/run/worktrees.md#review-and-integrate-changes).
 
+To reclaim disk space afterward, run **Chat: Open Worktree Cleanup** without leaving the editor window. Follow [Clean up session worktrees](/docs/agents/run/worktrees.md#clean-up-session-worktrees) to review what is preserved before removing worktrees.
+
 ## Work with the agent
 
 Keep the code and its checks beside the conversation as you work:

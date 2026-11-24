@@ -223,6 +223,8 @@ If migration reports overlapping local changes, commit or stash those changes in
 
 ### Remove a worktree
 
+For agent-managed worktrees, use [Worktree Cleanup](/docs/agents/run/worktrees.md#clean-up-session-worktrees) to reclaim disk space while preserving session history and saving nonignored changes to the retained branches. The **Git: Delete Worktree** procedure below doesn't save uncommitted changes for you.
+
 Remove a linked worktree when you no longer need its working directory:
 
 1. Review the worktree's changes in the Source Control view. Commit, stash, or copy out any changes and local files you want to keep.

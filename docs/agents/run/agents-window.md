@@ -255,6 +255,8 @@ Committing records the changes but doesn't necessarily put them in the branch wh
 
 After combining changes from multiple sessions, rerun the relevant checks on the combined result. Keep the sessions available until that validation is complete, then [mark finished sessions as done](/docs/agents/run/sessions/manage-sessions.md#finish-and-restore-sessions).
 
+To reclaim disk space from inactive or leftover worktrees, run **Chat: Open Worktree Cleanup**. The [shared cleanup procedure](/docs/agents/run/worktrees.md#clean-up-session-worktrees) covers both windows, local and remote worktrees, and what is preserved.
+
 ### Create a pull request
 
 If the session doesn't already have a pull request:

@@ -1,7 +1,7 @@
 ---
 ContentId: 526fd4d2-eec4-4ac9-8d3b-9ca8ee0ce032
 DateApproved: 11/23/2026
-MetaDescription: Choose where agents change code in {% data variables.product.prodname_vscode_shortname %}, prepare isolated worktrees, and integrate reviewed results.
+MetaDescription: Isolate agent tasks in {% data variables.product.prodname_vscode_shortname %} worktrees, integrate reviewed changes, and reclaim disk space safely.
 MetaSocialImage: ../images/agent-harnesses/agents-window-new-worktree-2.png
 Keywords:
 - agents
@@ -11,7 +11,7 @@ Keywords:
 ---
 # Work with agents in worktrees
 
-Choose where an agent changes files before you start a coding task. Use your current folder to work with existing edits, or a separate [Git worktree](/docs/sourcecontrol/branches-worktrees.md#understanding-worktrees) to keep an independent task's changes apart. This article helps you choose isolation, prepare the worktree, and bring reviewed changes back into your project.
+Choose where an agent changes files before you start a coding task. Use your current folder to work with existing edits, or a separate [Git worktree](/docs/sourcecontrol/branches-worktrees.md#understanding-worktrees) to keep an independent task's changes apart. This article helps you choose isolation, prepare the worktree, bring reviewed changes back into your project, and clean up worktrees you no longer need.
 
 Separate conversations don't automatically mean separate files. Chats in the same folder or worktree can change the same files, even when they have different conversation histories.
 
@@ -65,7 +65,44 @@ Switching chats or opening another worktree doesn't merge changes into your orig
 
 Commit the changes you want to keep, then [merge the worktree branch](/docs/sourcecontrol/branches-worktrees.md#merge-and-publish-branches) into your intended destination branch or use your team's pull request workflow. The {% data variables.copilot.agents_window %} also provides [integration actions](/docs/agents/run/agents-window.md#integrate-the-result) for supported sessions.
 
-After combining changes, rerun the relevant checks on the destination branch. Keep the sessions and worktrees available until you have preserved the changes and validated the combined result. For manual cleanup, see [Remove a worktree](/docs/sourcecontrol/branches-worktrees.md#remove-a-worktree).
+After combining changes, rerun the relevant checks on the destination branch. Keep the sessions and worktrees available until you have preserved the changes and validated the combined result.
+
+## Clean up session worktrees
+
+Reclaim disk space from inactive or leftover agent-managed worktrees while retaining their branches. In {% data variables.product.prodname_vscode_shortname %} Insiders, the same cleanup editor is available in the regular editor window and the {% data variables.copilot.agents_window %}, including for supported connected remote hosts.
+
+Cleanup marks listed sessions done, commits nonignored changes, including untracked files, to their branches, and schedules the worktree folders for removal. Branches and session history are retained, so [restoring a session](/docs/agents/run/sessions/manage-sessions.md#archive-sessions) re-creates its worktree. Worktrees used by other sessions or chats are protected.
+
+> [!CAUTION]
+> Ignored files in removed worktrees are deleted. Copy out any local configuration or other ignored files you need before confirming cleanup.
+
+1. Run **Chat: Open Worktree Cleanup** from the Command Palette (`kb(workbench.action.showCommands)`) in either window.
+
+1. Choose an inactivity filter and, if needed, a workspace.
+
+1. Review the selected worktrees, including their hosts, branches, paths, and estimated sizes. Clear any selected worktrees you want to keep. Cleanup can include sessions outside the editor's current workspace.
+
+1. Save open file edits in the selected worktrees, then select the cleanup button.
+
+1. Review the confirmation, including any remote hosts, then select **Clean Up**.
+
+<!-- TODO: Capture the current Insiders Worktree Cleanup editor with local and remote host-labelled worktrees, filters, and the selection count. Use a reviewed sample workspace and obtain exact-asset approval before adding the screenshot. -->
+
+Cleanup also includes eligible leftovers from done sessions and agent-managed worktrees without a listed session. The latter retain their branches but have no conversation to restore. For worktrees you manage yourself, see [Remove a worktree](/docs/sourcecontrol/branches-worktrees.md#remove-a-worktree).
+
+### Clean up remote worktrees and handle failures
+
+Remote cleanup requires a connected host that supports it and removes files on that host, not your client machine. Check the host as well as the path, especially when hosts use identical folder paths.
+
+If the host is unavailable or unsupported, connect or update it, then refresh. If the connection drops during cleanup, reconnect and refresh to verify the result.
+
+For failures, follow the worktree's status and error: a retry might already be scheduled, or you can select an eligible worktree to retry. Resolve any use by another session or chat first. Unknown size estimates and pending or failed cleanup don't confirm removal.
+
+### Configure cleanup suggestions
+
+In **Automatic Cleanup**, use `setting(chat.agentSessions.sessionStorageCleanupSuggestion.enabled)` (Experimental) to control suggestions in the {% data variables.copilot.agents_window %}. Suggestions aren't shown in the regular editor window and don't monitor remote free disk space. See the [AI settings reference](/docs/agents/reference/ai-settings.md#session-experience) for defaults and thresholds.
+
+You can also configure [automatic completion and deletion retention](/docs/agents/run/sessions/manage-sessions.md#automatically-clean-up-merged-sessions). These aren't required for manual cleanup.
 
 ## Related resources
 
