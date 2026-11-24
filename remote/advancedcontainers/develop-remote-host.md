@@ -19,7 +19,7 @@ If you are using a Linux or macOS SSH host, you can use the [Remote - SSH](/docs
 1. **Optional:** Set up SSH [key based authentication](/docs/remote/troubleshooting.md#configuring-key-based-authentication) to the server so you do not need to enter your password multiple times.
 1. [Install Docker](/docs/devcontainers/containers#installation) on your SSH host. You do not need to install Docker locally.
 1. Follow the [quick start](/docs/remote/ssh.md#connect-to-a-remote-host) for the Remote - SSH extension to connect to a host and open a folder there.
-1. Create a [devcontainer.json](/docs/devcontainers/containers#_create-a-devcontainerjson-file) file.
+1. Create a [devcontainer.json](/docs/devcontainers/containers#create-a-devcontainerjson-file) file.
 1. Use the **Dev Containers: Reopen in Container** command from the Command Palette (`kbstyle(F1)`, `kb(workbench.action.showCommands)`).
 
 The rest of the Dev Containers quick start applies as-is. You can learn more about the [Remote - SSH extension in its documentation](/docs/remote/ssh.md).
@@ -57,7 +57,7 @@ At this point, you can [attach](/docs/devcontainers/attach-container.md) to cont
 
 For `devcontainer.json`, there is one additional step: You'll need to update any configured (or auto-configured) bind mounts so they no longer point to the local filesystem.
 
-There's two variations of this setup. The first is to **create your remote dev container first**, and then **clone your source code into a named volume** since this does not require you to have direct access to the filesystem on the remote host.
+There are two variations of this setup. The first is to **create your remote dev container first**, and then **clone your source code into a named volume** since this does not require you to have direct access to the filesystem on the remote host.
 
 Here is a basic `devcontainer.json` example of this setup:
 

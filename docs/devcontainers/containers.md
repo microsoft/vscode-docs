@@ -203,7 +203,7 @@ For example, follow these steps to open one of the "try" repositories in a Repos
 
     ![Input box with a repository name in it](images/containers/vscode-remote-try-node.png)
 
-    > **Tip:** If you choose a private repository, you may want to setup a credential manager or add your SSH keys to your SSH agent. See [Sharing Git credentials with your container](/remote/advancedcontainers/sharing-git-credentials.md).
+    > **Tip:** If you choose a private repository, you may want to set up a credential manager or add your SSH keys to your SSH agent. See [Sharing Git credentials with your container](/remote/advancedcontainers/sharing-git-credentials.md).
 
 3. If your repository does not have a `.devcontainer/devcontainer.json` file in it, you'll be asked to pick a starting point from a filterable list or an existing [Dockerfile](https://docs.docker.com/engine/reference/builder/) or [Docker Compose file](https://docs.docker.com/compose/compose-file/#compose-file-structure-and-examples) (if one exists).
 
@@ -332,7 +332,7 @@ Similar to how you can [set extensions to always be installed](#always-installed
 
 It's also easy to create and publish your own Dev Container Features. Published Features can be stored and shared as [OCI Artifacts](https://github.com/opencontainers/artifacts) from any supporting public or private container registry. You can see the list of current published Features on [containers.dev](https://containers.dev/features).
 
-A Feature is a self contained entity in a folder with at least a `devcontainer-feature.json` and `install.sh` entrypoint script:
+A Feature is a self-contained entity in a folder with at least a `devcontainer-feature.json` and `install.sh` entrypoint script:
 
 ```
 +-- feature
@@ -363,7 +363,7 @@ Go to the [dev container CLI article on pre-building images](/docs/devcontainers
 
 You can include Dev Container configuration and Feature metadata in prebuilt images via [image labels](https://docs.docker.com/config/labels-custom-metadata/). This makes the image self-contained since these settings are automatically picked up when the image is referenced - whether directly, in a `FROM` in a referenced Dockerfile, or in a Docker Compose file. This helps prevent your Dev Container config and image contents from getting out of sync, and allows you to push updates of the same configuration to multiple repositories through a simple image reference.
 
-This metadata label is **automatically added** when you pre-build using the [Dev Container CLI](/docs/devcontainers/devcontainer-cli.md) (or other [specification](https://containers.dev) supporting utilities like the [GitHub Action](https://github.com/marketplace/actions/devcontainers-ci) or [Azure DevOps task](https://marketplace.visualstudio.com/items?itemName=devcontainers.ci)) and includes settings from `devcontainer.json` and any referenced Dev Container Features.
+This metadata label is **automatically added** when you pre-build using the [Dev Container CLI](/docs/devcontainers/devcontainer-cli.md) (or other [specification](https://containers.dev) supporting utilities like the [GitHub Action](https://github.com/marketplace/actions/dev-container-build-and-run-action) or [Azure DevOps task](https://marketplace.visualstudio.com/items?itemName=devcontainers.ci)) and includes settings from `devcontainer.json` and any referenced Dev Container Features.
 
 This allows you to have a separate **more complex** `devcontainer.json` you use to pre-build your image, and then a dramatically **simplified one** in one or more repositories. The contents of the image will be merged with this simplified `devcontainer.json` content at the time you create the container (go to [the spec](https://containers.dev/implementors/spec/#merge-logic) for information on merge logic). But at its simplest, you can just reference the image directly in `devcontainer.json` for the settings to take effect:
 
@@ -548,7 +548,7 @@ For example, adding this to `.devcontainer/devcontainer.json` will set the Java 
     // Configure properties specific to {% data variables.product.prodname_vscode_shortname %}.
     "vscode": {
         "settings": {
-            "java.home": "/docker-java-home"
+            "java.jdt.ls.java.home": "/docker-java-home"
         }
     }
 }

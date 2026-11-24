@@ -189,7 +189,7 @@ The list below are some of the most common diagnostics provided by Pylance and h
 
 #### importResolveSourceFailure
 
-This error occurs when Pylance is able to find type stubs for the imported package, but is unable find the package itself. This can happen when the package you are trying to import is not installed in the selected Python environment.
+This error occurs when Pylance is able to find type stubs for the imported package, but is unable to find the package itself. This can happen when the package you are trying to import is not installed in the selected Python environment.
 
 **How to fix it**
 

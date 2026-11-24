@@ -6,7 +6,7 @@ MetaDescription: Model Conversion reference about manual model conversion for LL
 # Manual model conversion on GPU
 This article introduces the manual workflow for converting LLM models using a local Nvidia GPU. It describes the required environment setup, execution steps, and how to run inference on a Windows Copilot+ PC with a Qualcomm NPU.
 
-Conversion of LLM models requires a Nvidia GPU. If you want model lab to manage your local GPU, follow the steps in [Convert Model](/docs/intelligentapps/modelconversion.md#create-project). Otherwise, follow the steps in this article.
+Conversion of LLM models requires an NVIDIA GPU. If you want model lab to manage your local GPU, follow the steps in [Convert Model](/docs/intelligentapps/modelconversion.md#create-project). Otherwise, follow the steps in this article.
 
 ## Manual run model conversion on GPU
 This workflow is configured using the `qnn_config.json` file and requires two separate Python environments.
@@ -14,7 +14,7 @@ This workflow is configured using the `qnn_config.json` file and requires two se
 - The second environment is used for QNN optimization and includes packages like onnxruntime-qnn with specific dependencies.
 
 ### First environment setup
-In a **Python 3.10** [x64 Python environment with Olive installed](https://github.com/microsoft/Olive/blob/main/examples/README.md#important), install the required packages:
+In a **Python 3.10** [x64 Python environment with Olive installed](https://microsoft.github.io/Olive/getting-started/getting-started.html#install-with-pip), install the required packages:
 
 ```bash
 # Install common dependencies
@@ -40,7 +40,7 @@ pip install torch --index-url https://download.pytorch.org/whl/cu121
 > ⚠️ Only set up the environment and install the packages. Do not run the `olive run` command at this point.
 
 ### Second environment setup
-In a **Python 3.10** [x64 Python environment with Olive installed](https://github.com/microsoft/Olive/blob/main/examples/README.md#important), install the required packages:
+In a **Python 3.10** [x64 Python environment with Olive installed](https://microsoft.github.io/Olive/getting-started/getting-started.html#install-with-pip), install the required packages:
 
 ```bash
 # Install ONNX Runtime QNN

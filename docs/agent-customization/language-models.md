@@ -295,7 +295,7 @@ You can also use these models to [override the models used for utility tasks in 
 > [!NOTE]
 > If you are a {% data variables.copilot.copilot_business_short %} or Enterprise user, your administrator can disable the **Bring Your Own Language Model Key in {% data variables.product.prodname_vscode_shortname %}** policy in the [Copilot policy settings](https://github.com/settings/copilot/features) on GitHub.com. For more details, see the [GitHub Copilot documentation](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys).
 
-### Add a model from a built in provider
+### Add a model from a built-in provider
 
 Pick from a set of common providers that are ready to use in {% data variables.product.prodname_vscode_shortname %}. Depending on the provider, you need an API key and other configuration details like the endpoint URL.
 
@@ -434,8 +434,8 @@ In addition to the [common model properties](#model-configuration-reference) the
 | `apiType` | _(Optional)_ Override the API type for this model (`chat-completions`, `responses`, or `messages`). Defaults to the provider-level `apiType`, or is inferred from the `url` when neither is set. |
 | `contextWindow` | _(Optional)_ The model's full context window (input + output) in tokens, for example `1000000` for a 1M-token model. When set, you can omit `maxInputTokens` and {% data variables.product.prodname_vscode_shortname %} derives it as `contextWindow - maxOutputTokens`. |
 | `modelOptions` | _(Optional)_ An object of request parameters sent with every request to the model, such as `temperature` and `top_p`. For example, `"modelOptions": { "temperature": 0.2 }`. |
-| `requestHeaders` | _(Optional)_ An object of additional HTTP headers to include with requests to this model, for example to authenticate through a gateway or vanity domain. See [Custom authentication headers](#custom-authentication-headers). |
-| `statefulResponses` | _(Optional)_ Whether the Responses API server retains prior responses. Defaults to `true`. Set to `false` for stateless servers to send full conversation history with each request. Applies only to the Responses API. See [Stateful Responses API endpoints](#stateful-responses-api-endpoints). |
+| `requestHeaders` | _(Optional)_ An object of additional HTTP headers to include with requests to this model, for example to authenticate through a gateway or vanity domain. See **Custom authentication headers** below. |
+| `statefulResponses` | _(Optional)_ Whether the Responses API server retains prior responses. Defaults to `true`. Set to `false` for stateless servers to send full conversation history with each request. Applies only to the Responses API. See **Stateful Responses API endpoints** below. |
 
 ##### Endpoint URL resolution
 

@@ -127,7 +127,7 @@ To map a schema that is defined in the User or Workspace settings, use the `sche
 
 ### Mapping a schema in an extension
 
-Schemas and schema associations can also be defined by an extension. Check out the [jsonValidation contribution point](/api/references/contribution-points.md#contributesjsonvalidation).
+Schemas and schema associations can also be defined by an extension. Check out the [jsonValidation contribution point](/api/references/contribution-points.md#contributes.jsonValidation).
 
 ### File match syntax
 

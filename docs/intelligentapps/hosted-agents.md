@@ -105,7 +105,7 @@ The following example shows a local agent with tools, rather than the basic samp
 
 ![Screenshot showing Agent Inspector connected to localhost on port 8088 with the Responses protocol, tool calls, a latency waterfall, and a run timeline.](./images/hosted-agents/local-agent-inspector.png)
 
-Optionally, run `/validate-microsoft-foundry-hosted-agent` in {% data variables.product.prodname_copilot %} Chat to review the project against Foundry best practices and open a report. This is a Chat command, not a terminal command or a substitute for running the agent. For help modifying agent code, see [Foundry Toolkit's Agent Code Gen tool](/docs/intelligentapps/copilot-tools.md#agent-code-gen-tool).
+Optionally, run `/validate-microsoft-foundry-hosted-agent` in {% data variables.product.prodname_copilot %} Chat to review the project against Foundry best practices and open a report. This is a Chat command, not a terminal command or a substitute for running the agent. For help modifying agent code, see [Foundry Toolkit's Agent Code Gen tool](/docs/intelligentapps/copilot-tools.md#generate-and-test-agent-code).
 
 ## Deploy your hosted agent
 

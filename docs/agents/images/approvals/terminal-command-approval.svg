@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="320" viewBox="0 78 760 320" role="img" aria-labelledby="title description">
+  <title id="title">Will this terminal command need confirmation?</title>
+  <desc id="description">In a Copilot session with Manual permissions, a command blocked by policy doesn't run. If the runtime already approves the command, it runs without a prompt. Otherwise the Agent Host checks terminal rules and saved approvals. If they allow the command, it runs without a prompt. If not, the user reviews it in chat.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M1 1 L9 5 L1 9 Z" fill="#60738c"/>
+    </marker>
+    <style>
+      text { font-family: "Segoe UI", Arial, sans-serif; fill: #243247; }
+      .heading { font-size: 20px; font-weight: 600; }
+      .detail { font-size: 17px; fill: #475569; }
+      .card { fill: #f0f6ff; stroke: #9bb7d8; stroke-width: 1.5; }
+      .arrow { fill: none; stroke: #60738c; stroke-width: 2; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect y="78" width="760" height="320" fill="#fff"/>
+
+  <rect class="card" x="20" y="88" width="370" height="58" rx="8"/>
+  <text class="heading" x="38" y="124">Does policy block the command?</text>
+  <path class="arrow" d="M390 117 H532"/>
+  <text class="detail" x="442" y="108">Yes</text>
+  <rect x="534" y="88" width="206" height="58" rx="8" fill="#f8fafc" stroke="#93a4bc" stroke-width="1.5"/>
+  <text class="heading" x="552" y="124">Do not run</text>
+
+  <path class="arrow" d="M205 146 V196"/>
+  <text class="detail" x="216" y="176">No</text>
+  <rect class="card" x="20" y="198" width="370" height="58" rx="8"/>
+  <text class="heading" x="38" y="234">Does the runtime approve it?</text>
+  <path class="arrow" d="M390 218 H532"/>
+  <text class="detail" x="442" y="209">Yes</text>
+  <rect x="534" y="198" width="206" height="58" rx="8" fill="#eaf7f5" stroke="#79b8b2" stroke-width="1.5"/>
+  <text class="heading" x="552" y="234">Run without asking</text>
+
+  <path class="arrow" d="M205 256 V306"/>
+  <text class="detail" x="216" y="286">Not yet</text>
+  <rect class="card" x="20" y="308" width="370" height="72" rx="8"/>
+  <text class="heading" x="38" y="338">Do rules or saved approvals allow it?</text>
+  <text class="detail" x="38" y="363">A matching ask rule takes priority.</text>
+  <path class="arrow" d="M390 326 H479 V243 H532"/>
+  <text class="detail" x="413" y="317">Yes</text>
+  <path class="arrow" d="M390 359 H532"/>
+  <text class="detail" x="442" y="350">No</text>
+  <rect x="534" y="330" width="206" height="58" rx="8" fill="#f5f0fb" stroke="#d6cae8" stroke-width="1.5"/>
+  <text class="heading" x="552" y="366">Ask in chat</text>
+</svg>

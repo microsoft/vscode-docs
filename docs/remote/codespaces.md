@@ -15,7 +15,7 @@ An environment is the "backend" half of GitHub Codespaces. It's where all of the
 
 ## Customization
 
-GitHub Codespaces are fully customizable on a per project basis. This is accomplished by including a `devcontainer.json` file in the project's repository, similar to {% data variables.product.prodname_vscode_shortname %} [Dev Containers](/docs/devcontainers/containers.md) development.
+GitHub Codespaces are fully customizable on a per-project basis. This is accomplished by including a `devcontainer.json` file in the project's repository, similar to {% data variables.product.prodname_vscode_shortname %} [Dev Containers](/docs/devcontainers/containers.md) development.
 
 Example customizations include:
 
@@ -85,7 +85,7 @@ For several issues (especially keyboard shortcuts or those listed with a workaro
 |-|-|-|
 | Extensions with keyboard shortcuts that overlap with browser shortcuts, for example [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph), which uses `kbstyle(Ctrl+R)` to refresh. | The keyboard shortcut may overlap with an existing browser shortcut, for example `kbstyle(Ctrl+R)` refreshes the window in Safari. | You can use a desktop-based, rather than web-based, Codespace to fully leverage your keyboard shortcuts. Different browsers may also behave differently (you can refresh Git Graph in Chrome). |
 | Language packs, for example the [Japanese Language Pack for {% data variables.product.prodname_vscode %}](https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-ja) | Language pack extensions are currently not supported in web-based Codespaces. | You can use a desktop-based Codespace to use language packs and configure the display language. |
-| [Bracket Pair Colorizer 2](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2) | It will not work in the browser as it introduces an install location dependency that is not easily fixable. | Use [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer). |
+| [Bracket Pair Colorizer 2](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2) | It will not work in the browser as it introduces an install location dependency that is not easily fixable. | Use [built-in bracket pair colorization](/docs/editing/editingevolved.md#bracket-pair-colorization) instead. |
 | Browser Debuggers, such as [Debugger for Firefox](https://marketplace.visualstudio.com/items?itemName=firefox-devtools.vscode-firefox-debug). | Extensions that require a UI/Desktop extension host do not load in the browser. | You can use these extensions in local {% data variables.product.prodname_vscode_shortname %} (not connected to Codespaces). Or, while your app is running from a Codespace, you can use an alternative, like Chrome DevTools to inspect elements and set breakpoints. |
 | Extensions to open a browser, for example [open in browser](https://marketplace.visualstudio.com/items?itemName=techer.open-in-browser). | Extensions that require a UI/Desktop extension host do not load in the browser. | Use a substitute extension if possible, like [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer). |
 | [Project Manager](https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager) | Project Manager relies on syncing a custom `projects.json` file, which [isn't currently supported](https://github.com/microsoft/vscode/issues/113774). | You can use the extension in desktop Codespaces or local {% data variables.product.prodname_vscode_shortname %} to save and manage your projects, as these options won't require syncing a custom file. |
@@ -114,13 +114,13 @@ Once you have granted {% data variables.product.prodname_vscode_shortname %} acc
 
 ### How do I allow {% data variables.product.prodname_vscode_shortname %} to always open new tabs and windows?
 
-Sometimes browsers will, as a security precaution, block {% data variables.product.prodname_vscode_shortname %} from opening new tabs or windows. If this happens, {% data variables.product.prodname_vscode_shortname %} will detect the blocking action and explicitly prompt the user. However, you can allow {% data variables.product.prodname_vscode_shortname %} to always open new windows and tabs by opening the site settings via the context menu in the browser navigation bar and by allowing to **Pop-up Windows**.
+Sometimes browsers will, as a security precaution, block {% data variables.product.prodname_vscode_shortname %} from opening new tabs or windows. If this happens, {% data variables.product.prodname_vscode_shortname %} will detect the blocking action and explicitly prompt the user. However, you can allow {% data variables.product.prodname_vscode_shortname %} to always open new windows and tabs by opening the site settings via the context menu in the browser navigation bar and allowing **Pop-up Windows**.
 
 ![Allow pop-up window in browser](images/codespaces/allow-new-tab.png)
 
 ### How do I allow {% data variables.product.prodname_vscode_shortname %} in a browser to access local files and folders?
 
-Opening local files and folders in {% data variables.product.prodname_vscode_shortname %} from a browser requires the browser to support the [File System Access API](https://developer.mozilla.org/en-US/docs/Web/API/File_System_Access_API). As of today both [Microsoft Edge](https://www.microsoft.com/en-us/edge) and Google Chrome offer this level of support. If you want to access local files and folders when using {% data variables.product.prodname_vscode_shortname %} in a browser, please consider to switch to one of these two browsers.
+Opening local files and folders in {% data variables.product.prodname_vscode_shortname %} from a browser requires the browser to support the [File System Access API](https://developer.mozilla.org/en-US/docs/Web/API/File_System_Access_API). As of today both [Microsoft Edge](https://www.microsoft.com/en-us/edge) and Google Chrome offer this level of support. If you want to access local files and folders when using {% data variables.product.prodname_vscode_shortname %} in a browser, please consider switching to one of these two browsers.
 
 ## Questions or feedback
 

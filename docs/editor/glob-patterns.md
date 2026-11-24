@@ -79,7 +79,7 @@ Exceptions are not yet supported by extension-provided search providers, such as
 
 ### Why do glob patterns not support feature X or Y?
 
-We implemented our own [glob matching library](https://github.com/microsoft/vscode/blob/main/src/vs/base/common/glob.ts) with a goal to provide optimal performance for most typical patterns. If you expect a certain glob syntax to be supported, you can report an issue with your usecase.
+We implemented our own [glob matching library](https://github.com/microsoft/vscode/blob/main/src/vs/base/common/glob.ts) with a goal to provide optimal performance for most typical patterns. If you expect a certain glob syntax to be supported, you can report an issue with your use case.
 
 ### Why does my glob pattern not work?
 

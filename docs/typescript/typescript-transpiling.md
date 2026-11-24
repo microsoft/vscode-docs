@@ -59,7 +59,7 @@ Now when you create a `.ts` file as part of the project we will offer up rich ed
 
 ## Transpile TypeScript into JavaScript
 
-{% data variables.product.prodname_vscode_shortname %} integrates with `tsc` through our integrated [task runner](/docs/debugtest/tasks.md). We can use this to transpile `.ts` files into `.js` files. Another benefit of using {% data variables.product.prodname_vscode_shortname %} tasks is that you get integrated error and warning detection displayed in the [Problems](/docs/editing/editingevolved.md#errors--warnings) panel. Let's walk through transpiling a simple TypeScript Hello World program.
+{% data variables.product.prodname_vscode_shortname %} integrates with `tsc` through our integrated [task runner](/docs/debugtest/tasks.md). We can use this to transpile `.ts` files into `.js` files. Another benefit of using {% data variables.product.prodname_vscode_shortname %} tasks is that you get integrated error and warning detection displayed in the [Problems](/docs/editing/editingevolved.md#errors-warnings) panel. Let's walk through transpiling a simple TypeScript Hello World program.
 
 ### Step 1: Create a simple TS file
 
@@ -176,7 +176,7 @@ To exclude JavaScript files generated from both `.ts` and `.tsx` source files, u
 }
 ```
 
-This is a bit of a trick. The search [glob patterns](/docs/editor/glob-patterns.md) is used as a key. The settings above use two different glob patterns to provide two unique keys but the search will still match the same files.
+This is a bit of a trick. The search [glob pattern](/docs/editor/glob-patterns.md) is used as a key. The settings above use two different glob patterns to provide two unique keys but the search will still match the same files.
 
 ## Using newer TypeScript versions
 
@@ -239,7 +239,7 @@ It is possible to have mixed TypeScript and JavaScript projects. To enable JavaS
 
 ## Working with large projects
 
-If you are working in a codebase with hundreds or thousands of TypeScript files, here are some steps you can take to improve both the editing experience in {% data variables.product.prodname_vscode_shortname %} as well as compile times on the command line.
+If you are working in a codebase with hundreds or thousands of TypeScript files, here are some steps you can take to improve both the editing experience in {% data variables.product.prodname_vscode_shortname %} and compile times on the command line.
 
 ### Make sure your tsconfig only includes files you care about
 

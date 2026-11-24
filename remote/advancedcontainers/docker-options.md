@@ -93,7 +93,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-You can learn more about using Remote - SSH with Dev Containers in the [develop on a remote Docker host](https://code.visualstudio.com/remote/advancedcontainers/develop-remote-host#_connect-using-docker-contexts) documentation.
+You can learn more about using Remote - SSH with Dev Containers in the [develop on a remote Docker host](/remote/advancedcontainers/develop-remote-host.md#connect-using-docker-contexts) documentation.
 
 ## Other container engines
 

@@ -24,7 +24,7 @@ Agent plugins bundle multiple customizations into one installable package. In th
 Before you start, install VS Code, enable AI features, and sign in to GitHub Copilot. Then enable support for agent plugins with `setting(chat.plugins.enabled)`.
 
 * [Download VS Code](https://code.visualstudio.com/)
-* [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/overview#_step-1-set-up-copilot)
+* [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/setup/copilot#_set-up-github-copilot)
 
 ## Start with the problem plugins solve
 

@@ -42,7 +42,7 @@ Creating a project in model conversion is the first step toward converting, opti
 
 ### Supported models
 
-Model Conversion currently supports a growing list of models, including top Hugging Face models in PyTorch format. For detailed model list, refer: [Model List](https://github.com/microsoft/olive-recipes/blob/main/.aitk/docs/guide/ModelList.md)
+Model Conversion currently supports a growing list of models, including top Hugging Face models in PyTorch format. View the available models when you [create a project](#create-project).
 
 ### (Optional) Add model into existing project
 
@@ -147,7 +147,7 @@ Running a workflow in model conversion is the core step that transform the pre-b
       - **Qualcomm NPU/GPU**: to use this, you need a compatible Qualcomm device.
       - **AMD NPU/GPU**: to use this, you need a device with a supported AMD NPU/GPU.
       - **Intel CPU/GPU/NPU**: to use this, you need a device with a supported Intel CPU/GPU/NPU.
-      - **NVIDIA TRT for RTX**: to use this, you need a device with a Nvidia GPU that supports TensorRT for RTX.
+      - **NVIDIA TRT for RTX**: to use this, you need a device with an NVIDIA GPU that supports TensorRT for RTX.
       - **DirectML**: to use this, you need a device with a GPU that supports DirectML.
       - **CPU**: any CPU can work.
     - **Evaluation Dataset**: dataset used for evaluation.
@@ -197,9 +197,9 @@ Running a workflow in model conversion is the core step that transform the pre-b
 > The **Recommended** column will show the recommended workflow based on whether your device is ready to run the converted model or not. You can still choose the workflow that you prefer.
 > **Model conversion and quantization**: you can run workflow on any device expect for LLM models. The **Quantization** configuration is optimized for NPU only. It's recommended to uncheck this step if the target system is not NPU.
 >
-> **LLM model quantization**: If you want to quantize LLM models, a Nvidia GPU is required.
+> **LLM model quantization**: If you want to quantize LLM models, an NVIDIA GPU is required.
 >
-> If you want to quantize the model on another device with GPU, you can setup environment by yourselves, refer [ManualConversionOnGPU](/docs/intelligentapps/reference/ManualConversionOnGPU.md). Note that only "Quantization" step need the GPU. After quantization, you can evaluate the model on NPU or CPU.
+> If you want to quantize the model on another device with a GPU, you can set up the environment yourself. Refer to [ManualConversionOnGPU](/docs/intelligentapps/reference/ManualConversionOnGPU.md). Note that only the 'Quantization' step needs the GPU. After quantization, you can evaluate the model on an NPU or a CPU.
 
 ### Tips for re-evaluation
 
@@ -371,7 +371,7 @@ Selecting **Build** runs all four pipeline stages in sequence:
 
 The workflow reads the settings recorded in `config*.json`. After the build step, Windows ML CLI automatically generates a declarative `build_config.json` file that defines how the workflow runs end-to-end. You can inspect and customize it through **View Config**. This declarative configuration model makes it easy to integrate Windows ML CLI into CI/CD pipelines with reproducible and portable build workflows.
 
-Windows ML CLI also generates an analyze report, which you can open through **View Analyze**. The analyze results provide detailed model compatibility insights, including supported operators, partially supported operators, and unsupported operators for Windows ML EPs. During analysis, Windows ML CLI automatically inspects the ONNX graph, detects optimization patterns, and generates recommended Windows ML optimization workflows.
+Windows ML CLI also generates an analysis report, which you can open through **View Analyze**. The analysis results provide detailed model compatibility insights, including supported operators, partially supported operators, and unsupported operators for Windows ML EPs. During analysis, Windows ML CLI automatically inspects the ONNX graph, detects optimization patterns, and generates recommended Windows ML optimization workflows.
 
 #### Local ONNX models
 

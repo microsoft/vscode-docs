@@ -33,7 +33,7 @@ The [Test Runner for Java](https://marketplace.visualstudio.com/items?itemName=v
 
 ## Project Setup
 
-> **Note**: If you have already setup your Java test framework in your project, you can skip to the [Features](#features) section.
+> **Note**: If you have already set up your Java test framework in your project, you can skip to the [Features](#features) section.
 
 ### Enable testing and adding test framework JARs to your project
 
@@ -80,7 +80,7 @@ If your project does not use any build tools, you can enable JUnit 4 via the [Te
 - [junit.jar](https://search.maven.org/search?q=g:junit%20AND%20a:junit)
 - [hamcrest-core.jar](https://search.maven.org/artifact/org.hamcrest/hamcrest-core/1.3/jar)
 
-> You can check the [official JUnit Wiki](https://github.com/junit-team/junit4/wiki/Download-and-Install) for more information about how to setup JUnit 4.
+> You can check the [official JUnit Wiki](https://github.com/junit-team/junit4/wiki/Download-and-Install) for more information about how to set up JUnit 4.
 
 ### JUnit 5
 

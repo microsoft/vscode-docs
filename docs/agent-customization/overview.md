@@ -200,7 +200,7 @@ Changes made from one session's editor aren't necessarily limited to that sessio
 
 Available global, workspace, or session enablement actions depend on the customization type and harness. Check the action's scope before applying it. A global action isn't confined to the selected session, even when the customization is stored in the workspace.
 
-For detailed controls, see [plugin enablement](/docs/agent-customization/agent-plugins.md#enable-or-disable-plugins), [MCP server enablement](/docs/agents/run/manage-mcp-servers.md#enable-or-disable-mcp-servers), and [tool availability](/docs/agents/run/tools.md#manage-available-tools).
+For detailed controls, see [plugin enablement](/docs/agent-customization/agent-plugins.md#enable-or-disable-plugins), [MCP server enablement](/docs/agents/run/manage-mcp-servers.md#control-or-remove-a-server), and [tool availability](/docs/agents/run/tools.md#manage-available-tools).
 
 ## Troubleshoot customization issues
 
@@ -239,7 +239,7 @@ The inventory can include customizations from these sources:
 | **Remote host** | User-level configuration and installed customizations on the machine or in the Dev Container that runs the agent. |
 | **Connected client** | Eligible user instructions, skills, custom agents, and contributions from plugins, extensions, and the {% data variables.copilot.agents_window %}. The client can also supply tools and supported MCP configurations. |
 
-Client contributions depend on harness compatibility, discovery, and your enablement and sync choices. Connecting from another machine preserves the existing session's host-owned customizations, but can change the client contributions. [Client tools](/docs/agents/run/tools.md#manage-tool-availability-for-the-copilot-harness) require the client to remain connected.
+Client contributions depend on harness compatibility, discovery, and your enablement and sync choices. Connecting from another machine preserves the existing session's host-owned customizations, but can change the client contributions. [Client tools](/docs/agents/run/tools.md#manage-available-tools) require the client to remain connected.
 
 For Dev Container sessions, configure host-owned customizations in the container's user home or workspace. The outer machine's user configuration isn't automatically inherited.
 

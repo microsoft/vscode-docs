@@ -51,7 +51,9 @@ describe('daily docs audit state', () => {
 
 		assert.deepEqual(loadState(statePath), {
 			version: FORMAT_VERSION,
-			proposals: []
+			proposals: [],
+			reports: [],
+			findings: []
 		});
 		assert.equal(fs.existsSync(statePath), false);
 	});
@@ -151,7 +153,9 @@ describe('daily docs audit state', () => {
 		const statePath = createStatePath();
 		saveState(statePath, {
 			version: FORMAT_VERSION,
-			proposals: []
+			proposals: [],
+			reports: [],
+			findings: []
 		});
 
 		assert.throws(() => removeProposal(statePath, 'unknown-proposal'), /not found/);

@@ -127,7 +127,7 @@ function onChange() {
 
 ## Show Code Completion Proposals
 
-Code completions provide context sensitive suggestions to the user.
+Code completions provide context-sensitive suggestions to the user.
 
 ![Code Completion prompting variable, method, and parameter names while writing code](images/language-support/code-completion.gif)
 
@@ -317,7 +317,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 Allow the user to see the definition of variables/functions/methods right where the variables/functions/methods are being used.
 
-![Right click a variable, function, or method and select "Go to Definition" to jump to the definition](images/language-support/goto-definition.gif)
+![Screenshot showing how to right-click a variable, function, or method and select "Go to Definition" to jump to the definition.](images/language-support/goto-definition.gif)
 
 #### Language Server Protocol
 
@@ -367,7 +367,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 Allow the user to see all the source code locations where a certain variable/function/method/symbol is being used.
 
-![Right clicking and selecting "Find All References" to highlight all the locations where that symbol is used](images/language-support/find-references.gif)
+![Screenshot showing how to right-click and select "Find All References" to highlight all the locations where that symbol is used.](images/language-support/find-references.gif)
 
 #### Language Server Protocol
 

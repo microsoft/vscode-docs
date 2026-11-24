@@ -13,7 +13,7 @@ You can use Low Rank Adaptation (LoRA) to fine-tune the [Phi Silica model](https
 ## Prerequisites
 
 - You have identified a use case for enhancing the response of Phi Silica.
-- You have chosen an evaluation criteria to decide what a 'good response' is.
+- You have chosen evaluation criteria to decide what a 'good response' is.
 - You have tried the Phi Silica APIs and they do not meet your evaluation criteria.
 
 ## Train your adapter

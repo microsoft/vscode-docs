@@ -44,7 +44,7 @@ Note: This adds a launch configuration entry to your debug dropdown list.
 
 ### Debug with dynamic (in-memory) launch configurations
 
-With the C# Dev Kit extension installed, you can create dynamic launch configurations. How you create them depends if your project has an existing `launch.json` file.
+With the C# Dev Kit extension installed, you can create dynamic launch configurations. How you create them depends on whether your project has an existing `launch.json` file.
 
 #### Existing launch.json
 

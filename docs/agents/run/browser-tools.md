@@ -82,7 +82,7 @@ Verify that the completed task persists. If any step fails, fix the issue and re
 ```
 
 > [!TIP]
-> Select only the tools that are relevant to your task. Learn more about [selecting tools for agents](/docs/agents/run/tools.md#select-tools-for-a-request).
+> Select only the tools that are relevant to your task. Learn more about [selecting tools for agents](/docs/agents/run/tools.md#manage-available-tools).
 
 ## Choose a browser session
 

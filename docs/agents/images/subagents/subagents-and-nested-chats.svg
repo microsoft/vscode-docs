@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="496" viewBox="0 0 760 496" role="img" aria-labelledby="title description">
+  <title id="title">Subagents and nested chats within a session</title>
+  <desc id="description">You send requests to the main chat and can independently prompt a nested session. The main agent delegates a focused task to a subagent, which works in its own context and returns a result to the main agent. A nested session is a separate conversation you can direct yourself. These conversations are grouped in the main session but can still share files.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M1 1 L9 5 L1 9 Z" fill="#60738c"/>
+    </marker>
+    <style>
+      text { font-family: "Segoe UI", Arial, sans-serif; fill: #243247; }
+      .heading { font-size: 20px; font-weight: 600; }
+      .body { font-size: 17px; fill: #475569; }
+      .label { font-size: 16px; fill: #475569; }
+      .arrow { fill: none; stroke: #60738c; stroke-width: 1.8; marker-end: url(#arrow); }
+      .session { fill: #f8fafc; stroke: #93a4bc; stroke-width: 1.5; stroke-dasharray: 7 6; }
+    </style>
+  </defs>
+  <rect width="760" height="496" fill="#fff"/>
+
+  <rect x="302" y="12" width="156" height="54" rx="8" fill="#fff" stroke="#c7d2e1" stroke-width="1.5"/>
+  <text class="heading" x="380" y="47" text-anchor="middle">You</text>
+
+  <rect class="session" x="20" y="110" width="720" height="340" rx="10"/>
+  <text class="heading" x="42" y="141">Main session</text>
+
+  <path class="arrow" d="M340 66 V86 H208 V166"/>
+  <text class="label" x="233" y="79">Requests</text>
+  <path class="arrow" d="M420 66 V86 H568 V166"/>
+  <text class="label" x="464" y="79">Requests</text>
+
+  <rect x="48" y="168" width="320" height="86" rx="8" fill="#f0f6ff" stroke="#9bb7d8" stroke-width="1.5"/>
+  <text class="heading" x="66" y="202">Main chat</text>
+  <text class="body" x="66" y="229">Your main conversation</text>
+
+  <rect x="424" y="168" width="288" height="86" rx="8" fill="#eaf7f5" stroke="#79b8b2" stroke-width="1.5"/>
+  <text class="heading" x="442" y="202">Nested session</text>
+  <text class="body" x="442" y="229">A separate chat you can prompt</text>
+  <text class="body" x="442" y="290">Fresh conversation history</text>
+  <text class="body" x="442" y="316">You send follow-up messages</text>
+
+  <path class="arrow" d="M84 254 V348"/>
+  <text class="label" x="100" y="290">Delegate a task</text>
+  <path class="arrow" d="M336 350 V256"/>
+  <text class="label" x="204" y="325">Return a result</text>
+
+  <rect x="48" y="350" width="320" height="76" rx="8" fill="#f5f0fb" stroke="#d6cae8" stroke-width="1.5"/>
+  <text class="heading" x="66" y="381">Subagent</text>
+  <text class="body" x="66" y="408">Own context for the delegated task</text>
+
+  <text class="body" x="380" y="480" text-anchor="middle">Separate conversations can still share the same files.</text>
+</svg>

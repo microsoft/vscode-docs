@@ -79,13 +79,13 @@ Set and map items show a sequence number next to the item because both data stru
 
 ![ES6 map with sequence number](images/April/es6-map-support.png)
 
-Generators show its state:
+Generators show their state:
 
 ![Show ES6 generator state](images/April/es6-generator-support.png)
 
 ### Support for property getters
 
-Object properties with getters are no longer shown as `undefined`. An example for this are the environment variables available through `process.env`.
+Object properties with getters are no longer shown as `undefined`. Examples of this are the environment variables available through `process.env`.
 
 ### String truncation limit lifted
 
@@ -109,7 +109,7 @@ The following screen cast shows stepping through a simple async/await snippet fi
 
 ### Portability improvements on Linux
 
-The zip archive now included the CLI (`./bin/code`) and has been improved to support custom install locations and work when symlinked to.
+The zip archive now includes the CLI (`./bin/code`) and has been improved to support custom install locations and work when symlinked to.
 
 ### Launch your preferred shell
 
@@ -142,13 +142,13 @@ When previewing HTML files with the `vscode.previewHtml` command, links are now 
 
 ### Enhance support for your JSON configuration files
 
-If you have your own JSON files and want to improve the editing experience, you can associate JSON schemas to your files. The schemas associations will be picked up by the JSON language support that ships with VS Code and you will get validations, completions and hovers for free. The schema association can be done either [by a user configuration](https://code.visualstudio.com/docs/languages/json#_json-schemas-settings) or [by an extension point](https://code.visualstudio.com/docs/extensionAPI/extension-points#_contributesjsonvalidation).
+If you have your own JSON files and want to improve the editing experience, you can associate JSON schemas to your files. The schema associations will be picked up by the JSON language support that ships with VS Code and you will get validations, completions and hovers for free. The schema association can be done either [by a user configuration](https://code.visualstudio.com/docs/languages/json#_json-schemas-and-settings) or [by an extension point](https://code.visualstudio.com/docs/extensionAPI/extension-points#_contributesjsonvalidation).
 
 In some cases, you want more control, for example, you may want to provide completion support that requires a database lookup, or you want validation that cannot be expressed by a regular expression. To implement your own completion, validation, and hover support, you can use the regular VS Code APIs. To make this easier, we moved our JSON scanner and parsers to a node-module, [jsonc-parser](https://www.npmjs.com/package/jsonc-parser), that you can reuse. You can see this module in action with the dependency completion support for `package.json` and `bower.json` that is now part of the [JavaScript extension]( https://github.com/microsoft/vscode/tree/main/extensions/javascript) and for `project.json` soon to be part of the [C# extension](https://github.com/OmniSharp/omnisharp-vscode/).
 
 ### 'onDebug' Activation Event
 
-Upon starting a debug session, VS Code now emits a `onDebug:{type}` event, for example 'onDebug:node'. Debug extensions can now be activated by listening for this activation event.
+Upon starting a debug session, VS Code now emits an `onDebug:{type}` event, for example 'onDebug:node'. Debug extensions can now be activated by listening for this activation event.
 
 ## Debug Adapter Development
 

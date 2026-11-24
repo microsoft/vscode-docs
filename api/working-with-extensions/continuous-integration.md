@@ -19,7 +19,7 @@ The publish command is similar to publishing from a local environment using [`vs
 
 ## Azure Pipelines
 
-<a href="https://azure.microsoft.com/services/devops/"><img alt="Azure Pipelines" src="/assets/api/working-with-extensions/continuous-integration/pipelines-logo.png" width="318" /></a>
+<a href="https://azure.microsoft.com/services/devops/"><img alt="Azure Pipelines" src="images/continuous-integration/pipelines-logo.png" width="318" /></a>
 
 [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) is great for running VS Code extension tests as it supports running the tests on Windows, macOS, and Linux. For Open Source projects, you get unlimited minutes and 10 free parallel jobs. This section explains how to set up an Azure Pipelines for running your extension tests.
 
@@ -216,7 +216,7 @@ test:
 
 ### GitLab CI automated publishing
 
-1. Set up `VSCE_PAT` as a masked variable using the [GitLab CI documentation](https://docs.gitlab.com/ee/ci/variables/README.html#mask-a-cicd-variable).
+1. Set up `VSCE_PAT` as a masked variable using the [GitLab CI documentation](https://docs.gitlab.com/ci/variables/#mask-a-cicd-variable).
 2. Install `vsce` as a `devDependencies` (`npm install @vscode/vsce --save-dev`).
 3. Declare a `deploy` script in `package.json` without the PAT.
 

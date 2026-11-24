@@ -15,7 +15,7 @@ You can create a local Kubernetes cluster with [minikube](https://kubernetes.io/
 
 ## Install the Kubernetes extension
 
-For a fully integrated Kubernetes experience, you can install the [Kubernetes Tools](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) extension, which lets you quickly develop Kubernetes manifests and HELM charts. With the extension, you can also deploy containerized micro-service based applications to local or Azure Kubernetes clusters and debug your live applications running in containers on Kubernetes clusters. It also makes it easy to browse and manage your Kubernetes clusters in {% data variables.product.prodname_vscode_shortname %} and provides seamless integration with [Draft](https://draft.sh/) to streamline Kubernetes development.
+For a fully integrated Kubernetes experience, you can install the [Kubernetes Tools](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) extension, which lets you quickly develop Kubernetes manifests and HELM charts. With the extension, you can also deploy containerized microservice-based applications to local or Azure Kubernetes clusters and debug your live applications running in containers on Kubernetes clusters. It also makes it easy to browse and manage your Kubernetes clusters in {% data variables.product.prodname_vscode_shortname %} and provides seamless integration with [Draft](https://draft.sh/) to streamline Kubernetes development.
 
 To install the Kubernetes extension, open the Extensions view (`kb(workbench.view.extensions)`) and search for "kubernetes". Select the Microsoft [Kubernetes](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) extension.
 
@@ -57,7 +57,7 @@ Once your manifest file is ready, you only need one command to start a deploymen
 
 ### Checking on your deployment
 
-After deployment, the Kubernetes extension can help you check the status of your application. From the Explorer, click on **Workloads**, right click on **Pods** and then choose **Get** to see whether the application has started. To view the status of your app, select **Services**, right click on your app, and then click **Get**. The status will be printed to the Integrated Terminal. Once your application has an `EXTERNAL_IP`, you can open a browser and see your web app running.
+After deployment, the Kubernetes extension can help you check the status of your application. From the Explorer, select **Workloads**, right-click on **Pods** and then choose **Get** to see whether the application has started. To view the status of your app, select **Services**, right-click on your app, and then select **Get**. The status will be printed to the Integrated Terminal. Once your application has an `EXTERNAL_IP`, you can open a browser and see your web app running.
 
 ![Check status](images/kubernetes/check-status.gif)
 

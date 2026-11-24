@@ -5,7 +5,7 @@ MetaDescription: {% data variables.product.prodname_vscode %} has an integrated 
 ---
 # Terminal Basics
 
-{% data variables.product.prodname_vscode %} includes a full featured integrated terminal that starts at the root of your workspace. It provides integration with the editor to support features like [links](#links) and [error detection](/docs/debugtest/tasks.md). The integrated terminal can run commands such as mkdir and git just like a standalone terminal.
+{% data variables.product.prodname_vscode %} includes a full-featured integrated terminal that starts at the root of your workspace. It provides integration with the editor to support features like [links](#links) and [error detection](/docs/debugtest/tasks.md). The integrated terminal can run commands such as mkdir and git just like a standalone terminal.
 
 > [!NOTE]
 > Opening a terminal is blocked when a workspace is in [Restricted Mode](/docs/editing/workspaces/workspace-trust.md#terminal) to prevent shells from automatically executing code based on workspace contents.
@@ -123,7 +123,7 @@ These built-in link handlers are used in the following priority order:
 
   ![Activating a folder link will open it in a new window](images/basics/link-folder.png)
 
-* Word links: Fallback link type that uses the `setting(terminal.integrated.wordSeparators)` setting. The setting defines word boundaries and make nearly all text into words. Activating a word link searches the workspace for the word. If there is a single result it will open, otherwise it will present the search results. Word links are considered "low confidence" and will not show an underline or tooltip unless you hold the `kbstyle(Ctrl)`/`kbstyle(Cmd)` key. They also have limited support for line and column suffixes.
+* Word links: Fallback link type that uses the `setting(terminal.integrated.wordSeparators)` setting. The setting defines word boundaries and makes nearly all text into words. Activating a word link searches the workspace for the word. If there is a single result, it will open. Otherwise, it will present the search results. Word links are considered "low confidence" and will not show an underline or tooltip unless you hold the `kbstyle(Ctrl)`/`kbstyle(Cmd)` key. They also have limited support for line and column suffixes.
 
   ![Activating a word link 'terminal:15' will open a Quick Pick searching the workspace for all files containing 'terminal', choosing an option will open the file at line 15](images/basics/link-word.png)
 

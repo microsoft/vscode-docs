@@ -44,8 +44,8 @@ Treat AI-generated output as a draft that requires your judgment. For nondetermi
 
 Agents can read files, edit code, run terminal commands, and call external services. {% data variables.product.prodname_vscode_shortname %}'s trust model layers several control mechanisms so you remain in charge of what reaches your codebase:
 
-* **Review before integrating.** Agents can save edits directly in the session folder or worktree. Inspect the changes in a diff before you commit, merge, or create a pull request. For supported sessions, [checkpoints](/docs/agents/run/review-code-edits.md#edit-requests-and-restore-checkpoints) restore affected workspace files and chat to an earlier point.
-* **Approve sensitive actions.** With [Manual permissions](/docs/agents/run/approvals.md#permission-levels) in Copilot harness sessions, actions that aren't covered by your approval settings require confirmation. File edits might be auto-approved. Configure [sensitive-file approval](/docs/agents/run/review-code-edits.md#require-approval-before-sensitive-edits) when an edit must require confirmation before it is applied.
+* **Review before integrating.** Agents can save edits directly in the session folder or worktree. Inspect the changes in a diff before you commit, merge, or create a pull request. For supported sessions, [checkpoints](/docs/agents/run/review-code-edits.md#restore-a-checkpoint) restore affected workspace files and chat to an earlier point.
+* **Review actions that need confirmation.** With [Manual permissions](/docs/agents/run/approvals.md#permission-levels) in {% data variables.product.prodname_copilot_short %} sessions, runtime decisions, rules, and saved approvals can permit actions automatically. Other actions require confirmation. [Sensitive-file approval](/docs/agents/run/review-code-edits.md#require-approval-before-sensitive-edits) adds review for supported edits, but isn't a filesystem restriction or a guarantee of prompts in every permission mode.
 * **Constrain autonomy.** Choose the [available tools](/docs/agents/run/tools.md#manage-available-tools) and the [permission level](/docs/agents/run/approvals.md#permission-levels) appropriate for the task. Making a tool available and approving a specific use of that tool are separate decisions.
 * **Restrict process access.** [Agent sandboxing](#agent-sandboxing) limits the file system and network resources that covered processes can access. It complements approval checks rather than replacing them.
 * **Trust boundaries.** {% data variables.product.prodname_vscode_shortname %} uses trust decisions for workspaces, extensions, MCP servers, and network domains. Workspace MCP servers inherit Workspace Trust.
@@ -61,7 +61,7 @@ Always review AI-generated code before committing. Verify that it handles edge c
 * **Workspace**: controls whether {% data variables.product.prodname_vscode_shortname %} enables features like tasks, debugging, and workspace settings that can execute code from the project. An untrusted workspace runs in [restricted mode](/docs/editing/workspaces/workspace-trust.md), which also disables agents.
 * **Extension publisher**: controls whether extensions from a given publisher can be installed and run. {% data variables.product.prodname_vscode_shortname %} prompts you to [trust the publisher](/docs/configure/extensions/extension-runtime-security.md) before activating their extensions.
 * **MCP server**: controls whether an MCP server can start and provide tools. Servers configured in `.vscode/mcp.json` or workspace-root `.mcp.json` inherit Workspace Trust. Servers from other sources can require a [separate MCP server trust decision](/docs/agents/run/manage-mcp-servers.md#mcp-server-trust) and prompt again after configuration changes.
-* **Network domain**: controls whether the agent can fetch content from a URL, integrated with the [Trusted Domains](/docs/editing/editingevolved.md#outgoing-link-protection) list. Network controls for fetch and browser tools are separate from [sandbox network controls](/docs/agents/run/agent-sandboxing.md#configure-network-access) for terminal commands.
+* **Network destination**: [URL approval](/docs/agents/run/approvals.md#url-approval) controls requests to a site. Some editor-managed tools, including Local harness web fetch `feature(local-harness)`, use the [Trusted Domains](/docs/editing/editingevolved.md#outgoing-link-protection) list. Don't assume every harness uses that list or asks you to review the returned content. URL approval and [sandbox network restrictions](/docs/agents/run/agent-sandboxing.md#configure-network-access) are different controls.
 
 Trust permits access or execution; it doesn't certify that every result or action is safe. For configuring and reviewing these decisions, see [AI security in {% data variables.product.prodname_vscode_shortname %}](/docs/agents/run/security.md).
 
@@ -96,7 +96,7 @@ Turning on sandboxing doesn't block outbound network access by default. Configur
 
 ### Why sandboxing matters
 
-Approval-based security requires you to confirm each terminal command or tool call before it runs. While this provides control, it has practical limits:
+Approval checks can pause a tool call for review, while runtime decisions and saved approvals can let other calls run automatically. Relying on approval decisions alone has practical limits:
 
 * **Approval fatigue.** Repeatedly approving commands can cause you to pay less attention to what you're approving, especially during long agent sessions.
 

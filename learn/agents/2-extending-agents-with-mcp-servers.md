@@ -23,7 +23,7 @@ MCP servers connect agents to external tools and data sources. In this guide, yo
 Before you start, install {% data variables.product.prodname_vscode_shortname %}, enable AI features, and sign in to {% data variables.product.prodname_copilot %}. To use the [Customization Marketplace (Preview)](/docs/agent-customization/overview.md#discover-and-install-existing-customizations-preview) in this lesson, select the **Copilot** harness from the **Session Target** control in a new chat. Check the [harness requirements](/docs/agents/run/agent-harnesses.md#copilot) if it isn't available.
 
 * [Download VS Code](https://code.visualstudio.com/)
-* [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/overview#_step-1-set-up-copilot)
+* [Set up GitHub Copilot in VS Code](https://code.visualstudio.com/docs/setup/copilot#_set-up-github-copilot)
 
 ## Start with a concrete server
 

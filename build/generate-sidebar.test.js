@@ -64,7 +64,7 @@ test('keeps concepts alongside workflow groups and nests only reference and trou
     'Choose Models and Agents',
     'Customize and Extend',
     'Work Across Apps and Machines',
-    'Tutorials & Guides',
+    'Tutorials and Guides',
     'Concepts',
     'Reference and Help'
   ]);
