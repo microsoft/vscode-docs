@@ -284,7 +284,7 @@ You now have signal, not vibes, driving the model decision.
 If you want to reinforce this chapter, the best next step is to review the same workflow from three angles: this written guide, product guidance, and deployment details. This combination helps you move from understanding concepts to applying them in real projects.
 Use the links below in order, and you will see the same recommendation-to-comparison flow from both tutorial and reference perspectives.
 
-- **GitHub Copilot in Visual Studio Code**: [Review Copilot capabilities and workflows in Visual Studio Code docs](https://code.visualstudio.com/docs/copilot/overview).
+- **GitHub Copilot in Visual Studio Code**: [Review Copilot capabilities and workflows in Visual Studio Code docs](https://code.visualstudio.com/docs/agents/overview).
 - **Optional companion video**: [Watch the full video for this chapter](https://youtu.be/92tKoJOTays).
 - **Model Catalog overview**: [Review the official Model Catalog documentation](https://learn.microsoft.com/azure/ai-foundry/how-to/model-catalog-overview).
 - **Foundry SDK development guide**: [Explore SDK-based development guidance for Azure AI Foundry](https://learn.microsoft.com/azure/ai-foundry/how-to/develop/sdk-overview).

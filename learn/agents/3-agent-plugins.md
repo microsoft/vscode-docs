@@ -168,9 +168,9 @@ The last course in this series shows how to use third-party agents like Claude a
 
 ## Learn more
 
-* [Agent plugins in VS Code](https://code.visualstudio.com/docs/copilot/customization/agent-plugins)
-* [Customize AI in Visual Studio Code](https://code.visualstudio.com/docs/copilot/concepts/customization)
-* [Use agent skills in VS Code](https://code.visualstudio.com/docs/copilot/customization/agent-skills)
-* [Use custom agents in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-agents)
-* [Use hooks in VS Code](https://code.visualstudio.com/docs/copilot/customization/hooks)
-* [Add and manage MCP servers in VS Code](https://code.visualstudio.com/docs/copilot/customization/mcp-servers)
+* [Agent plugins in VS Code](https://code.visualstudio.com/docs/agent-customization/agent-plugins)
+* [Customize AI in Visual Studio Code](https://code.visualstudio.com/docs/agents/concepts/customization)
+* [Use agent skills in VS Code](https://code.visualstudio.com/docs/agent-customization/agent-skills)
+* [Use custom agents in VS Code](https://code.visualstudio.com/docs/agent-customization/custom-agents)
+* [Use hooks in VS Code](https://code.visualstudio.com/docs/agent-customization/hooks)
+* [Add and manage MCP servers in VS Code](https://code.visualstudio.com/docs/agent-customization/mcp-servers)
