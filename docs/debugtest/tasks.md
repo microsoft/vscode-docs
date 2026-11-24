@@ -504,18 +504,17 @@ Below is an example of a custom task configuration that passes the current opene
 }
 ```
 
-Similarly, you can reference your project's configuration settings by prefixing the name with **${config:**. For example, `${config:python.formatting.autopep8Path}` returns the Python extension setting `formatting.autopep8Path`.
+Similarly, you can reference configuration settings by prefixing the name with **${config:**. For example, `${config:editor.wordWrap}` returns the value of the `editor.wordWrap` setting.
 
-Below is an example of a custom task configuration, which executes autopep8 on the current file using the autopep8 executable defined by the `python.formatting.autopep8Path` setting:
+The following custom task prints the current value of the word wrap setting:
 
 ```json
 {
-    "label": "autopep8 current file",
-    "type": "process",
-    "command": "${config:python.formatting.autopep8Path}",
+    "label": "Show word wrap setting",
+    "type": "shell",
+    "command": "echo",
     "args": [
-        "--in-place",
-        "${file}"
+        "Word wrap: ${config:editor.wordWrap}"
     ]
 }
 ```
