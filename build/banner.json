@@ -1,8 +1,8 @@
 {
   "enabled": true,
-  "version": "2026-11-16-ignite",
+  "version": "2026-11-25-local-harness",
   "messages": [
-    "<a href=\"https://ignite.microsoft.com/sessions?source=vsc-website-banner\" target=\"_blank\" rel=\"noopener\">Join VS Code at Microsoft Ignite or catch the sessions online.</a>",
-    "<a href=\"/blogs/2026/10/28/vscode-wrapped?source=vsc-website-banner\" target=\"_blank\" rel=\"noopener\">A year of VS Code, wrapped. Explore the highlights.</a>"
+    "<a href=\"https://ignite.microsoft.com/sessions?source=vsc-website-banner\" target=\"_blank\" rel=\"noopener\">🎬 Watch the VS Code session recordings from Microsoft Ignite.</a>",
+    "<a href=\"/blogs/2026/11/18/copilot-harness?source=vsc-website-banner\" target=\"_blank\" rel=\"noopener\">⚠️ The Local harness is deprecated and will be removed in February 2027. Learn about the move to the Copilot harness.</a>"
   ]
 }
