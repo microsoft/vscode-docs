@@ -425,7 +425,7 @@ Run `npm run test:media-recipes` for isolated lookup, versioning, reference-upda
 
 ## Capture an editor screenshot candidate
 
-The attended capture runner uses an installed VS Code executable and a version-controlled storyboard. The default [editor Find storyboard](build/storyboards/editor-find.json) targets Insiders. Each storyboard declares its channel, generated fixture or reviewed workspace entry, UI targets, actions, and expected outcomes. The runner supports bounded editor workflows without sign-in or AI requests, not arbitrary scripts or native UI automation.
+The attended capture runner uses an installed VS Code executable and a version-controlled storyboard. The default [editor Find storyboard](build/storyboards/editor-find.json) targets Insiders. Each storyboard declares its channel, generated fixture or reviewed workspace entry, UI targets, actions, and expected outcomes. Default captures support bounded editor workflows without sign-in or AI requests. [Scripted live-AI videos](#record-a-scripted-live-ai-video) require a separate opt-in and approval. Arbitrary scripts and native UI automation remain unsupported.
 
 Screenshot and video capture is attended-only. Keep the capture window visible and remain available throughout the run. Unattended media capture, scheduled capture jobs, and lock-screen or sleep-state testing are out of scope.
 
@@ -443,7 +443,7 @@ The runner creates a new run directory, isolated user-data and extension directo
 
 Candidates include an exact `storyboard.json` input snapshot and `capture.json` with storyboard, schema, and runner hashes, completed steps, product revision, profile settings, asset hash, and `human-visual-review-required` status. The runner disables breadcrumbs and AI features and hides the secondary sidebar. Page visibility and visible text are checked between steps. Text is checked against the storyboard denylist, the caller's home path, home-folder name, and local user name. This is not a complete privacy guarantee: inspect actual pixels, including icons and notifications, before approval.
 
-Extensions, updates, and telemetry are disabled for the isolated run, and Playwright's renderer context is offline. This is not an OS-level network sandbox. No personal profile is reused, and no credentials are supplied. Existing-workspace captures use a dedicated capture profile as described below. Live AI captures remain separate work and require a dedicated test account plus explicit approval before sign-in or model requests.
+Extensions, updates, and telemetry are disabled for the isolated run, and Playwright's renderer context is offline. This is not an OS-level network sandbox. No personal profile is reused, and no credentials are supplied. Existing-workspace captures use a dedicated capture profile as described below. Live-AI videos use the separately approved sample environment, not these isolated defaults, and require a dedicated test account plus explicit approval before sign-in or model requests.
 
 The runner closes its own application and removes its runtime directories. Failures are recorded and returned as failures, not successful candidates. If application shutdown fails, the manifest records its process ID and retains the private runtime directory for recovery; do not remove it while the process is still running.
 
@@ -521,7 +521,7 @@ Review a storyboard before running it. Storyboards are executable UI procedures,
 * Define named `targets` using roles and accessible names. Matching is exact by default; set `exact: false` for names with shortcut suffixes. Use a CSS selector only when a semantic target is unavailable.
 * Define `steps` with `click`, `key`, `fill`, `type`, `check`, `wait-for`, `assert`, and `pause`. Include an outcome assertion before capture. Asserted text is literal, not a regular expression.
 * For controls that cycle through text states, a click can declare `expectTextCycle` with a target and ordered values. The runner reads the current state and verifies the next one. This avoids assuming that incremental Find always selects the first match.
-* For video, define `video.reset` and `video.steps`. Reset must restore the known start state, including any fixture edits. The runner resets, dry-runs the video steps, resets again, then records the same steps.
+* For ordinary video, define `video.reset` and `video.steps`. Reset must restore the known start state, including any fixture edits. The runner resets, dry-runs the video steps, resets again, then records the same steps. Live-AI videos prohibit resets and dry runs to avoid repeating requests.
 * Keep each phase within 40 steps, 15 seconds of configured typing and pauses, and five seconds of pauses. Each pause is limited to 1.5 seconds. Actual video duration is checked separately.
 
 Validate one or more storyboards without launching VS Code:
@@ -530,7 +530,7 @@ Validate one or more storyboards without launching VS Code:
 node .\build\storyboard.js .\build\storyboards\editor-find.json .\build\storyboards\editor-find-replace.json
 ```
 
-Pass `--storyboard '<file>'` to the capture command to choose a workflow. Unsupported fields, actions, paths, and target references fail validation before launch. The runner does not support shell steps, arbitrary JavaScript, live AI, or unattended execution.
+Pass `--storyboard '<file>'` to the capture command to choose a workflow. Unsupported fields, actions, paths, and target references fail validation before launch. The runner does not support shell steps, arbitrary JavaScript, or unattended execution. Live AI requires the separate video workflow below.
 
 Use the [docs-media skill](.github/skills/docs-media/SKILL.md) for the attended capture and exact-asset review procedure. The Find and Replace example is a candidate workflow, not authorization to replace the article's existing cropped, annotated image.
 
@@ -580,7 +580,7 @@ The capture profile persists after successful shutdown; temporary runtime direct
 
 ### Reuse a signed-in sample for instruction checks
 
-For an explicitly approved reusable sample workspace, set `workspace.environment` to `sample` in its reviewed storyboard and use the existing replay commands. Keep the workspace, dedicated profile, and per-run evidence in separate private directories. Ordinary media capture retains the isolated defaults and refuses sample mode. Prepared-session screenshots require the separate opt-in below.
+For an explicitly approved reusable sample workspace, set `workspace.environment` to `sample` in its reviewed storyboard and use the existing replay commands. Keep the workspace, dedicated profile, and per-run evidence in separate private directories. Ordinary media capture retains the isolated defaults and refuses sample mode. Prepared-session screenshots and live-AI videos require their separate opt-ins below.
 
 The sample profile retains home, user-data, extensions, application data, and Copilot runtime data. It uses normal sign-in storage instead of the isolated runner's in-memory secret storage. Git and AI UI remain enabled, extensions are not globally disabled, and renderer network access is available. The human can trust the selected folder, enable needed extensions, and sign in once. Do not copy trust or credentials from another profile, inspect account secrets, or repeat setup authorization for the same approved sample. An available account does not authorize model requests.
 
@@ -608,11 +608,78 @@ node .\build\capture.js --executable '<absolute-path-to-Code-Insiders.exe>' --re
 
 The default video shows opening Find, typing the query, matching case, and moving through all three results. The runner checks visible text between actions and finalizes recording even if an action fails. Failed partial recordings remain private and are marked as failed in `capture.json`.
 
-The video check requires 1920 by 1080 pixels, 25 frames per second, and a duration of four to 30 seconds. It rejects source frames that would need padding or scaling, decodes the complete bounded WebM, and checks every decoded frame's dimensions. A sampled pixel-change check rejects nearly static clips. This heuristic does not establish that the video is useful or free of private information.
+The ordinary video check requires 1920 by 1080 pixels, 25 frames per second, and a duration of four to 30 seconds. It rejects source frames that would need padding or scaling, decodes the complete bounded WebM, and checks every decoded frame's dimensions. A sampled pixel-change check rejects nearly static clips. This heuristic does not establish that the video is useful or free of private information.
 
 Successful runs retain `editor-find.webm`, four full-resolution frames in `video-review`, and video hashes, action timestamps, decoding results, and motion measurements in `capture.json`. Review the entire video, not only the sample frames, before approving the exact asset. Native UI capture remains unproven.
 
 Run `npm run test:capture` for unit tests of isolation, guards, recording failure paths, output validation, and cleanup. Those tests use fake launchers, media headers, and decoders. They do not prove that real Electron screenshot or video capture works.
+
+### Record a scripted live-AI video
+
+Use this opt-in to record an approved sequence of real AI interactions in the editor or Agents window. The runner executes `video.steps` once. It never rehearses, resets, retries a request, or invents a response. Existing `ai: none` captures and prepared-session screenshots keep their original restrictions.
+
+Before launching the product, approve the readable scene proposal and exact storyboard hash, product build, dedicated sample workspace/profile, provider and model, requests and possible usage charges, permitted tools, and named sample-file changes. A previously signed-in account does not grant approval to use it. Sign-in and Workspace Trust remain human work. Approval of a script does not authorize arbitrary actions proposed by the AI, approve the final video, or authorize article edits.
+
+Prepare a version 2 storyboard with:
+
+* `ai: "live-approved"` and `capture.mode: "live-ai"`, with `capture.surface: "editor"` or `"agents"`.
+* `workspace.environment: "sample"` and `workspace.allowedChanges`, an explicit list of up to 10 relative source-file paths, including subfolders and Svelte components. Use an empty list for a read-only demo. Parent traversal, reserved Windows names, and changes to `.git`, `.github`, `.vscode`, or `.mcp.json` are rejected. Changes to allowed files can include creation or deletion, so review that scope explicitly.
+* Optional `workspace.excludedDirectories`: explicitly approved root-level `node_modules`, `.svelte-kit`, `dist`, or `build` directories. Their contents are not audited, and `allowedChanges` cannot point into them. Exclusions let a prepared local app run without treating dependencies and generated output as source. They are not permission to install packages, run commands, or modify excluded files.
+* `liveAI.provider`, `liveAI.model`, `liveAI.requests`, and `liveAI.tools`: readable descriptions of the authorized scope, without account secrets. These fields record the scope; they do not enforce provider permissions or constrain model-generated tool calls.
+* Observation-only `steps` that verify the prepared scene, visible model/harness selection, and manual permission controls. Prepare any sessions, commits, or worktrees separately with the necessary approval.
+* `video.steps` containing the actual actions and observable outcome checks. Use targeted keyboard input; never script permission approvals, authentication, terminal commands, or warning dismissal.
+* `video.blockedTargets` naming the approval/authentication controls that must not appear. Use reviewed selectors for the pinned product build. The recorder checks them and page visibility/privacy between actions and every 100 milliseconds while recording. A detected prompt or page dialog aborts capture without accepting or dismissing it. This is not detection of every OS-native dialog; the attending human must cancel if an unexpected native prompt appears.
+* `video.maxDurationSeconds` between four and 120 for a bounded source take. Takes over 30 seconds also require an explicit full `--validation-ffmpeg` binary with the `fps` and `showinfo` filters. The minimal Playwright binary lacks these filters; the runner checks this prerequisite before launching the product. Keep the matching Playwright `--ffmpeg` path too. Omit `video.reset`. Wait for real UI outcomes rather than assuming response text or adding long holds. A slow or incomplete response fails the run; another attempt needs fresh approval.
+
+The audited sample inventory is bounded to 1000 filesystem entries, 50 MiB of file content, 16 nested directory levels, and relative paths of at most 240 characters. Links, including links at excluded-directory roots, are rejected. The runner records before/after file hashes, including Git metadata and workspace configuration, and rejects audited changes outside `allowedChanges`. Excluded directory contents and activity elsewhere on the machine are not checked. This is not an OS sandbox. Changes are never rolled back automatically.
+
+Validate without launching the product, then relay the human's explicit execution approval using the exact lowercase SHA-256 hash:
+
+```powershell
+node .\build\storyboard.js '<reviewed-storyboard.json>'
+node .\build\capture.js --storyboard '<reviewed-storyboard.json>' --live-ai '<approved-storyboard-sha256>' --executable '<Code.exe>' --revision '<full-build-commit>' --workspace '<reviewed-sample>' --capture-profile '<dedicated-profile>' --output '<existing-private-directory>' --video --ffmpeg '<matching-playwright-ffmpeg.exe>' --wait-for-ready
+```
+
+For a take with an approved maximum over 30 seconds, add `--validation-ffmpeg '<approved-full-ffmpeg.exe>'`. The recording stays at native capture dimensions. Full decoding checks every frame's dimensions, timestamps, and sequence through bounded `showinfo` diagnostics; 12 sampled images support motion checks and four diagnostic review images. These samples do not substitute for viewing the entire recording.
+
+Changing the storyboard invalidates that hash. The runner requires the matching live-AI mode, video flag, and chat readiness handshake; replay is not permitted. After the human handles prompts and confirms readiness, relay `--confirm-ready` as usual. Automatic inline suggestions can make requests during preparation, so obtain AI-use approval before launch, not only before recording.
+
+To relay a human cancellation after readiness:
+
+```powershell
+node .\build\capture.js --cancel-capture '<run-directory>' --token '<readiness-token>'
+```
+
+Cancellation, a detected prompt, or the duration deadline stops subsequent scripted actions and finalizes any partial recording privately. An in-flight UI operation might finish before the application closes. Submitted model requests or agent work might continue independently and require separate human cancellation; stopping capture neither undoes edits nor revokes external actions. Check the final manifest rather than treating a cancellation request as a completed shutdown.
+
+Successful manifests record the approved storyboard hash and scope, `single-live-run` video execution, and workspace changes marked `within-approved-scope`, not `unchanged`. Media preparation verifies this evidence against the saved storyboard and rejects missing approval, unapproved edits, failures, or unfinished cleanup. Full-video inspection, exact-byte review, and scoped article-application approval remain required.
+
+Focused tests use synthetic requests and fake product windows. A real Stable live-AI pilot, final playback, and human visual approval remain separate acceptance work; passing tests does not establish those outcomes.
+
+### Record integrated-browser content
+
+The integrated browser uses a separate Electron `WebContentsView`. Recording the editor or Agents renderer does not establish that the browser's real pixels were captured. Use a separately approved browser-camera take instead of inserting a simulated browser image into workbench footage.
+
+For a live-approved video, set `video.browserUrl` to the canonical HTTP loopback URL of the prepared page, without credentials, query, or fragment. Keep `capture.surface` set to the workbench that drives the scene, either `editor` or `agents`. Add `"surface": "browser"` only to targets that belong to the web page; other targets continue to address the workbench.
+
+To keep the surrounding VS Code interface visible, set `video.browserCamera: "window"`. Browser targets still address the verified shared page, while the video records the workbench at 1920 by 1080 pixels. Before production, inspect a real video preflight from the pinned build to confirm that the page pixels and window frame are both present. The default browser-only camera, sharing checks, browser dialog guards, and native-browser screenshot remain unchanged.
+
+Whole-window browser takes require at least two observed visual transitions instead of a moving-frame percentage, so readable pauses do not reject a real filter-and-clear sequence. This motion check does not prove that the correct content changed. Keep the browser outcome assertions and inspect full playback before approval.
+
+To retain the surrounding VS Code interface in the video, explicitly set `video.browserCamera: "window"`. Browser targets, sharing, privacy checks, and dialog guards still apply to the real browser page, while video records the whole workbench at its approved dimensions. The setup screenshot remains a separate native-browser image. Verify a real whole-window video preflight on the pinned build before production; a successful screenshot alone does not establish that the video contains the browser's pixels. Omitting this option preserves browser-only recording.
+
+Before confirming readiness:
+
+1. Open the approved local preview in the dedicated capture window and wait for it to render.
+1. Explicitly approve sharing this page, then use **Share with Agent** and handle any native confirmation yourself. If sharing creates an isolated copy, close the original preview tab. Do not share personal tabs or authenticated pages outside the agreed scope.
+1. Leave exactly one shared preview visible at the approved URL. Widen its pane to at least 1280 by 720 native pixels inside the 1920 by 1080 capture window. Both dimensions must be even because the recorder rounds odd dimensions down. Adjust the pane layout before readiness, not the captured pixels. Do not resize or switch the browser during the take.
+1. Review the actual scene before confirming readiness. A visible Browser button alone is not proof that the page or the planned controls are ready.
+
+The runner checks the native view count, the visible **Stop Sharing with Agent** control, the active address, the owned browser page, document and font readiness, and native dimensions. Live previews do not need to reach network idle. It will not grant sharing, guess among duplicate pages, resize the browser, or fall back to the main renderer. Missing access or an unavailable browser target stays blocked.
+
+Screenshot and video pixels come from the browser page itself. The workbench keeps its normal theme and zoom baseline; the browser take retains its own measured dimensions, recorded in `browserCapture`. Screenshots use the selected Electron web contents' highest existing native image representation, not a Playwright screenshot that can return CSS-sized pixels at browser zoom. Native PNG dimensions determine the video-frame checks; CSS dimensions and zoom remain separate layout evidence. The saved screenshot method is `electron-browser-content`, and the video source is `integrated-browser`. Both workbench and page privacy checks remain active. Revoked sharing, navigation outside the approved origin/path, hidden content, or changed dimensions aborts the take.
+
+Use native browser footage as a real close-up in the final composition. Review the resulting pixels and full playback, not merely the URL, a screenshot of the workbench, or passing unit tests. Browser-camera tests use fake product surfaces; a real attended capability check is still required before relying on this path.
 
 ### Prepare saved media without changing the source
 
@@ -641,16 +708,47 @@ Supported operations:
 
 * **PNG to PNG:** Lossless crop, solid padding, and adaptive-filter compression using Node built-ins. Supports noninterlaced, eight-bit RGB and RGBA PNGs from the runner. Palette, grayscale, transparency-key, and animated PNGs fail explicitly. Preparation removes ancillary metadata, preserves retained RGBA pixel values, and verifies the entire encoded bitmap. Review color appearance as well as geometry.
 * **PNG to WebP:** The same framing, followed by lossless `libwebp` conversion. Final decoded pixels must match the framed PNG exactly.
-* **WebM or MP4 to MP4:** Crop, padding, optional timed rectangles, `libx264` at CRF 25, `yuv420p`, no audio, and fast-start metadata. This reuses the repository optimizer's codec and quality convention without its destructive replacement behavior. Input and output must have one video stream, 25 frames per second, and a duration of four to 30 seconds. Full decoding checks every frame, dimensions, and preserved duration and frame count.
+* **WebM or MP4 to MP4:** Crop, padding, optional timed rectangles, `libx264` at CRF 25, `yuv420p`, no audio, and fast-start metadata. This reuses the repository optimizer's codec and quality convention without its destructive replacement behavior. Ordinary input and output must have one video stream, 25 frames per second, and a duration of four to 30 seconds. A verified live-AI capture can retain its approved source-take limit, up to 120 seconds, for private preparation. Full decoding checks every frame, dimensions, and preserved duration and frame count. Use composition below to make a shorter edited video.
 * **WebM to unchanged WebM:** Use `{"format":"webm"}` to preserve the VP9 capture bytes and validate the complete recording for private review or handoff. This is not MP4 conversion or permission to embed WebM in an article.
 
-WebP and video validation buffers concatenated PNG frames from FFmpeg in memory instead of writing frame files. Each decode has a 256 MiB output-buffer budget, a 120-second subprocess timeout, and the existing per-frame size and dimension limits. Every complete PNG is validated. Exceeding the buffer budget, a truncated frame, or trailing partial output fails validation; a valid prefix is never accepted as a complete recording. A compressed source smaller than 50 MiB can still exceed the decoded-output budget.
+Ordinary WebP and video validation buffers concatenated PNG frames from FFmpeg in memory instead of writing frame files. Each decode has a 256 MiB output-buffer budget, a 120-second subprocess timeout, and the existing per-frame size and dimension limits. Every complete PNG is validated. Exceeding the buffer budget, a truncated frame, or trailing partial output fails validation; a valid prefix is never accepted as a complete recording. A compressed source smaller than 50 MiB can still exceed the decoded-output budget. Verified live-AI video and composition validation instead decodes the complete video with bounded `showinfo` diagnostics, checking every frame's dimensions, sequence, and 25 fps timestamps without buffering all frame images. Tool diagnostics remain limited to 8 MiB.
 
 WebP and MP4 operations require explicit `--ffmpeg '<absolute-path>'` and `--ffprobe '<absolute-path>'` options for approved, full installations with the required codecs. PNG requires neither. Unchanged WebM validation needs only `--ffmpeg`; the matching minimal Playwright build supports it. That minimal build cannot perform these WebP or H.264 conversions. Missing capabilities fail with a prerequisite error; the helper does not install tools, substitute encoders, or rename incompatible bytes.
 
 Each preparation creates a new `media-<id>` directory containing `prepared.<format>` and `media.json`. The manifest records source and final hashes, normalized framing, validation results, tool and implementation hashes, capture provenance when supplied, and byte-size change. Compression does not guarantee a smaller file. Raw and previously approved files remain untouched. Existing outputs are never overwritten.
 
 Preparation errors identify the private run path when available. Failed runs retain a manifest with `status: failed` and any partial candidate for diagnosis when the manifest can be written. Cleanup or finalization failures fail the operation rather than producing a reviewable success. A missing or incomplete manifest is not success. Do not approve failed outputs. Run `npm run test:media` for focused preparation and approval tests. Synthetic conversion tests do not prove an installed encoder works.
+
+### Compose a polished UI video
+
+Use `build/media.js compose` to assemble reviewed real footage into one silent 1920 by 1080, 25 fps H.264 MP4. The output must be at least four seconds and strictly under 60 seconds. Source recordings stay unchanged. Failed captures cannot become composition inputs.
+
+Approve the readable shot list and production scope before recording. Keep the composition recipe private: it binds each source path/hash, capture manifest/hash, exact trim, and installed font/hash. The agent maintains this JSON; the author reviews the visible sequence, framing, motion, and labels. Do not fabricate UI, model responses, test results, or browser actions. When waiting time is removed, disclose that in the video rather than implying real-time model performance.
+
+A composition recipe has `format: "mp4"`, an absolute `font` path and `fontSha256`, `transitionFrames` of `0` (cuts), `4` (160 ms dissolves), or `8` (320 ms dissolves), and one to 12 `clips`. Set optional `annotationStyle: "blue"` for blue outlines and blue caption backing. This style suppresses annotations during dissolve overlaps, checks the remaining caption reading time, and holds the incoming camera until the dissolve finishes. Match camera scale and position across joins within the same UI before moving the camera. Without this option, existing red outlines, dark caption backing, and camera timing remain unchanged. Each clip declares:
+
+* Absolute `input` and `capture` paths, plus their `sha256` and `captureSha256` values.
+* Zero-based `startFrame` (inclusive) and `endFrame` (exclusive) in the source at 25 fps. Each clip must contain at least 25 frames. Transition overlaps reduce the final frame count.
+* Optional `crop`, using the existing source-pixel rectangle shape. Crops must retain a 16:9 aspect ratio and use even coordinates and dimensions. Never cut off relevant controls or text.
+* Optional `zoom`, with `from` and `to` between 1 and 1.2, integer `centerX` and `centerY` within the cropped source, and `frames` between 1 and 25. This applies a cubic ease-out camera move, then holds. With blue annotations, the move starts after the incoming dissolve; callouts must wait until the move finishes. It does not animate or recreate product UI.
+* Optional `caption`, with `text`, `startFrame`, and `endFrame` relative to the trimmed clip. Captions are single-line, printable ASCII, at most 54 characters, rendered at 32 pixels near the bottom-left with a dark backing. The helper requires enough frames to read the words.
+* Optional `callouts`, up to four red, two-pixel rectangles. Unlike the single-source preparation highlights, these rectangles use **final output pixels**, after crop and zoom. Each rectangle has `x`, `y`, `width`, `height`, `startFrame`, and `endFrame`. They must fit the frame and appear only after any camera movement settles. Moving-target tracking is not supported.
+* Optional `emphasis`, for reference-style annotations without cropping away the workbench. Use blue annotation style and supply `boldFont` and `boldFontSha256` in the recipe. Set one to three final-output `regions`, a nearby `label` with `text`, `x`, `y`, and `width`, and `startFrame` and `endFrame`. The renderer preserves the real pixels inside rounded blue outlines, adds a subtle glow, dims the surrounding UI, and draws the label in bold at 36 pixels on a rounded, 68-pixel-high blue backing. An optional `heading` has `text`, `x`, and `y`, rendered in bold at 44 pixels. Keep labels outside their targets and within the frame. Emphasis cannot be combined with captions, callouts, or focus panels in the same clip, and starts only after the camera settles. It disappears during dissolve overlaps.
+* Optional `focus`, for short UI details that would otherwise leave most of the frame empty. Supply a source-pixel `crop` inside the main context crop and a short `heading` of at most 36 printable ASCII characters. Add an optional timed `label` with `text`, `startFrame`, and `endFrame` only when framing alone does not explain the action. Labels share the caption text and reading-time limits. The renderer centers a magnified view of that region over dimmed, blurred footage from the same frame. It preserves the region's aspect ratio within a 1728 by 540 pixel panel. A label adds a timed blue border and step label; omitting it leaves the framing unannotated. Zoom coordinates are relative to the focus crop, and captions appear below the panel. Keep complete controls and code lines inside the crop throughout the action. This layout does not recreate UI or combine different product states.
+
+To slow the complete composition without changing its visual sequence, set optional `playbackRate` between `0.8` and `1`. A rate of `0.8` gives actions, annotations, and transitions 25% more time. The output remains 25 fps, repeats real frames without motion interpolation, and must still stay under 60 seconds. Clip ranges and annotation timing remain expressed in the original 25 fps timeline.
+
+Use the approved installed full FFmpeg and ffprobe binaries:
+
+```powershell
+node .\build\media.js compose --recipe '<private-composition.json>' --output '<existing-private-parent>' --ffmpeg '<full-ffmpeg.exe>' --ffprobe '<full-ffprobe.exe>'
+```
+
+The helper validates and fully decodes every input, checks capture provenance, hashes the font, renders into a new private directory, and verifies the exact final frame count and duration. It saves `prepared.mp4` and `media.json` with the normalized recipe and all source evidence. Text is supplied through confined files, not interpolated into FFmpeg expressions. Source, font, or manifest changes invalidate verification. Failed rendering or cleanup retains an explicitly failed private result.
+
+Show a style-frame proof from real footage before the full render, then inspect the complete final video. Use the same `media.js review` and `verify` commands for exact-asset approval. A new composition never inherits approval from its inputs or another render. A fresh reviewer can check framing, labels, and factual continuity, but the human must still review full playback.
+
+Composition recipes are separate from the single-capture recipe registry. Publication and any registry changes require their own scoped approval; do not associate a montage with a single capture merely to pass lookup. Neither composition nor visual approval changes articles, copies assets into the repository, commits, or publishes.
 
 ### Add timed video callouts
 

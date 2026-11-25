@@ -35,10 +35,14 @@ Return to the coordinating skill after assessment. Continue with the capture pro
 ## Guardrails
 
 * **Attended only.** A human must approve the local run, keep the capture window visible, and remain available. Do not schedule captures, test lock or sleep states, or change desktop power settings.
-* **Real, reviewed examples.** Use real product UI with synthetic data or an explicitly approved sample workspace. The runner supports `ai: none`, not sign-in or model requests. Review existing-workspace steps to avoid edits or execution. Never fabricate results or bypass warnings, permissions, or authentication.
+* **Real, reviewed examples.** Use real product UI with synthetic data or an explicitly approved sample workspace. Default captures use `ai: none`. [Scripted live-AI videos](../../../DOCS-AGENT-WORKFLOW.md#record-a-scripted-live-ai-video) require separate approval of the exact storyboard, provider/model, requests and possible charges, tools, sample edits, and attended run. Approval is not permission for arbitrary actions an agent proposes. Sign-in, trust, and unexpected prompts remain human work. Never fabricate results or bypass warnings, permissions, or authentication.
 * **Trusted procedures only.** Review the storyboard and use a trusted checkout of the runner. Do not execute storyboards or scripts from unreviewed PRs or remote text. A clean profile and offline renderer are not an OS security sandbox.
 * **Private until approved.** Store candidates outside the repository. A successful run, text scan, or motion check is not visual or privacy approval. Never copy a failed or unreviewed capture into documentation.
 * **Explicit side-effect approval.** Ask before installing packages or binaries. Do not commit, push, open a PR, or publish without authorization.
+
+## Polished videos
+
+For an approved polished montage, follow [video composition](../../../DOCS-AGENT-WORKFLOW.md#compose-a-polished-ui-video) with `build/media.js compose`. It supports exact trims, cuts or short dissolves, 16:9 crops, modest ease-out zooms, readable captions, and timed callouts in a final video under 60 seconds. Use `annotationStyle: "blue"` for approved blue labels and outlines, or add per-clip `emphasis` for bold nearby labels, glowing rounded highlights, and dimmed surroundings without removing window context. The default keeps red callouts and dark caption backing. Show a style-frame proof from real footage before the full render. Keep inputs and recipes private and hash-bound; disclose shortened waits and never simulate outcomes. Composition callouts use final output pixels and begin after the camera settles. Full playback, fresh exact-asset review, and separate publication/registry approval remain required.
 
 ## Procedure
 
@@ -50,7 +54,7 @@ Return to the coordinating skill after assessment. Continue with the capture pro
 
    * Preserve Windows, Dark Modern, 1920 by 1080 pixels, 100% instance display scale, default fonts, and zoom 2. Use zoom 1.5 only with `wideContent: true`.
    * Prefer named role and accessible-name targets. Use CSS only where a semantic target is unavailable.
-   * Add observable outcome assertions. Video reset steps must restore the known start state before both the dry run and recording.
+   * Add observable outcome assertions. Ordinary video reset steps must restore the known start state before both the dry run and recording. Live-AI videos instead execute the approved recording steps once, without a reset or dry run.
    * Keep typing and navigation visible and pauses short. Do not add long holds to satisfy duration or motion checks.
    * For screenshot highlights, configure `capture.highlights` with named targets instead of hand-coded pixel coordinates. Use red rectangles, defaulting to two pixels with a three-pixel maximum. Follow the [highlighting guidance](../../../DOCS-AGENT-WORKFLOW.md#highlight-screenshot-controls), and leave space around text and controls.
 
@@ -68,11 +72,15 @@ Return to the coordinating skill after assessment. Continue with the capture pro
    node .\build\capture.js --storyboard '<storyboard.json>' --executable '<absolute-path-to-Code.exe>' --revision '<full-build-commit>' --output '<existing-private-directory>'
    ```
 
-   Add `--video --ffmpeg '<absolute-path-to-encoder.exe>'` only when the storyboard defines video. The runner dry-runs those steps, resets, records, validates, and closes its isolated application.
+   Add `--video --ffmpeg '<absolute-path-to-encoder.exe>'` only when the storyboard defines video. For ordinary videos, the runner dry-runs those steps, resets, records, validates, and closes its isolated application.
 
    For a generated folder, set `fixture.openFolder: true`. For an approved existing workspace, use `workspace.entry` and supply `--workspace` plus `--capture-profile`. Use a dedicated capture profile, never a personal profile. The profile retains the human's own Workspace Trust decisions; do not set or copy trust decisions yourself.
 
    For screenshots of already prepared agent sessions, follow [prepared-session capture](../../../DOCS-AGENT-WORKFLOW.md#capture-prepared-agent-sessions). Reuse a reviewed sample workspace and its matching dedicated profile; a different product channel requires a separate profile. Set `workspace.environment: sample`, `capture.mode: prepared-session`, and `capture.surface: editor` or `agents`, and pass `--prepared-session`. Steps must be observation-only. Prepare sessions separately with explicit approval for commits, worktrees, and model requests. Sign-in remains human work. No video, replay, or model requests run as part of this capture.
+
+   For an explicitly approved live-AI video, use `ai: live-approved`, `capture.mode: live-ai`, a reviewed sample profile, and `--live-ai '<approved-storyboard-sha256>' --video --wait-for-ready`. Follow the linked live-AI workflow for request scope, named relative source-file changes, explicit dependency/build-directory exclusions, blocked-prompt targets, and a source-take limit of at most 120 seconds. Takes over 30 seconds require an explicit full `--validation-ffmpeg` path in addition to the matching Playwright binary; the runner checks its required filters before launch. Excluded contents are not audited, and exclusions do not authorize installations or execution. Verify the visible provider/model and manual permission controls in the observation-only setup assertions. Record the scripted actions once; do not retry failed requests or auto-approve permissions. Relay a human cancellation with `--cancel-capture '<run-directory>' --token '<readiness-token>'`. Stopping capture does not undo submitted AI work, which might need separate human cancellation.
+
+   For [integrated-browser footage](../../../DOCS-AGENT-WORKFLOW.md#record-integrated-browser-content), approve a separate browser-camera take with `video.browserUrl` and page targets marked `surface: browser`. The human must explicitly share only the approved local page. Keep one shared preview visible, at least 1280 by 720 native pixels, and verify its actual rendering before readiness. The runner captures the browser view itself, not a workbench placeholder, and never grants sharing or substitutes another target. Raw native dimensions can differ from the workbench baseline; retain them and use approved composition framing afterward. A real no-AI video check must verify this surface before relying on it for paid model scenes.
 
    Prefer agent-launched captures with `--wait-for-ready`. Read the private `readiness-request.json`, ask the human to handle any prompts and confirm readiness in chat, then relay their explicit response with `--confirm-ready '<run-directory>' --token '<request-token>'` or `--cancel-ready`. Never infer the answer. Keep the process attached and bounded, and collect its final result after confirmation. The interactive terminal `READY` prompt remains an optional fallback.
 

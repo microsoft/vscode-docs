@@ -6,7 +6,8 @@ const os = require('os');
 const path = require('path');
 const test = require('node:test');
 const {SAMPLE_WORKSPACE_SETTINGS, acquireCaptureProfile, prepareSampleSettings,
-  replyToReadiness, snapshotWorkspace, waitForReadiness} = require('./capture-preparation');
+  replyToReadiness, snapshotWorkspace, waitForReadiness, snapshotSampleFiles, approvedWorkspaceChanges,
+  replyToCaptureCancellation, captureCancellationCheck} = require('./capture-preparation');
 
 /* eslint-disable security/detect-non-literal-fs-filename -- These fixtures live in test-owned temporary directories. */
 
@@ -94,4 +95,59 @@ test('workspace checks detect configuration changes and reject startup-control o
   assert.equal(fs.readFileSync(settings, 'utf8'), '{"chat.mcp.access":"all"}');
   fs.writeFileSync(settings, '{broken');
   assert.throws(() => snapshotWorkspace(workspace, 'example.js'), /Cannot verify workspace settings/);
+});
+
+test('live-AI file evidence permits only named sample edits and rejects links or unexpected configuration changes', t => {
+  const workspace = temporaryDirectory(t);
+  fs.writeFileSync(path.join(workspace, 'example.js'), 'Before');
+  fs.mkdirSync(path.join(workspace, '.vscode'));
+  fs.writeFileSync(path.join(workspace, '.vscode', 'settings.json'), '{}');
+  const before = snapshotSampleFiles(workspace);
+  fs.writeFileSync(path.join(workspace, 'example.js'), 'After');
+  const after = snapshotSampleFiles(workspace);
+  assert.deepEqual(approvedWorkspaceChanges(before, after, ['example.js']),
+    [{file: 'example.js', before: before['example.js'], after: after['example.js']}]);
+  assert.throws(() => approvedWorkspaceChanges(before, after, []), /Unapproved sample file/);
+  fs.writeFileSync(path.join(workspace, '.vscode', 'settings.json'), '{"changed":true}');
+  assert.throws(() => approvedWorkspaceChanges(before, snapshotSampleFiles(workspace), ['example.js']), /Unapproved sample file/);
+  fs.rmSync(path.join(workspace, 'example.js'));
+  assert.throws(() => approvedWorkspaceChanges(after, snapshotSampleFiles(workspace), []), /Unapproved sample file/);
+  const target = temporaryDirectory(t);
+  fs.symlinkSync(target, path.join(workspace, 'linked'), process.platform === 'win32' ? 'junction' : 'dir');
+  assert.throws(() => snapshotSampleFiles(workspace), /must not contain links/);
+});
+
+test('capture cancellation is token-bound and cannot approve an asset or cancel a completed run', async t => {
+  const directory = temporaryDirectory(t);
+  fs.writeFileSync(path.join(directory, 'storyboard.json'), JSON.stringify({ai: 'live-approved', capture: {mode: 'live-ai'}}));
+  const waiting = waitForReadiness(directory, 'Synthetic sample', 2000);
+  const request = JSON.parse(fs.readFileSync(path.join(directory, 'readiness-request.json')));
+  replyToReadiness(directory, request.token, true);
+  await waiting;
+  const check = captureCancellationCheck(directory);
+  check();
+  assert.throws(() => replyToCaptureCancellation(directory, 'wrong'), /current, confirmed/);
+  replyToCaptureCancellation(directory, request.token);
+  assert.throws(check, /human cancelled/);
+  assert.throws(() => replyToCaptureCancellation(directory, request.token), /EEXIST/);
+  fs.writeFileSync(path.join(directory, 'capture.json'), '{"status":"failed"}');
+  assert.throws(() => replyToCaptureCancellation(directory, request.token), /current, confirmed/);
+});
+
+test('approved dependency exclusions do not hide source changes or linked directories', t => {
+  const workspace = temporaryDirectory(t);
+  fs.mkdirSync(path.join(workspace, 'src'));
+  fs.mkdirSync(path.join(workspace, 'node_modules'));
+  fs.writeFileSync(path.join(workspace, 'src', 'filter.js'), 'Before');
+  fs.writeFileSync(path.join(workspace, 'node_modules', 'dependency.js'), 'Dependency');
+  const before = snapshotSampleFiles(workspace, ['node_modules']);
+  assert.deepEqual(Object.keys(before), ['src/filter.js']);
+  fs.writeFileSync(path.join(workspace, 'node_modules', 'dependency.js'), 'Not audited');
+  fs.writeFileSync(path.join(workspace, 'src', 'filter.js'), 'After');
+  const after = snapshotSampleFiles(workspace, ['node_modules']);
+  assert.throws(() => approvedWorkspaceChanges(before, after, []), /Unapproved sample/);
+  assert.equal(approvedWorkspaceChanges(before, after, ['src/filter.js']).length, 1);
+  const target = temporaryDirectory(t);
+  fs.symlinkSync(target, path.join(workspace, 'dist'), process.platform === 'win32' ? 'junction' : 'dir');
+  assert.throws(() => snapshotSampleFiles(workspace, ['node_modules', 'dist']), /must not contain links/);
 });

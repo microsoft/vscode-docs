@@ -77,6 +77,61 @@ function snapshotWorkspace(workspace, entry, environment = 'isolated') {
   return files;
 }
 
+function snapshotSampleFiles(workspace, excludedDirectories = []) {
+  const files = Object.create(null);
+  let entries = 0;
+  let bytes = 0;
+  const visit = (directory, prefix = '', depth = 0) => {
+    if (depth > 16) throw new Error('The capture sample exceeds the directory-depth limit.');
+    for (const name of fs.readdirSync(directory).sort()) {
+      if (++entries > 1000) throw new Error('The capture sample exceeds 1000 filesystem entries.');
+      const file = path.join(directory, name);
+      const relative = `${prefix}${name}`;
+      if (relative.length > 240) throw new Error('Sample paths must be at most 240 characters relative to the workspace.');
+      const info = fs.lstatSync(file);
+      if (info.isSymbolicLink() || !isWithinRoot(workspace, fs.realpathSync(file))) {
+        throw new Error('Live-AI samples must not contain links or paths outside the sample.');
+      }
+      if (depth === 0 && excludedDirectories.includes(name)) {
+        if (!info.isDirectory()) throw new Error('An excluded sample path must be a directory, not a file.');
+        continue;
+      }
+      if (info.isDirectory()) {
+        visit(file, `${relative}/`, depth + 1);
+      } else if (info.isFile()) {
+        bytes += info.size;
+        if (bytes > 50 * 1024 * 1024) throw new Error('The capture sample exceeds 50 MiB.');
+        Reflect.set(files, relative, crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex'));
+      } else {
+        throw new Error('Live-AI samples must contain only regular files and directories.');
+      }
+    }
+  };
+  visit(workspace);
+  return files;
+}
+
+function approvedWorkspaceChanges(before, after, allowed) {
+  for (const snapshot of [before, after]) {
+    if (!snapshot || typeof snapshot !== 'object' || Array.isArray(snapshot) ||
+        Object.keys(snapshot).length > 1000 || Object.entries(snapshot).some(([file, hash]) =>
+          !file || file.includes('\\') || file.includes(':') || file.split('/').some(part => !part || part === '.' || part === '..') ||
+          typeof hash !== 'string' || !/^[a-f0-9]{64}$/.test(hash))) {
+      throw new Error('Invalid live-AI workspace snapshot.');
+    }
+  }
+  const changes = [];
+  for (const file of [...new Set([...Object.keys(before), ...Object.keys(after)])].sort()) {
+    const previous = Object.hasOwn(before, file) ? Reflect.get(before, file) : null;
+    const current = Object.hasOwn(after, file) ? Reflect.get(after, file) : null;
+    if (previous !== current) {
+      if (!allowed.includes(file)) throw new Error(`Unapproved sample file change: ${file}. No changes were rolled back.`);
+      changes.push({file, before: previous, after: current});
+    }
+  }
+  return changes;
+}
+
 function acquireCaptureProfile(directory, workspace, channel, captureDirectory, environment = 'isolated') {
   if (!path.isAbsolute(directory)) {
     throw new Error('Supply an absolute dedicated capture-profile path.');
@@ -132,10 +187,14 @@ function replyToReadiness(directory, token, ready) {
       fs.existsSync(path.join(directory, 'readiness-response.json'))) {
     throw new Error('Readiness request is stale or its token does not match.');
   }
-  const temporary = path.join(directory, `readiness-${crypto.randomUUID()}.tmp`);
-  fs.writeFileSync(temporary, JSON.stringify({token, ready}), {flag: 'wx'});
+  writeResponse(directory, 'readiness-response.json', {token, ready});
+}
+
+function writeResponse(directory, name, response) {
+  const temporary = path.join(directory, `response-${crypto.randomUUID()}.tmp`);
+  fs.writeFileSync(temporary, JSON.stringify(response), {flag: 'wx'});
   try {
-    fs.linkSync(temporary, path.join(directory, 'readiness-response.json'));
+    fs.linkSync(temporary, path.join(directory, name));
   } finally {
     fs.unlinkSync(temporary);
   }
@@ -162,5 +221,29 @@ async function waitForReadiness(directory, workspace, timeoutMs = 300000) {
   throw new Error('Human readiness confirmation timed out.');
 }
 
+function replyToCaptureCancellation(directory, token) {
+  const request = readReadinessRequest(directory);
+  const storyboard = JSON.parse(fs.readFileSync(path.join(directory, 'storyboard.json'), 'utf8'));
+  const response = JSON.parse(fs.readFileSync(path.join(directory, 'readiness-response.json'), 'utf8'));
+  if (storyboard.ai !== 'live-approved' || storyboard.capture?.mode !== 'live-ai' ||
+      request.token !== token || Date.now() >= request.expiresAt || response.token !== token || response.ready !== true ||
+      fs.existsSync(path.join(directory, 'capture.json'))) {
+    throw new Error('Live-AI capture cancellation requires a current, confirmed readiness request.');
+  }
+  writeResponse(directory, 'capture-cancel.json', {token});
+}
+
+function captureCancellationCheck(directory) {
+  const request = readReadinessRequest(directory);
+  return () => {
+    const file = path.join(directory, 'capture-cancel.json');
+    if (!fs.existsSync(file)) return;
+    const response = JSON.parse(fs.readFileSync(file, 'utf8'));
+    if (response.token !== request.token) throw new Error('Invalid capture cancellation token.');
+    throw new Error('The human cancelled this capture. Any submitted AI work might still require manual cancellation.');
+  };
+}
+
 module.exports = {WORKSPACE_SETTINGS, SAMPLE_WORKSPACE_SETTINGS, acquireCaptureProfile, prepareSampleSettings,
-  replyToReadiness, snapshotWorkspace, waitForReadiness};
+  replyToReadiness, snapshotWorkspace, waitForReadiness, snapshotSampleFiles, approvedWorkspaceChanges,
+  replyToCaptureCancellation, captureCancellationCheck};

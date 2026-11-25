@@ -6,7 +6,9 @@ const path = require('path');
 const os = require('os');
 const zlib = require('zlib');
 const test = require('node:test');
-const {prepareMedia, recordReview, verifyMedia, privateDirectory, main} = require('./media');
+const {composeMedia, prepareMedia, recordReview, verifyMedia, privateDirectory, main} = require('./media');
+const {compositionRecipe} = require('./media-compose');
+const {decodeVideoFrames} = require('./video-validation');
 const {crc32, decodePng, encodePng, framing} = require('./media-png');
 const {MAX_DECODE_BYTES, conversionTools, convertMedia, pngFrames, probeMetadata, runTool, sha256, validateMedia, videoHighlights} = require('./media-tools');
 
@@ -32,6 +34,207 @@ function reviewOptions(result) {
     decision: 'approved', reviewer: 'Synthetic unit-test reviewer', evidence: 'Synthetic fixture only: reviewed full pixels and framing.',
     confirmReviewed: true};
 }
+
+test('composition validates exact trims, readable callouts, camera bounds, and a final duration under one minute', () => {
+  const input = path.join(os.tmpdir(), 'synthetic.mp4'), capture = path.join(os.tmpdir(), 'capture.json');
+  const clip = {input, capture, sha256: 'a'.repeat(64), captureSha256: 'b'.repeat(64), startFrame: 0, endFrame: 200,
+    zoom: {from: 1, to: 1.1, centerX: 960, centerY: 540, frames: 10},
+    caption: {text: 'Accept with Tab', startFrame: 10, endFrame: 55},
+    callouts: [{x: 100, y: 100, width: 200, height: 80, startFrame: 10, endFrame: 55}]};
+  const recipe = {format: 'mp4', font: path.join(os.tmpdir(), 'font.ttf'), fontSha256: 'c'.repeat(64),
+    transitionFrames: 4, clips: [clip, {...clip, startFrame: 600, endFrame: 900}]};
+  const sources = Array(2).fill({width: 1920, height: 1080, decodedFrames: 3000});
+  assert.equal(compositionRecipe(recipe, sources).frames, 496);
+  assert.equal(compositionRecipe({...recipe, playbackRate: 0.8}, sources).frames, 620);
+  const blueRecipe = {...recipe, annotationStyle: 'blue', transitionFrames: 8,
+    clips: recipe.clips.map(item => ({...item, callouts: item.callouts.map(callout => ({...callout, startFrame: 18}))}))};
+  assert.equal(compositionRecipe(blueRecipe, sources).frames, 492);
+  const earlyOutline = structuredClone(blueRecipe);
+  earlyOutline.clips[1].callouts[0].startFrame = 10;
+  assert.throws(() => compositionRecipe(earlyOutline, sources), /after the camera settles/);
+  const emphasized = structuredClone(blueRecipe);
+  emphasized.boldFont = path.join(os.tmpdir(), 'bold.ttf');
+  emphasized.boldFontSha256 = 'd'.repeat(64);
+  delete emphasized.clips[0].caption;
+  delete emphasized.clips[0].callouts;
+  emphasized.clips[0].emphasis = {
+    regions: [{x: 100, y: 100, width: 900, height: 200}],
+    label: {text: 'Accept with Tab', x: 100, y: 320, width: 500},
+    heading: {text: 'Inline suggestions', x: 1200, y: 80},
+    startFrame: 18, endFrame: 100
+  };
+  assert.doesNotThrow(() => compositionRecipe(emphasized, sources));
+  for (const change of [
+    value => {value.clips[0].emphasis.label.x = 1800;},
+    value => {value.clips[0].emphasis.regions[0].width = 2000;},
+    value => {value.clips[0].emphasis.startFrame = 0;},
+    value => {delete value.boldFontSha256;},
+    value => {value.clips[0].caption = clip.caption;}
+  ]) {
+    const invalid = structuredClone(emphasized); change(invalid);
+    assert.throws(() => compositionRecipe(invalid, sources));
+  }
+  for (const change of [
+    value => {value.clips[0].zoom.to = 1.21;},
+    value => {value.clips[0].caption.endFrame = 15;},
+    value => {value.clips[0].caption.text = 'Two\nlines';},
+    value => {value.clips[0].callouts[0].startFrame = 0;},
+    value => {value.clips[0].callouts[0].x = 1900;},
+    value => {value.clips[0].crop = {x: 0, y: 0, width: 1000, height: 600};},
+    value => {value.clips[1].startFrame = 0; value.clips[1].endFrame = 1304;},
+    value => {value.transitionFrames = 20;},
+    value => {value.annotationStyle = 'purple';},
+    value => {value.playbackRate = 0.79;},
+    value => {value.playbackRate = 1.01;},
+    value => {value.clips[0].input = 'relative.mp4';}
+  ]) {
+    const invalid = structuredClone(recipe); change(invalid);
+    assert.throws(() => compositionRecipe(invalid, sources));
+  }
+  const focused = structuredClone(recipe);
+  focused.clips[0].focus = {crop: {x: 100, y: 100, width: 1008, height: 192}, heading: 'Inline suggestions',
+    label: {text: 'Review the suggestion', startFrame: 10, endFrame: 80}};
+  focused.clips[0].zoom.centerX = 0;
+  focused.clips[0].zoom.centerY = 0;
+  assert.equal(compositionRecipe(focused, sources).frames, 496);
+  for (const change of [
+    value => {value.clips[0].focus.crop.x = 1000;},
+    value => {value.clips[0].focus.heading = 'Two\nlines';},
+    value => {value.clips[0].focus.heading = 'W'.repeat(37);},
+    value => {value.clips[0].focus.label.endFrame = 15;},
+    value => {value.clips[0].zoom.centerY = 300;}
+  ]) {
+    const invalid = structuredClone(focused); change(invalid);
+    assert.throws(() => compositionRecipe(invalid, sources));
+  }
+  delete focused.clips[0].focus.label;
+  assert.doesNotThrow(() => compositionRecipe(focused, sources));
+});
+
+test('streamed full decoding checks every frame without buffering image pixels', () => {
+  const lines = Array.from({length: 100}, (_, index) =>
+    `[Parsed_showinfo_0 @ fixture] n: ${index} pts: ${index} pts_time:${index / 25} fmt:yuv420p s:1920x1080`);
+  const validate = stderr => decodeVideoFrames('unused.mp4', {width: 1920, height: 1080, durationSeconds: 4}, 4,
+    (_file, args) => {assert.ok(args.includes('showinfo')); return {stderr};}, 'unused-ffmpeg');
+  assert.equal(validate(lines.join('\n')).decodedFrames, 100);
+  for (const changed of [
+    lines.slice(1).join('\n'), lines.slice(0, 99).join('\n').replace('s:1920x1080', 's:1280x720'),
+    lines.join('\n').replace('pts_time:0.04', 'pts_time:0.09'),
+    `${lines.join('\n')}\n[Parsed_showinfo_0 @ fixture] n: 100 pts: 100 pts_time:4 fmt:yuv420p s:1920x1080`,
+    `${lines.join('\n')}\nError while decoding`
+  ]) assert.throws(() => validate(changed), /frame|corruption/);
+});
+
+test('real FFmpeg composes trims, zooms, captions and dissolves with fresh exact-asset approval', {
+  skip: !process.env.DOCS_MEDIA_FFMPEG || !process.env.DOCS_MEDIA_FFPROBE || !process.env.DOCS_MEDIA_FONT ?
+    'Set DOCS_MEDIA_FFMPEG, DOCS_MEDIA_FFPROBE, and DOCS_MEDIA_FONT to approved installed tools/font.' : false
+}, t => {
+  const f = fixture(t);
+  const tools = {ffmpeg: process.env.DOCS_MEDIA_FFMPEG, ffprobe: process.env.DOCS_MEDIA_FFPROBE};
+  const input = path.join(f.output, 'synthetic.mp4');
+  runTool(tools.ffmpeg, ['-nostdin', '-hide_banner', '-n', '-f', 'lavfi', '-i', 'color=c=0x203040:size=320x180:rate=25',
+    '-vf', 'drawbox=x=100:y=40:w=20:h=20:color=white:t=fill',
+    '-t', '5', '-an', '-c:v', 'libx264', '-threads', '1', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', input]);
+  const bytes = fs.readFileSync(input), capture = path.join(f.output, 'capture.json');
+  overwriteJson(capture, {schemaVersion: 1, status: 'candidate', execution: 'attended', privacy: {textScan: 'passed'},
+    storyboard: {id: 'synthetic-test-only', article: 'docs/example.md', sha256: 'a'.repeat(64)},
+    video: {file: 'synthetic.mp4', status: 'candidate', sha256: sha256(bytes), bytes: bytes.length}});
+  const font = path.join(f.output, 'test-font.ttf');
+  fs.copyFileSync(process.env.DOCS_MEDIA_FONT, font);
+  const clip = {input, sha256: sha256(bytes), capture, captureSha256: sha256(fs.readFileSync(capture)),
+    startFrame: 0, endFrame: 100, zoom: {from: 1, to: 1.12, centerX: 160, centerY: 90, frames: 12},
+    caption: {text: 'Synthetic test only', startFrame: 20, endFrame: 70},
+    callouts: [{x: 200, y: 200, width: 240, height: 100, startFrame: 20, endFrame: 70}]};
+  const recipe = {format: 'mp4', font, fontSha256: sha256(fs.readFileSync(font)), transitionFrames: 4,
+    clips: [clip, {...clip, startFrame: 25, endFrame: 125}]};
+  const options = {...tools, recipe, output: f.output};
+  const result = composeMedia(options, f.deps);
+  assert.equal(result.output.validation.decodedFrames, 196);
+  assert.equal(result.output.validation.durationSeconds, 7.84);
+  assert.equal(result.output.validation.width, 1920);
+  assert.equal(result.output.validation.height, 1080);
+  const decoded = runTool(tools.ffmpeg, ['-nostdin', '-hide_banner', '-i', path.join(result.directory, 'prepared.mp4'),
+    '-vf', "select='eq(n,0)+eq(n,30)+eq(n,90)'", '-fps_mode', 'passthrough',
+    '-c:v', 'png', '-threads', '1', '-f', 'image2', '-update', '1', 'pipe:1'], {binary: true});
+  const frames = Array.from(pngFrames(decoded.stdout), frame => decodePng(frame));
+  assert.equal(frames.length, 3);
+  const pixel = (frame, x, y) => frames.at(frame).pixels.subarray((y * 1920 + x) * 4, (y * 1920 + x) * 4 + 3);
+  assert.ok([...pixel(0, 710, 300)].every(channel => channel > 180), 'The unzoomed white marker is visible.');
+  assert.ok([...pixel(1, 710, 300)].every(channel => channel < 110), 'The camera move shifts the actual source marker.');
+  assert.ok(pixel(1, 200, 220)[0] > 150 && pixel(1, 200, 220)[1] < 100, 'The timed rectangle is red.');
+  assert.ok(pixel(2, 200, 220)[0] < 90, 'The rectangle disappears after its end frame.');
+  assert.ok(pixel(1, 30, 1005)[0] < pixel(0, 30, 1005)[0] - 15, 'The caption backing is rendered only in its interval.');
+  assert.equal(fs.existsSync(path.join(result.directory, 'work')), false);
+  assert.deepEqual(fs.readFileSync(input), bytes);
+  assert.equal(verifyMedia({...tools, manifest: result.manifest}, f.deps).approval, 'human-visual-review-required');
+  recordReview({...tools, ...reviewOptions(result)}, f.deps);
+  assert.equal(verifyMedia({...tools, manifest: result.manifest}, f.deps).approval, 'approved');
+  const next = composeMedia(options, f.deps);
+  assert.equal(verifyMedia({...tools, manifest: next.manifest}, f.deps).approval, 'human-visual-review-required');
+  const slower = composeMedia({...options, recipe: {...recipe, playbackRate: 0.8}}, f.deps);
+  assert.equal(slower.output.validation.decodedFrames, 245);
+  assert.equal(slower.output.validation.durationSeconds, 9.8);
+  assert.equal(verifyMedia({...tools, manifest: slower.manifest}, f.deps).approval, 'human-visual-review-required');
+  const blue = composeMedia({...options, recipe: {...recipe, annotationStyle: 'blue', transitionFrames: 8,
+    clips: recipe.clips.map((item, index) => ({
+      ...item, zoom: index ? {...item.zoom, from: 1.12, to: 1} : item.zoom,
+      caption: {...item.caption, startFrame: 0, endFrame: 100}
+    }))}}, f.deps);
+  const blueDecode = runTool(tools.ffmpeg, ['-nostdin', '-hide_banner', '-i', path.join(blue.directory, 'prepared.mp4'),
+    '-vf', "select='eq(n,30)+eq(n,94)+eq(n,98)+eq(n,110)'", '-fps_mode', 'passthrough',
+    '-c:v', 'png', '-threads', '1', '-f', 'image2', '-update', '1', 'pipe:1'], {binary: true});
+  const blueFrames = Array.from(pngFrames(blueDecode.stdout), frame => decodePng(frame));
+  const bluePixel = (frame, x, y) => blueFrames.at(frame).pixels.subarray((y * 1920 + x) * 4, (y * 1920 + x) * 4 + 3);
+  for (const [x, y] of [[200, 220], [30, 1005]]) {
+    const [red, green, blueChannel] = bluePixel(0, x, y);
+    assert.ok(red < 50 && green > 70 && blueChannel > 140, 'Blue style applies to both outlines and caption backing.');
+  }
+  assert.ok(bluePixel(1, 30, 1005)[2] < 120, 'Caption backings do not overlap during the dissolve.');
+  assert.ok([...bluePixel(2, 710, 300)].every(channel => channel < 110), 'Matching camera scale holds through the dissolve.');
+  assert.ok([...bluePixel(3, 710, 300)].every(channel => channel > 180), 'The incoming camera moves only after the dissolve.');
+  assert.equal(blue.output.validation.decodedFrames, 192);
+  const emphasisClip = {...clip, zoom: {from: 1, to: 1, centerX: 160, centerY: 90, frames: 1},
+    caption: undefined, callouts: [], emphasis: {
+      regions: [{x: 600, y: 180, width: 400, height: 240}],
+      label: {text: 'Review the code', x: 600, y: 460, width: 600},
+      heading: {text: 'Inline suggestions', x: 1100, y: 80}, startFrame: 20, endFrame: 70
+    }};
+  const emphasis = composeMedia({...options, recipe: {...recipe, annotationStyle: 'blue', transitionFrames: 0,
+    boldFont: font, boldFontSha256: sha256(fs.readFileSync(font)), clips: [emphasisClip]}}, f.deps);
+  const emphasisDecode = runTool(tools.ffmpeg, ['-nostdin', '-hide_banner', '-i', path.join(emphasis.directory, 'prepared.mp4'),
+    '-vf', "select='eq(n,0)+eq(n,30)+eq(n,90)'", '-fps_mode', 'passthrough',
+    '-c:v', 'png', '-threads', '1', '-f', 'image2', '-update', '1', 'pipe:1'], {binary: true});
+  const emphasisFrames = Array.from(pngFrames(emphasisDecode.stdout), frame => decodePng(frame));
+  const emphasisPixel = (frame, x, y) => emphasisFrames.at(frame).pixels.subarray((y * 1920 + x) * 4, (y * 1920 + x) * 4 + 3);
+  assert.ok([...emphasisPixel(1, 650, 300)].every(channel => channel > 180), 'The highlighted real content stays undimmed.');
+  assert.ok(emphasisPixel(1, 100, 800)[2] < emphasisPixel(0, 100, 800)[2] / 2, 'Surrounding UI is subdued only during emphasis.');
+  assert.ok(emphasisPixel(1, 610, 475)[2] > 140 && emphasisPixel(1, 610, 475)[0] < 60, 'The large rounded label is blue.');
+  assert.ok(emphasisPixel(1, 598, 280)[2] > 80, 'The rounded outline has a visible blue glow.');
+  assert.ok(emphasisPixel(1, 600, 460)[2] < 100, 'The label corner is rounded rather than filled.');
+  assert.ok(emphasisPixel(2, 100, 800)[2] > emphasisPixel(1, 100, 800)[2] * 2, 'The original UI brightness returns after emphasis.');
+  assert.equal(verifyMedia({...tools, manifest: emphasis.manifest}, f.deps).approval, 'human-visual-review-required');
+  const focusClip = {
+    ...clip, caption: undefined, callouts: [], zoom: {from: 1, to: 1, centerX: 40, centerY: 20, frames: 1},
+    focus: {crop: {x: 80, y: 30, width: 80, height: 40}, heading: 'Focus test',
+      label: {text: 'Review the active region', startFrame: 20, endFrame: 70}}
+  };
+  const focused = composeMedia({...options, recipe: {...recipe, transitionFrames: 0,
+    clips: [focusClip, {...focusClip, focus: {...focusClip.focus, label: undefined}}]}}, f.deps);
+  const focusDecode = runTool(tools.ffmpeg, ['-nostdin', '-hide_banner', '-i', path.join(focused.directory, 'prepared.mp4'),
+    '-vf', "select='eq(n,0)+eq(n,30)+eq(n,90)+eq(n,150)'", '-fps_mode', 'passthrough',
+    '-c:v', 'png', '-threads', '1', '-f', 'image2', '-update', '1', 'pipe:1'], {binary: true});
+  const focusFrames = Array.from(pngFrames(focusDecode.stdout), frame => decodePng(frame));
+  const focusPixel = (frame, x, y) => focusFrames.at(frame).pixels.subarray((y * 1920 + x) * 4, (y * 1920 + x) * 4 + 3);
+  assert.ok([...focusPixel(0, 780, 450)].every(channel => channel > 180), 'The real source region is magnified in the center.');
+  assert.ok([...focusPixel(0, 1800, 900)].every(channel => channel < 25), 'Surrounding source content is subdued.');
+  assert.ok(focusPixel(1, 420, 290)[2] > 140 && focusPixel(1, 420, 290)[0] < 80, 'The timed focus border is blue.');
+  assert.ok(focusPixel(2, 420, 290)[2] < 100, 'The focus border disappears after its interval.');
+  assert.ok(focusPixel(3, 420, 290)[2] < 100, 'Framing can stand alone without a label or highlight.');
+  assert.equal(focused.output.validation.decodedFrames, 200);
+  assert.equal(verifyMedia({...tools, manifest: focused.manifest}, f.deps).approval, 'human-visual-review-required');
+  fs.appendFileSync(input, 'changed');
+  assert.throws(() => verifyMedia({...tools, manifest: result.manifest}, f.deps), /Stale media/);
+});
 
 test('preparation crops and pads exact pixels, preserves source bytes, and never inherits approval', t => {
   const f = fixture(t);
@@ -163,6 +366,84 @@ test('PNG full validation rejects bad checksums, truncation, oversized geometry,
   corrupt.fill(0, 41, 41 + length);
   corrupt.writeUInt32BE(crc32(corrupt.subarray(37, 41 + length)), 41 + length);
   assert.throws(() => decodePng(corrupt), /header|compression/);
+});
+
+test('live-AI preparation verifies scoped edits, single execution, and approval without accepting changed ordinary captures', t => {
+  const f = fixture(t);
+  const story = structuredClone(require('./storyboards/editor-find.json'));
+  delete story.fixture;
+  delete story.video.reset;
+  story.ai = 'live-approved';
+  story.liveAI = {provider: 'Fixture provider', model: 'Fixture model', requests: 'One synthetic request.', tools: 'Edit example.js only.'};
+  story.workspace = {entry: 'example.js', environment: 'sample', allowedChanges: ['example.js']};
+  Object.assign(story.capture, {mode: 'live-ai', surface: 'editor'});
+  story.steps = [story.steps.at(-1)];
+  story.targets.approval = {selector: '.fixture-approval'};
+  Object.assign(story.video, {steps: story.steps, maxDurationSeconds: 24, blockedTargets: ['approval']});
+  const bytes = Buffer.from(JSON.stringify(story));
+  fs.writeFileSync(path.join(f.output, 'storyboard.json'), bytes);
+  const capture = path.join(f.output, 'capture.json');
+  const before = 'a'.repeat(64), after = 'b'.repeat(64);
+  const workspace = path.join(f.root, 'sample'), profile = path.join(f.root, 'profile');
+  const manifest = {
+    schemaVersion: 1, status: 'candidate', execution: 'attended', ai: 'live-approved', mode: 'live-ai', surface: 'editor',
+    privacy: {textScan: 'passed'}, product: {revision: 'c'.repeat(40), quality: 'insider'},
+    storyboard: {id: story.id, article: story.article, file: 'storyboard.json', sha256: sha256(bytes)},
+    workspace: {path: workspace, entry: 'example.js', check: 'within-approved-scope',
+      files: {'example.js': before}, after: {'example.js': after}, changes: [{file: 'example.js', before, after}]},
+    workspacePreparation: {status: 'confirmed'}, captureProfile: {path: profile, lockRetained: false},
+    liveAI: {...story.liveAI, approvedStoryboardSha256: sha256(bytes), allowedChanges: ['example.js'],
+      workspace, captureProfile: profile, revision: 'c'.repeat(40)},
+    video: {status: 'candidate', execution: 'single-live-run', maxDurationSeconds: 24, durationSeconds: 5},
+    asset: {file: 'source.png', sha256: f.options.sha256, bytes: f.bytes.length}
+  };
+  const prepare = value => {
+    overwriteJson(capture, value);
+    return prepareMedia({...f.options, capture, captureSha256: sha256(fs.readFileSync(capture))}, f.deps);
+  };
+  const result = prepare(manifest);
+  assert.equal(verifyMedia({manifest: result.manifest}, f.deps).approval, 'human-visual-review-required');
+  for (const change of [
+    value => {value.liveAI.approvedStoryboardSha256 = 'f'.repeat(64);},
+    value => {value.liveAI.model = 'Unapproved model';},
+    value => {value.workspace.after['unapproved.js'] = after;},
+    value => {value.workspace.changes = [];},
+    value => {value.video.execution = 'dry-run';},
+    value => {value.video.durationSeconds = 25;},
+    value => {value.workspacePreparation.status = 'cancelled';},
+    value => {delete value.captureProfile.path; delete value.liveAI.captureProfile;},
+    value => {value.ai = 'none';}
+  ]) {
+    const invalid = structuredClone(manifest);
+    change(invalid);
+    assert.throws(() => prepare(invalid), /Live-AI|Unapproved sample/);
+  }
+  const ordinary = {schemaVersion: 1, status: 'candidate', execution: 'attended', privacy: {textScan: 'passed'},
+    storyboard: {id: 'synthetic', article: 'docs/example.md', sha256: 'a'.repeat(64)},
+    workspace: {check: 'within-approved-scope'}, asset: manifest.asset};
+  assert.throws(() => prepare(ordinary), /cleanup checks/);
+  const unexpectedWindow = structuredClone(manifest);
+  unexpectedWindow.video.source = 'integrated-browser-window';
+  assert.throws(() => prepare(unexpectedWindow), /Unexpected browser capture evidence/);
+  for (const windowCamera of [false, true]) {
+    story.video.browserUrl = 'http://127.0.0.1:5187/blog';
+    if (windowCamera) story.video.browserCamera = 'window';
+    const snapshot = Buffer.from(JSON.stringify(story));
+    fs.writeFileSync(path.join(f.output, 'storyboard.json'), snapshot);
+    const browserManifest = structuredClone(manifest);
+    browserManifest.storyboard.sha256 = sha256(snapshot);
+    browserManifest.liveAI.approvedStoryboardSha256 = sha256(snapshot);
+    browserManifest.asset.method = 'electron-browser-content';
+    browserManifest.browserCapture = {
+      url: story.video.browserUrl, sharedWithAgent: true, visibility: 'visible', width: 1280, height: 720
+    };
+    Object.assign(browserManifest.video, windowCamera
+      ? {source: 'integrated-browser-window', width: 1920, height: 1080}
+      : {source: 'integrated-browser', width: 1280, height: 720});
+    assert.equal(verifyMedia({manifest: prepare(browserManifest).manifest}, f.deps).approval, 'human-visual-review-required');
+    browserManifest.video.width = windowCamera ? 1280 : 1920;
+    assert.throws(() => prepare(browserManifest), /native-viewport evidence/);
+  }
 });
 
 test('RGB rows using every PNG filter decode to the same original pixels', () => {

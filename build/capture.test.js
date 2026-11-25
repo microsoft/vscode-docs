@@ -6,7 +6,9 @@ const os = require('os');
 const path = require('path');
 const test = require('node:test');
 const { spawnSync } = require('node:child_process');
-const { captureEditor, checkVisibleText, validatePng, validateStoryboard } = require('./capture');
+const {createHash} = require('node:crypto');
+const {replyToCaptureCancellation} = require('./capture-preparation');
+const { captureEditor, checkVisibleText, selectBrowserCapture, validatePng, validateStoryboard } = require('./capture');
 const {renderHighlights} = require('./capture-highlights');
 const {assertReplayCurrent, inspectProcedure, main: replayMain, replayProcedure, reviewProcedure} = require('./replay');
 const {formatReport, main: findingsMain, validateReport} = require('./findings');
@@ -39,6 +41,72 @@ async function withOutput(callback) {
     fs.rmSync(directory, {recursive: true, force: true});
   }
 }
+
+test('browser cameras retain native image representations and reject ambiguous or changed views', async () => {
+  const url = 'http://127.0.0.1:5187/blog';
+  const state = {shared: true, displayed: url, url, nativeCount: 1, nativeId: 10, factors: [1, 1.5],
+    width: 1400, height: 900, visibility: 'visible', reads: 0};
+  const camera = {
+    url: () => state.url, isClosed: () => false, setDefaultTimeout: () => {}, waitForFunction: async () => {},
+    waitForLoadState: async () => {assert.fail('A ready live preview can maintain network activity.');},
+    evaluate: async callback => {
+      state.reads++;
+      return callback.toString().includes('cssWidth') ?
+        {cssWidth: state.width, cssHeight: state.height, devicePixelRatio: 1.5, visibility: state.visibility} : state.visibility;
+    }
+  };
+  const driver = {locator: selector => selector.includes('browser-share-toggle') ?
+    {count: async () => state.shared ? 1 : 0, isEnabled: async () => true} :
+    {count: async () => 1, innerText: async () => state.displayed}};
+  const webContents = {
+    getAllWebContents: () => Array.from({length: state.nativeCount}, (_, index) => ({id: state.nativeId + index, getURL: () => url})),
+    fromId: id => {
+      assert.equal(id, 10, 'Capture only the selected native browser view.');
+      return {
+        isDestroyed: () => false,
+        capturePage: async () => ({
+          isEmpty: () => false, getScaleFactors: () => state.factors,
+          toPNG: ({scaleFactor}) => {
+            assert.equal(scaleFactor, 1.5, 'Select the highest existing native representation explicitly.');
+            return pngHeader(1400, 900);
+          }
+        })
+      };
+    }
+  };
+  const application = {context: () => ({pages: () => [driver, camera]}),
+    evaluate: async (callback, argument) => callback({webContents}, argument)};
+  const story = {profile: {width: 1920, height: 1080}, video: {browserUrl: url}};
+  const prepared = await selectBrowserCapture(application, driver, story);
+  assert.equal(prepared.page, camera);
+  assert.equal(prepared.evidence.sharedWithAgent, true);
+  const image = await prepared.capture();
+  assert.equal(image.bytes.readUInt32BE(16), 1400, 'Use native pixels, not CSS width multiplied by zoom.');
+  assert.equal(image.scaleFactor, 1.5);
+  await prepared.check();
+  state.factors = [];
+  await assert.rejects(prepared.capture, /no valid image representation/);
+  state.factors = [1, 1.5];
+  state.nativeId = 11;
+  await assert.rejects(prepared.capture, /native browser view changed/);
+  state.nativeId = 10;
+  for (const change of [{shared: false}, {displayed: 'http://127.0.0.1:5187/private'}, {nativeCount: 2}]) {
+    const before = {...state};
+    Object.assign(state, change);
+    const reads = state.reads;
+    await assert.rejects(() => selectBrowserCapture(application, driver, story), /shared|duplicate/);
+    assert.equal(state.reads, reads, 'No browser DOM access before matching sharing and ownership checks.');
+    Object.assign(state, before);
+  }
+  state.width = 900;
+  await assert.rejects(prepared.check, /changed native dimensions/);
+  state.width = 1400;
+  state.url = 'http://127.0.0.1:5187/other';
+  await assert.rejects(prepared.check, /left its approved page/);
+  state.url = url;
+  state.visibility = 'hidden';
+  await assert.rejects(prepared.check, /became hidden/);
+});
 
 function fakeApplication(overrides = {}) {
   let closed = false;
@@ -216,14 +284,14 @@ test('reports cleanup failures and preserves isolated runtime state when the pro
   });
 });
 
-test('refuses repository outputs, AI storyboards, and invalid image headers', async function () {
+test('refuses repository outputs, unscoped AI storyboards, and invalid image headers', async function () {
   await withOutput(async options => {
     const fake = fakeApplication();
     await assert.rejects(() => captureEditor({...options, output: path.resolve(__dirname, '..')}, fake), /private directory outside/);
     assert.equal(fake.state().launchOptions, undefined);
   });
   const storyboard = JSON.parse(fs.readFileSync(STORYBOARD, 'utf8'));
-  assert.throws(() => validateStoryboard({...storyboard, ai: 'live-approved'}), /ai must be "none"/);
+  assert.throws(() => validateStoryboard({...storyboard, ai: 'live-approved'}), /live AI requires a sample/);
   assert.throws(() => validateStoryboard({...storyboard, privacy: {denyText: [], humanVisualReviewRequired: false}}), /privacy/);
   assert.throws(() => validatePng(Buffer.from('not a PNG'), 1920, 1080), /PNG/);
   assert.throws(() => checkVisibleText('authorization: Bearer secret', ['Bearer ']), /Privacy check failed/);
@@ -565,6 +633,126 @@ test('prepared-session captures require opt-in and readiness, verify the surface
         }
       });
     }
+  }
+});
+
+test('live-AI capture binds approval to exact bytes and preserves scoped edits without relaxing other modes', async () => {
+  for (const outcome of ['candidate', 'unexpected-file', 'cancelled', 'wrong-window', 'readiness-denied']) {
+    await withOutput(async options => {
+      const workspace = path.join(options.output, 'sample');
+      const output = path.join(options.output, 'captures');
+      fs.mkdirSync(workspace);
+      fs.mkdirSync(output);
+      const entry = path.join(workspace, 'example.js');
+      fs.writeFileSync(entry, 'Before');
+      const storyboard = JSON.parse(fs.readFileSync(STORYBOARD));
+      delete storyboard.fixture;
+      delete storyboard.video.reset;
+      storyboard.ai = 'live-approved';
+      storyboard.channel = 'stable';
+      storyboard.liveAI = {provider: 'Test provider', model: 'Test model', requests: 'One fixture request.', tools: 'Only edit example.js.'};
+      storyboard.workspace = {entry: 'example.js', environment: 'sample', allowedChanges: ['example.js']};
+      Object.assign(storyboard.capture, {mode: 'live-ai', surface: 'agents'});
+      storyboard.steps = [storyboard.steps.at(-1)];
+      storyboard.targets.approval = {selector: '.test-approval'};
+      Object.assign(storyboard.video, {maxDurationSeconds: 24, blockedTargets: ['approval'], steps: storyboard.steps});
+      const file = path.join(options.output, 'live-ai.json');
+      const bytes = JSON.stringify(storyboard);
+      fs.writeFileSync(file, bytes);
+      const hash = createHash('sha256').update(bytes).digest('hex');
+      const input = {...options, storyboard: file, workspace, output, captureProfile: path.join(options.output, 'profile'),
+        liveAI: hash, video: true, ffmpeg: options.executable, waitForReady: true};
+      for (const change of [{liveAI: undefined}, {liveAI: 'b'.repeat(64)}, {video: false}, {replay: true}, {waitForReady: false}]) {
+        await assert.rejects(() => captureEditor({...input, ...change}, fakeApplication()), /Live-AI recording requires/);
+      }
+      if (outcome === 'candidate') {
+        const long = {...storyboard, video: {...storyboard.video, maxDurationSeconds: 120}};
+        const longBytes = JSON.stringify(long);
+        fs.writeFileSync(file, longBytes);
+        const unlaunched = fakeApplication();
+        await assert.rejects(() => captureEditor({...input, liveAI: createHash('sha256').update(longBytes).digest('hex')}, unlaunched),
+          /full --validation-ffmpeg/);
+        assert.equal(unlaunched.state().launchOptions, undefined);
+        fs.writeFileSync(file, bytes);
+      }
+      const fake = fakeApplication({quality: 'stable', pageUrl: outcome === 'wrong-window' ? 'about:blank' :
+        'vscode-file://vscode-app/out/vs/sessions/electron-browser/sessions.html'});
+      let recorded = 0;
+      fake.waitForReadiness = async directory => {
+        const request = {schemaVersion: 1, token: 'c'.repeat(64), expiresAt: Date.now() + 60000};
+        fs.writeFileSync(path.join(directory, 'readiness-request.json'), JSON.stringify(request));
+        fs.writeFileSync(path.join(directory, 'readiness-response.json'), JSON.stringify({token: request.token, ready: true}));
+        return outcome !== 'readiness-denied';
+      };
+      fake.recordVideo = async (_page, _app, story, directory, _encoder, checkPrivacy) => {
+        recorded++;
+        assert.equal(story.video.reset, undefined);
+        fs.writeFileSync(entry, 'After');
+        if (outcome === 'unexpected-file') fs.writeFileSync(path.join(workspace, 'unexpected.js'), 'Unapproved');
+        if (outcome === 'cancelled') replyToCaptureCancellation(directory, 'c'.repeat(64));
+        await checkPrivacy();
+        return {status: 'candidate', execution: 'single-live-run', maxDurationSeconds: 24, durationSeconds: 4};
+      };
+      if (outcome === 'candidate') {
+        const result = await captureEditor(input, fake);
+        assert.equal(result.manifest.liveAI.approvedStoryboardSha256, hash);
+        assert.equal(result.manifest.workspace.check, 'within-approved-scope');
+        assert.deepEqual(result.manifest.workspace.changes.map(change => change.file), ['example.js']);
+        assert.equal(result.manifest.approval, 'human-visual-review-required');
+        assert.equal(result.manifest.captureProfile.lockRetained, false);
+        assert.equal(fs.readFileSync(entry, 'utf8'), 'After');
+        const browserUrl = 'http://127.0.0.1:5187/blog';
+        const browserStory = {...storyboard, video: {...storyboard.video, browserUrl}};
+        const browserBytes = JSON.stringify(browserStory);
+        fs.writeFileSync(file, browserBytes);
+        const camera = {
+          evaluate: async () => 'visible', locator: () => ({innerText: async () => 'Travel Stories'}),
+          title: async () => 'Travel Stories',
+          screenshot: async () => {assert.fail('Playwright screenshots can return CSS-sized browser pixels.');}
+        };
+        const browserFake = fakeApplication({quality: 'stable',
+          pageUrl: 'vscode-file://vscode-app/out/vs/sessions/electron-browser/sessions.html'});
+        browserFake.waitForReadiness = fake.waitForReadiness;
+        browserFake.selectBrowserCapture = async () => ({
+          page: camera,
+          evidence: {url: browserUrl, width: 1280, height: 720, visibility: 'visible', sharedWithAgent: true},
+          check: async () => {},
+          capture: async () => ({bytes: pngHeader(1280, 720), scaleFactor: 1})
+        });
+        let browserRecordings = 0;
+        browserFake.recordVideo = async (_driver, _app, _story, _directory, _encoder, _privacy, recording) => {
+          browserRecordings++;
+          assert.equal(recording.surfaces.browser, camera);
+          assert.equal(recording.videoProfile.width, 1280);
+          return {status: 'candidate', execution: 'single-live-run', source: 'integrated-browser',
+            width: 1280, height: 720, maxDurationSeconds: 24, durationSeconds: 4};
+        };
+        const browserResult = await captureEditor({...input, liveAI: createHash('sha256').update(browserBytes).digest('hex')}, browserFake);
+        assert.equal(browserResult.manifest.asset.method, 'electron-browser-content');
+        assert.equal(browserResult.manifest.browserCapture.url, browserUrl);
+        assert.equal(browserResult.manifest.browserCapture.nativeScaleFactor, 1);
+        assert.equal(browserResult.manifest.browserCapture.width, 1280);
+        assert.equal(browserFake.state().photographed, false, 'The main renderer must not stand in for the browser image.');
+        browserFake.selectBrowserCapture = async () => ({
+          page: camera, evidence: {url: browserUrl, sharedWithAgent: true}, check: async () => {},
+          capture: async () => ({bytes: pngHeader(900, 600), scaleFactor: 1})
+        });
+        await assert.rejects(() => captureEditor({...input, liveAI: createHash('sha256').update(browserBytes).digest('hex')}, browserFake),
+          /Native browser pixels.*received 900x600/);
+        assert.equal(browserRecordings, 1, 'Do not start video for an undersized native image.');
+      } else {
+        await assert.rejects(() => captureEditor(input, fake), error => {
+          assert.equal(error.capture.manifest.status, 'failed');
+          assert.equal(error.capture.manifest.liveAI.submittedWorkMayContinue, true);
+          if (outcome === 'unexpected-file') assert.equal(error.capture.manifest.workspace.check, 'failed');
+          return /Unapproved sample|cancelled|reviewed capture surface/.test(error.message);
+        });
+      }
+      assert.equal(recorded, ['wrong-window', 'readiness-denied'].includes(outcome) ? 0 : 1);
+      assert.equal(fake.state().closed, true);
+      assert.ok(fake.state().launchOptions.args.includes('--agents'));
+      assert.equal(fake.state().launchOptions.offline, false);
+    });
   }
 });
 

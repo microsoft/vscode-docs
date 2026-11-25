@@ -6,6 +6,7 @@ const path = require('path');
 const {spawnSync} = require('child_process');
 const {analyzeVideoMetadata} = require('./capture-video');
 const {MAX_BYTES, decodePng, dimensions, keys} = require('./media-png');
+const {decodeVideoFrames, durationLimit} = require('./video-validation');
 
 /* eslint-disable security/detect-non-literal-fs-filename -- Callers supply verified input and tool paths. */
 
@@ -14,11 +15,11 @@ const MAX_DECODE_BYTES = 256 * 1024 * 1024;
 const MAX_TEXT_BYTES = 8 * 1024 * 1024;
 const PNG_SIGNATURE = Buffer.from('89504e470d0a1a0a', 'hex');
 
-function runTool(executable, args, {binary = false, maxBuffer = binary ? MAX_DECODE_BYTES : MAX_TEXT_BYTES} = {}) {
+function runTool(executable, args, {binary = false, maxBuffer = binary ? MAX_DECODE_BYTES : MAX_TEXT_BYTES, cwd} = {}) {
   if (!Number.isInteger(maxBuffer) || maxBuffer < 1 || maxBuffer > (binary ? MAX_DECODE_BYTES : MAX_TEXT_BYTES)) {
     throw new Error('Invalid media tool buffer budget.');
   }
-  const result = spawnSync(executable, args, {encoding: binary ? null : 'utf8', windowsHide: true, timeout: 120000, maxBuffer});
+  const result = spawnSync(executable, args, {encoding: binary ? null : 'utf8', windowsHide: true, timeout: 120000, maxBuffer, cwd});
   if (result.error?.code === 'ENOBUFS' || result.stdout?.length > maxBuffer || result.stderr?.length > maxBuffer) {
     throw new Error(`Media tool output exceeded the ${maxBuffer}-byte buffer budget; partial output is not accepted.`);
   }
@@ -87,7 +88,8 @@ function imageMetadata(image) {
   return {width: image.width, height: image.height, pixelSha256: sha256(image.pixels), decodedFrames: 1};
 }
 
-function probeMetadata(value, format) {
+function probeMetadata(value, format, maximum = 30) {
+  durationLimit(maximum);
   const streams = value?.streams;
   if (!Array.isArray(streams) || streams.length !== 1 || streams[0].codec_type !== 'video') {
     throw new Error('Media must have exactly one video/image stream and no audio or other streams.');
@@ -103,8 +105,8 @@ function probeMetadata(value, format) {
   const durationSeconds = Number(stream.duration || value.format?.duration);
   if (stream.codec_name !== 'h264' || stream.pix_fmt !== 'yuv420p' ||
       stream.width % 2 || stream.height % 2 || fps !== 25 ||
-      !Number.isFinite(durationSeconds) || durationSeconds < 4 || durationSeconds > 30) {
-    throw new Error('MP4 must contain H.264 yuv420p video, even dimensions, 25 fps, and 4-30 seconds.');
+      !Number.isFinite(durationSeconds) || durationSeconds < 4 || durationSeconds > maximum) {
+    throw new Error(`MP4 must contain H.264 yuv420p video, even dimensions, 25 fps, and 4-${maximum} seconds.`);
   }
   if (stream.side_data_list?.some(item => item.rotation && item.rotation !== 0) || stream.tags?.rotate) {
     throw new Error('Rotated video requires separate preparation.');
@@ -137,6 +139,7 @@ function assertFastStart(bytes) {
 }
 
 function validateMedia(file, format, _work, tools = {}, run = runTool, final = false) {
+  const maximum = durationLimit(tools.maxDurationSeconds);
   const bytes = readMedia(file);
   if (format === 'png') return {format, ...imageMetadata(decodePng(bytes))};
   if (!['webp', 'webm', 'mp4'].includes(format)) throw new Error('Unsupported media format.');
@@ -163,11 +166,14 @@ function validateMedia(file, format, _work, tools = {}, run = runTool, final = f
     const size = streams.length === 1 && /,\s*(\d+)x(\d+)(?:\s|,|\[)/.exec(streams[0]);
     if (!size) throw new Error('WebM must have one VP9 video stream and no audio.');
     dimensions(Number(size[1]), Number(size[2]));
-    metadata = analyzeVideoMetadata(input, Number(size[1]), Number(size[2]));
+    metadata = analyzeVideoMetadata(input, Number(size[1]), Number(size[2]), maximum);
   } else {
     const ffprobe = toolPath(tools.ffprobe, 'ffprobe');
     const probe = run(ffprobe, ['-v', 'error', '-protocol_whitelist', 'file,pipe', '-show_streams', '-show_format', '-of', 'json', file]);
-    metadata = probeMetadata(JSON.parse(probe.stdout), format);
+    metadata = probeMetadata(JSON.parse(probe.stdout), format, maximum);
+  }
+  if (tools.streamed && format !== 'webp') {
+    return {format, ...metadata, ...decodeVideoFrames(file, metadata, maximum, run, ffmpeg)};
   }
   const decoded = run(ffmpeg, [...baseArgs, '-map', '0:v:0', '-an', '-sn', '-dn', '-fps_mode', 'passthrough',
     '-frames:v', format === 'webp' ? '2' : '751', '-c:v', 'png', '-threads', '1',
