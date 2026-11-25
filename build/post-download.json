@@ -7,6 +7,13 @@
   },
   "highlights": [
     {
+      "type": "release",
+      "title": "Keep agents working while you step away",
+      "description": "Prevent idle sleep while agents work on supported hosts, even after you close the window. Create isolated Dev Containers, clean up remote worktrees, tailor remote sandbox profiles, and get faster-starting chat responses.",
+      "link": "/updates/v1_148",
+      "image": "/assets/updates/1_148/release-highlights.webp"
+    },
+    {
       "type": "documentation",
       "title": "Learn the editor",
       "description": "Create, preview, and debug a small app while learning the editor. No AI required.",
@@ -18,13 +25,6 @@
       "description": "Build a small web app with an AI agent, test it in the browser, and review the generated changes.",
       "link": "/docs/agents/quickstart",
       "image": "/assets/docs/agents/agents-quickstart/editor-integrated-browser-interaction.png"
-    },
-    {
-      "type": "release",
-      "title": "Keep agents working while you step away",
-      "description": "Prevent idle sleep while agents work on supported hosts, even after you close the window. Create isolated Dev Containers, clean up remote worktrees, tailor remote sandbox profiles, and get faster-starting chat responses.",
-      "link": "/updates/v1_148",
-      "image": "/assets/updates/1_148/release-highlights.webp"
     }
   ]
 }
