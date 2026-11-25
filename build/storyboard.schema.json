@@ -15,7 +15,19 @@
     "article": {"type": "string", "maxLength": 240, "pattern": "^docs/[a-zA-Z0-9/_-]+\\.md$"},
     "channel": {"enum": ["stable", "insiders"]},
     "execution": {"const": "attended"},
-    "ai": {"const": "none"},
+    "ai": {"enum": ["none", "live-approved"]},
+    "liveAI": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["provider", "model", "requests", "tools"],
+      "properties": {
+        "provider": {"type": "string", "minLength": 1, "maxLength": 120, "pattern": "\\S"},
+        "model": {"type": "string", "minLength": 1, "maxLength": 120, "pattern": "\\S"},
+        "requests": {"type": "string", "minLength": 1, "maxLength": 2000, "pattern": "\\S"},
+        "tools": {"type": "string", "minLength": 1, "maxLength": 2000, "pattern": "\\S"}
+      },
+      "description": "Human-reviewed scope, not a model-provider or tool-permission enforcement mechanism. Never include credentials."
+    },
     "profile": {"$ref": "#/$defs/profile"},
     "fixture": {"$ref": "#/$defs/fixture"},
     "workspace": {"$ref": "#/$defs/workspace"},
@@ -46,7 +58,7 @@
       "properties": {
         "file": {"type": "string", "pattern": "^(?!con\\.|prn\\.|aux\\.|nul\\.|com[1-9]\\.|lpt[1-9]\\.)[a-z][a-z0-9-]{0,63}\\.png$"},
         "alt": {"type": "string", "maxLength": 240, "pattern": "^Screenshot showing .+\\.$"},
-        "mode": {"const": "prepared-session"},
+        "mode": {"enum": ["prepared-session", "live-ai"]},
         "surface": {"enum": ["editor", "agents"]},
         "highlights": {"$ref": "#/$defs/highlights"}
       }
@@ -54,12 +66,20 @@
     "video": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["file", "title", "reset", "steps"],
+      "required": ["file", "title", "steps"],
       "properties": {
         "file": {"type": "string", "pattern": "^(?!con\\.|prn\\.|aux\\.|nul\\.|com[1-9]\\.|lpt[1-9]\\.)[a-z][a-z0-9-]{0,63}\\.webm$"},
         "title": {"type": "string", "maxLength": 120, "pattern": "^Video showing .+\\.$"},
         "reset": {"$ref": "#/$defs/steps"},
-        "steps": {"$ref": "#/$defs/steps"}
+        "steps": {"$ref": "#/$defs/steps"},
+        "browserUrl": {"type": "string", "minLength": 1, "maxLength": 240},
+        "browserCamera": {"enum": ["window"]},
+        "maxDurationSeconds": {"type": "integer", "minimum": 4, "maximum": 120},
+        "blockedTargets": {
+          "type": "array", "minItems": 1, "maxItems": 10, "uniqueItems": true,
+          "items": {"$ref": "#/$defs/targetName"},
+          "description": "Visible approval, authentication, or other unexpected prompts abort live recording; the script must never act on these targets."
+        }
       }
     },
     "privacy": {
@@ -133,12 +153,22 @@
       "required": ["entry"],
       "properties": {
         "entry": {"$ref": "#/$defs/fileName"},
+        "allowedChanges": {
+          "type": "array", "minItems": 0, "maxItems": 10, "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1, "maxLength": 240, "pattern": "^[a-zA-Z0-9_+./-]+\\.(js|ts|json|txt|md|html|css|svelte)$"},
+          "description": "Explicit relative source-file paths that a separately approved live-AI recording may change. Parent traversal, protected configuration, and excluded dependency/build trees are forbidden."
+        },
+        "excludedDirectories": {
+          "type": "array", "minItems": 0, "maxItems": 4, "uniqueItems": true,
+          "items": {"enum": ["node_modules", ".svelte-kit", "dist", "build"]},
+          "description": "Explicitly approved root-level dependency/build directories that are not audited. This does not sandbox agent actions."
+        },
         "environment": {
           "enum": ["isolated", "sample"],
-          "description": "Sample is an explicitly reviewed environment for replay or opt-in prepared-session screenshots, with persistent extensions, normal sign-in storage, Git enabled, and network access. Isolated remains the default."
+          "description": "Sample is an explicitly reviewed environment for replay, prepared-session screenshots, or separately approved live-AI videos, with persistent extensions, normal sign-in storage, Git enabled, and network access. Isolated remains the default."
         }
       },
-      "description": "Open a reviewed existing workspace, supplied separately with --workspace, without generating or editing its files."
+      "description": "Open a reviewed existing workspace supplied separately with --workspace. Files must remain unchanged except for explicitly approved live-AI sample edits."
     },
     "profile": {
       "type": "object",
@@ -177,7 +207,8 @@
         "role": {"enum": ["button", "checkbox", "combobox", "link", "menuitem", "option", "radio", "tab", "textbox", "treeitem"]},
         "name": {"type": "string", "minLength": 1, "maxLength": 240},
         "exact": {"type": "boolean"},
-        "first": {"type": "boolean"}
+        "first": {"type": "boolean"},
+        "surface": {"enum": ["browser"]}
       },
       "oneOf": [
         {"required": ["role", "name"], "not": {"required": ["selector"]}},

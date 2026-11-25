@@ -9,7 +9,8 @@ const { createInterface } = require('node:readline/promises');
 const { isWithinRoot } = require('./repository-paths');
 const { runSteps, validateStoryboard } = require('./storyboard');
 const {WORKSPACE_SETTINGS, SAMPLE_WORKSPACE_SETTINGS, acquireCaptureProfile, prepareSampleSettings,
-  replyToReadiness, snapshotWorkspace, waitForReadiness} = require('./capture-preparation');
+  replyToReadiness, snapshotWorkspace, waitForReadiness, snapshotSampleFiles, approvedWorkspaceChanges,
+  replyToCaptureCancellation, captureCancellationCheck} = require('./capture-preparation');
 const {assertStableHighlights, collectHighlightRectangles, renderHighlights} = require('./capture-highlights');
 const {ProcedureFailure, failureDetails} = require('./replay-errors');
 
@@ -86,19 +87,107 @@ async function confirmWorkspaceReady(workspace) {
   }
 }
 
+async function selectBrowserCapture(application, driver, storyboard) {
+  const expected = new URL(storyboard.video.browserUrl);
+  const sharing = driver.locator('.browser-share-toggle[aria-label="Stop Sharing with Agent"]:visible');
+  const address = driver.locator('.browser-url-display:visible');
+  const checkSharing = async () => {
+    if (await sharing.count() !== 1 || !await sharing.isEnabled() || await address.count() !== 1) {
+      throw new Error('Keep exactly one browser tab visible and explicitly shared with the agent. The runner never grants sharing permissions.');
+    }
+    const text = (await address.innerText()).trim();
+    if (!URL.canParse(text)) throw new Error('Cannot verify the shared browser address.');
+    const displayed = new URL(text);
+    if (displayed.origin !== expected.origin || displayed.pathname !== expected.pathname || displayed.username || displayed.password) {
+      throw new Error('The shared browser tab is not the approved local page.');
+    }
+    const nativeIds = await application.evaluate(({webContents}, address) => {
+      const expected = new URL(address);
+      return webContents.getAllWebContents().filter(contents => {
+        const value = contents.getURL();
+        if (!URL.canParse(value)) return false;
+        const current = new URL(value);
+        return current.origin === expected.origin && current.pathname === expected.pathname && !current.username && !current.password;
+      }).map(contents => contents.id);
+    }, expected.href);
+    if (nativeIds.length !== 1) throw new Error('Close duplicate preview tabs, including unshared originals, before capture; the approved native browser view must be unique.');
+    return nativeIds[0];
+  };
+  const nativeContentsId = await checkSharing();
+  const candidates = [];
+  for (const candidate of application.context().pages()) {
+    if (candidate !== driver && !candidate.isClosed() && candidate.url() === expected.href &&
+        await candidate.evaluate(() => document.visibilityState) === 'visible') candidates.push(candidate);
+  }
+  if (candidates.length !== 1) throw new Error('Expected exactly one visible, owned browser page at the approved URL; no other surface will be substituted.');
+  const browser = candidates[0];
+  browser.setDefaultTimeout(15000);
+  await browser.waitForFunction(() => document.readyState === 'complete' && document.fonts.status === 'loaded');
+  const readViewport = () => browser.evaluate(() => ({
+    cssWidth: innerWidth, cssHeight: innerHeight,
+    devicePixelRatio, visibility: document.visibilityState
+  }));
+  const viewport = await readViewport();
+  if (!Number.isFinite(viewport.cssWidth) || !Number.isFinite(viewport.cssHeight) ||
+      viewport.cssWidth <= 0 || viewport.cssHeight <= 0 ||
+      !Number.isFinite(viewport.devicePixelRatio) || viewport.devicePixelRatio <= 0 ||
+      viewport.visibility !== 'visible') {
+    throw new Error('Cannot verify a visible browser viewport.');
+  }
+  const check = async () => {
+    if (await checkSharing() !== nativeContentsId) throw new Error('The approved native browser view changed.');
+    const current = new URL(browser.url());
+    const size = await readViewport();
+    if (current.origin !== expected.origin || current.pathname !== expected.pathname || current.username || current.password ||
+        size.visibility !== 'visible' || size.cssWidth !== viewport.cssWidth || size.cssHeight !== viewport.cssHeight ||
+        size.devicePixelRatio !== viewport.devicePixelRatio) {
+      throw new Error('The browser camera left its approved page, became hidden, or changed native dimensions.');
+    }
+  };
+  return {
+    page: browser,
+    evidence: {url: expected.href, ...viewport, nativeContentsId, sharedWithAgent: true},
+    check,
+    capture: async () => {
+      await check();
+      const result = await application.evaluate(async ({webContents}, id) => {
+        const contents = webContents.fromId(id);
+        if (!contents || contents.isDestroyed()) throw new Error('The approved browser view is unavailable.');
+        const image = await contents.capturePage();
+        const factors = image.getScaleFactors();
+        if (image.isEmpty() || !factors.length || factors.some(factor => !Number.isFinite(factor) || factor <= 0)) {
+          throw new Error('Native browser capture returned no valid image representation.');
+        }
+        const scaleFactor = Math.max(...factors);
+        return {png: image.toPNG({scaleFactor}).toString('base64'), scaleFactor};
+      }, nativeContentsId);
+      return {bytes: Buffer.from(result.png, 'base64'), scaleFactor: result.scaleFactor};
+    }
+  };
+}
+
 async function captureEditor(options, dependencies = {}) {
   const repository = fs.realpathSync(path.resolve(__dirname, '..'));
   const storyboardBytes = fs.readFileSync(options.storyboard);
   const storyboard = validateStoryboard(JSON.parse(storyboardBytes.toString('utf8')));
+  const storyboardHash = crypto.createHash('sha256').update(storyboardBytes).digest('hex');
   const sample = storyboard.workspace?.environment === 'sample';
   const preparedSession = storyboard.capture.mode === 'prepared-session';
+  const liveAI = storyboard.ai === 'live-approved';
+  if (liveAI) {
+    if (options.liveAI !== storyboardHash || !options.video || options.replay || !options.waitForReady) {
+      throw new Error('Live-AI recording requires --live-ai <approved-storyboard-sha256>, --video, and --wait-for-ready, and cannot run as replay.');
+    }
+  } else if (options.liveAI !== undefined) {
+    throw new Error('Live-AI approval requires a live-AI storyboard.');
+  }
   if (!!options.preparedSession !== preparedSession) {
     throw new Error('Prepared-session screenshots require both a reviewed prepared-session storyboard and explicit capture opt-in.');
   }
   if (preparedSession && (options.replay || options.video)) {
     throw new Error('Prepared-session screenshots cannot run as replay or video.');
   }
-  if (sample && !options.replay && !preparedSession) {
+  if (sample && !options.replay && !preparedSession && !liveAI) {
     throw new Error('The persistent sample environment is for instruction replay only unless explicitly approved for prepared-session screenshots.');
   }
   const article = fs.realpathSync(path.resolve(repository, ...storyboard.article.split('/')));
@@ -131,8 +220,18 @@ async function captureEditor(options, dependencies = {}) {
   if (options.video && (typeof options.ffmpeg !== 'string' || !path.isAbsolute(options.ffmpeg))) {
     throw new Error('Video capture requires an absolute --ffmpeg encoder path.');
   }
+  if (options.validationFfmpeg !== undefined && (!liveAI || !options.video || !path.isAbsolute(options.validationFfmpeg))) {
+    throw new Error('An explicit --validation-ffmpeg path is supported only for live-AI videos.');
+  }
+  if (liveAI && storyboard.video.maxDurationSeconds > 30 && !options.validationFfmpeg) {
+    throw new Error('Long live-AI takes require a full --validation-ffmpeg path before product launch.');
+  }
   const executable = fs.realpathSync(options.executable);
   const encoder = options.video ? fs.realpathSync(options.ffmpeg) : undefined;
+  const validationEncoder = options.validationFfmpeg ? fs.realpathSync(options.validationFfmpeg) : encoder;
+  if (liveAI && storyboard.video.maxDurationSeconds > 30) {
+    (dependencies.assertLongVideoDecoder || require('./capture-video').assertLongVideoDecoder)(validationEncoder);
+  }
   const output = fs.realpathSync(options.output);
   if (!fs.statSync(output).isDirectory() || isWithinRoot(repository, output) || isWithinRoot(output, repository)) {
     throw new Error('Capture output must be an existing private directory outside the repository and its ancestors.');
@@ -151,7 +250,7 @@ async function captureEditor(options, dependencies = {}) {
   const manifest = {
     schemaVersion: 1,
     storyboard: { id: storyboard.id, article: storyboard.article, file: 'storyboard.json',
-      sha256: crypto.createHash('sha256').update(storyboardBytes).digest('hex') },
+      sha256: storyboardHash },
     articleHash: crypto.createHash('sha256').update(fs.readFileSync(article)).digest('hex'),
     sourceRevision: execFileSync('git', ['rev-parse', 'HEAD'], {cwd: repository, encoding: 'utf8'}).trim(),
     runnerSha256: crypto.createHash('sha256').update(fs.readFileSync(__filename)).digest('hex'),
@@ -164,7 +263,7 @@ async function captureEditor(options, dependencies = {}) {
     profile: storyboard.profile,
     ai: storyboard.ai,
     approval: 'human-visual-review-required',
-    ...(preparedSession ? {mode: 'prepared-session', surface: storyboard.capture.surface} : {}),
+    ...(preparedSession || liveAI ? {mode: storyboard.capture.mode, surface: storyboard.capture.surface} : {}),
     privacy: { textScan: 'not-run', pixelReview: options.replay ? 'not-captured' : 'required' },
     ...(options.replay ? {purpose: 'procedure-replay', approval: 'not-a-media-candidate'} : {})
   };
@@ -175,13 +274,23 @@ async function captureEditor(options, dependencies = {}) {
   let closed = true;
   let manifestPersisted = false;
   let stage = 'preparation';
+  let checkCancellation = () => {};
   try {
     fs.writeFileSync(path.join(runDirectory, manifest.storyboard.file), storyboardBytes, {flag: 'wx', mode: 0o600});
     if (storyboard.workspace) {
       workspaceSnapshot = snapshotWorkspace(workspace, storyboard.workspace.entry, sample ? 'sample' : 'isolated');
+      if (liveAI) workspaceSnapshot = snapshotSampleFiles(workspace, storyboard.workspace.excludedDirectories);
       manifest.workspace = {path: workspace, entry: storyboard.workspace.entry, files: workspaceSnapshot, check: 'pending'};
       captureProfile = acquireCaptureProfile(options.captureProfile, workspace, storyboard.channel, runDirectory, sample ? 'sample' : 'isolated');
       manifest.captureProfile = {path: captureProfile.root, retained: true, lockRetained: true};
+      if (liveAI) {
+        manifest.liveAI = {
+          ...storyboard.liveAI, approvedStoryboardSha256: storyboardHash,
+          workspace, captureProfile: captureProfile.root, revision: options.revision,
+          allowedChanges: storyboard.workspace.allowedChanges,
+          excludedDirectories: storyboard.workspace.excludedDirectories || []
+        };
+      }
       // Workspace Trust uses application-shared storage under the home directory, not only user-data.
       environment.HOME = path.join(captureProfile.root, 'home');
       environment.USERPROFILE = environment.HOME;
@@ -233,7 +342,7 @@ async function captureEditor(options, dependencies = {}) {
         '--force-device-scale-factor=1', '--locale=en',
         '--user-data-dir', userData,
         '--extensions-dir', extensions,
-        ...(preparedSession ? [...(storyboard.capture.surface === 'agents' ? ['--agents'] : []), workspace] :
+        ...(preparedSession || liveAI ? [...(storyboard.capture.surface === 'agents' ? ['--agents'] : []), workspace] :
           [...(storyboard.workspace || storyboard.fixture?.openFolder ? [workspace, '--goto'] : []), fixture])
       ],
       env: environment,
@@ -258,7 +367,7 @@ async function captureEditor(options, dependencies = {}) {
     const page = await application.firstWindow();
     page.setDefaultTimeout(15000);
     await page.locator('.monaco-workbench').waitFor({state: 'visible'});
-    if (preparedSession) {
+    if (preparedSession || liveAI) {
       const expected = storyboard.capture.surface === 'agents'
         ? '/vs/sessions/electron-browser/sessions.html' : '/vs/code/electron-browser/workbench/workbench.html';
       if (!new URL(page.url()).pathname.endsWith(expected)) {
@@ -270,8 +379,8 @@ async function captureEditor(options, dependencies = {}) {
     if (needsPreparation) {
       stage = 'readiness';
       manifest.workspacePreparation = {status: 'awaiting-human'};
-      const ready = options.waitForReady ? await waitForReadiness(runDirectory, workspace,
-        preparedSession ? PREPARED_SESSION_READINESS_TIMEOUT : undefined) :
+      const ready = options.waitForReady ? await (dependencies.waitForReadiness || waitForReadiness)(runDirectory, workspace,
+        preparedSession || liveAI ? PREPARED_SESSION_READINESS_TIMEOUT : undefined) :
         await (dependencies.confirmReady || confirmWorkspaceReady)(workspace);
       if (ready !== true) {
         manifest.workspacePreparation.status = 'cancelled';
@@ -279,6 +388,7 @@ async function captureEditor(options, dependencies = {}) {
       }
       stage = 'baseline';
       manifest.workspacePreparation = {status: 'confirmed', confirmedAt: new Date().toISOString()};
+      if (liveAI) checkCancellation = captureCancellationCheck(runDirectory);
     }
     await page.waitForFunction(profile => {
       const expectedRatio = profile.deviceScaleFactor * Math.pow(1.2, profile.zoomLevel);
@@ -310,38 +420,56 @@ async function captureEditor(options, dependencies = {}) {
     }
     manifest.window = windowState;
     manifest.viewport = viewport;
+    const browserCapture = storyboard.video?.browserUrl ?
+      await (dependencies.selectBrowserCapture || selectBrowserCapture)(application, page, storyboard) : undefined;
+    const surfaces = browserCapture ? {browser: browserCapture.page} : {};
+    if (browserCapture) manifest.browserCapture = browserCapture.evidence;
     const checkPrivacy = async () => {
-      const visibility = await page.evaluate(() => document.visibilityState);
-      if (visibility !== 'visible') {
-        throw new ProcedureFailure('environment', 'window-not-visible', 'Attended capture requires a visible page throughout the run.');
-      }
-      const visibleText = await page.locator('body').innerText();
-      const title = await page.title();
-      try {
-        checkVisibleText(`${title}\n${visibleText}`, [
-          ...storyboard.privacy.denyText, os.homedir(), path.basename(os.homedir()),
-          process.env.USERPROFILE || os.homedir(), os.userInfo().username
-        ]);
-      } catch (error) {
-        manifest.privacy.textScan = 'failed';
-        throw error;
+      checkCancellation();
+      if (browserCapture) await browserCapture.check();
+      for (const observed of browserCapture ? [page, browserCapture.page] : [page]) {
+        const visibility = await observed.evaluate(() => document.visibilityState);
+        if (visibility !== 'visible') {
+          throw new ProcedureFailure('environment', 'window-not-visible', 'Attended capture requires a visible page throughout the run.');
+        }
+        const visibleText = await observed.locator('body').innerText();
+        const title = await observed.title();
+        try {
+          checkVisibleText(`${title}\n${visibleText}`, [
+            ...storyboard.privacy.denyText, os.homedir(), path.basename(os.homedir()),
+            process.env.USERPROFILE || os.homedir(), os.userInfo().username
+          ]);
+        } catch (error) {
+          manifest.privacy.textScan = 'failed';
+          throw error;
+        }
       }
     };
     stage = 'steps';
-    manifest.steps = await runSteps(page, storyboard, storyboard.steps, checkPrivacy);
+    manifest.steps = await runSteps(page, storyboard, storyboard.steps, checkPrivacy, 'steps', Date.now(), surfaces);
     await checkPrivacy();
     manifest.privacy.textScan = 'passed';
     if (!options.replay) {
       const highlightRectangles = storyboard.capture.highlights ? await collectHighlightRectangles(page, storyboard) : undefined;
       await checkPrivacy();
-      const encoded = await window.evaluate(async browserWindow =>
+      const encoded = browserCapture ? undefined : await window.evaluate(async browserWindow =>
         (await browserWindow.capturePage()).toPNG().toString('base64'));
-      const bytes = Buffer.from(encoded, 'base64');
-      validatePng(bytes, storyboard.profile.width, storyboard.profile.height);
+      const browserImage = browserCapture ? await browserCapture.capture() : undefined;
+      const bytes = browserImage ? browserImage.bytes : Buffer.from(encoded, 'base64');
+      if (browserImage && (!Buffer.isBuffer(bytes) || bytes.length < 24)) throw new Error('Native browser capture did not produce image data.');
+      const imageProfile = browserImage ? {...storyboard.profile, width: bytes.readUInt32BE(16), height: bytes.readUInt32BE(20)} : storyboard.profile;
+      if (browserImage && (imageProfile.width < 1280 || imageProfile.height < 720 ||
+          imageProfile.width > storyboard.profile.width || imageProfile.height > storyboard.profile.height)) {
+        throw new Error(`Native browser pixels must fit between 1280x720 and the capture window; received ${imageProfile.width}x${imageProfile.height}. No resizing was applied.`);
+      }
+      validatePng(bytes, imageProfile.width, imageProfile.height);
+      if (browserImage) Object.assign(manifest.browserCapture,
+        {width: imageProfile.width, height: imageProfile.height, nativeScaleFactor: browserImage.scaleFactor});
       const file = path.join(runDirectory, storyboard.capture.file);
       fs.writeFileSync(file, bytes, {flag: 'wx'});
       manifest.asset = {
-        file: storyboard.capture.file, alt: storyboard.capture.alt, method: 'electron-window-content',
+        file: storyboard.capture.file, alt: storyboard.capture.alt,
+        method: browserCapture ? 'electron-browser-content' : 'electron-window-content',
         sha256: crypto.createHash('sha256').update(bytes).digest('hex'), bytes: bytes.length
       };
       if (highlightRectangles) {
@@ -368,12 +496,16 @@ async function captureEditor(options, dependencies = {}) {
         manifest.video = {
           file: storyboard.video.file, status: 'recording',
           runnerSha256: crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname, 'capture-video.js'))).digest('hex'),
-          encoderSha256: crypto.createHash('sha256').update(fs.readFileSync(encoder)).digest('hex')
+          validationRunnerSha256: crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname, 'video-validation.js'))).digest('hex'),
+          encoderSha256: crypto.createHash('sha256').update(fs.readFileSync(encoder)).digest('hex'),
+          ...(options.validationFfmpeg ? {validationEncoderSha256: crypto.createHash('sha256').update(fs.readFileSync(validationEncoder)).digest('hex')} : {})
         };
         const record = dependencies.recordVideo || require('./capture-video').recordStoryboardVideo;
-        Object.assign(manifest.video, await record(page, application, storyboard, runDirectory, encoder, checkPrivacy));
+        Object.assign(manifest.video, await record(page, application, storyboard, runDirectory, validationEncoder, checkPrivacy,
+          {surfaces, videoProfile: imageProfile}));
       }
     }
+    checkCancellation();
     manifest.status = options.replay ? 'passed' : 'candidate';
   } catch (error) {
     failure = error;
@@ -421,10 +553,15 @@ async function captureEditor(options, dependencies = {}) {
     }
     if (workspaceSnapshot) {
       try {
-        if (JSON.stringify(snapshotWorkspace(workspace, storyboard.workspace.entry, sample ? 'sample' : 'isolated')) !== JSON.stringify(workspaceSnapshot)) {
+        if (liveAI) {
+          manifest.workspace.after = snapshotSampleFiles(workspace, storyboard.workspace.excludedDirectories);
+          manifest.workspace.changes = approvedWorkspaceChanges(workspaceSnapshot, manifest.workspace.after, storyboard.workspace.allowedChanges);
+          manifest.workspace.check = 'within-approved-scope';
+        } else if (JSON.stringify(snapshotWorkspace(workspace, storyboard.workspace.entry, sample ? 'sample' : 'isolated')) !== JSON.stringify(workspaceSnapshot)) {
           throw new Error('The workspace entry or configuration files changed during capture. No changes were rolled back.');
+        } else {
+          manifest.workspace.check = 'unchanged';
         }
-        manifest.workspace.check = 'unchanged';
       } catch (error) {
         failure = failure ? new AggregateError([failure, error], `${failure.message}; ${error.message}`) : error;
         if (manifest.workspace) manifest.workspace.check = 'failed';
@@ -432,12 +569,19 @@ async function captureEditor(options, dependencies = {}) {
         manifest.workspaceError = options.replay ? 'workspace-changed' : error.message;
       }
     }
+    try {
+      checkCancellation();
+    } catch (error) {
+      failure = failure ? new AggregateError([failure, error], 'Capture failed or was cancelled.') : error;
+      (manifest.failures ||= []).push({category: 'environment', code: 'capture-cancelled'});
+    }
     if (failure) {
       manifest.status = 'failed';
       manifest.error ||= options.replay ? 'Replay did not complete successfully.' : failure.message;
       if (manifest.video) {
         manifest.video.status = 'failed';
       }
+      if (manifest.liveAI) manifest.liveAI.submittedWorkMayContinue = true;
     }
     try {
       fs.writeFileSync(path.join(runDirectory, 'capture.json'), JSON.stringify(manifest, null, 2));
@@ -466,22 +610,30 @@ async function main(args = process.argv.slice(2)) {
     console.log('Usage: node build/capture.js --executable <Code.exe> --revision <build-commit> --output <private-directory> [--storyboard <file>] [--video --ffmpeg <encoder.exe>]');
     console.log('Existing workspace: --workspace <folder> --capture-profile <dedicated-directory> [--wait-for-ready]');
     console.log('Prepared-session screenshots: add --prepared-session for a reviewed observation-only sample storyboard.');
+    console.log('Live-AI videos: --live-ai <approved-storyboard-sha256> --video --wait-for-ready. Approve AI use and the exact script separately before launch.');
+    console.log('For live-AI takes longer than 30 seconds, also supply --validation-ffmpeg <approved-full-ffmpeg.exe>.');
     console.log('Relay an explicit human decision: --confirm-ready <run-directory> --token <token>, or --cancel-ready <run-directory> --token <token>');
+    console.log('Cancel an active live-AI capture: --cancel-capture <run-directory> --token <readiness-token>. Submitted AI work might need separate cancellation.');
     return;
   }
-  if (['--confirm-ready', '--cancel-ready'].includes(args[0])) {
+  if (['--confirm-ready', '--cancel-ready', '--cancel-capture'].includes(args[0])) {
     if (args.length !== 4 || args[2] !== '--token') {
       throw new Error('Readiness responses require a run directory and --token.');
     }
-    replyToReadiness(args[1], args[3], args[0] === '--confirm-ready');
-    console.log('Human readiness response recorded. This does not approve any media asset.');
+    if (args[0] === '--cancel-capture') {
+      replyToCaptureCancellation(args[1], args[3]);
+      console.log('Capture cancellation requested. Check the final capture manifest; submitted AI work might need separate cancellation.');
+    } else {
+      replyToReadiness(args[1], args[3], args[0] === '--confirm-ready');
+      console.log('Human readiness response recorded. This does not approve any media asset.');
+    }
     return;
   }
   const options = new Map();
   for (let index = 0; index < args.length; index++) {
     const option = args.at(index);
     const value = ['--video', '--wait-for-ready', '--prepared-session'].includes(option) ? true : args.at(++index);
-    if (!['--executable', '--revision', '--output', '--storyboard', '--video', '--ffmpeg', '--workspace', '--capture-profile', '--wait-for-ready', '--prepared-session'].includes(option) ||
+    if (!['--executable', '--revision', '--output', '--storyboard', '--video', '--ffmpeg', '--validation-ffmpeg', '--workspace', '--capture-profile', '--wait-for-ready', '--prepared-session', '--live-ai'].includes(option) ||
         options.has(option) || !value || (typeof value === 'string' && value.startsWith('--'))) {
       throw new Error('Supply each capture option once with a value; use --help for usage.');
     }
@@ -499,10 +651,12 @@ async function main(args = process.argv.slice(2)) {
     output: options.get('--output'),
     video: options.has('--video'),
     ffmpeg: options.get('--ffmpeg'),
+    validationFfmpeg: options.get('--validation-ffmpeg'),
     workspace: options.get('--workspace'),
     captureProfile: options.get('--capture-profile'),
     waitForReady: options.has('--wait-for-ready'),
     preparedSession: options.has('--prepared-session'),
+    liveAI: options.get('--live-ai'),
     storyboard: options.get('--storyboard') || path.join(__dirname, 'storyboards', 'editor-find.json')
   });
   console.log(JSON.stringify(result, null, 2));
@@ -515,4 +669,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { captureEditor, checkVisibleText, main, validatePng, validateStoryboard };
+module.exports = { captureEditor, checkVisibleText, main, selectBrowserCapture, validatePng, validateStoryboard };

@@ -107,7 +107,8 @@ function validateSteps(steps, targets, label, requireAssertion) {
 
 function validateStoryboard(value) {
   requireValue(value?.schemaVersion === 2, 'unsupported schemaVersion; migrate to version 2 using build/storyboards/editor-find.json.');
-  requireScalarFields(value, schema, 'storyboard', ['profile', 'fixture', 'workspace', 'targets', 'steps', 'instructions', 'capture', 'video', 'privacy']);
+  requireScalarFields(value, schema, 'storyboard', ['profile', 'fixture', 'workspace', 'targets', 'steps', 'instructions', 'capture', 'video', 'privacy', 'liveAI']);
+  const liveAI = value.ai === 'live-approved';
   requireScalarFields(value.profile, schema.$defs.profile, 'profile');
   requireValue(value.profile.zoomLevel === (value.profile.wideContent ? 1.5 : 2),
     'use zoom level 2 by default, or 1.5 with profile.wideContent: true.');
@@ -116,7 +117,28 @@ function validateStoryboard(value) {
   if (value.fixture) {
     requireScalarFields(value.fixture, schema.$defs.fixture, 'fixture');
   } else {
-    requireScalarFields(value.workspace, schema.$defs.workspace, 'workspace');
+    requireScalarFields(value.workspace, schema.$defs.workspace, 'workspace', ['allowedChanges', 'excludedDirectories']);
+    if (Object.hasOwn(value.workspace, 'excludedDirectories')) {
+      const rule = schema.$defs.workspace.properties.excludedDirectories;
+      requireArray(value.workspace.excludedDirectories, rule, 'workspace.excludedDirectories');
+      for (const directory of value.workspace.excludedDirectories) requireScalar(directory, rule.items, 'workspace.excludedDirectories[]');
+      requireValue(new Set(value.workspace.excludedDirectories).size === value.workspace.excludedDirectories.length,
+        'workspace.excludedDirectories must be unique.');
+    }
+    if (Object.hasOwn(value.workspace, 'allowedChanges')) {
+      const rule = schema.$defs.workspace.properties.allowedChanges;
+      requireArray(value.workspace.allowedChanges, rule, 'workspace.allowedChanges');
+      for (const file of value.workspace.allowedChanges) {
+        requireScalar(file, rule.items, 'workspace.allowedChanges[]');
+        requireValue(file.split('/').every(part => part && part !== '.' && part !== '..') &&
+          !file.split('/').some(part => part.endsWith('.') || /^(con|prn|aux|nul|com[1-9]|lpt[1-9])(?:\.|$)/i.test(part)) &&
+          !['.git', '.github', '.vscode', '.mcp.json', ...(value.workspace.excludedDirectories || [])]
+            .some(root => file.toLowerCase() === root || file.toLowerCase().startsWith(`${root}/`)),
+        'allowedChanges must name source files, without traversal, reserved names, protected configuration, or excluded trees.');
+      }
+      requireValue(new Set(value.workspace.allowedChanges.map(file => file.toLowerCase())).size === value.workspace.allowedChanges.length,
+        'workspace.allowedChanges must be unique.');
+    }
   }
   const targetsRule = schema.properties.targets;
   requireValue(value.targets !== null && typeof value.targets === 'object' && !Array.isArray(value.targets),
@@ -126,6 +148,8 @@ function validateStoryboard(value) {
   for (const [name, target] of Object.entries(value.targets)) {
     requireScalar(name, {type: 'string', ...targetsRule.propertyNames}, 'target name');
     requireScalarFields(target, schema.$defs.target, `targets.${name}`);
+    requireValue(!target.surface || (liveAI && Boolean(value.video?.browserUrl)),
+      'browser targets require a live-approved video with an explicit browserUrl.');
     if (Object.hasOwn(target, 'selector')) {
       requireValue(!Object.hasOwn(target, 'role') && !Object.hasOwn(target, 'name') && !Object.hasOwn(target, 'exact'),
         `targets.${name} must use a selector or a role and name, not both.`);
@@ -165,13 +189,24 @@ function validateStoryboard(value) {
     }
   }
   requireScalarFields(value.capture, schema.properties.capture, 'capture', ['highlights']);
-  if (value.capture.mode || value.capture.surface) {
-    requireValue(value.capture.mode === 'prepared-session' && ['editor', 'agents'].includes(value.capture.surface),
-      'prepared-session capture requires a mode and surface.');
-    requireValue(value.workspace?.environment === 'sample' && !value.video && !value.instructions,
-      'prepared-session screenshots require a sample workspace, without video or replay instructions.');
+  if (liveAI) {
+    requireValue(value.capture.mode === 'live-ai' && ['editor', 'agents'].includes(value.capture.surface) &&
+      value.workspace?.environment === 'sample' && Array.isArray(value.workspace.allowedChanges) &&
+      Boolean(value.video) && !value.instructions, 'live AI requires a sample, allowedChanges, surface, and video, without replay instructions.');
+    requireScalarFields(value.liveAI, schema.properties.liveAI, 'liveAI');
     requireValue(value.steps.every(step => ['assert', 'wait-for', 'pause'].includes(step.kind)),
-      'prepared-session screenshot steps must only observe the scene; prepare it separately before confirming readiness.');
+      'live-AI setup steps must only observe the prepared scene; actions belong in the single recorded execution.');
+  } else {
+    requireValue(!Object.hasOwn(value, 'liveAI') && !Object.hasOwn(value.workspace || {}, 'allowedChanges') &&
+      !Object.hasOwn(value.workspace || {}, 'excludedDirectories'), 'liveAI and workspace change controls require explicit live-AI mode.');
+    if (value.capture.mode || value.capture.surface) {
+      requireValue(value.capture.mode === 'prepared-session' && ['editor', 'agents'].includes(value.capture.surface),
+        'prepared-session capture requires a mode and surface.');
+      requireValue(value.workspace?.environment === 'sample' && !value.video && !value.instructions,
+        'prepared-session screenshots require a sample workspace, without video or replay instructions.');
+      requireValue(value.steps.every(step => ['assert', 'wait-for', 'pause'].includes(step.kind)),
+        'prepared-session screenshot steps must only observe the scene; prepare it separately before confirming readiness.');
+    }
   }
   if (Object.hasOwn(value.capture, 'highlights')) {
     const highlights = value.capture.highlights;
@@ -187,8 +222,38 @@ function validateStoryboard(value) {
     }
   }
   if (Object.hasOwn(value, 'video')) {
-    requireScalarFields(value.video, schema.properties.video, 'video', ['reset', 'steps']);
-    validateSteps(value.video.reset, value.targets, 'video.reset', false);
+    requireScalarFields(value.video, schema.properties.video, 'video', ['reset', 'steps', 'blockedTargets']);
+    requireValue(!value.video.browserCamera || (liveAI && Boolean(value.video.browserUrl)),
+      'browserCamera requires a live-approved video with an explicit browserUrl.');
+    if (liveAI) {
+      if (value.video.browserUrl !== undefined) {
+        requireValue(URL.canParse(value.video.browserUrl), 'browserUrl must be a valid URL.');
+        const url = new URL(value.video.browserUrl);
+        requireValue(url.protocol === 'http:' && ['127.0.0.1', 'localhost'].includes(url.hostname) &&
+          !url.username && !url.password && !url.search && !url.hash && url.href === value.video.browserUrl,
+        'browserUrl must be a canonical HTTP loopback URL without credentials, query, or fragment.');
+        requireValue(!value.capture.highlights, 'browser-camera annotations belong in media composition, not screenshot highlights.');
+      }
+      requireValue(!Object.hasOwn(value.video, 'reset') && Object.hasOwn(value.video, 'maxDurationSeconds'),
+        'live-AI videos require a duration limit and cannot reset or dry-run requests.');
+      const rule = schema.properties.video.properties.blockedTargets;
+      requireArray(value.video.blockedTargets, rule, 'video.blockedTargets');
+      for (const target of value.video.blockedTargets) {
+        requireScalar(target, rule.items, 'video.blockedTargets[]');
+        requireValue(Object.hasOwn(value.targets, target), 'video.blockedTargets references an unknown target.');
+      }
+      requireValue(new Set(value.video.blockedTargets).size === value.video.blockedTargets.length,
+        'video.blockedTargets must be unique.');
+      requireValue(value.video.steps.every(step =>
+        (step.kind !== 'key' || Boolean(step.target)) &&
+        (!step.target || !value.video.blockedTargets.includes(step.target))),
+      'live-AI steps must target their keyboard input and must not act on blocked prompts.');
+    } else {
+      requireValue(!Object.hasOwn(value.video, 'maxDurationSeconds') && !Object.hasOwn(value.video, 'blockedTargets') &&
+        !Object.hasOwn(value.video, 'browserUrl'),
+        'video duration and blocked-target controls require live-AI mode.');
+      validateSteps(value.video.reset, value.targets, 'video.reset', false);
+    }
     validateSteps(value.video.steps, value.targets, 'video.steps', true);
   }
   requireScalarFields(value.privacy, schema.properties.privacy, 'privacy', ['denyText']);
@@ -200,12 +265,16 @@ function validateStoryboard(value) {
   return value;
 }
 
-function locate(page, targets, name) {
+function locate(page, targets, name, surfaces = {}) {
   if (!Object.hasOwn(targets, name)) {
     throw new Error(`Unknown storyboard target: ${name}`);
   }
   const target = Reflect.get(targets, name);
-  const scope = target.scope ? page.locator(target.scope) : page;
+  if (target.surface !== undefined && (target.surface !== 'browser' || !surfaces.browser)) {
+    throw new Error('The requested browser capture surface is not available.');
+  }
+  const targetPage = target.surface === 'browser' ? surfaces.browser : page;
+  const scope = target.scope ? targetPage.locator(target.scope) : targetPage;
   let locator = target.selector ? scope.locator(target.selector) :
     scope.getByRole(target.role, {name: target.name, exact: target.exact !== false});
   if (target.first) {
@@ -240,7 +309,7 @@ async function assertText(locator, text, match, checkPrivacy) {
   }
 }
 
-async function runSteps(page, storyboard, steps, checkPrivacy, phase = 'steps', started = Date.now()) {
+async function runSteps(page, storyboard, steps, checkPrivacy, phase = 'steps', started = Date.now(), surfaces = {}) {
   const completed = [];
   const privacy = async () => {
     try {
@@ -253,13 +322,13 @@ async function runSteps(page, storyboard, steps, checkPrivacy, phase = 'steps', 
   for (const [index, step] of steps.entries()) {
     try {
       await privacy();
-      const target = step.target ? locate(page, storyboard.targets, step.target) : undefined;
+      const target = step.target ? locate(page, storyboard.targets, step.target, surfaces) : undefined;
       switch (step.kind) {
         case 'click': {
           let expectation;
           if (step.expectTextCycle) {
             const cycle = step.expectTextCycle;
-            const observed = locate(page, storyboard.targets, cycle.target);
+            const observed = locate(page, storyboard.targets, cycle.target, surfaces);
             const current = (await observed.innerText()).trim();
             const position = cycle.values.indexOf(current);
             if (position < 0) {

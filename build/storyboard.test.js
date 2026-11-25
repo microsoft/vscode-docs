@@ -74,6 +74,73 @@ test('prepared-session screenshots require a sample, a surface, and observation-
   }
 });
 
+test('live-AI scripts require explicit scope, one recorded execution, guarded prompts, and targeted keys', () => {
+  const storyboard = structuredClone(find);
+  delete storyboard.fixture;
+  delete storyboard.video.reset;
+  storyboard.ai = 'live-approved';
+  storyboard.liveAI = {provider: 'Test provider', model: 'Test model', requests: 'One synthetic prompt.', tools: 'No tools.'};
+  storyboard.workspace = {entry: 'example.js', environment: 'sample',
+    allowedChanges: ['src/routes/+page.svelte'], excludedDirectories: ['node_modules', '.svelte-kit']};
+  Object.assign(storyboard.capture, {mode: 'live-ai', surface: 'editor'});
+  storyboard.steps = [find.steps.at(-1)];
+  storyboard.targets.approval = {selector: '.test-approval'};
+  storyboard.video.maxDurationSeconds = 25;
+  storyboard.video.blockedTargets = ['approval'];
+  storyboard.video.steps = [
+    {kind: 'type', target: 'query', text: 'Synthetic prompt', delayMs: 40},
+    {kind: 'key', target: 'query', key: 'Enter'}, find.steps.at(-1)
+  ];
+  validateStoryboard(storyboard);
+  const browser = structuredClone(storyboard);
+  browser.video.browserUrl = 'http://127.0.0.1:5187/blog';
+  browser.targets.query.surface = 'browser';
+  validateStoryboard(browser);
+  validateStoryboard({...browser, video: {...browser.video, browserCamera: 'window'}});
+  assert.throws(() => validateStoryboard({...storyboard, video: {...storyboard.video, browserCamera: 'window'}}),
+    /browserCamera requires/);
+  for (const url of ['https://example.com/', 'http://user:secret@localhost/', 'http://127.0.0.1:5187/blog?token=secret']) {
+    assert.throws(() => validateStoryboard({...browser, video: {...browser.video, browserUrl: url}}), /loopback URL/);
+  }
+  assert.throws(() => validateStoryboard({...browser, video: storyboard.video}), /browser targets require/);
+  for (const change of [
+    value => {value.ai = 'none';},
+    value => {delete value.liveAI;},
+    value => {delete value.liveAI.tools;},
+    value => {value.capture.mode = 'prepared-session';},
+    value => {value.workspace.environment = 'isolated';},
+    value => {delete value.workspace.allowedChanges;},
+    value => {value.workspace.allowedChanges = ['../secret.js'];},
+    value => {value.video.reset = find.video.reset;},
+    value => {value.video.maxDurationSeconds = 121;},
+    value => {value.workspace.allowedChanges = ['src/../secret.js'];},
+    value => {value.workspace.allowedChanges = ['.vscode/settings.json'];},
+    value => {value.workspace.allowedChanges = ['node_modules/package/index.js'];},
+    value => {value.workspace.allowedChanges = ['src/NUL.js'];},
+    value => {value.workspace.excludedDirectories = ['src'];},
+    value => {delete value.video.blockedTargets;},
+    value => {value.video.blockedTargets = ['missing'];},
+    value => {value.video.steps[1].target = 'approval';},
+    value => {delete value.video.steps[1].target;},
+    value => {value.steps.unshift({kind: 'click', target: 'query'});}
+  ]) {
+    const invalid = structuredClone(storyboard);
+    change(invalid);
+    assert.throws(() => validateStoryboard(invalid), /Invalid storyboard/);
+  }
+});
+
+test('browser-surface steps never fall back to the workbench', async () => {
+  let clicked = false;
+  const storyboard = {targets: {theme: {role: 'button', name: 'Toggle theme', surface: 'browser'}}};
+  const step = [{kind: 'click', target: 'theme'}];
+  const driver = {getByRole: () => {assert.fail('The browser action must not run in the workbench.');}};
+  const browser = {getByRole: () => ({click: async () => {clicked = true;}})};
+  await runSteps(driver, storyboard, step, async () => {}, 'video.steps', Date.now(), {browser});
+  assert.equal(clicked, true);
+  await assert.rejects(() => runSteps(driver, storyboard, step, async () => {}), /browser capture surface is not available/);
+});
+
 test('instruction source maps require exact line ranges and an observable outcome for each runnable check', () => {
   const storyboard = structuredClone(find);
   delete storyboard.video;
