@@ -73,7 +73,7 @@ To try AI, follow the [{% data variables.product.prodname_copilot %} setup guide
         <i class="codicon codicon-book" aria-hidden="true"></i>
         <div>
             <p><strong>Get to know {% data variables.product.prodname_vscode_shortname %}</strong></p>
-            <p>Understand how projects, language tools, and optional AI fit together.</p>
+            <p>Explore the code editor, language tools, and built-in AI agents.</p>
         </div>
     </a>
     <a class="card" href="/docs/editing/getting-started/editor-tutorial">
