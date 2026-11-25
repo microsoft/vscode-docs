@@ -46,7 +46,7 @@ test('renders all links in the current docs TOC, including secondary shortcuts',
   const root = path.resolve(__dirname, '..');
   const toc = loadJSON(path.join(root, 'docs', 'toc.json'), loadDataVariables(path.join(root, 'data', 'variables')));
   const sidebar = toc.map(section => renderTopics(section.topics, '')).join('');
-  assert.equal((sidebar.match(/\[Agents Quickstart\]\(\/docs\/agents\/quickstart\)/g) || []).length, 2);
+  assert.equal((sidebar.match(/\[Complete Your First Agent Task\]\(\/docs\/agents\/quickstart\)/g) || []).length, 2);
   assert.equal((sidebar.match(/\[Editor Tutorial\]\(\/docs\/editing\/getting-started\/editor-tutorial\)/g) || []).length, 2);
   assert.equal((sidebar.match(/\[Inline Suggestions\]\(\/docs\/editing\/ai-powered-suggestions\)/g) || []).length, 2);
   assert.match(sidebar, /\*\*Get Started\*\*/);
@@ -60,11 +60,11 @@ test('keeps concepts alongside workflow groups and nests only reference and trou
   const groups = ai.topics.filter(topic => topic[2]?.topics).map(topic => topic[2]);
   assert.deepEqual(groups.map(group => group.name), [
     'Get Started',
+    'Tutorials and Guides',
     'Work with AI',
     'Choose Models and Agents',
     'Customize and Extend',
     'Work Across Apps and Machines',
-    'Tutorials and Guides',
     'Concepts',
     'Reference and Help'
   ]);
