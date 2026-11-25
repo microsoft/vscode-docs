@@ -60,7 +60,7 @@ Continuity lets you pick up agent work across supported interfaces without start
 * **Prefer to start with your own code:** [Explore a codebase without changing files](/docs/agents/guides/explore-a-codebase.md), then verify the explanation against your code.
 * **New to {% data variables.product.prodname_vscode_shortname %}:** First [install the editor and open a workspace](/docs/getstarted/overview.md).
 
-<video src="images/agents-overview/build-with-ai-overview.mp4" title="Video overview of building with AI in VS Code, showing inline suggestions, collaboration alongside code, and task orchestration in the Agents window." autoplay loop controls muted></video>
+<video src="images/agents-overview/build-with-ai-overview-2026112501.mp4" title="Video showing code suggestions, agent edits reviewed alongside code, parallel reviews, and a destination filter checked in the integrated browser." autoplay loop controls muted></video>
 
 <a name="what-you-can-do-with-ai"></a>
 <a name="ways-to-work-with-agents"></a>
