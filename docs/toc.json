@@ -5,7 +5,7 @@
         "topics": [
         ["Download and Install", "/docs/getstarted/overview"],
         ["Get to Know VS Code", "/docs/getstarted/what-is-vscode"],
-        ["Agents Quickstart", "/docs/agents/quickstart", { "secondary": true }],
+        ["Complete Your First Agent Task", "/docs/agents/quickstart", { "secondary": true }],
         ["Editor Tutorial", "/docs/editing/getting-started/editor-tutorial", { "secondary": true }],
         ["Intro Videos", "/docs/getstarted/introvideos"]
         ]
@@ -20,12 +20,58 @@
                 "name": "Get Started",
                 "area": "agents",
                 "topics": [
-                    ["Find a Guide", "/docs/agents/guides/overview"],
+                    ["Find a Guide", "/docs/agents/guides/overview", { "secondary": true }],
                     ["AI Features Cheat Sheet", "/docs/agents/reference/ai-features-cheat-sheet", { "secondary": true }],
                     ["Set Up GitHub Copilot", "/docs/setup/copilot"],
-                    ["Agents Quickstart", "/docs/agents/quickstart"],
-                    ["Agents Tutorial", "/docs/agents/agents-tutorial"],
+                    ["Complete Your First Agent Task", "/docs/agents/quickstart"],
+                    ["Build, Refine, and Commit an App", "/docs/agents/agents-tutorial"],
                     ["Best Practices", "/docs/agents/best-practices"]
+                ]
+            }],
+
+            ["", "", {
+                "name": "Tutorials and Guides",
+                "area": "agents/guides",
+                "topics": [
+                    ["Find a Guide", "/docs/agents/guides/overview"],
+                    ["", "", {
+                        "name": "Work on a Project",
+                        "area": "agents/guides/project",
+                        "topics": [
+                            ["Explore a Codebase", "/docs/agents/guides/explore-a-codebase"],
+                            ["Fix an API Bug", "/docs/agents/guides/fix-a-bug-with-agents"],
+                            ["Add a Feature", "/docs/agents/guides/add-a-feature"],
+                            ["Refactor Safely", "/docs/agents/guides/refactor-safely"],
+                            ["Work with Jupyter Notebooks", "/docs/agents/guides/notebooks-with-ai"]
+                        ]
+                    }],
+                    ["", "", {
+                        "name": "Test and Validate",
+                        "area": "agents/guides/testing",
+                        "topics": [
+                            ["Add Tests to Existing Code", "/docs/agents/guides/test-code-with-ai"],
+                            ["Test-Driven Development", "/docs/agents/guides/test-driven-development-guide"],
+                            ["Test Web Apps", "/docs/agents/guides/browser-agent-testing-guide"]
+                        ]
+                    }],
+                    ["", "", {
+                        "name": "Customize and Coordinate Agents",
+                        "area": "agents/guides/customization",
+                        "topics": [
+                            ["Adapt Agents to Your Project", "/docs/agents/guides/customize-copilot-guide"],
+                            ["Run Parallel Tasks", "/docs/agents/guides/delegate-two-tasks"],
+                            ["Continue a Cloud Session in Your Terminal", "/docs/agents/cloud-continuity-tutorial", { "secondary": true }]
+                        ]
+                    }],
+                    ["", "", {
+                        "name": "Improve Results and Recover",
+                        "area": "agents/guides/results",
+                        "topics": [
+                            ["Compare and Choose Models", "/docs/agents/guides/choose-a-model"],
+                            ["Get Back on Track", "/docs/agents/guides/get-agent-back-on-track"],
+                            ["Reduce Credit Usage", "/docs/agents/guides/optimize-usage"]
+                        ]
+                    }]
                 ]
             }],
 
@@ -107,6 +153,7 @@
                     ["Manage MCP Servers", "/docs/agents/run/manage-mcp-servers"],
                     ["Agent Hooks", "/docs/agent-customization/hooks"],
                     ["Prompt Files", "/docs/agent-customization/prompt-files"],
+                    ["Advanced: Connect Planning and Implementation", "/docs/agents/guides/context-engineering-guide"],
                     ["Migrate Existing Customizations", "/docs/agent-customization/migrate-customizations"]
                 ]
             }],
@@ -119,29 +166,6 @@
                     ["Remote Agent Sessions", "/docs/agents/run/remote-agent-sessions"],
                     ["Cloud Sessions", "/docs/agents/run/cloud-sandbox-sessions"],
                     ["Session History", "/docs/agents/run/sessions/session-history"]
-                ]
-            }],
-
-            ["", "", {
-                "name": "Tutorials and Guides",
-                "area": "agents/guides",
-                "topics": [
-                    ["Find a Guide", "/docs/agents/guides/overview", { "secondary": true }],
-                    ["Explore a Codebase", "/docs/agents/guides/explore-a-codebase"],
-                    ["Add a Feature", "/docs/agents/guides/add-a-feature"],
-                    ["Fix an API Bug", "/docs/agents/guides/fix-a-bug-with-agents"],
-                    ["Refactor Safely", "/docs/agents/guides/refactor-safely"],
-                    ["Compare and Choose Models", "/docs/agents/guides/choose-a-model"],
-                    ["Add Tests", "/docs/agents/guides/test-code-with-ai"],
-                    ["Test Web Apps", "/docs/agents/guides/browser-agent-testing-guide"],
-                    ["Test-Driven Development", "/docs/agents/guides/test-driven-development-guide"],
-                    ["Run Parallel Tasks", "/docs/agents/guides/delegate-two-tasks"],
-                    ["Get Back on Track", "/docs/agents/guides/get-agent-back-on-track"],
-                    ["Adapt Agents to Your Project", "/docs/agents/guides/customize-copilot-guide"],
-                    ["Context Engineering Workflow", "/docs/agents/guides/context-engineering-guide"],
-                    ["Work with Jupyter Notebooks", "/docs/agents/guides/notebooks-with-ai"],
-                    ["Reduce Credit Usage", "/docs/agents/guides/optimize-usage"],
-                    ["Prompt Examples", "/docs/agents/guides/prompt-examples"]
                 ]
             }],
 
@@ -169,6 +193,7 @@
                         "area": "agents/reference",
                         "topics": [
                             ["AI Features Cheat Sheet", "/docs/agents/reference/ai-features-cheat-sheet"],
+                            ["Prompt Examples", "/docs/agents/guides/prompt-examples"],
                             ["Tool Names and Context References", "/docs/agents/reference/tools-reference"],
                             ["Workspace Context", "/docs/agents/reference/workspace-context"],
                             ["AI Settings", "/docs/agents/reference/ai-settings"],
