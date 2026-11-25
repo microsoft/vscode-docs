@@ -744,6 +744,12 @@ VS Code extensions can use these icons in labels, views, and trees.
 |<i class="codicon codicon-symbol-field"></i>|symbol-field|
 |<i class="codicon codicon-symbol-file"></i>|symbol-file|
 |<i class="codicon codicon-symbol-folder"></i>|symbol-folder|
+|<i class="codicon codicon-symbol-header-one"></i>|symbol-header-one|
+|<i class="codicon codicon-symbol-header-two"></i>|symbol-header-two|
+|<i class="codicon codicon-symbol-header-three"></i>|symbol-header-three|
+|<i class="codicon codicon-symbol-header-four"></i>|symbol-header-four|
+|<i class="codicon codicon-symbol-header-five"></i>|symbol-header-five|
+|<i class="codicon codicon-symbol-header-six"></i>|symbol-header-six|
 |<i class="codicon codicon-symbol-function"></i>|symbol-function|
 |<i class="codicon codicon-symbol-interface"></i>|symbol-interface|
 |<i class="codicon codicon-symbol-key"></i>|symbol-key|
