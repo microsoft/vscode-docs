@@ -46,10 +46,10 @@
   "latest": [
     {
       "type": "release",
-      "title": "VS Code 1.147 release",
-      "description": "Schedule local agent requests with Send Later and try browser integration.",
-      "link": "/updates/v1_147",
-      "image": "/assets/updates/1_147/release-highlights.webp"
+      "title": "VS Code 1.148 release",
+      "description": "Keep agents awake while they work, create isolated Dev Containers, and clean up remote worktrees.",
+      "link": "/updates/v1_148",
+      "image": "/assets/updates/1_148/release-highlights.webp"
     },
     {
       "type": "documentation",

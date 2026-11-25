@@ -1,6 +1,6 @@
 ---
 ContentId: d2159d8c-be90-421f-91a3-3af033e9ddbf
-DateApproved: 11/18/2026
+DateApproved: 11/25/2026
 MetaDescription: Delegate two independent agent tasks in {% data variables.product.prodname_vscode_shortname %}, review isolated changes, and integrate and test the result.
 Keywords:
 - ai
@@ -21,7 +21,7 @@ In this guide, you choose two changes in your own repository, run them in separa
 To follow this guide, you need:
 
 * {% data variables.product.prodname_vscode %} with [AI features set up](/docs/setup/copilot.md).
-* Access to the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) and the {% data variables.product.prodname_copilot_short %} harness.
+* Access to the {% data variables.product.prodname_copilot_short %} harness in either the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) or the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md). The editor workflow requires {% data variables.product.prodname_vscode_shortname %} Insiders with [editor worktree support](/docs/agents/run/chat-view.md#work-in-separate-worktrees) `feature(editor-worktrees)` enabled.
 * A local Git repository with at least one commit, a working development environment, and existing tests.
 * Experience completing a single agent-assisted task. If you're new to agents, start with the [agents quickstart](/docs/agents/quickstart.md).
 
@@ -67,7 +67,7 @@ For this walkthrough, use **two separate sessions**, each with **New Worktree** 
 > [!CAUTION]
 > Worktrees isolate working files, not the agent's access to your machine or external services. Use a trusted repository, choose a permission level for each session, and review the [permission and sandboxing controls](/docs/agents/run/approvals.md) before proceeding. Worktree sessions support manual approvals and don't require **Allow all**, which skips tool approval prompts.
 
-For details about the available choices, see [Choose where an agent makes changes](/docs/agents/run/agents-window.md#choose-where-an-agent-makes-changes).
+For isolation choices and requirements shared by both interfaces, see [Work with agents in worktrees](/docs/agents/run/worktrees.md#choose-folder-or-worktree-isolation).
 
 ## 3. Prepare and delegate
 
@@ -85,7 +85,7 @@ Start both tasks from the same known-good commit so that you can review each res
 
 1. In the primary editor workspace, check out the branch you want both tasks to start from. Run **Git: Create Branch** from the Command Palette and enter `integrate-agent-tasks`, or another unused branch name. This creates and checks out a branch for the combined change.
 
-    Use this integration branch as the base for both worktree sessions. The **Merge Changes** action merges each session back into its configured base branch, not an arbitrary destination chosen later.
+    Use this integration branch as the base for both worktree sessions. If you later use **Merge Changes** in the {% data variables.copilot.agents_window %}, it merges each session back into its configured base branch, not an arbitrary destination chosen later.
 
 1. Record the integration branch name and starting commit:
 
@@ -96,15 +96,26 @@ Start both tasks from the same known-good commit so that you can review each res
 
     Keep the integration branch checked out in your primary workspace. Don't add changes to it until you reach the integration steps.
 
-1. Open the {% data variables.copilot.agents_window %} from the **Open in Agents** button in the title bar. Select **New**, select your local project folder, and choose **{% data variables.product.prodname_copilot_short %}** as the **Session Target**.
+1. Start a separate session for task A in your preferred interface, and choose **{% data variables.product.prodname_copilot_short %}** as the **Session Target**:
 
-1. Select **New Worktree** and choose the integration branch you recorded as the base branch.
+    | Interface | Start the session |
+    |---|---|
+    | {% data variables.copilot.agents_window %} | Select **New Session**, then select your local project folder. Follow the [session setup steps](/docs/agents/run/agents-window.md#start-an-agent-session). |
+    | {% data variables.copilot.chat_view %} `feature(editor-worktrees)` | Open the original project folder and select **New Chat**. Follow the [editor worktree setup steps](/docs/agents/run/chat-view.md#work-in-separate-worktrees). |
+
+1. Select **New Worktree** and choose the recorded integration branch as the base branch. Don't assume the default selection matches your current branch.
+
+    If your editor layout doesn't offer a base-branch picker, start the session in the {% data variables.copilot.agents_window %} with the required branch. After sending the first prompt, you can [continue that session in the {% data variables.copilot.chat_view %}](/docs/agents/run/sessions/manage-sessions.md#continue-between-the-chat-view-and-agents-window).
 
 1. Fill in the following prompt template from task A's brief, then submit it. Replace every angle-bracket placeholder with the task's details and your repository's commands. For dependency setup, use your project's normal procedure for a new checkout.
 
     ```prompt
     Implement <task-name>.
     Outcome: <expected-outcome>
+    Base commit: <starting-commit>
+
+    Before editing, verify that git rev-parse HEAD matches the base commit.
+    If it doesn't match, stop and report the difference.
 
     Limit edits to <allowed-implementation-and-test-files>.
     Acceptance criteria: <acceptance-criteria>
@@ -118,24 +129,33 @@ Start both tasks from the same known-good commit so that you can review each res
     Finish with the changed files, validation commands and results, any manual checks still needed, and unresolved concerns.
     ```
 
-1. Select **New** again to create a separate session for the same project. Choose the same harness and integration branch as the base, and select **New Worktree** again. Don't add a chat to the first session.
+1. Create a separate session for task B in the same project. In the {% data variables.copilot.chat_view %}, first use **Folder Location** to return to the original folder, then select **New Chat**. In the {% data variables.copilot.agents_window %}, select **New Session**. Choose the same harness and integration branch as the base, and select **New Worktree** again. Don't add a chat to the first session.
 
 1. Fill in a second copy of the template from task B's brief and submit it to the new session. Use task B's outcome, scope, and validation commands, not task A's. Keep the same base commit.
 
-Worktrees don't include uncommitted changes from your primary workspace. Git-ignored files, such as installed dependencies and local configuration, are also absent by default. Use your project's normal setup procedure in each worktree, and provide only configuration that is safe for the agent to access. Don't copy production credentials. Learn more about [including files when creating a worktree](/docs/sourcecontrol/branches-worktrees.md#include-files-when-creating-a-worktree).
+Use your project's normal setup procedure in each worktree, and provide only configuration that is safe for the agent to access. Don't copy production credentials. For dependency and ignored-file options, see [Prepare a worktree](/docs/agents/run/worktrees.md#prepare-a-worktree).
 
 **Check your setup:** Confirm that the two sessions report different worktree paths and branches, but the same starting commit. Run `git worktree list` in your primary workspace to check the paths and branches. If both tasks are using the same directory, stop them and correct the isolation before they continue.
 
-<!-- TODO: Add a screenshot showing the two task sessions in the Agents window, with their distinct worktree paths and branches visible. -->
+In the {% data variables.copilot.agents_window %}, hover over each session to compare its **Worktree** and **Branch**. These example tasks share a workspace but use separate worktrees:
+
+| README task | Quarterly-total task |
+|---|---|
+| ![Screenshot showing the README task's session details with its isolated worktree path and branch.](../images/delegate-two-tasks/agents-readme-worktree-2026112301.png) | ![Screenshot showing the quarterly-total task's session details with a different isolated worktree path and branch.](../images/delegate-two-tasks/agents-totals-worktree-2026112301.png) |
 
 ## 4. Monitor both tasks
 
-Use the sessions list to track each task's status. Select a session to inspect its conversation and **Changes** view. Confirm which session is active before you send feedback or open a terminal.
+Use the sessions list to track each task's status. Select a session to inspect its conversation and changes:
+
+* In the {% data variables.copilot.agents_window %}, use the **Changes** view.
+* In the {% data variables.copilot.chat_view %}, opening the task's chat switches the editor to its worktree. Check **Folder Location** and use Source Control to inspect its changes.
+
+Confirm which session and worktree are active before sending feedback or running commands. In the editor, existing terminals keep their working directories when the folder changes. Open a new terminal or check its directory first. For running tasks and debug sessions, review the [location-switching caveats](/docs/agents/run/chat-view.md#switch-between-locations).
 
 To prioritize tasks waiting for input or review, [triage sessions with Inbox mode](/docs/agents/run/sessions/organize-sessions.md#triage-sessions-with-inbox-mode).
 
 > [!TIP]
-> You can view multiple sessions side by side in the Agents window to easily compare their progress and changes. Drag and drop sessions to arrange them as needed.
+> In the {% data variables.copilot.agents_window %}, drag sessions to arrange them side by side and compare their progress and changes.
 
 Check each task after its first meaningful change:
 
@@ -158,12 +178,12 @@ Separate worktrees can still share ports, databases, and other external resource
 
 A completed response is a handoff for review, not proof that the task is correct. Review task A and task B independently before combining them.
 
-1. Select the task's session and open **Changes**. Inspect the full branch diff, including added tests and new files, rather than only the most recent response.
+1. Select the task's session. In the {% data variables.copilot.agents_window %}, open **Changes** and select the branch changeset. In the editor, confirm the worktree in **Folder Location** and review Source Control changes. Inspect all changes, including added tests and new files, rather than only the most recent response.
 1. Compare the changes with the task's brief. Check that every acceptance criterion is met, the required existing behavior is preserved, and there are no unrelated edits.
 1. Inspect the test output. Verify that the expected tests ran and that a setup failure or skipped test wasn't reported as success.
-1. Run the validation commands and complete the manual checks from the brief in that session's worktree. Use **Open Terminal** in the session title bar and confirm its working directory before running commands.
+1. Run the validation commands and complete the manual checks from the brief in that session's worktree. In the {% data variables.copilot.agents_window %}, select **Terminal** in the session activity bar. In the editor, open a new integrated terminal after switching to the task's worktree. Confirm its working directory before running commands.
 1. Send revisions to the same session, then review the revised diff and rerun the affected checks.
-1. When the result is ready, review `git status --short` in the worktree for unintended or untracked files. Preserve any unrelated work separately before you select **Commit Changes**, which commits all current changes to the session branch.
+1. When the result is ready, review `git status --short` in the worktree for unintended or untracked files. In the editor, [stage the intended files and commit](/docs/sourcecontrol/staging-commits.md). In the {% data variables.copilot.agents_window %}, [commit the session changes](/docs/agents/run/agents-window.md#commit-changes) after preserving unrelated work and running the required checks.
 1. Record the session branch name and commit. Keep the session available until integration is validated.
 
 Inspect the expected results in the tests, not only whether the tests pass. The assertions should demonstrate the outcome in the task's brief, rather than repeat assumptions from the implementation.
@@ -172,7 +192,10 @@ For the full diff and feedback procedures, see [review agent changes](/docs/agen
 
 ## 6. Integrate and retest
 
-Use **Merge Changes** in the {% data variables.copilot.agents_window %} to merge each reviewed session branch into the integration branch in your primary workspace. Keep the task commits separate so that you can identify each result in the combined history.
+Merge each reviewed session branch into the integration branch in your primary workspace. Keep the task commits separate so that you can identify each result in the combined history. Choose one integration method:
+
+* **From the editor**: Return to the original folder with **Folder Location** and open a new terminal. With the integration branch checked out, run `git merge --no-ff <session-branch>` using the actual reviewed branch name. This method also works for sessions created in the {% data variables.copilot.agents_window %}.
+* **From the {% data variables.copilot.agents_window %}**: Select the session, open **Changes**, select the branch changeset, and use **Merge Changes**.
 
 > [!NOTE]
 > **Merge Changes** is available for worktree sessions with changes and no associated pull request for the session branch. It commits any uncommitted worktree changes before merging. Review all changes first, even if you already committed the task's result. If the session branch has a pull request, use that pull request's review and merge workflow instead.
@@ -180,11 +203,10 @@ Use **Merge Changes** in the {% data variables.copilot.agents_window %} to merge
 If either merge fails, follow [the recovery steps](#if-a-merge-fails) before continuing.
 
 1. Confirm that both sessions have stopped editing, that both results are committed, and that your primary working tree is clean.
-1. In the primary editor workspace, confirm that the integration branch is checked out. **Merge Changes** requires the parent repository to be on the session's configured base branch. If you switched branches, switch back before proceeding.
-1. In the {% data variables.copilot.agents_window %}, select task A's session. Open **Changes** and select **Branch Changes**.
-1. Select **Merge Changes** and confirm. Wait for the merge to complete before you continue.
+1. In the primary editor workspace, confirm that the integration branch is checked out. **Merge Changes** requires the parent repository to be on the session's configured base branch. If you switched branches, switch back before proceeding. In the editor workflow, don't reopen a worktree chat while running integration commands: it changes the editor's folder location.
+1. Merge task A's reviewed branch using your chosen method. Wait for the merge to complete before you continue.
 1. Return to the primary workspace and run task A's validation commands on the integration branch. If they fail, resolve the failure and commit any fix before you add task B. Confirm that the working tree is clean again.
-1. Select task B's session in the {% data variables.copilot.agents_window %}. Open **Changes**, select **Branch Changes**, and select **Merge Changes**. Confirm and wait for the merge to complete.
+1. Merge task B's reviewed branch using the same method. Wait for the merge to complete before you continue.
 1. In the primary workspace, review the combined diff against the starting commit you recorded. Confirm that both reviewed changes are present and that conflict resolution hasn't removed either task's behavior or tests.
 1. Run both targeted test sets and the project's relevant integration checks on the combined branch. Include the existing build, type check, or lint checks required by your project's contribution workflow.
 1. Exercise both changed behaviors from the destination workspace, using the manual checks in the task briefs:
@@ -201,7 +223,7 @@ Read the error before you retry. If the primary workspace has uncommitted change
 
 If Git reports conflicts, open the primary workspace, inspect both versions, and preserve both tasks' requirements. Don't accept one side wholesale to make the conflict disappear. [Resolve the conflicts](/docs/sourcecontrol/merge-conflicts.md) and complete that merge before you run tests or start the next merge. A failed merge can leave the session's work committed even though integration didn't complete.
 
-If you prefer to merge manually, use **Git: Merge Branch** in the primary editor workspace or run `git merge --no-ff <session-branch>` from its terminal, with the integration branch checked out. Use the actual reviewed session branch name, integrate one task at a time, and follow the same validation steps. Don't also apply the changes through another integration action.
+Integrate one task at a time and follow the same validation steps after resolving a failure. Don't also apply a successfully merged task through another integration action.
 
 ## 7. Finish the workflow
 
@@ -213,7 +235,7 @@ Before you mark either session done, confirm:
 * The combined tests and manual checks pass.
 * Any integration fixes are committed.
 
-Continue with your team's normal pull request or review process. Only then mark the sessions done. Don't delete a session or its worktree while it contains work that hasn't been preserved.
+Continue with your team's normal pull request or review process. Only then [archive the sessions or mark them done](/docs/agents/run/sessions/manage-sessions.md#archive-sessions) in the interface you use. Don't delete a session or its worktree while it contains work that hasn't been preserved.
 
 You now have one tested change assembled from two independently reviewed tasks, with each task's history retained.
 

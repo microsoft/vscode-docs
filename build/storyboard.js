@@ -165,6 +165,14 @@ function validateStoryboard(value) {
     }
   }
   requireScalarFields(value.capture, schema.properties.capture, 'capture', ['highlights']);
+  if (value.capture.mode || value.capture.surface) {
+    requireValue(value.capture.mode === 'prepared-session' && ['editor', 'agents'].includes(value.capture.surface),
+      'prepared-session capture requires a mode and surface.');
+    requireValue(value.workspace?.environment === 'sample' && !value.video && !value.instructions,
+      'prepared-session screenshots require a sample workspace, without video or replay instructions.');
+    requireValue(value.steps.every(step => ['assert', 'wait-for', 'pause'].includes(step.kind)),
+      'prepared-session screenshot steps must only observe the scene; prepare it separately before confirming readiness.');
+  }
   if (Object.hasOwn(value.capture, 'highlights')) {
     const highlights = value.capture.highlights;
     const rule = schema.$defs.highlights;

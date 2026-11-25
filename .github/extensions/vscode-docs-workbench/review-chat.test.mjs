@@ -35,7 +35,7 @@ test('chat handoff preserves the review request and uses no background task or a
   assert.equal(calls.length, 1);
 });
 
-test('native chat uses checked CLI support and argument-safe file attachments', { skip: process.platform !== 'win32' }, async t => {
+test('native chat preserves file attachments and prefills an unsubmitted editor Chat draft', { skip: process.platform !== 'win32' }, async t => {
   const f = await createArticleFixture();
   t.after(() => f.dispose());
   const installation = path.join(f.directory, 'editor');
@@ -43,19 +43,49 @@ test('native chat uses checked CLI support and argument-safe file attachments', 
   await mkdir(path.join(installation, 'resources', 'app', 'out'), { recursive: true });
   await writeFile(path.join(installation, 'bin', 'code.cmd'), '"%~dp0..\\Code.exe" "%~dp0..\\resources\\app\\out\\cli.js" %*');
   await writeFile(path.join(installation, 'resources', 'app', 'out', 'cli.js'), '');
+  const productFile = path.join(installation, 'resources', 'app', 'product.json');
+  await writeFile(productFile, JSON.stringify({ urlProtocol: 'vscode', defaultChatAgent: { chatExtensionId: 'GitHub.copilot-chat' } }));
   const calls = [];
   const executable = path.join(installation, 'Code.exe');
   const editor = await editorTools.createEditor({ executable, async run(...args) {
     calls.push(args); return { stdout: '--add-file --mode' };
   } });
   const files = [path.join(f.directory, 'a & b.md')];
-  const prompt = 'Review this article: "quoted text"; not shell code.';
+  const prompt = 'Review this article: "quoted text" & ? # + \u00e9\nNot shell code.';
   assert.equal((await editor.chat({ files, prompt })).requested, true);
-  assert.deepEqual(calls[1][1].slice(1), ['chat', '--reuse-window', '--mode', 'agent', '--add-file', files[0], prompt]);
+  assert.equal(calls.length, 3);
+  assert.deepEqual(calls[1][1].slice(1), ['chat', '--reuse-window', '--mode', 'agent', '--add-file', files[0]]);
+  assert.deepEqual(calls[2][1].slice(1, -1), ['--reuse-window', '--open-url', '--']);
+  const draft = new URL(calls[2][1].at(-1));
+  assert.equal(draft.protocol, 'vscode:');
+  assert.equal(draft.hostname, 'GitHub.copilot-chat');
+  assert.equal(draft.pathname, '/chat');
+  assert.equal(draft.searchParams.get('mode'), 'agent');
+  assert.equal(draft.searchParams.get('prompt'), prompt);
+  assert.equal(calls.some(([, args]) => args.includes(prompt)), false, 'The prompt must never be passed to the submitting chat CLI.');
+  const prPrompt = '/pr-review https://github.com/microsoft/vscode-docs/pull/123 Verify defaults.';
+  await editor.chat({ files: [], prompt: prPrompt });
+  assert.equal(calls.length, 6);
+  assert.deepEqual(calls[4][1].slice(1), ['chat', '--reuse-window', '--mode', 'agent']);
+  assert.equal(new URL(calls[5][1].at(-1)).searchParams.get('prompt'), prPrompt);
+  assert.equal(calls.some(([, args]) => args.includes(prPrompt)), false, 'Attachment-free slash commands must also remain unsubmitted.');
+  await writeFile(productFile, '{}');
+  await assert.rejects(editor.chat({ files, prompt }), /native chat draft link.*No request was submitted/);
+  assert.equal(calls.length, 7, 'Missing draft support must not open or submit a chat.');
   const old = await editorTools.createEditor({ executable, async run() { return { stdout: 'No chat options' }; } });
   await assert.rejects(old.chat({ files, prompt }), /native chat launcher/);
   const failed = await editorTools.createEditor({ executable, async run() { throw new Error('CLI unavailable'); } });
   await assert.rejects(failed.chat({ files, prompt }), /CLI unavailable/);
+  await writeFile(productFile, JSON.stringify({ urlProtocol: 'vscode-insiders', defaultChatAgent: { chatExtensionId: 'GitHub.copilot-chat' } }));
+  const failedDraftCalls = [];
+  const failedDraft = await editorTools.createEditor({ executable, async run(_executable, args) {
+    failedDraftCalls.push(args);
+    if (args.includes('--open-url')) throw new Error('Native draft link failed');
+    return { stdout: '--add-file --mode' };
+  } });
+  await assert.rejects(failedDraft.chat({ files, prompt }), /Native draft link failed/);
+  assert.equal(failedDraftCalls.length, 3, 'A failed prefill must not retry or fall back to submitting the prompt.');
+  assert.equal(failedDraftCalls.some(args => args.includes(prompt)), false);
 });
 
 test('media launchers pass create/refresh and multiple-asset requests to docs-media without changing batch state', async t => {
@@ -192,7 +222,8 @@ test('browser opens a preset-and-freeform review chat once and surfaces launch f
   page.on('pageerror', error => errors.push(error.message));
   await page.route('**/*', route => new URL(route.request().url()).origin === server.url ? route.continue() : route.abort());
   await page.goto(`${server.url}/findings`);
-  await page.getByRole('link', { name: 'Review in chat', exact: true }).click();
+  await page.getByRole('link', { name: 'Review article', exact: true }).click();
+  await page.getByRole('heading', { name: 'Review article', exact: true }).waitFor();
   await page.locator('#chat-article:enabled').waitFor();
   await page.getByLabel('Article', { exact: true }).fill('docs/article.md');
   await page.getByLabel('Screenshots and videos', { exact: true }).check();
@@ -412,7 +443,11 @@ test('browser unifies brief and issue writing, preserves the issue alias, and ke
   assert.equal(await page.getByRole('button', { name: 'Start in chat', exact: true }).isDisabled(), true);
   await page.getByLabel('Documentation request', { exact: true }).fill('Document the new workflow for extension authors.');
   const requestBounds = await page.locator('#chat-request').boundingBox();
-  assert.ok(requestBounds.width >= (await page.locator('#review-chat-form').boundingBox()).width - 2);
+  const formContentWidth = await page.locator('#review-chat-form').evaluate(form => {
+    const style = getComputedStyle(form);
+    return form.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
+  });
+  assert.ok(requestBounds.width >= formContentWidth - 2, 'The request should fill the panel content width.');
   assert.ok(requestBounds.y < (await page.locator('#chat-article').boundingBox()).y, 'The author brief must come before optional article context.');
   await page.getByRole('button', { name: 'Start in chat', exact: true }).click();
   await page.getByText('Documentation request sent to chat.', { exact: true }).waitFor();

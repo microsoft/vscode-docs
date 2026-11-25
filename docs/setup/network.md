@@ -1,6 +1,6 @@
 ---
 ContentId: 84F36EDE-4D66-4A2E-B4D1-F020C73EB2AD
-DateApproved: 11/18/2026
+DateApproved: 11/25/2026
 MetaDescription: Configure network access, proxies, and trusted certificates for {% data variables.product.prodname_vscode_shortname %} on managed devices.
 ---
 # Network connections in {% data variables.product.prodname_vscode %}

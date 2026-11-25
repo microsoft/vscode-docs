@@ -1,6 +1,6 @@
 ---
 ContentId: a9b2c3d4-e5f6-7890-ab12-cd3456789012
-DateApproved: 11/18/2026
+DateApproved: 11/25/2026
 MetaDescription: Create and switch Git branches, stash changes, and manage worktrees in {% data variables.product.prodname_vscode %}.
 Keywords:
 - source control
@@ -222,6 +222,8 @@ Use **Compare with Workspace** to review a changed worktree file against the pri
 If migration reports overlapping local changes, commit or stash those changes in the destination before retrying. If there are merge conflicts, resolve them before committing.
 
 ### Remove a worktree
+
+For agent-managed worktrees, use [Worktree Cleanup](/docs/agents/run/worktrees.md#clean-up-session-worktrees) to reclaim disk space while preserving session history and saving nonignored changes to the retained branches. The **Git: Delete Worktree** procedure below doesn't save uncommitted changes for you.
 
 Remove a linked worktree when you no longer need its working directory:
 

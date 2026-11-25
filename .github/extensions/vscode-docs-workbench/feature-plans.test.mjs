@@ -32,7 +32,7 @@ function proposal() {
   };
 }
 
-async function fixture(t, { authoring = false, revision = false } = {}) {
+async function fixture(t, { authoring = false, revision = false, preparedSession = false } = {}) {
   const f = await createArticleFixture(revision ? { content: '# Article\n\nChoose the thing.\n\nKeep this example.\n' } : {});
   let dispose = async () => {};
   t.after(async () => { try { await dispose(); } finally { await f.dispose(); } });
@@ -44,6 +44,11 @@ async function fixture(t, { authoring = false, revision = false } = {}) {
   const captureBytes = png.encodePng({ width: 8, height: 6, pixels: Buffer.alloc(8 * 6 * 4, 255) });
   const story = { id: 'fixture-screenshot', article: 'docs/article.md', channel: 'stable', fixture: { openFolder: true },
     steps: [{ action: 'assert', target: 'control', text: 'Fixture' }], targets: { control: { role: 'button', name: 'Fixture' } } };
+  if (preparedSession) {
+    delete story.fixture;
+    story.workspace = {entry: 'example.js', environment: 'sample'};
+    story.capture = {mode: 'prepared-session', surface: 'editor'};
+  }
   await mkdir(path.join(f.workspace, 'build', 'storyboards'));
   await atomicJson(path.join(f.workspace, 'build', 'storyboards', 'fixture.json'), story);
   let draftEdit = async () => {
@@ -75,6 +80,7 @@ async function fixture(t, { authoring = false, revision = false } = {}) {
           product: { revision: input.revision, channel: 'stable' } } };
     }
   }, async captureEditor(input) {
+    assert.equal(input.preparedSession, preparedSession);
     if (captureFailure) throw new Error('Synthetic capture prerequisite unavailable.');
     const directory = path.join(input.output, 'fixture-capture');
     await mkdir(directory);
@@ -341,7 +347,7 @@ test('native editor launcher uses argument arrays and reports unsupported hosts 
 });
 
 test('screenshot approval is separate from generation and exact approved bytes enter only a confirmed draft', async t => {
-  const f = await fixture(t, { authoring: true });
+  const f = await fixture(t, { authoring: true, preparedSession: true });
   await f.launch();
   const plan = (await f.snapshot()).featurePlans[0];
   await assert.rejects(f.capture(plan), /approved plan/);

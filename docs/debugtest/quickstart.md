@@ -1,6 +1,6 @@
 ---
 ContentId: 645513c2-9e7d-4ed1-b923-f2c45974f30d
-DateApproved: 11/18/2026
+DateApproved: 11/25/2026
 MetaDescription: Find and fix a bug in {% data variables.product.prodname_vscode %} with a small JavaScript example, breakpoints, stepping, and variable inspection.
 MetaSocialImage: images/debugging/debugging-social.png
 ---
@@ -75,13 +75,15 @@ A breakpoint pauses the program before a line runs, so you can examine its state
 
     Alternatively, place the cursor on that line and press `kb(editor.debug.action.toggleBreakpoint)`.
 
+    ![Screenshot showing a red breakpoint beside line 2 in app.js, with a red rectangle highlighting the editor margin.](images/quickstart/set-breakpoint-2026112401.png)
+
 1. Select **Run** > **Start Debugging** (`kb(workbench.action.debug.start)`). If prompted to choose a debugger, select **Node.js**.
 
 1. Open the **Run and Debug** view (`kb(workbench.view.debug)`) if it isn't already visible.
 
 Execution pauses on line 2. The current-line highlight indicates the line that runs next, not a line that has already run. Under **VARIABLES**, expand **Local** to find `price` with a value of `10` and `quantity` with a value of `3`.
 
-<!-- TODO: Capture a focused screenshot of app.js paused on line 2, showing the breakpoint, current-line highlight, and Run and Debug view. -->
+![Screenshot showing the Run and Debug icon highlighted with a red rectangle, and Local variables beside app.js paused on line 2.](images/quickstart/run-and-debug-2026112401.png)
 
 ## 4. Inspect the calculation
 
@@ -97,11 +99,11 @@ Execution pauses on line 2. The current-line highlight indicates the line that r
 
     The result is `30`. The inputs are correct, but the code adds them instead of multiplying them. Evaluating this expression doesn't change the source file.
 
+    ![Screenshot showing the debugger paused on return total, Local total equal to 13, and price * quantity returning 30 in the Debug Console.](images/quickstart/inspection-2026112401.png)
+
 1. Select **Continue** (`kb(workbench.action.debug.continue)`) in the Debug toolbar to finish the program.
 
     The debugging session ends. Inspect variables and evaluate expressions while paused, before continuing to the end of the program.
-
-<!-- TODO: Capture a focused screenshot of the paused calculateTotal function, Local variables with total equal to 13, and the Debug Console expression returning 30. -->
 
 ## 5. Fix the bug
 

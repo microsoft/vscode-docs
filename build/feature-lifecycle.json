@@ -93,6 +93,10 @@
       "label": "Editor working set",
       "state": "experimental"
     },
+    "editor-worktrees": {
+      "label": "Editor worktree support",
+      "state": "experimental"
+    },
     "forked-skill-context": {
       "label": "Forked skill context",
       "state": "experimental"
@@ -138,6 +142,10 @@
     "mixed-harness-chats": {
       "label": "Mixed-harness chats",
       "state": "experimental"
+    },
+    "model-routers": {
+      "label": "Model routers",
+      "state": "preview"
     },
     "modern-ui": {
       "label": "Modern UI",

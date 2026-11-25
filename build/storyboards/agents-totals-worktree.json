@@ -1,0 +1,30 @@
+{
+  "$schema": "../storyboard.schema.json",
+  "schemaVersion": 2,
+  "id": "agents-totals-worktree",
+  "article": "docs/agents/guides/delegate-two-tasks.md",
+  "channel": "insiders",
+  "execution": "attended",
+  "ai": "none",
+  "profile": {
+    "platform": "win32", "theme": "Dark Modern", "width": 1920, "height": 1080,
+    "deviceScaleFactor": 1, "zoomLevel": 2, "wideContent": false, "fonts": "product-defaults"
+  },
+  "workspace": {"entry": "sample.txt", "environment": "sample"},
+  "targets": {
+    "title": {"selector": ".session-summary-hover-title"},
+    "location": {"selector": ".session-summary-hover-location"}
+  },
+  "steps": [
+    {"kind": "assert", "target": "title", "text": "Add quarterly total line", "match": "contains"},
+    {"kind": "assert", "target": "location", "text": "Worktree", "match": "contains"},
+    {"kind": "assert", "target": "location", "text": "vscode-docs-sample.worktrees", "match": "contains"},
+    {"kind": "assert", "target": "location", "text": "agents/update-sample-txt-quarterly-total", "match": "contains"}
+  ],
+  "capture": {
+    "mode": "prepared-session", "surface": "agents",
+    "file": "agents-totals-worktree.png",
+    "alt": "Screenshot showing the quarterly-total task's session details with a different isolated worktree path and branch."
+  },
+  "privacy": {"denyText": ["@", "Bearer ", "ghp_", "github_pat_"], "humanVisualReviewRequired": true}
+}

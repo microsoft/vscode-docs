@@ -1,6 +1,6 @@
 ---
 ContentId: e54adfc9-1394-4d06-94c5-70f7b9cc9aa8
-DateApproved: 11/18/2026
+DateApproved: 11/25/2026
 MetaDescription: Move from the deprecated Local harness to Copilot in {% data variables.product.prodname_vscode_shortname %} before February 2027.
 MetaSocialImage: ../images/agent-harnesses/agents-window-session-target-2.png
 Keywords:

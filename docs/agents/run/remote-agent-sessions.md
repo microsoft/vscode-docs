@@ -1,6 +1,6 @@
 ---
 ContentId: c7e2f4a1-8d3b-4a6e-9c5d-2f1b3e8a7d4c
-DateApproved: 11/18/2026
+DateApproved: 11/25/2026
 MetaDescription: Continue agent work from another machine or start tasks on a remote host with {% data variables.product.prodname_vscode_shortname %}.
 ---
 # Run and manage remote agent sessions
@@ -11,6 +11,8 @@ The machines have two roles:
 
 * **Host machine:** Runs the agent and contains the project, tools, and session.
 * **Client machine:** Runs the application you use to connect and interact with the session.
+
+`setting(sessions.keepAwakeWhileWorking)` can prevent idle sleep while an Agent Host chat is working. Configure it on the host machine, not the client. See the [AI settings reference](/docs/agents/reference/ai-settings.md#agent-host) for its modes and platform limitations.
 
 Keep the host machine awake, online, and its Agent Host or owning application running. Connecting doesn't transfer the session or copy the project to the client machine.
 
@@ -37,6 +39,8 @@ Opening a remote project in the editor is a separate workflow, described under [
 Enable remote access to start or continue agent sessions from another device while the project, tools, and execution stay on the host machine. Remote clients can access its Agent Host-backed sessions, such as a {% data variables.product.prodname_copilot_short %} session. **Local** harness sessions `feature(local-harness)` and older extension-host sessions aren't shared this way.
 
 Run these steps on the host machine to make it available for remote access.
+
+In the {% data variables.copilot.agents_window %}, you can alternatively [use the Experimental sharing setup form](#share-this-computer-with-the-setup-form-experimental) to compare connection methods before starting sharing.
 
 If you're already connected to an SSH host, WSL distribution, or dev tunnel, you can instead [share that remote as a {% data variables.copilot.github_environment %}](#share-a-remote-as-a-github-environment) from the client machine.
 
@@ -80,9 +84,9 @@ On the **client machine**, where you want to interact with the remote session:
 
 1. Run the **Agents: Manage Remote Environments** command from the Command Palette.
 
-1. Verify that the remote host appears in the list of available environments.
+1. Find the remote host and select **Connect** on its row.
 
-1. The sessions list in the {% data variables.copilot.agents_window %} shows available sessions from the remote host. Select the existing session list to continue the conversation.
+1. Select the existing session from the sessions list in the {% data variables.copilot.agents_window %} to continue the conversation.
 
 The session's files, tools, and execution remain on the host machine. If you don't see the task, check the selected host and [session filters](/docs/agents/run/sessions/manage-sessions.md#find-a-missing-session).
 
@@ -218,17 +222,19 @@ In the installed {% data variables.copilot.agents_window %}, discovering a machi
 
 Use the Remote Environments editor in the installed {% data variables.copilot.agents_window %} to find and manage your remote machines in one place. This editor is optional; you don't need to open it to follow the connection steps above.
 
-To also manage how this computer is shared, enable `setting(sessions.chat.experimental.remoteEnvironmentsThisComputer)`. In **This Computer**, choose **{% data variables.copilot.github_environments_caps %}** (when available), **Dev Tunnels**, or **Off**, or select **Rename Sharing Name** to change the name other clients see. Local sessions continue to run on this computer whether sharing is on or off.
+You can also [create and manage standalone Dev Containers](/docs/agents/run/agents-window.md#create-a-container-without-a-project-experimental) here, on this computer or a connected host. Unlike a connection to an existing machine, each standalone container provides a new workspace with its files in a Docker volume.
 
-The table groups known SSH hosts, dev tunnels, and WSL distributions on Windows. When support for [{% data variables.copilot.github_environments %}](#github-environments) is available and enabled, the **Environments** group also lists your registered machines, including offline ones. These are user-shared machines, not the managed environments used by cloud sessions.
+The **This Computer** section manages how this computer is shared. It requires `setting(sessions.chat.experimental.remoteEnvironmentsThisComputer)`, which is on by default. With the default sharing controls, choose **{% data variables.copilot.github_environments_caps %}** (when available), **Dev Tunnels**, or **Off**, or select **Rename Sharing Name** to change the name other clients see. Alternatively, [use the Experimental sharing setup form](#share-this-computer-with-the-setup-form-experimental) to choose a method before applying it. Local sessions continue to run on this computer whether sharing is on or off.
+
+The **Other environments** table lists known SSH hosts, dev tunnels, and WSL distributions on Windows. When support for [{% data variables.copilot.github_environments %}](#github-environments) is available and enabled, it also lists your registered machines, including offline ones. These are user-shared machines, not the managed environments used by cloud sessions.
 
 Remote environment management requires `setting(sessions.chat.experimental.environmentPicker)`, `setting(sessions.chat.experimental.environmentPickerManageRemotes)`, and `setting(chat.remoteAgentHostsEnabled)`. All three settings are on by default.
 
-![Screenshot showing the Remote Environments editor in the Agents window.](../images/remote-agent-sessions/remote-environments-editor.png)
+![Screenshot showing the Remote Environments editor in the Agents window.](../images/remote-agent-sessions/remote-environments-editor-2.png)
 
 #### Open remote environment management
 
-Run **Agents: Manage Remote Environments** from the Command Palette (`kb(workbench.action.showCommands)`), or select **Manage Remote Environments** from the sessions list **More Actions** (`...`) menu.
+Run **Agents: Manage Remote Environments** from the Command Palette (`kb(workbench.action.showCommands)`), or select **Manage Remote Environments** from **Remote Connections** (antenna icon) in the title bar or the sessions list **More Actions** (`...`) menu.
 
 You can also open the editor from the **Environment** picker:
 
@@ -238,6 +244,25 @@ You can also open the editor from the **Environment** picker:
 
     ![Screenshot showing the Environment picker and its Manage entry.](../images/remote-agent-sessions/environment-picker-manage.png)
 
+#### Share this computer with the setup form (Experimental)
+
+To compare connection methods before starting sharing, enable `setting(sessions.chat.remoteEnvironments.sharingSetup)`. This Experimental setting is off by default and requires the **This Computer** section to be enabled.
+
+On the host machine:
+
+1. [Open remote environment management](#open-remote-environment-management).
+1. In **This Computer**, select **Share This Computer**.
+1. Choose a connection method and review the sharing name. Selecting a method alone doesn't start sharing.
+1. Select **Start Sharing** and complete any sign-in or confirmation prompts.
+
+From the client machine, [continue an existing session](#continue-an-existing-remote-session) or [start a remote session](#start-a-remote-session). Sharing enables access to the host's supported sessions, tools, and workspace resources. Review [remote connection security](/docs/agents/run/security.md#remote-connections-and-github-environments) before starting sharing.
+
+To switch methods, select **Change Connection Type** next to **Stop Sharing**, choose another method, then select **Switch Method**. Switching stops sharing with the current method before starting the new one.
+
+To end remote access, select **Stop Sharing**. This doesn't stop running agent tasks. If a sharing change fails, select **Open Sharing Log** in the error message for details.
+
+Turning off `setting(sessions.chat.remoteEnvironments.sharingSetup)` restores the previous **Off**, **{% data variables.copilot.github_environments_caps %}**, and **Dev Tunnels** controls.
+
 #### Share a remote as a {% data variables.copilot.github_environment %}
 
 `feature(github-environments)`
@@ -245,7 +270,7 @@ You can also open the editor from the **Environment** picker:
 Share an SSH host, WSL distribution, or dev tunnel to continue its agent sessions through {% data variables.copilot.github_environments %}, including from another machine. Sharing requires {% data variables.copilot.github_environments %} to be enabled and available for your account, and a remote Agent Host that supports sharing.
 
 1. In **Manage Remote Environments**, connect to the remote.
-1. On its row, select **Share \<name\> as {% data variables.product.prodname_github %} Environment** (Octocat icon). Complete any sign-in prompts.
+1. On its row, select **More Actions** (`...`) > **Share as {% data variables.product.prodname_github %} Environment**. Complete any sign-in prompts.
 1. When you disconnect from the shared remote, choose what should happen:
 
     | Choice | Effect |
@@ -254,28 +279,54 @@ Share an SSH host, WSL distribution, or dev tunnel to continue its agent session
     | **Stop Sharing** | Stop sharing the remote as a {% data variables.copilot.github_environment %}, then disconnect. |
     | **Cancel** | Keep the direct connection. |
 
-With **Keep Sharing**, the remote appears under **{% data variables.copilot.github_environments_caps %}** in remote environment management and the environment picker. Continue its existing sessions without starting new conversations. Their pins and groups are preserved. On another machine, sign in with the same {% data variables.product.prodname_github %} account.
+With **Keep Sharing**, the remote appears as a {% data variables.copilot.github_environment %} in remote environment management and the environment picker. Continue its existing sessions without starting new conversations. Their pins and groups are preserved. On another machine, sign in with the same {% data variables.product.prodname_github %} account.
 
 When you reconnect directly, the same sessions return to that connection and the separate {% data variables.copilot.github_environment %} entry is hidden. Sessions aren't duplicated.
 
-To stop sharing while directly connected, select **Stop Sharing \<name\> as {% data variables.product.prodname_github %} Environment** on the remote's row.
+To stop sharing while directly connected, select **More Actions** (`...`) > **Stop Sharing as {% data variables.product.prodname_github %} Environment** on the remote's row.
 
 Keep the remote machine running and reachable. **Keep Sharing** doesn't move execution to managed cloud compute. Sharing grants access to the host's supported sessions, tools, and workspace resources. Review [remote connection security](/docs/agents/run/security.md#remote-connections-and-github-environments) before enabling it.
 
 #### Find and organize remote machines
 
-Use the table to search, connect, and organize your remote machines. Keep these behaviors in mind:
+Use the search field to find a remote machine. Select **Filter** in that field to choose **Sort By** or **Group By**. Sorting and grouping are remembered for your profile. Use **Reset Filter** to restore the defaults.
+
+**Connected** means this window has an active connection. **Available** means you can try connecting, not that the host is confirmed reachable. SSH hosts aren't checked for reachability before you connect. **Last Activity** and **System** can show previously observed information rather than live measurements.
+
+Select **Connect** on a row to use that environment. When **New Session** is available on a connected row, it opens a new session with that environment selected. To continue an existing task, select its session from the sessions list instead.
+
+Keep these behaviors in mind:
 
 * Disconnecting doesn't stop running tasks. Refreshing discovers machines without connecting.
 
-* Renaming or hiding a machine affects only this client. Hiding doesn't disconnect it or remove sessions. Leave a name empty to restore the default.
+* Use **More Actions** (`...`) > **Rename** or **Hide from Environment Picker** to change how a machine appears on this client. Hiding doesn't disconnect it or remove sessions. Leave a name empty to restore the default.
 
-* **Delete** has different effects depending on the connection:
-  * For a {% data variables.copilot.github_environment %}, it removes the registration and disconnects this client. The environment can reappear if its owning application registers it again.
-  * For an eligible saved SSH connection, it forgets the saved connection and disconnects this client. It doesn't change your SSH configuration.
-  * For a dev tunnel, it deletes the tunnel registration and disconnects its clients. Stop hosting a tunnel from this application before deleting it. A machine that starts hosting the tunnel again can recreate it.
+* Removal actions in **More Actions** have different effects depending on the connection:
+  * **Remove Environment** removes a {% data variables.copilot.github_environment %} registration and disconnects this client. The environment can reappear if its owning application registers it again.
+  * **Forget SSH Connection** forgets an eligible saved SSH connection and disconnects this client. It doesn't change your SSH configuration.
+  * **Delete Dev Tunnel** deletes the tunnel registration and disconnects its clients. Stop hosting a tunnel from this application before deleting it. A machine that starts hosting the tunnel again can recreate it.
 
-  None of these actions deletes files on the remote machine.
+  These connection-removal actions don't delete files on the remote machine. **Delete Dev Container** for a standalone container is different: it removes the container and its Docker volumes, including workspace files, and its sessions can no longer continue. Save any work you need elsewhere first.
+
+To reclaim disk space from agent-managed worktrees on a connected host, use [Worktree Cleanup](/docs/agents/run/worktrees.md#clean-up-session-worktrees) in {% data variables.product.prodname_vscode_shortname %} Insiders. Unlike disconnecting or forgetting a host, cleanup removes selected worktree folders on that host. Review the host identity and preservation rules before confirming.
+
+#### Choose how agents run on a remote
+
+On an SSH host or dev tunnel's row, select **More Actions** (`...`) > **Configure Agent Run Behavior** to choose how agent tasks run:
+
+* **Run in the Background**: Agents can keep working after you close {% data variables.product.prodname_vscode_shortname %} on the remote computer.
+* **Use Remote {% data variables.product.prodname_vscode_shortname %}**: Uses an open editor window on the remote computer when available. Agents stop when that window closes.
+
+Keep the remote computer awake and online with either choice. Selecting a choice doesn't apply it immediately. For a disconnected environment, **Save** applies the choice the next time you connect without connecting now. For a connected environment, **Save and Reconnect** applies the choice and reconnects. If reconnection fails, the preference remains saved, but you need to reconnect before continuing.
+
+#### Update a remote server
+
+When a connected host supports server updates and a newer build is available, select **More Actions** (`...`) > **Update Server** on its row.
+
+> [!CAUTION]
+> Updating restarts the remote server and interrupts sessions running on it. Save your work or stop active tasks before confirming the update.
+
+For an incompatible server that supports updating, **Connect** offers **Update and Connect**. If an update isn't offered, follow the setup guidance for your connection method to update the host.
 
 ## Other remote workflows
 
@@ -297,21 +348,12 @@ Select a folder on that host instead when the task needs an existing project.
 
 ### Run a session in a remote Dev Container
 
-Run agents inside your remote project's Dev Container to use its configured tools and dependencies without installing them directly on the remote machine. Starting in {% data variables.product.prodname_vscode_shortname %} 1.139, this is supported for SSH, Tunnel, and WSL connections in the installed {% data variables.copilot.agents_window %}, not in the browser-based window.
+Run agents inside a container on a connected SSH, Tunnel, or WSL host to use its tools and dependencies without installing them directly on that host. This requires the installed {% data variables.copilot.agents_window %}, a host that supports Dev Container sessions, and Docker installed and running on that host.
 
-Dev Container support (`setting(chat.agentHost.devContainer.enabled)`) is on by default. Docker must be installed and running on the remote host, and the project must contain a [Dev Container configuration](/docs/devcontainers/create-dev-container.md).
+* For an existing project, select its remote folder and follow [Use your project's Dev Container](/docs/agents/run/agents-window.md#use-your-projects-dev-container).
+* For a fresh workspace without a project configuration, follow [Create a container without a project](/docs/agents/run/agents-window.md#create-a-container-without-a-project-experimental).
 
-To run a session in a remote Dev Container:
-
-1. Connect over SSH, through a tunnel, or to WSL, and select the project folder in the workspace picker.
-
-1. Expand the menu for the remote folder and select **Use Dev Container**.
-
-    The workspace label gains the **- Dev Container** suffix.
-
-1. Choose an available agent harness, configure the session, and enter your prompt.
-
-The **Use Dev Container** option appears only when the source machine advertises Dev Container support. It isn't available for unsupported machines or for folders whose source is nested inside another remote environment. For more information about prerequisites, switching back to the source machine, and troubleshooting, see [Run a session in a Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container).
+The main [Dev Container procedure](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container) covers setup, troubleshooting, and the different cleanup behavior of these two choices.
 
 ### Preview a remote web app
 
@@ -355,10 +397,27 @@ Turning off `setting(chat.remoteSessions.tools.enabled)` removes the remote dele
 | Symptom | What to check |
 |---------|---------------|
 | Remote connection options are missing | Confirm that `setting(chat.remoteAgentHostsEnabled)` is on. Turning it off prevents this client from connecting to remote agent hosts. For {% data variables.copilot.github_environments %}, also check the feature-specific requirements below. |
-| The host is offline or won't connect | Keep the host awake and online, with its application or Agent Host running. Connecting to an offline registered machine doesn't start the host. Check [SSH setup](/docs/remote/ssh.md) or [dev tunnel setup](/docs/remote/tunnels.md) for your connection method. |
+| The host is offline or won't connect | Keep the host awake and online, with its application or Agent Host running. Connecting to an offline registered machine doesn't start the host. Use [connection troubleshooting](#troubleshoot-a-connection-experimental) for diagnostics and recovery actions, or check [SSH setup](/docs/remote/ssh.md) or [dev tunnel setup](/docs/remote/tunnels.md) for your connection method. |
 | A session is missing | Check the connected host, supported session types, workspace group, and [sessions list filters](/docs/agents/run/sessions/manage-sessions.md#find-a-missing-session). Starting a new session doesn't resume a missing one. |
 | A transcript is visible but can't accept messages | Reconnect to the host. A cached transcript or [synced history](/docs/agents/run/sessions/session-history.md) is not a live connection. |
 | **Sandbox trusted CA is not installed** appears, or sandboxed tools report certificate errors | For Windows and macOS hosts, follow the [remote certificate-trust steps](/docs/agents/run/agent-sandboxing.md#remote-environments). Run the certificate commands on the host, not the client computer. |
+
+### Troubleshoot a connection (Experimental)
+
+In the {% data variables.copilot.agents_window %}, use **Troubleshoot Connection** to review connection details and find suggested recovery actions.
+
+1. Run **Agents: Manage Remote Environments** from the Command Palette (`kb(workbench.action.showCommands)`).
+
+1. On the environment's row, select **More Actions** (`...`) > **Troubleshoot Connection**.
+
+1. Review the details and follow the suggested actions for your connection type. Retry the connection after addressing the problem.
+
+When a connection attempt in **Remote Environments** fails, select **Troubleshoot** in its notification while the editor remains open to reach the same page.
+
+Use **Open Diagnostic Report** to review the collected details, or **Copy Report** to copy them. Reports can include names, addresses, and local logs for all environments. Review the report and remove sensitive details before sharing.
+
+> [!CAUTION]
+> **Restart Distribution** stops all programs and agent sessions in that WSL distribution before reconnecting. Save your work first.
 
 ### Troubleshoot {% data variables.copilot.github_environments %}
 

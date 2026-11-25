@@ -780,7 +780,7 @@ test('Findings offers batch checks only and retains historical article-review re
   await page.getByLabel('Check type', { exact: true }).selectOption('review');
   assert.equal(await page.locator('.finding:visible').count(), 1);
   assert.equal(f.tracked.length, 0, 'Opening or filtering saved findings must not start a review.');
-  assert.equal(await page.getByRole('link', { name: 'Review in chat', exact: true }).count(), 1);
+  assert.equal(await page.getByRole('link', { name: 'Review article', exact: true }).count(), 1);
   assert.equal(await page.getByRole('link', { name: 'Check instructions', exact: true }).count(), 1);
   await page.locator('#scope').fill('docs');
   await page.getByRole('button', { name: 'Run checks', exact: true }).click();

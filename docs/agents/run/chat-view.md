@@ -1,6 +1,6 @@
 ---
 ContentId: d5f8a2c1-3e7b-4a9d-b6c4-8f2e1a3d5c7b
-DateApproved: 11/18/2026
+DateApproved: 11/25/2026
 MetaDescription: Use AI beside your code in the {% data variables.copilot.chat_view %}, ask questions, run agents, and choose a layout.
 ---
 # Use the {% data variables.copilot.chat_view %}
@@ -60,6 +60,34 @@ The new session appears in the sessions list. To continue an existing conversati
 
 If you already have a conversation running in the CLI, [continue it in the {% data variables.copilot.chat_view %}](/docs/agents/run/sessions/manage-sessions.md#continue-a-cli-session-in-vs-code-experimental) with `/code` (Experimental).
 
+## Work in separate worktrees
+
+`feature(editor-worktrees)`
+
+Keep changes from parallel agent tasks separate without opening another editor window. Each chat can work in its own Git worktree, and the editor's folder location follows the chat you open. For isolation choices, starting code, and dependency setup, see [Work with agents in worktrees](/docs/agents/run/worktrees.md).
+
+This workflow requires {% data variables.product.prodname_vscode_shortname %} Insiders, a single local Git folder with at least one commit, and a harness that supports worktree isolation, such as {% data variables.product.prodname_copilot_short %}.
+
+1. Enable `setting(chat.editorWindow.enableWorktree)`, which is off by default.
+1. Start a new chat and choose your harness.
+1. Select **New Worktree** before sending the first prompt. If the chat input shows a folder picker, open it to select **New Worktree**.
+1. Describe the task and send your prompt. The chat works in a new worktree on its own branch, separate from your original folder.
+
+If the **Work in Parallel** callout appears, choose **Use New Worktree** to separate the task's changes, or **Continue in Folder** to share the folder. Later new chats use your answer as their default.
+
+### Switch between locations
+
+Open a chat from the sessions list to work in its location. Explorer and Source Control show that location's files, changes, and branch. To switch locations directly, select **Folder Location** in the Status Bar, then choose the original folder or an entry under **Worktrees**. Check the location and branch before editing or committing.
+
+![Screenshot showing the Folder Location menu with two worktrees and the current worktree identified in the menu and Status Bar.](../images/chat-view/editor-worktree-location-2026112301.png)
+
+> [!IMPORTANT]
+> Existing terminals keep their working directories when the editor changes location. Check a terminal's directory before running commands, or open a new terminal in the current location. A user-initiated location switch asks you to stop affected debug sessions and tasks with **Stop and Switch**. Automatic location changes can leave them running in the previous location.
+
+Switching locations doesn't integrate changes. When the task is ready, [review and integrate the worktree changes](/docs/agents/run/worktrees.md#review-and-integrate-changes).
+
+To reclaim disk space afterward, run **Chat: Open Worktree Cleanup** without leaving the editor window. Follow [Clean up session worktrees](/docs/agents/run/worktrees.md#clean-up-session-worktrees) to review what is preserved before removing worktrees.
+
 ## Work with the agent
 
 Keep the code and its checks beside the conversation as you work:
@@ -86,7 +114,7 @@ You can also keep using [inline suggestions](/docs/editing/ai-powered-suggestion
 
 ## Layout options
 
-The {% data variables.copilot.chat_view %} offers several layout options within the main {% data variables.product.prodname_vscode_shortname %} window. Choose the layout that best fits your workflow:
+With the default chat layout, the {% data variables.copilot.chat_view %} offers several options within the main {% data variables.product.prodname_vscode_shortname %} window. Choose the layout that best fits your workflow:
 
 * **Side bar** (default): select **New Chat (+)** > **New Chat**, or run the **Chat: New Chat** command. Best for keeping chat visible alongside your code.
 
@@ -94,9 +122,21 @@ The {% data variables.copilot.chat_view %} offers several layout options within 
 
 * **Separate window**: select **New Chat (+)** > **New Chat Window**, or run the **Chat: New Chat Window** command. Best for multi-monitor setups.
 
+### Open session chats in another area (Experimental)
+
+In {% data variables.product.prodname_vscode_shortname %} Insiders, use `setting(chat.viewSessions.openChatIn)` to choose where conversations open when you select a session in a local editor window:
+
+* `chatPanel` (default): Open the conversation in the {% data variables.copilot.chat_view %}.
+* `chatArea`: Open the conversation in a dedicated chat area beside the {% data variables.copilot.chat_view %}, keeping it separate from your code editors.
+* `editorArea`: Open the conversation as an editor tab. Selecting an already-open session reveals its tab.
+
+Keep `setting(chat.viewSessions.orientation)` set to `sideBySide`. With either alternate layout, the {% data variables.copilot.chat_view %} shows the sessions list rather than the open conversation.
+
+Use `chatPanel` to return to the default layout or work with Local harness sessions.
+
 ## Interface overview
 
-The {% data variables.copilot.chat_view %} keeps the agent next to your code, so you can prompt, review, and edit in the same window. The {% data variables.copilot.chat_view %} has the following main areas:
+The {% data variables.copilot.chat_view %} keeps the agent next to your code, so you can prompt, review, and edit in the same window. With the default chat layout, it has the following main areas:
 
 1. **Sessions list**: at the top of the view, where you can view and manage your sessions for the current workspace. Learn more about the [sessions list](/docs/agents/run/sessions/manage-sessions.md#find-and-resume-a-session).
 
@@ -111,7 +151,7 @@ The {% data variables.copilot.chat_view %} keeps the agent next to your code, so
 
 ### Sessions list layout
 
-Use the toggle control in the top-right corner of the {% data variables.copilot.chat_view %} to switch between two layouts:
+With the default chat layout, use the toggle control in the top-right corner of the {% data variables.copilot.chat_view %} to switch between two layouts:
 
 * **Compact**: The sessions list and conversation share the same panel. Select a session to open it, then use the back button to return to the list.
 * **Side-by-side**: The sessions list stays visible next to the conversation. Select a session to open its details. Use `setting(chat.viewSessions.orientation)` to configure the orientation.
@@ -120,7 +160,7 @@ To hide or show the list, right-click in an empty chat and toggle **Show Session
 
 ### Switch chats within a session
 
-With a harness that supports multiple chats, a session can contain a main chat and nested sessions. In the **Sessions** view, expand the main chat row and select a nested session to open its conversation in the {% data variables.copilot.chat_view %}.
+With a harness that supports multiple chats, a session can contain a main chat and nested sessions. In the **Sessions** view, expand the main chat row and select a nested session to open its conversation.
 
 You can continue nested sessions created in the {% data variables.copilot.agents_window %} without starting a new conversation. For creation steps, navigation options, and interface-specific controls, see [Run multiple chats in a session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session).
 

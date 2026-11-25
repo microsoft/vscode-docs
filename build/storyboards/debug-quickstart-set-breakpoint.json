@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 2,
+  "id": "debug-quickstart-set-breakpoint",
+  "article": "docs/debugtest/quickstart.md",
+  "channel": "stable",
+  "execution": "attended",
+  "ai": "none",
+  "profile": {
+    "platform": "win32",
+    "theme": "Dark Modern",
+    "width": 1920,
+    "height": 1080,
+    "deviceScaleFactor": 1,
+    "zoomLevel": 2,
+    "wideContent": false,
+    "fonts": "product-defaults"
+  },
+  "workspace": {"entry": "app.js"},
+  "targets": {
+    "editor": {"selector": ".monaco-editor .view-lines", "first": true},
+    "breakpoint": {"selector": ".monaco-editor .codicon-debug-breakpoint"},
+    "pausedLine": {"selector": ".monaco-editor .debug-top-stack-frame-line", "first": true}
+  },
+  "steps": [
+    {"kind": "wait-for", "target": "breakpoint", "state": "visible"},
+    {"kind": "wait-for", "target": "pausedLine", "state": "hidden"},
+    {"kind": "assert", "target": "editor", "text": "const total = price + quantity;", "match": "contains"}
+  ],
+  "instructions": {
+    "setup": "Use the reviewed debugging-practice folder and unchanged buggy app.js. During attended preparation, open app.js and set a breakpoint on line 2 if it is not already present. Do not start debugging. Hide the sidebar and bottom panel to focus on the editor. The human handles native prompts and confirms readiness. UI preparation may be agent-assisted after capture approval. Do not edit the file, install anything, sign in, or use AI.",
+    "checks": [
+      {
+        "source": {
+          "line": 74,
+          "endLine": 76,
+          "quote": "1. Return to the `app.js` editor and select the margin to the left of the line number beside `const total = price + quantity;` on line 2. A red circle marks the breakpoint.\n\n    Alternatively, place the cursor on that line and press `kb(editor.debug.action.toggleBreakpoint)`."
+        },
+        "action": "Observe the red breakpoint before starting the program.",
+        "expected": "A red circle is visible in the gutter beside line 2. A two-pixel red rectangle highlights where to select the margin. The program is not paused or running.",
+        "steps": [0, 1, 2]
+      }
+    ]
+  },
+  "capture": {
+    "file": "debug-quickstart-set-breakpoint.png",
+    "alt": "Screenshot showing a red breakpoint beside line 2 in app.js, with a red rectangle highlighting the editor margin.",
+    "highlights": {
+      "strokeWidth": 2,
+      "targets": [{"target": "breakpoint", "padding": 6}]
+    }
+  },
+  "privacy": {
+    "denyText": ["@", "Bearer ", "ghp_", "github_pat_"],
+    "humanVisualReviewRequired": true
+  }
+}

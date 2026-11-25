@@ -90,6 +90,7 @@ function fakeApplication(overrides = {}) {
       }
     },
     title: async () => 'example.js - Visual Studio Code - Insiders',
+    url: () => overrides.pageUrl || 'vscode-file://vscode-app/out/vs/code/electron-browser/workbench/workbench.html',
     screenshot: async () => { throw new Error('Use native content capture to preserve pixel dimensions at non-default zoom.'); }
   };
   return {
@@ -512,6 +513,59 @@ test('sample replay retains extension and sign-in storage paths without enabling
     assert.equal(result.manifest.captureProfile.lockRetained, false);
     assert.equal(second.state().photographed, false);
   });
+});
+
+test('prepared-session captures require opt-in and readiness, verify the surface, and preserve sample isolation', async () => {
+  for (const surface of ['editor', 'agents']) {
+    for (const outcome of ['candidate', 'cancelled', 'wrong-window']) {
+      await withOutput(async options => {
+        const workspace = path.join(options.output, 'sample');
+        const output = path.join(options.output, 'captures');
+        const captureProfile = path.join(options.output, 'sample-profile');
+        fs.mkdirSync(workspace);
+        fs.mkdirSync(output);
+        fs.writeFileSync(path.join(workspace, 'example.js'), 'Prepared sample.');
+        const storyboard = JSON.parse(fs.readFileSync(STORYBOARD));
+        delete storyboard.fixture;
+        delete storyboard.video;
+        storyboard.workspace = {entry: 'example.js', environment: 'sample'};
+        Object.assign(storyboard.capture, {mode: 'prepared-session', surface});
+        storyboard.steps = [storyboard.steps.at(-1)];
+        const file = path.join(options.output, 'prepared-session.json');
+        fs.writeFileSync(file, JSON.stringify(storyboard));
+        const input = {...options, storyboard: file, workspace, captureProfile, output};
+        await assert.rejects(() => captureEditor(input, fakeApplication()), /explicit capture opt-in/);
+        await assert.rejects(() => captureEditor({...input, preparedSession: true, replay: true}, fakeApplication()), /cannot run as replay/);
+        await assert.rejects(() => captureEditor({...input, preparedSession: true, video: true}, fakeApplication()), /cannot run as replay/);
+        const fake = fakeApplication({pageUrl: outcome === 'wrong-window' ? 'about:blank' :
+          `vscode-file://vscode-app/out/vs/${surface === 'agents' ? 'sessions/electron-browser/sessions.html' : 'code/electron-browser/workbench/workbench.html'}`});
+        let asked = false;
+        fake.confirmReady = async () => { asked = true; return outcome !== 'cancelled'; };
+        const run = captureEditor({...input, preparedSession: true}, fake);
+        if (outcome === 'candidate') {
+          const result = await run;
+          assert.equal(result.manifest.mode, 'prepared-session');
+          assert.equal(result.manifest.surface, surface);
+          assert.equal(result.manifest.approval, 'human-visual-review-required');
+          assert.equal(result.manifest.workspace.check, 'unchanged');
+          assert.equal(result.manifest.captureProfile.lockRetained, false);
+        } else {
+          await assert.rejects(run, outcome === 'cancelled' ? /preparation was cancelled/ : /reviewed capture surface/);
+        }
+        const state = fake.state();
+        assert.equal(asked, outcome !== 'wrong-window');
+        assert.equal(state.photographed, outcome === 'candidate');
+        assert.equal(state.closed, true);
+        assert.equal(state.launchOptions.args.includes('--agents'), surface === 'agents');
+        assert.equal(state.launchOptions.args.includes('--goto'), false);
+        assert.equal(state.launchOptions.args.includes('--disable-extensions'), false);
+        assert.equal(state.launchOptions.offline, false);
+        for (const key of ['HOME', 'USERPROFILE', 'APPDATA', 'LOCALAPPDATA', 'COPILOT_HOME']) {
+          assert.ok(Reflect.get(state.launchOptions.env, key).startsWith(captureProfile));
+        }
+      });
+    }
+  }
 });
 
 test('replay saves source-linked instruction outcomes and distinguishes unobserved claims from passed assertions', async () => {

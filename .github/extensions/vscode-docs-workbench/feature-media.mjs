@@ -192,6 +192,7 @@ export function createFeatureMedia(store, host, { stateFile, approved, currentSo
         const storyFile = await ownedPath(store.workspace, path.join('build', 'storyboards', procedure.config.storyboard));
         const story = await readJson(storyFile);
         const captured = await captureEditor({ ...procedure.config, storyboard: storyFile, output: base,
+          preparedSession: story.capture?.mode === 'prepared-session',
           waitForReady: !!(story.workspace || story.fixture?.openFolder) });
         const captureFile = await ownedPath(base, path.relative(base, path.join(captured.directory, 'capture.json')));
         if (captured.manifest.product?.revision !== procedure.binding.product.revision) throw new Error('Captured product does not match the reviewed build.');

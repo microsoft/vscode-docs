@@ -13,6 +13,8 @@ const {WORKSPACE_SETTINGS, SAMPLE_WORKSPACE_SETTINGS, acquireCaptureProfile, pre
 const {assertStableHighlights, collectHighlightRectangles, renderHighlights} = require('./capture-highlights');
 const {ProcedureFailure, failureDetails} = require('./replay-errors');
 
+const PREPARED_SESSION_READINESS_TIMEOUT = 15 * 60 * 1000;
+
 /* eslint-disable security/detect-non-literal-fs-filename -- The runner owns a newly created private run directory. */
 
 function validatePng(bytes, width, height) {
@@ -89,7 +91,16 @@ async function captureEditor(options, dependencies = {}) {
   const storyboardBytes = fs.readFileSync(options.storyboard);
   const storyboard = validateStoryboard(JSON.parse(storyboardBytes.toString('utf8')));
   const sample = storyboard.workspace?.environment === 'sample';
-  if (sample && !options.replay) throw new Error('The persistent sample environment is for instruction replay only, not media capture.');
+  const preparedSession = storyboard.capture.mode === 'prepared-session';
+  if (!!options.preparedSession !== preparedSession) {
+    throw new Error('Prepared-session screenshots require both a reviewed prepared-session storyboard and explicit capture opt-in.');
+  }
+  if (preparedSession && (options.replay || options.video)) {
+    throw new Error('Prepared-session screenshots cannot run as replay or video.');
+  }
+  if (sample && !options.replay && !preparedSession) {
+    throw new Error('The persistent sample environment is for instruction replay only unless explicitly approved for prepared-session screenshots.');
+  }
   const article = fs.realpathSync(path.resolve(repository, ...storyboard.article.split('/')));
   if (!isWithinRoot(repository, article) || !fs.statSync(article).isFile()) {
     throw new Error('Storyboard article must be an existing file inside the repository.');
@@ -153,6 +164,7 @@ async function captureEditor(options, dependencies = {}) {
     profile: storyboard.profile,
     ai: storyboard.ai,
     approval: 'human-visual-review-required',
+    ...(preparedSession ? {mode: 'prepared-session', surface: storyboard.capture.surface} : {}),
     privacy: { textScan: 'not-run', pixelReview: options.replay ? 'not-captured' : 'required' },
     ...(options.replay ? {purpose: 'procedure-replay', approval: 'not-a-media-candidate'} : {})
   };
@@ -221,7 +233,8 @@ async function captureEditor(options, dependencies = {}) {
         '--force-device-scale-factor=1', '--locale=en',
         '--user-data-dir', userData,
         '--extensions-dir', extensions,
-        ...(storyboard.workspace || storyboard.fixture?.openFolder ? [workspace, '--goto'] : []), fixture
+        ...(preparedSession ? [...(storyboard.capture.surface === 'agents' ? ['--agents'] : []), workspace] :
+          [...(storyboard.workspace || storyboard.fixture?.openFolder ? [workspace, '--goto'] : []), fixture])
       ],
       env: environment,
       cwd: workspace,
@@ -245,12 +258,20 @@ async function captureEditor(options, dependencies = {}) {
     const page = await application.firstWindow();
     page.setDefaultTimeout(15000);
     await page.locator('.monaco-workbench').waitFor({state: 'visible'});
+    if (preparedSession) {
+      const expected = storyboard.capture.surface === 'agents'
+        ? '/vs/sessions/electron-browser/sessions.html' : '/vs/code/electron-browser/workbench/workbench.html';
+      if (!new URL(page.url()).pathname.endsWith(expected)) {
+        throw new ProcedureFailure('prerequisite', 'window-mismatch', 'The launched window does not match the reviewed capture surface.');
+      }
+    }
     const window = await application.browserWindow(page);
     await window.evaluate((browserWindow, size) => browserWindow.setContentSize(size.width, size.height), storyboard.profile);
     if (needsPreparation) {
       stage = 'readiness';
       manifest.workspacePreparation = {status: 'awaiting-human'};
-      const ready = options.waitForReady ? await waitForReadiness(runDirectory, workspace) :
+      const ready = options.waitForReady ? await waitForReadiness(runDirectory, workspace,
+        preparedSession ? PREPARED_SESSION_READINESS_TIMEOUT : undefined) :
         await (dependencies.confirmReady || confirmWorkspaceReady)(workspace);
       if (ready !== true) {
         manifest.workspacePreparation.status = 'cancelled';
@@ -444,6 +465,7 @@ async function main(args = process.argv.slice(2)) {
   if (args.length === 1 && args[0] === '--help') {
     console.log('Usage: node build/capture.js --executable <Code.exe> --revision <build-commit> --output <private-directory> [--storyboard <file>] [--video --ffmpeg <encoder.exe>]');
     console.log('Existing workspace: --workspace <folder> --capture-profile <dedicated-directory> [--wait-for-ready]');
+    console.log('Prepared-session screenshots: add --prepared-session for a reviewed observation-only sample storyboard.');
     console.log('Relay an explicit human decision: --confirm-ready <run-directory> --token <token>, or --cancel-ready <run-directory> --token <token>');
     return;
   }
@@ -458,8 +480,8 @@ async function main(args = process.argv.slice(2)) {
   const options = new Map();
   for (let index = 0; index < args.length; index++) {
     const option = args.at(index);
-    const value = ['--video', '--wait-for-ready'].includes(option) ? true : args.at(++index);
-    if (!['--executable', '--revision', '--output', '--storyboard', '--video', '--ffmpeg', '--workspace', '--capture-profile', '--wait-for-ready'].includes(option) ||
+    const value = ['--video', '--wait-for-ready', '--prepared-session'].includes(option) ? true : args.at(++index);
+    if (!['--executable', '--revision', '--output', '--storyboard', '--video', '--ffmpeg', '--workspace', '--capture-profile', '--wait-for-ready', '--prepared-session'].includes(option) ||
         options.has(option) || !value || (typeof value === 'string' && value.startsWith('--'))) {
       throw new Error('Supply each capture option once with a value; use --help for usage.');
     }
@@ -480,6 +502,7 @@ async function main(args = process.argv.slice(2)) {
     workspace: options.get('--workspace'),
     captureProfile: options.get('--capture-profile'),
     waitForReady: options.has('--wait-for-ready'),
+    preparedSession: options.has('--prepared-session'),
     storyboard: options.get('--storyboard') || path.join(__dirname, 'storyboards', 'editor-find.json')
   });
   console.log(JSON.stringify(result, null, 2));

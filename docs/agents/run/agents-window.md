@@ -1,6 +1,6 @@
 ---
 ContentId: b3e7a1d4-5f2c-4e9a-8b6d-1c0f3a2e5d47
-DateApproved: 11/18/2026
+DateApproved: 11/25/2026
 MetaDescription: Start and manage parallel agent sessions, review changes, and finish pull requests in the {% data variables.copilot.agents_window %}.
 ---
 # Use the {% data variables.copilot.agents_window %}
@@ -73,27 +73,19 @@ Choose a task with a clear outcome and checks you can run to verify it. The foll
 
 ### Choose where an agent makes changes
 
-For a Git workspace you can choose between applying changes in the current branch or a new worktree. Use the isolation dropdown above the input to choose where the agent edits files.
+For a Git workspace, use the isolation dropdown above the input to choose where the agent edits files:
+
+* **Branch**: Work directly in the selected folder. If you choose another local branch, switching branches requires a clean working tree.
+* **New Worktree**: Work in a separate directory and branch. Use the branch picker to choose the base branch before sending the prompt. Choosing a base branch doesn't switch the branch in your active workspace.
 
 ![Screenshot showing the isolation dropdown with Branch and New Worktree options above the input.](../images/agent-harnesses/agents-window-new-worktree-2.png)
 
-| Aspect | **Branch** | **New Worktree** |
-|--------|------------|------------------|
-| Best for | Working with your current files and uncommitted changes | Independent tasks running in parallel |
-| Where edits go | Your current folder | A separate [Git worktree](/docs/sourcecontrol/branches-worktrees.md#understanding-worktrees) |
-| Starting point | Your current files, or another existing local branch | Committed files from the selected base branch |
-| Requirements | A clean working tree **when switching branches** | A Git repository with at least one commit |
-| Uncommitted and untracked files | Available in the current folder | Not copied from the current folder |
-| Integration | Edits are already in your selected folder | Integrate the reviewed worktree branch afterward |
-
-Choosing a base branch for **New Worktree** doesn't switch the branch in your active workspace.
-
-Git-ignored files, including dependencies and local configuration, are also absent from new worktrees by default. Run your project's setup or [configure which ignored files to include](#configure-isolation-defaults).
+For the folder-versus-worktree comparison, Git requirements, and dependency setup, see [Work with agents in worktrees](/docs/agents/run/worktrees.md). To change the initial choice, [configure isolation defaults](#configure-isolation-defaults).
 
 Dev Container sessions work directly in the container workspace and don't support **New Worktree**. See [Run a session in a Dev Container](#run-a-session-in-a-dev-container).
 
 > [!IMPORTANT]
-> Worktrees isolate working files, not the agent's access to your machine or external services. Either isolation mode supports the permission levels offered by your harness. For operating system-level restrictions, configure [agent sandboxing](/docs/agents/run/agent-sandboxing.md) or use [cloud sessions](/docs/agents/run/cloud-sandbox-sessions.md).
+> Worktrees isolate working files, not the agent's access to your machine or external services. Review the [permission and sandboxing considerations](/docs/agents/run/worktrees.md#choose-folder-or-worktree-isolation) before starting a task.
 
 ### Save and resume drafts
 
@@ -263,6 +255,8 @@ Committing records the changes but doesn't necessarily put them in the branch wh
 
 After combining changes from multiple sessions, rerun the relevant checks on the combined result. Keep the sessions available until that validation is complete, then [mark finished sessions as done](/docs/agents/run/sessions/manage-sessions.md#finish-and-restore-sessions).
 
+To reclaim disk space from inactive or leftover worktrees, run **Chat: Open Worktree Cleanup**. The [shared cleanup procedure](/docs/agents/run/worktrees.md#clean-up-session-worktrees) covers both windows, local and remote worktrees, and what is preserved.
+
 ### Create a pull request
 
 If the session doesn't already have a pull request:
@@ -337,7 +331,15 @@ You can also [use the browser-based {% data variables.copilot.agents_window %}](
 
 ### Run a session in a Dev Container
 
-Use a Dev Container to run the agent with your project's tools and dependencies. This is supported in the desktop app for local folders and folders on configured SSH, Tunnel, or WSL hosts, but not in the browser-based window.
+Use a Dev Container to run the agent with tools and dependencies inside a container rather than directly on its host. Containers can run on this computer or on a configured SSH, Tunnel, or WSL host. These workflows aren't supported in the VS Code for the Web.
+
+Choose the starting point that fits your task:
+
+* [Use your project's Dev Container](#use-your-projects-dev-container) to work with its existing files and configuration.
+* [Create a container without a project](#create-a-container-without-a-project-experimental) for a fresh Ubuntu workspace.
+* [Ask the agent to continue in a new container](#ask-the-agent-to-continue-in-a-new-container-experimental) to hand off a task to a new session.
+
+#### Use your project's Dev Container
 
 Before starting:
 
@@ -356,6 +358,45 @@ If startup fails, check the workspace-specific **Dev Container** Output channel.
 Idle containers stop after five minutes when no session is working, waiting for input, or holding an unsent draft. Continuing a session restarts the container without losing the conversation. Change the timeout with `setting(chat.agentHost.devContainer.idleTimeout)` (`300` seconds by default, `0` to turn off automatic shutdown). Marking sessions as done or deleting them can still remove the container.
 
 Restarting an existing container is different from rebuilding or replacing it. To keep container-stored chat sessions across replacements, enable `setting(chat.agentHost.devContainer.stateVolume.enabled)` before creating the container. See [Preserve chat sessions across rebuilds](/docs/devcontainers/create-dev-container.md#preserve-chat-sessions-across-rebuilds) `feature(dev-container-state-volume)`, especially the warning about the first rebuild of an existing container.
+
+#### Create a container without a project (Experimental)
+
+Create a standalone Ubuntu container when you need a fresh workspace without an existing project folder or `devcontainer.json`. Its files stay in a Docker volume on the machine that runs the container.
+
+Before starting, [install and run Docker](/docs/devcontainers/containers.md#installation) on the intended host, with its CLI on `PATH`. For a remote host, [connect to it](/docs/agents/run/remote-agent-sessions.md) first. For WSL, Docker must be available inside the distribution.
+
+Enable `setting(chat.agentHost.devContainer.environments.enabled)`, which is off by default. Keep `setting(chat.agentHost.devContainer.enabled)` and `setting(chat.remoteAgentHostsEnabled)` enabled.
+
+1. Run **Agents: Manage Remote Environments** from the Command Palette (`kb(workbench.action.showCommands)`).
+1. In the search box's **Filter** menu, choose **Group By > Type** to show the **Dev Containers** group.
+1. Select **Create Dev Container** on the **Dev Containers** group. If prompted, choose **This Computer** or a connected host.
+
+    To create the container on a specific connected host, you can instead use the create action on that host's row.
+
+1. After the container connects, select **New Session** and choose it in the **Environment** picker.
+1. Choose an available harness and submit your prompt.
+
+Standalone containers persist independently of their sessions. The idle timeout and session cleanup described for project-configured containers don't apply. Disconnecting or marking a session as done doesn't delete the container's files.
+
+> [!CAUTION]
+> To remove a standalone container, use **Delete** on its row in **Remote Environments**. This deletes the container and its Docker volumes, including workspace files. Save any work you need elsewhere first. Sessions that ran in the deleted container can no longer continue.
+
+To edit or debug the workspace, see [open a standalone container in the editor](/docs/agents/run/sessions/manage-sessions.md#continue-between-the-chat-view-and-agents-window) for extension and WSL requirements.
+
+#### Ask the agent to continue in a new container (Experimental)
+
+To let an agent create a standalone container and continue work there, [enable standalone containers](#create-a-container-without-a-project-experimental) and turn on `setting(chat.agentHost.devContainer.handoff.enabled)`, which is off by default. This also provides the remote session tools. You don't need to separately enable `setting(chat.remoteSessions.tools.enabled)`.
+
+In an [Agent Host-backed session](/docs/agents/concepts/agent-host.md), describe the task and where the container should run. For example:
+
+```prompt
+Create a Dev Container on this computer for a Python command-line tool,
+then continue implementing the tool in a new session there.
+```
+
+Review the container host and the new-session approval before proceeding. By default, the agent creates the container on the current session's host when it supports containers, otherwise on this computer. Name a connected host in your request when its location matters.
+
+The agent starts a new session in the container and links to it from the original conversation. It passes a task summary, not the full conversation history, and doesn't copy the original project's files into the new workspace. The container appears in **Remote Environments** and follows the same persistence and deletion rules as a manually created standalone container.
 
 ### Start a session from a pull request
 
@@ -436,7 +477,7 @@ By default, the **Chats** group remains visible even when empty. Set `setting(se
 
 The `setting(sessions.useWorktree)` setting controls the initial isolation choice for a workspace that hasn't started a session before. After you start a session, {% data variables.product.prodname_vscode_shortname %} remembers that workspace's isolation choice instead. The branch selection isn't remembered.
 
-Use `setting(git.worktreeIncludeFiles)` to [copy ignored files into new worktrees](/docs/sourcecontrol/branches-worktrees.md#include-files-when-creating-a-worktree). For large folders, `setting(git.worktreeSymlinkFolders)` (Experimental) can [symlink a folder instead](/docs/sourcecontrol/branches-worktrees.md#symlink-ignored-folders-when-creating-a-worktree). Changes through the symlink affect the original folder, so don't use it for files that must stay isolated.
+For dependencies and ignored files, see [Prepare a worktree](/docs/agents/run/worktrees.md#prepare-a-worktree).
 
 ## Limitations
 

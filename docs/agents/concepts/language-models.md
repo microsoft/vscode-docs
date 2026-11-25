@@ -1,6 +1,6 @@
 ---
 ContentId: b2c3d4e5-6f7a-8b9c-0d1e-2f3a4b5c6d7e
-DateApproved: 11/18/2026
+DateApproved: 11/25/2026
 MetaDescription: Understand language models, tokens, context limits, and model choices for AI tasks in {% data variables.product.prodname_vscode_shortname %}.
 Keywords:
 - copilot
@@ -107,6 +107,16 @@ Copilot Fusion is a model orchestration system, not an individual language model
 Consider Fusion for substantial, well-scoped coding tasks where additional review can be worth the extra time and [AI credits](#ai-credits-and-model-costs). Availability depends on your account and organization policies.
 
 Learn how to [use Copilot Fusion](/docs/agent-customization/language-models.md#use-copilot-fusion). For details about orchestration, see [GitHub Copilot Fusion](https://docs.github.com/en/copilot/concepts/models/copilot-fusion) in the GitHub documentation.
+
+### Model routers
+
+`feature(model-routers)`
+
+A model router selects from routes you define for recurring work. Each route describes the requests it should handle and the model to use, with optional thinking effort, context size, and guidance for the agent. Unlike Auto or Fusion, which choose models for you, a router uses your own model choices and routing criteria.
+
+Use a router when you already have model preferences for different tasks and want to reuse them. For example, choose a reasoning model for multi-file changes and a faster model for small edits. Routing and guidance are model-driven, not guarantees about the result or its cost.
+
+Model routers are available in {% data variables.product.prodname_vscode_shortname %} Insiders for Copilot harness sessions. Learn how to [create and use a model router](/docs/agent-customization/language-models.md#use-model-routers).
 
 ### AI credits and model costs
 

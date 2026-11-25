@@ -1,6 +1,6 @@
 ---
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
-DateApproved: 11/18/2026
+DateApproved: 11/25/2026
 MetaDescription: Navigate the {% data variables.product.prodname_vscode %} interface, manage files in the Explorer, and customize your editor layout.
 ---
 # User interface

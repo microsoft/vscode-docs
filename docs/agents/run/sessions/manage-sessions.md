@@ -1,6 +1,6 @@
 ---
 ContentId: 7a2e5f8d-4c9b-41e6-b3a8-9d7f2e4c1b8a
-DateApproved: 11/18/2026
+DateApproved: 11/25/2026
 MetaDescription: Find, continue, organize, and finish agent sessions in {% data variables.product.prodname_vscode_shortname %} without losing track of ongoing work.
 ---
 # Manage agent sessions in {% data variables.product.prodname_vscode_shortname %}
@@ -30,6 +30,8 @@ For an unsent **New Session** request in the {% data variables.copilot.agents_wi
 
 If the list isn't visible in the {% data variables.copilot.chat_view %}, right-click in an empty chat and select **Show Sessions**. For display options, see [sessions list layout](/docs/agents/run/chat-view.md#sessions-list-layout).
 
+With [editor worktree support](/docs/agents/run/chat-view.md#work-in-separate-worktrees) `feature(editor-worktrees)` enabled, opening a chat can also switch the editor's folder location to that chat's worktree. Check **Folder Location** in the Status Bar before editing or running commands.
+
 ### Find a missing session
 
 Check these items before creating a replacement session:
@@ -53,6 +55,8 @@ For a supported {% data variables.product.prodname_copilot_short %} session with
 From an SSH, WSL, or tunnel editor window, opening the {% data variables.copilot.agents_window %} selects the same remote and folder. For remote Dev Containers, it selects the source folder on that remote.
 
 Supported tunnel connections can also reopen the same session in either window. For SSH, WSL, and Dev Containers, switching windows currently opens the folder without continuing the session.
+
+Standalone Dev Container environments are an exception to this container limitation. For a [container created without a project](/docs/agents/run/agents-window.md#create-a-container-without-a-project-experimental), **Open in Editor** can open its workspace and a supported session. This requires the Dev Containers extension pre-release, version 0.478.0 or later. For a container on WSL, the action is available only when this computer's Docker engine can access the environment's volume, as with a shared Docker Desktop engine. A separate Docker engine running only inside WSL isn't supported by this action.
 
 To change the harness instead, see [Continue with a different harness](/docs/agents/run/agent-harnesses.md#continue-with-a-different-harness).
 
@@ -130,7 +134,7 @@ Choose a conversation based on whether you need the discussion so far:
 
 ### Start an agent session
 
-For an independent task, follow the steps to start a session in the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md#start-a-session) beside your editor, or in the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md#start-an-agent-session) across workspaces. Choose the workspace, harness, and code isolation before sending the first prompt.
+For an independent task, follow the steps to start a session in the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md#start-a-session) beside your editor, or in the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md#start-an-agent-session) across workspaces. Choose the workspace, harness, and [folder or worktree isolation](/docs/agents/run/worktrees.md#choose-folder-or-worktree-isolation) before sending the first prompt.
 
 On Windows, you can also open the {% data variables.copilot.agents_window %} by right-clicking the {% data variables.product.prodname_vscode_shortname %} taskbar icon and selecting **Agents Window**.
 
@@ -314,7 +318,9 @@ Choose the action that matches what you want to keep:
 
 For a worktree session, archiving commits uncommitted changes to the session branch before removing the worktree folder. If changes can't be preserved or the folder can't be removed, the worktree remains. The branch and commits are retained, so restoring re-creates the worktree.
 
-For a [Dev Container session](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container), marking done removes the container without waiting for idle shutdown, but only if no other session or unsent draft uses it. Restoring starts a replacement container. To retain container-stored conversations across replacements, [configure a persistent state volume](/docs/devcontainers/create-dev-container.md#preserve-chat-sessions-across-rebuilds) `feature(dev-container-state-volume)` before creating the container.
+For a session in [your project's configured Dev Container](/docs/agents/run/agents-window.md#use-your-projects-dev-container), marking done removes the container without waiting for idle shutdown, but only if no other session or unsent draft uses it. Restoring starts a replacement container. To retain container-stored conversations across replacements, [configure a persistent state volume](/docs/devcontainers/create-dev-container.md#preserve-chat-sessions-across-rebuilds) `feature(dev-container-state-volume)` before creating the container.
+
+Marking a session as done doesn't remove a [standalone Dev Container](/docs/agents/run/agents-window.md#create-a-container-without-a-project-experimental). Manage that container separately in **Remote Environments**.
 
 > [!NOTE]
 > A Local session automatically archived by [enterprise runtime policy enforcement](/docs/enterprise/manage-ai-settings.md#runtime-policies-and-harness-selection) remains read-only while the policy applies. Continue in its replacement {% data variables.product.prodname_copilot_short %} session instead.
@@ -334,37 +340,15 @@ Main chats, side chats, and subagent chats can't be marked done independently.
 
 Right-click a session and select **Delete**. For {% data variables.product.prodname_copilot_short %} harness sessions, this also removes associated worktrees created for the session. A shared worktree remains while another session still uses it and is removed only after the last linked session is deleted or archived.
 
-For Dev Container sessions, deletion removes the container only when no other session or unsent draft uses it, even if automatic idle shutdown is off.
+For sessions in a project's configured Dev Container, deletion removes the container only when no other session or unsent draft uses it, even if automatic idle shutdown is off. Deleting a session in a standalone Dev Container doesn't remove that container or its workspace files. To remove those resources, [delete the container in Remote Environments](/docs/agents/run/agents-window.md#create-a-container-without-a-project-experimental).
 
 To delete an individual chat in the {% data variables.copilot.agents_window %} **Multiple** presentation, select **Delete Chat** in its tab's context menu, or press `kb(sessions.chatCompositeBar.deleteChat)` while it has focus.
 
 ### Clean up session worktrees
 
-Run **Chat: Open Worktree Cleanup** to reclaim disk space from inactive or leftover session worktrees.
+Archive or mark a session done to finish its conversation without deleting its history. To reclaim disk space from multiple inactive sessions or leftover worktrees, use **Chat: Open Worktree Cleanup**. Marking a session done doesn't guarantee that its worktree was removed.
 
-![Screenshot showing the worktree cleanup editor with cleanup settings, an inactivity filter, and selected session worktrees with their storage sizes.](../../images/chat-sessions/worktree-cleanup-editor.png)
-
-1. Choose an inactivity filter and, if needed, a workspace.
-1. Review the selected worktrees, including their branches, paths, and estimated sizes. Clear any selected worktrees you want to keep.
-1. Save open file edits in the selected worktrees, then confirm cleanup.
-
-Normal cleanup marks listed sessions done, commits nonignored uncommitted changes to their branches, and schedules the worktree folders for removal. Branches and session history are retained, so restoring a listed session re-creates its worktree. Ignored files in removed worktrees are deleted. Normal cleanup protects worktrees used by other sessions or chats.
-
-The cleanup editor also includes:
-
-* **Leftover worktrees from done or archived sessions.** Marking a session done does not guarantee that its worktree was removed. Eligible leftovers can be cleaned up even though their storage sizes are not measured.
-* **Managed worktrees without a listed session.** Git-registered session worktrees under the managed `<repository>.worktrees` directory can be cleaned up while retaining their branches, even when storage and last-used time are unknown. Arbitrary external worktrees and unregistered folders are excluded.
-
-Storage sizes are estimates. Unchanged idle estimates are reused across refreshes and restarts; new, changed, or active worktrees are measured on request. An unknown size does not mean zero storage or confirmed removal.
-
-If cleanup fails, review the error and use **Retry Failed Worktrees** for eligible failures. If instructed, restore the session and mark it done again. Failed or unresolved cleanup does not confirm that the worktree was removed.
-
-> [!CAUTION]
-> **Force Remove** permanently discards uncommitted changes and can remove a worktree used by other sessions or chats. Review the separate confirmation and preserve any needed work before proceeding.
-
-Open **Cleanup Settings** to configure automatic completion, deletion retention, or storage suggestions.
-
-**Storage suggestions (Experimental):** Enable `setting(chat.agentSessions.sessionStorageCleanupSuggestion.enabled)` for a suggestion in the {% data variables.copilot.agents_window %} when inactive worktrees use at least 5 GiB or 20 worktrees qualify. Selecting it opens the cleanup editor. Dismiss it for the current window, or select **Don't Show Again** or run **Chat: Disable Session Storage Cleanup Suggestions** to turn it off.
+For the shared procedure in the regular editor window and {% data variables.copilot.agents_window %}, including remote hosts, preservation rules, and failures, see [Clean up session worktrees](/docs/agents/run/worktrees.md#clean-up-session-worktrees).
 
 ### Automatically clean up merged sessions
 
