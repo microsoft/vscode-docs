@@ -34,12 +34,14 @@ New to AI coding? Start by exploring your own code without changing it, or use a
     <a class="card" href="/docs/agents/agents-tutorial">
         <i class="codicon codicon-mortar-board" aria-hidden="true"></i>
         <div>
-            <p><strong>Build an app step by step</strong></p>
-            <p>Extended tutorial. Build a portfolio page in the {% data variables.copilot.agents_window %}, then continue the session in the {% data variables.copilot.chat_view %} to refine it.</p>
+            <p><strong>Build, refine, and commit an app</strong></p>
+            <p>Extended tutorial. Build a portfolio page in the {% data variables.copilot.agents_window %}, refine it in the {% data variables.copilot.chat_view %}, and review and commit your changes.</p>
             <p>Sample project. Requires Git.</p>
         </div>
     </a>
 </div>
+
+For a change to a single function, [try a focused edit with inline chat](/docs/chat/inline-chat.md#try-a-focused-edit). Compare the result with four expected outputs without starting an agent task.
 
 Already use AI coding tools? Follow the [experienced-agent fast track](#experienced-agent-fast-track) to bring your workflow to {% data variables.product.prodname_vscode_shortname %}.
 
@@ -54,27 +56,29 @@ Or jump to a task:
 
 * [Explore a codebase](/docs/agents/guides/explore-a-codebase.md): trace a behavior without editing files and verify explanations against source references. **Setup:** your repository, {% data variables.product.prodname_copilot_short %} in the {% data variables.copilot.chat_view %}.
 
-* [Add a feature](/docs/agents/guides/add-a-feature.md): plan, implement, and test a change. **Setup:** your repository with a working development environment and tests, {% data variables.product.prodname_copilot_short %} in the {% data variables.copilot.chat_view %}.
-
 * [Fix an API bug](/docs/agents/guides/fix-a-bug-with-agents.md): reproduce a pagination bug, add a regression test, and review the fix. **Setup:** sample project, Node.js 22 or later, and Git.
+
+* [Add a feature](/docs/agents/guides/add-a-feature.md): continue the bug tutorial by adding filtering to the same pagination API, or plan, implement, and test a feature in your own project. **Setup:** the fixed sample or your repository with working tests, {% data variables.product.prodname_copilot_short %} in the {% data variables.copilot.chat_view %}.
 
 * [Refactor safely](/docs/agents/guides/refactor-safely.md): change code structure in reviewable steps while preserving existing behavior. **Setup:** your repository, {% data variables.product.prodname_copilot_short %} in the {% data variables.copilot.chat_view %}.
 
 * [Work with Jupyter notebooks](/docs/agents/guides/notebooks-with-ai.md): create or edit a notebook, run cells, and review results. **Setup:** your data, the Jupyter extension, and a notebook kernel.
 
+If the change is already written, [review uncommitted changes with AI](/docs/sourcecontrol/staging-commits.md#review-code-changes-with-ai) before you commit.
+
 ## Test and validate
 
 * [Add tests to existing code](/docs/agents/guides/test-code-with-ai.md): generate and run tests, then review assertions, failures, and coverage. **Setup:** your project, {% data variables.product.prodname_copilot_short %} in the {% data variables.copilot.chat_view %}.
 
-* [Validate a web app with browser tools](/docs/agents/guides/browser-agent-testing-guide.md): build a calculator, reproduce a defect, and verify the fix against explicit acceptance criteria. **Setup:** sample web app, {% data variables.product.prodname_copilot_short %} in the {% data variables.copilot.chat_view %}.
+* [Practice test-driven development](/docs/agents/guides/test-driven-development-guide.md): write a failing test for new behavior, implement it, then refactor once the test passes. **Setup:** your repository with working tests, {% data variables.product.prodname_copilot_short %} in the {% data variables.copilot.chat_view %}. Custom agents are optional.
 
-* [Practice test-driven development](/docs/agents/guides/test-driven-development-guide.md): write a failing test, implement behavior, and refactor with a review checkpoint between phases. **Setup:** your repository with working tests, {% data variables.product.prodname_copilot_short %} in the {% data variables.copilot.chat_view %}. Custom agents are optional.
+* [Validate a web app with browser tools](/docs/agents/guides/browser-agent-testing-guide.md): build a calculator, reproduce a defect, and verify the fix against explicit acceptance criteria. **Setup:** sample web app, {% data variables.product.prodname_copilot_short %} in the {% data variables.copilot.chat_view %}.
 
 ## Customize and coordinate agents
 
-* [Adapt agents to your project](/docs/agents/guides/customize-copilot-guide.md): share project instructions, then add skills or custom agents where needed. **Setup:** your repository.
+* [Adapt agents to your project](/docs/agents/guides/customize-copilot-guide.md): start with one project convention the agent keeps missing. Add instructions, then compare the result on the same task. **Setup:** your repository.
 
-* [Set up a context engineering workflow](/docs/agents/guides/context-engineering-guide.md): connect project context, planning, and implementation with instructions, custom agents, and prompt files. **Setup:** your repository, Local harness `feature(local-harness)` in the {% data variables.copilot.chat_view %}.
+    If your team needs a repeatable handoff from planning to implementation, follow the [advanced context engineering example](/docs/agents/guides/context-engineering-guide.md). It uses the Local harness `feature(local-harness)` in the {% data variables.copilot.chat_view %}.
 
 * [Run independent tasks in parallel](/docs/agents/guides/delegate-two-tasks.md): work in separate Git worktrees, review each result, then integrate and retest. **Setup:** your Git repository, {% data variables.product.prodname_copilot_short %} in the {% data variables.copilot.agents_window %}. Complete one agent task first.
 
@@ -88,7 +92,7 @@ Or jump to a task:
 
 * [Reduce AI credit usage](/docs/agents/guides/optimize-usage.md): compare model costs and results, focus context, and scope tools to reduce unnecessary usage.
 
-* [Find prompt examples](/docs/agents/guides/prompt-examples.md): adapt prompts for exploring code, building features, debugging, and testing.
+If you already know your task and need a prompt to adapt, browse the [prompt examples](/docs/agents/guides/prompt-examples.md).
 
 ## Experienced-agent fast track
 
