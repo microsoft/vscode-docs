@@ -190,6 +190,21 @@ export async function deactivate() {
 }
 ```
 
+### Use an existing language server
+
+If you have a language server executable that communicates over standard input and output (stdio), configure the language client to launch it. Replace `serverOptions` in `activate` with these options.
+
+```typescript
+const serverOptions: ServerOptions = {
+  command: '<path-to-language-server>',
+  args: ['--stdio']
+};
+```
+
+Set `command` to the executable's path or its name on the extension host's `PATH`. Use the arguments that your server needs to enable stdio, or omit `args` if it uses stdio by default. When you pass these options to `LanguageClient`, `client.start()` launches the executable and connects to its standard streams.
+
+If your extension connects to an already-running server over a socket, provide a `ServerOptions` function that resolves to a `StreamInfo` with the connection's `reader` and `writer` streams.
+
 ### Explaining the 'Language Server'
 
 > **Note:** The 'Server' implementation cloned from the GitHub repository has the final walkthrough implementation. To follow the walkthrough, you can create a new `server.ts` or modify the contents of the cloned version.
