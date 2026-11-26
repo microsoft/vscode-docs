@@ -61,7 +61,7 @@ test('keeps concepts alongside workflow groups and nests only reference and trou
   assert.deepEqual(groups.map(group => group.name), [
     'Get Started',
     'Tutorials and Guides',
-    'Work with AI',
+    'Use Chat and Agents',
     'Choose Models and Agents',
     'Customize and Extend',
     'Work Across Apps and Machines',

@@ -74,7 +74,7 @@
             }],
 
             ["", "", {
-                "name": "Work with AI",
+                "name": "Use Chat and Agents",
                 "area": "agents/run",
                 "topics": [
                     ["", "", {
