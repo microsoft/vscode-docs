@@ -180,25 +180,7 @@ Example:
 
 Documentation paths updated (DateApproved):
   - api/**/*.md
-  - docs/agent-customization/**/*.md
-  - docs/agents/**/*.md
-  - docs/chat/**/*.md
-  - docs/configure/**/*.md
-  - docs/extension-docs/**/*.md
-  - docs/setup/**/*.md
-  - docs/getstarted/**/*.md
-  - docs/editing/**/*.md
-  - docs/editor/**/*.md
-  - docs/debugtest/**/*.md
-  - docs/sourcecontrol/**/*.md
-  - docs/terminal/**/*.md
-  - docs/enterprise/**/*.md
-  - docs/languages/**/*.md
-  - docs/nodejs/**/*.md
-  - docs/typescript/**/*.md
-  - docs/remote/**/*.md
-  - docs/devcontainers/**/*.md
-  - docs/reference/**/*.md
+  - docs/**/*.md
   - remote/**/*.md
   - learn/**/*.md`);
 }
@@ -214,25 +196,7 @@ async function updateDocumentation(docDate) {
 
 	const patterns = [
 		'api/**/*.md',
-		'docs/agent-customization/**/*.md',
-		'docs/agents/**/*.md',
-		'docs/chat/**/*.md',
-		'docs/configure/**/*.md',
-		'docs/extension-docs/**/*.md',
-		'docs/setup/**/*.md',
-		'docs/getstarted/**/*.md',
-		'docs/editing/**/*.md',
-		'docs/editor/**/*.md',
-		'docs/debugtest/**/*.md',
-		'docs/sourcecontrol/**/*.md',
-		'docs/terminal/**/*.md',
-		'docs/enterprise/**/*.md',
-		'docs/languages/**/*.md',
-		'docs/nodejs/**/*.md',
-		'docs/typescript/**/*.md',
-		'docs/remote/**/*.md',
-		'docs/devcontainers/**/*.md',
-		'docs/reference/**/*.md',
+		'docs/**/*.md',
 		'remote/**/*.md',
 		'learn/**/*.md'
 	];
