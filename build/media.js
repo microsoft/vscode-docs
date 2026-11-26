@@ -10,6 +10,7 @@ const {conversionTools, convertMedia, readMedia, sha256, toolPath, validateMedia
 const {validateStoryboard} = require('./storyboard');
 const {approvedWorkspaceChanges} = require('./capture-preparation');
 const {compositionRecipe, renderComposition} = require('./media-compose');
+const {gitDemoEvidence} = require('./capture-git');
 
 /* eslint-disable security/detect-non-literal-fs-filename -- Outputs are exclusive files in new, private directories; manifest paths are confined before use. */
 
@@ -78,7 +79,23 @@ function captureEvidence(file, expectedHash, source) {
       throw new Error('Capture storyboard snapshot changed.');
     }
   }
-  if (m.ai === 'live-approved' || storyboard?.ai === 'live-approved') {
+  if (m.mode === 'git-demo' || storyboard?.capture.mode === 'git-demo' || m.gitDemo) {
+    if (m.ai !== 'none' || storyboard?.ai !== 'none' || m.mode !== 'git-demo' ||
+        storyboard.capture.mode !== 'git-demo' || m.surface !== 'editor' || m.workspace ||
+        m.workspacePreparation?.status !== 'confirmed' || m.gitDemo?.check !== 'passed' ||
+        m.gitDemo.approvedStoryboardSha256 !== m.storyboard.sha256 ||
+        !/^[a-f0-9]{40}$/.test(m.product?.revision || '') ||
+        m.product?.quality !== (storyboard.channel === 'stable' ? 'stable' : 'insider') ||
+        !isDeepStrictEqual(m.gitDemo.result, gitDemoEvidence(storyboard.gitDemo, m.gitDemo.result?.commit)) ||
+        m.video?.status !== 'candidate' || m.video.execution !== 'single-git-run' ||
+        m.video.maxDurationSeconds !== storyboard.video.maxDurationSeconds ||
+        (storyboard.video.maxDurationSeconds > 30 && (m.video.validationMethod !== 'ffmpeg-showinfo' ||
+          !HASH.test(m.video.validationEncoderSha256 || ''))) ||
+        !Number.isFinite(m.video.durationSeconds) || m.video.durationSeconds < 4 ||
+        m.video.durationSeconds > storyboard.video.maxDurationSeconds) {
+      throw new Error('Git demo capture lacks matching approval, first-commit, or single-execution evidence.');
+    }
+  } else if (m.ai === 'live-approved' || storyboard?.ai === 'live-approved') {
     if (m.ai !== 'live-approved' || storyboard?.ai !== 'live-approved' || m.mode !== 'live-ai' ||
         m.surface !== storyboard.capture.surface || m.workspace?.check !== 'within-approved-scope' ||
         m.workspacePreparation?.status !== 'confirmed' || m.liveAI?.approvedStoryboardSha256 !== m.storyboard.sha256 ||
@@ -128,7 +145,7 @@ function captureEvidence(file, expectedHash, source) {
     fingerprint(confinedFile(directory, entry.sourceFile), m.asset);
   }
   return {path: file, sha256: capture.sha256, storyboard: m.storyboard, asset: entry.file,
-    ...(m.ai === 'live-approved' && entry === m.video ? {maxDurationSeconds: m.video.maxDurationSeconds} : {}),
+    ...((m.ai === 'live-approved' || m.mode === 'git-demo') && entry === m.video ? {maxDurationSeconds: m.video.maxDurationSeconds} : {}),
     ...(entry === m.highlighted ? {rectangles: entry.rectangles} : {})};
 }
 

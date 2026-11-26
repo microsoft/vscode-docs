@@ -259,6 +259,41 @@ test('live-AI video submits once without rehearsal and records its bounded execu
   assert.equal(fixture.events.listenerCount('dialog'), 0);
 });
 
+test('Git demo actions execute only while recording, and interruptions never retry them', async t => {
+  for (const outcome of ['candidate', 'approval', 'dialog', 'privacy', 'duration']) {
+    const fixture = liveRecording(t, {[outcome]: true, ...(outcome === 'duration' ? {duration: 5} : {})});
+    fixture.story.ai = 'none';
+    fixture.story.capture.mode = 'git-demo';
+    if (outcome === 'candidate') {
+      const result = await fixture.run();
+      assert.equal(result.execution, 'single-git-run');
+      assert.equal(result.maxDurationSeconds, 4);
+      assert.equal(result.humanVisualReviewRequired, true);
+    } else {
+      await assert.rejects(fixture.run, /Unexpected|Privacy|exceeds its approved duration/);
+    }
+    assert.equal(fixture.state.sent, 1);
+    assert.equal(fixture.state.stopped, true);
+  }
+});
+
+test('Git demo rehearsal executes the same actions without saving or validating any pixels', async t => {
+  const fixture = liveRecording(t);
+  fixture.story.ai = 'none';
+  fixture.story.capture.mode = 'git-demo';
+  fixture.story.video.maxDurationSeconds = 60;
+  fixture.page.setDefaultTimeout = timeout => assert.equal(timeout, 15000);
+  fixture.page.screencast = undefined;
+  const result = await recordStoryboardVideo(fixture.page, {}, fixture.story, fixture.directory, undefined, async () => {}, {
+    rehearsal: true,
+    validateVideo: async () => assert.fail('Rehearsal is not video evidence')
+  });
+  assert.equal(result.execution, 'single-git-rehearsal');
+  assert.equal(fixture.state.sent, 1);
+  assert.equal(fixture.state.stopped, false);
+  assert.deepEqual(fs.readdirSync(fixture.directory), []);
+});
+
 test('whole-window browser recording retains browser actions and dialog guards', async t => {
   const fixture = liveRecording(t);
   fixture.story.video.browserUrl = 'http://127.0.0.1:5187/blog';

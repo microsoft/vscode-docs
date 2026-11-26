@@ -13,6 +13,7 @@ const {WORKSPACE_SETTINGS, SAMPLE_WORKSPACE_SETTINGS, acquireCaptureProfile, pre
   replyToCaptureCancellation, captureCancellationCheck} = require('./capture-preparation');
 const {assertStableHighlights, collectHighlightRectangles, renderHighlights} = require('./capture-highlights');
 const {ProcedureFailure, failureDetails} = require('./replay-errors');
+const {prepareGitDemo, verifyGitDemo} = require('./capture-git');
 
 const PREPARED_SESSION_READINESS_TIMEOUT = 15 * 60 * 1000;
 
@@ -174,6 +175,19 @@ async function captureEditor(options, dependencies = {}) {
   const sample = storyboard.workspace?.environment === 'sample';
   const preparedSession = storyboard.capture.mode === 'prepared-session';
   const liveAI = storyboard.ai === 'live-approved';
+  const gitDemo = storyboard.capture.mode === 'git-demo';
+  const singleRun = liveAI || gitDemo;
+  if (gitDemo) {
+    if (options.gitDemo !== storyboardHash || Boolean(options.video) === Boolean(options.rehearse) ||
+        options.replay || !options.waitForReady) {
+      throw new Error('Git demo requires --git-demo <approved-storyboard-sha256>, either --video or --rehearse, and --wait-for-ready, without replay.');
+    }
+  } else if (options.gitDemo !== undefined) {
+    throw new Error('Git demo approval requires a git-demo storyboard.');
+  }
+  if (options.rehearse && (!gitDemo || options.ffmpeg || options.validationFfmpeg)) {
+    throw new Error('Rehearsal requires a Git demo, without recording or encoder options.');
+  }
   if (liveAI) {
     if (options.liveAI !== storyboardHash || !options.video || options.replay || !options.waitForReady) {
       throw new Error('Live-AI recording requires --live-ai <approved-storyboard-sha256>, --video, and --wait-for-ready, and cannot run as replay.');
@@ -197,7 +211,7 @@ async function captureEditor(options, dependencies = {}) {
   if (options.video && !storyboard.video) {
     throw new Error('This storyboard does not define video reset and recording steps.');
   }
-  const needsPreparation = Boolean(storyboard.workspace || storyboard.fixture?.openFolder || options.replay);
+  const needsPreparation = Boolean(storyboard.workspace || storyboard.fixture?.openFolder || gitDemo || options.replay);
   if (needsPreparation && !options.waitForReady && !dependencies.confirmReady && (!process.stdin.isTTY || !process.stdout.isTTY)) {
     throw new Error('Folder capture requires an interactive terminal, or --wait-for-ready for an explicit chat readiness response.');
   }
@@ -220,16 +234,16 @@ async function captureEditor(options, dependencies = {}) {
   if (options.video && (typeof options.ffmpeg !== 'string' || !path.isAbsolute(options.ffmpeg))) {
     throw new Error('Video capture requires an absolute --ffmpeg encoder path.');
   }
-  if (options.validationFfmpeg !== undefined && (!liveAI || !options.video || !path.isAbsolute(options.validationFfmpeg))) {
-    throw new Error('An explicit --validation-ffmpeg path is supported only for live-AI videos.');
+  if (options.validationFfmpeg !== undefined && (!singleRun || !options.video || !path.isAbsolute(options.validationFfmpeg))) {
+    throw new Error('An explicit --validation-ffmpeg path is supported only for single-run videos.');
   }
-  if (liveAI && storyboard.video.maxDurationSeconds > 30 && !options.validationFfmpeg) {
-    throw new Error('Long live-AI takes require a full --validation-ffmpeg path before product launch.');
+  if (singleRun && options.video && storyboard.video.maxDurationSeconds > 30 && !options.validationFfmpeg) {
+    throw new Error('Long single-run takes require a full --validation-ffmpeg path before product launch.');
   }
   const executable = fs.realpathSync(options.executable);
   const encoder = options.video ? fs.realpathSync(options.ffmpeg) : undefined;
   const validationEncoder = options.validationFfmpeg ? fs.realpathSync(options.validationFfmpeg) : encoder;
-  if (liveAI && storyboard.video.maxDurationSeconds > 30) {
+  if (singleRun && options.video && storyboard.video.maxDurationSeconds > 30) {
     (dependencies.assertLongVideoDecoder || require('./capture-video').assertLongVideoDecoder)(validationEncoder);
   }
   const output = fs.realpathSync(options.output);
@@ -245,8 +259,8 @@ async function captureEditor(options, dependencies = {}) {
   const runDirectory = fs.mkdtempSync(path.join(output, `${storyboard.id}-`));
   const runtime = path.join(runDirectory, 'runtime');
   const environment = launchEnvironment(runtime);
-  const workspace = existingWorkspace || path.join(runtime, 'workspace');
-  const fixture = path.join(workspace, storyboard.workspace?.entry || storyboard.fixture.file);
+  const workspace = existingWorkspace || path.join(runtime, gitDemo ? 'git-practice' : 'workspace');
+  const fixture = gitDemo ? undefined : path.join(workspace, storyboard.workspace?.entry || storyboard.fixture.file);
   const manifest = {
     schemaVersion: 1,
     storyboard: { id: storyboard.id, article: storyboard.article, file: 'storyboard.json',
@@ -263,8 +277,11 @@ async function captureEditor(options, dependencies = {}) {
     profile: storyboard.profile,
     ai: storyboard.ai,
     approval: 'human-visual-review-required',
-    ...(preparedSession || liveAI ? {mode: storyboard.capture.mode, surface: storyboard.capture.surface} : {}),
-    privacy: { textScan: 'not-run', pixelReview: options.replay ? 'not-captured' : 'required' },
+    ...(preparedSession || singleRun ? {mode: storyboard.capture.mode, surface: storyboard.capture.surface} : {}),
+    ...(gitDemo ? {gitDemo: {approvedStoryboardSha256: storyboardHash, check: 'pending',
+      runnerSha256: crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname, 'capture-git.js'))).digest('hex')}} : {}),
+    privacy: { textScan: 'not-run', pixelReview: options.replay || options.rehearse ? 'not-captured' : 'required' },
+    ...(options.rehearse ? {purpose: 'git-demo-rehearsal', approval: 'not-a-media-candidate'} : {}),
     ...(options.replay ? {purpose: 'procedure-replay', approval: 'not-a-media-candidate'} : {})
   };
   let application;
@@ -304,13 +321,14 @@ async function captureEditor(options, dependencies = {}) {
     const userData = captureProfile?.userData || path.join(runtime, 'profile');
     const extensions = path.join(sample ? captureProfile.root : runtime, 'extensions');
     for (const directory of new Set([
-      userData, extensions, path.join(runtime, 'workspace'),
+      userData, extensions, workspace,
       environment.HOME, environment.APPDATA, environment.LOCALAPPDATA, environment.TEMP, environment.COPILOT_HOME
     ])) {
       fs.mkdirSync(directory, { recursive: true });
     }
     const userDirectory = path.join(userData, 'User');
     fs.mkdirSync(userDirectory, {recursive: true});
+    if (gitDemo) prepareGitDemo(runtime, environment);
     const settings = {
       'workbench.colorTheme': storyboard.profile.theme,
       'window.zoomLevel': storyboard.profile.zoomLevel,
@@ -323,7 +341,9 @@ async function captureEditor(options, dependencies = {}) {
       'update.mode': 'none',
       'extensions.autoUpdate': false,
       'extensions.autoCheckUpdates': false,
-      ...(storyboard.workspace ? sample ? SAMPLE_WORKSPACE_SETTINGS : WORKSPACE_SETTINGS : {})
+      ...(storyboard.workspace ? sample ? SAMPLE_WORKSPACE_SETTINGS : WORKSPACE_SETTINGS : {}),
+      ...(gitDemo ? {...WORKSPACE_SETTINGS, 'git.enabled': true, 'git.autofetch': false,
+        'git.openRepositoryInParentFolders': 'never', 'files.eol': '\n'} : {})
     };
     const settingsFile = path.join(userDirectory, 'settings.json');
     if (sample) {
@@ -342,7 +362,7 @@ async function captureEditor(options, dependencies = {}) {
         '--force-device-scale-factor=1', '--locale=en',
         '--user-data-dir', userData,
         '--extensions-dir', extensions,
-        ...(preparedSession || liveAI ? [...(storyboard.capture.surface === 'agents' ? ['--agents'] : []), workspace] :
+        ...(preparedSession || singleRun ? [...(storyboard.capture.surface === 'agents' ? ['--agents'] : []), workspace] :
           [...(storyboard.workspace || storyboard.fixture?.openFolder ? [workspace, '--goto'] : []), fixture])
       ],
       env: environment,
@@ -367,7 +387,7 @@ async function captureEditor(options, dependencies = {}) {
     const page = await application.firstWindow();
     page.setDefaultTimeout(15000);
     await page.locator('.monaco-workbench').waitFor({state: 'visible'});
-    if (preparedSession || liveAI) {
+    if (preparedSession || singleRun) {
       const expected = storyboard.capture.surface === 'agents'
         ? '/vs/sessions/electron-browser/sessions.html' : '/vs/code/electron-browser/workbench/workbench.html';
       if (!new URL(page.url()).pathname.endsWith(expected)) {
@@ -388,7 +408,7 @@ async function captureEditor(options, dependencies = {}) {
       }
       stage = 'baseline';
       manifest.workspacePreparation = {status: 'confirmed', confirmedAt: new Date().toISOString()};
-      if (liveAI) checkCancellation = captureCancellationCheck(runDirectory);
+      if (singleRun) checkCancellation = captureCancellationCheck(runDirectory);
     }
     await page.waitForFunction(profile => {
       const expectedRatio = profile.deviceScaleFactor * Math.pow(1.2, profile.zoomLevel);
@@ -446,10 +466,17 @@ async function captureEditor(options, dependencies = {}) {
       }
     };
     stage = 'steps';
+    if (gitDemo && fs.readdirSync(workspace).length) {
+      throw new Error('Git demo must start with an empty generated workspace. No actions were recorded.');
+    }
     manifest.steps = await runSteps(page, storyboard, storyboard.steps, checkPrivacy, 'steps', Date.now(), surfaces);
     await checkPrivacy();
     manifest.privacy.textScan = 'passed';
-    if (!options.replay) {
+    if (options.rehearse) {
+      const rehearse = dependencies.recordVideo || require('./capture-video').recordStoryboardVideo;
+      manifest.rehearsal = await rehearse(page, application, storyboard, runDirectory, undefined, checkPrivacy, {rehearsal: true});
+    }
+    if (!options.replay && !options.rehearse) {
       const highlightRectangles = storyboard.capture.highlights ? await collectHighlightRectangles(page, storyboard) : undefined;
       await checkPrivacy();
       const encoded = browserCapture ? undefined : await window.evaluate(async browserWindow =>
@@ -506,7 +533,7 @@ async function captureEditor(options, dependencies = {}) {
       }
     }
     checkCancellation();
-    manifest.status = options.replay ? 'passed' : 'candidate';
+    manifest.status = options.replay || options.rehearse ? 'passed' : 'candidate';
   } catch (error) {
     failure = error;
     if (error.steps) {
@@ -529,6 +556,16 @@ async function captureEditor(options, dependencies = {}) {
       failure = failure ? new AggregateError([failure, error], 'Capture and process cleanup failed.') : error;
       (manifest.failures ||= []).push({category: 'cleanup', code: 'process-close-failed'});
       manifest.cleanupError = options.replay ? 'process-close-failed' : error.message;
+    }
+    if (gitDemo && closed && !failure) {
+      try {
+        manifest.gitDemo.result = (dependencies.verifyGitDemo || verifyGitDemo)(workspace, storyboard.gitDemo, environment);
+        manifest.gitDemo.check = 'passed';
+      } catch (error) {
+        failure = error;
+        manifest.gitDemo.check = 'failed';
+        (manifest.failures ||= []).push({category: 'environment', code: 'git-demo-outcome-failed'});
+      }
     }
     try {
       if (closed) {
@@ -611,6 +648,8 @@ async function main(args = process.argv.slice(2)) {
     console.log('Existing workspace: --workspace <folder> --capture-profile <dedicated-directory> [--wait-for-ready]');
     console.log('Prepared-session screenshots: add --prepared-session for a reviewed observation-only sample storyboard.');
     console.log('Live-AI videos: --live-ai <approved-storyboard-sha256> --video --wait-for-ready. Approve AI use and the exact script separately before launch.');
+    console.log('Git demo: --git-demo <approved-storyboard-sha256> --video --wait-for-ready. Approve one synthetic first commit; no AI, remotes, or personal profile.');
+    console.log('Git demo rehearsal: replace --video and encoder options with --rehearse. Executes once in a fresh disposable folder, without saving pixels.');
     console.log('For live-AI takes longer than 30 seconds, also supply --validation-ffmpeg <approved-full-ffmpeg.exe>.');
     console.log('Relay an explicit human decision: --confirm-ready <run-directory> --token <token>, or --cancel-ready <run-directory> --token <token>');
     console.log('Cancel an active live-AI capture: --cancel-capture <run-directory> --token <readiness-token>. Submitted AI work might need separate cancellation.');
@@ -632,8 +671,8 @@ async function main(args = process.argv.slice(2)) {
   const options = new Map();
   for (let index = 0; index < args.length; index++) {
     const option = args.at(index);
-    const value = ['--video', '--wait-for-ready', '--prepared-session'].includes(option) ? true : args.at(++index);
-    if (!['--executable', '--revision', '--output', '--storyboard', '--video', '--ffmpeg', '--validation-ffmpeg', '--workspace', '--capture-profile', '--wait-for-ready', '--prepared-session', '--live-ai'].includes(option) ||
+    const value = ['--video', '--rehearse', '--wait-for-ready', '--prepared-session'].includes(option) ? true : args.at(++index);
+    if (!['--executable', '--revision', '--output', '--storyboard', '--video', '--rehearse', '--ffmpeg', '--validation-ffmpeg', '--workspace', '--capture-profile', '--wait-for-ready', '--prepared-session', '--live-ai', '--git-demo'].includes(option) ||
         options.has(option) || !value || (typeof value === 'string' && value.startsWith('--'))) {
       throw new Error('Supply each capture option once with a value; use --help for usage.');
     }
@@ -650,6 +689,7 @@ async function main(args = process.argv.slice(2)) {
     revision: options.get('--revision'),
     output: options.get('--output'),
     video: options.has('--video'),
+    rehearse: options.has('--rehearse'),
     ffmpeg: options.get('--ffmpeg'),
     validationFfmpeg: options.get('--validation-ffmpeg'),
     workspace: options.get('--workspace'),
@@ -657,6 +697,7 @@ async function main(args = process.argv.slice(2)) {
     waitForReady: options.has('--wait-for-ready'),
     preparedSession: options.has('--prepared-session'),
     liveAI: options.get('--live-ai'),
+    gitDemo: options.get('--git-demo'),
     storyboard: options.get('--storyboard') || path.join(__dirname, 'storyboards', 'editor-find.json')
   });
   console.log(JSON.stringify(result, null, 2));

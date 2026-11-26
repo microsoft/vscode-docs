@@ -109,7 +109,7 @@ function assertLongVideoDecoder(file, dependencies = {}) {
   if (result.error || result.status !== 0) throw new Error('Cannot inspect the approved long-video validation binary.');
   const filters = `${result.stdout || ''}\n${result.stderr || ''}`.split(/\r?\n/).map(line => line.trim().split(/\s+/).at(1));
   if (!['fps', 'showinfo'].every(name => filters.includes(name))) {
-    throw new Error('Long live-AI takes require an explicit full --validation-ffmpeg with fps and showinfo filters; the minimal Playwright binary is insufficient.');
+    throw new Error('Long single-run takes require an explicit full --validation-ffmpeg with fps and showinfo filters; the minimal Playwright binary is insufficient.');
   }
 }
 
@@ -196,12 +196,17 @@ async function recordStoryboardVideo(page, application, storyboard, directory, e
   if (storyboard.video.browserUrl && (profile.width % 2 || profile.height % 2)) {
     throw new Error(`Browser video requires even native dimensions; received ${profile.width}x${profile.height}. Adjust the pane layout before recording.`);
   }
-  if (!camera.screencast || typeof camera.screencast.start !== 'function') {
+  const rehearsal = dependencies.rehearsal === true;
+  if (rehearsal && storyboard.capture.mode !== 'git-demo') {
+    throw new Error('No-video rehearsal requires a Git demo.');
+  }
+  if (!rehearsal && (!camera.screencast || typeof camera.screencast.start !== 'function')) {
     throw new Error('This Playwright build does not provide page.screencast.');
   }
   const video = storyboard.video;
   const liveAI = storyboard.ai === 'live-approved';
-  if (!liveAI) {
+  const singleRun = liveAI || storyboard.capture.mode === 'git-demo';
+  if (!singleRun) {
     await runSteps(page, storyboard, video.reset, checkPrivacy, 'video.reset');
     await runSteps(page, storyboard, video.steps, checkPrivacy, 'video.dryRun');
     await runSteps(page, storyboard, video.reset, checkPrivacy, 'video.reset');
@@ -228,14 +233,16 @@ async function recordStoryboardVideo(page, application, storyboard, directory, e
     rejectInterruption(error);
   };
   const unexpectedDialog = () => interrupt(new Error('Unexpected page dialog. Handle prompts outside the recording; no dialog was accepted.'));
-  const cancelled = () => interrupt(new Error('Live-AI capture was cancelled. Submitted AI work might require manual cancellation.'));
+  const cancelled = () => interrupt(new Error(liveAI
+    ? 'Live-AI capture was cancelled. Submitted AI work might require manual cancellation.'
+    : 'Git demo capture was cancelled. No action will be retried.'));
   const checkRecording = async () => {
     if (interruptionError) throw interruptionError;
     if (frameError) {
       throw frameError;
     }
     await checkPrivacy();
-    if (liveAI) {
+    if (singleRun) {
       for (const target of video.blockedTargets) {
         if (await locate(page, storyboard.targets, target, surfaces).isVisible()) {
           throw new Error(`Unexpected prompt "${target}". The recording does not approve or dismiss it.`);
@@ -246,32 +253,34 @@ async function recordStoryboardVideo(page, application, storyboard, directory, e
   };
   const observedPages = new Set([page, surfaces.browser].filter(Boolean));
   try {
-    if (liveAI) {
+    if (singleRun) {
       for (const observed of observedPages) observed.on('dialog', unexpectedDialog);
       process.once('SIGINT', cancelled);
       await checkRecording();
     }
-    recordingAttempted = true;
-    await camera.screencast.start({
-      path: file, size: {width: profile.width, height: profile.height}, fps: 25,
-      onFrame: frame => {
-        frameCount++;
-        try {
-          const dimensions = jpegDimensions(frame.data);
-          if (dimensions.width !== profile.width || dimensions.height !== profile.height) {
-            throw new Error(`Screencast frames do not fill the approved viewport: received ${dimensions.width}x${dimensions.height}, expected ${profile.width}x${profile.height}; refusing padded or scaled video.`);
+    if (!rehearsal) {
+      recordingAttempted = true;
+      await camera.screencast.start({
+        path: file, size: {width: profile.width, height: profile.height}, fps: 25,
+        onFrame: frame => {
+          frameCount++;
+          try {
+            const dimensions = jpegDimensions(frame.data);
+            if (dimensions.width !== profile.width || dimensions.height !== profile.height) {
+              throw new Error(`Screencast frames do not fill the approved viewport: received ${dimensions.width}x${dimensions.height}, expected ${profile.width}x${profile.height}; refusing padded or scaled video.`);
+            }
+          } catch (error) {
+            // Playwright swallows callback rejections; surface frame failures in the scenario.
+            frameError = error;
           }
-        } catch (error) {
-          // Playwright swallows callback rejections; surface frame failures in the scenario.
-          frameError = error;
         }
-      }
-    });
+      });
+    }
     const started = Date.now();
-    if (liveAI) {
-      page.setDefaultTimeout(video.maxDurationSeconds * 1000);
+    if (singleRun) {
+      page.setDefaultTimeout(liveAI ? video.maxDurationSeconds * 1000 : Math.min(15000, video.maxDurationSeconds * 1000));
       if (surfaces.browser) surfaces.browser.setDefaultTimeout(video.maxDurationSeconds * 1000);
-      deadline = setTimeout(() => interrupt(new Error('Live-AI recording exceeded its approved duration. No request will be retried.')),
+      deadline = setTimeout(() => interrupt(new Error('Single-run recording exceeded its approved duration. No action will be retried.')),
         video.maxDurationSeconds * 1000);
       monitor = setInterval(() => {
         if (monitoring || finished) return;
@@ -280,14 +289,16 @@ async function recordStoryboardVideo(page, application, storyboard, directory, e
       }, 100);
     }
     const execution = (async () => {
-      await camera.screencast.showActions({
-        duration: 300, style: {title: 'display: none', highlight: 'outline: 2px solid #007acc'}
-      });
-      await camera.screencast.showChapter(video.title, {duration: 800});
+      if (!rehearsal) {
+        await camera.screencast.showActions({
+          duration: 300, style: {title: 'display: none', highlight: 'outline: 2px solid #007acc'}
+        });
+        await camera.screencast.showChapter(video.title, {duration: 800});
+      }
       await camera.waitForTimeout(800);
       return runSteps(page, storyboard, video.steps, checkRecording, 'video.steps', started, surfaces);
     })();
-    actions = await (liveAI ? Promise.race([execution, interruption]) : execution);
+    actions = await (singleRun ? Promise.race([execution, interruption]) : execution);
   } catch (error) {
     actionError = error;
     // Prevent any pending action from advancing to another step after an abort.
@@ -296,7 +307,7 @@ async function recordStoryboardVideo(page, application, storyboard, directory, e
     finished = true;
     clearTimeout(deadline);
     clearInterval(monitor);
-    if (liveAI) {
+    if (singleRun) {
       for (const observed of observedPages) observed.off('dialog', unexpectedDialog);
       process.removeListener('SIGINT', cancelled);
     }
@@ -313,18 +324,20 @@ async function recordStoryboardVideo(page, application, storyboard, directory, e
   if (frameError) {
     throw frameError;
   }
+  if (rehearsal) return {status: 'passed', execution: 'single-git-rehearsal', actions};
   if (frameCount < 2) {
     throw new Error('Recording received too few real frames.');
   }
   const validation = await (dependencies.validateVideo || validateVideo)(file, encoder, profile, application,
-    {maxDurationSeconds: liveAI ? video.maxDurationSeconds : 30, windowBrowser: video.browserCamera === 'window'});
-  if (liveAI && validation.durationSeconds > video.maxDurationSeconds) {
+    {maxDurationSeconds: singleRun ? video.maxDurationSeconds : 30, windowBrowser: video.browserCamera === 'window'});
+  if (singleRun && validation.durationSeconds > video.maxDurationSeconds) {
     throw new Error('The saved recording exceeds its approved duration.');
   }
   return {
     file: path.basename(file), title: video.title, status: 'candidate', method: 'playwright-page-screencast',
     capturedFrames: frameCount, actions, ...validation, humanVisualReviewRequired: true,
     ...(liveAI ? {execution: 'single-live-run', maxDurationSeconds: video.maxDurationSeconds} : {}),
+    ...(storyboard.capture.mode === 'git-demo' ? {execution: 'single-git-run', maxDurationSeconds: video.maxDurationSeconds} : {}),
     ...(video.browserUrl ? {source: browserOnly ? 'integrated-browser' : 'integrated-browser-window'} : {})
   };
 }

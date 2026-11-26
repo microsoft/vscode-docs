@@ -10,6 +10,7 @@ const {createHash} = require('node:crypto');
 const {replyToCaptureCancellation} = require('./capture-preparation');
 const { captureEditor, checkVisibleText, selectBrowserCapture, validatePng, validateStoryboard } = require('./capture');
 const {renderHighlights} = require('./capture-highlights');
+const {gitDemoEvidence, prepareGitDemo, verifyGitDemo} = require('./capture-git');
 const {assertReplayCurrent, inspectProcedure, main: replayMain, replayProcedure, reviewProcedure} = require('./replay');
 const {formatReport, main: findingsMain, validateReport} = require('./findings');
 const {importFindings, triageFinding, validateAuditFindings} = require('./audit-findings');
@@ -234,6 +235,111 @@ test('capture runner isolates state, verifies dimensions, and leaves candidates 
     assert.deepEqual(fs.readFileSync(path.join(result.directory, 'storyboard.json')), fs.readFileSync(STORYBOARD));
     assert.equal(fs.existsSync(path.join(result.directory, 'editor-find.png')), true);
     assert.equal(JSON.parse(fs.readFileSync(path.join(result.directory, 'capture.json'), 'utf8')).status, 'candidate');
+  });
+});
+
+test('Git demo capture binds approval before launch and verifies the isolated result before cleanup', async () => {
+    for (const outcome of ['candidate', 'rehearsal', 'bad-outcome', 'not-empty', 'readiness-denied']) {
+      await withOutput(async options => {
+        const story = JSON.parse(fs.readFileSync(STORYBOARD));
+        delete story.fixture;
+        delete story.video.reset;
+        story.gitDemo = {content: '# Git practice\n', commitMessage: 'Add practice README'};
+        Object.assign(story.capture, {mode: 'git-demo', surface: 'editor'});
+        story.steps = [story.steps.at(-1)];
+        story.targets.approval = {selector: '.test-approval'};
+        Object.assign(story.video, {steps: story.steps, maxDurationSeconds: 24, blockedTargets: ['approval']});
+        const bytes = JSON.stringify(story);
+        const file = path.join(options.output, 'git-demo.json');
+        fs.writeFileSync(file, bytes);
+        const hash = createHash('sha256').update(bytes).digest('hex');
+        const input = {...options, storyboard: file, gitDemo: hash, video: true, ffmpeg: options.executable, waitForReady: true};
+        for (const change of [{gitDemo: undefined}, {gitDemo: 'b'.repeat(64)}, {video: false}, {replay: true}, {waitForReady: false}]) {
+          const unlaunched = fakeApplication();
+          await assert.rejects(() => captureEditor({...input, ...change}, unlaunched), /Git demo requires/);
+          assert.equal(unlaunched.state().launchOptions, undefined);
+        }
+        const fake = fakeApplication();
+        let recorded = 0;
+        fake.waitForReadiness = async (directory, workspace) => {
+          if (outcome === 'not-empty') fs.writeFileSync(path.join(workspace, 'unexpected.txt'), 'Unexpected');
+          const request = {schemaVersion: 1, token: 'c'.repeat(64), expiresAt: Date.now() + 60000};
+          fs.writeFileSync(path.join(directory, 'readiness-request.json'), JSON.stringify(request));
+          fs.writeFileSync(path.join(directory, 'readiness-response.json'), JSON.stringify({token: request.token, ready: true}));
+          return outcome !== 'readiness-denied';
+        };
+        fake.recordVideo = async () => {
+          recorded++;
+          return {status: 'candidate', execution: 'single-git-run', maxDurationSeconds: 24, durationSeconds: 4};
+        };
+        fake.verifyGitDemo = (workspace, demo, env) => {
+          assert.ok(fake.state().closed);
+          assert.equal(path.basename(workspace), 'git-practice');
+          assert.equal(env.GIT_CONFIG_NOSYSTEM, '1');
+          assert.match(fs.readFileSync(env.GIT_CONFIG_GLOBAL, 'utf8'), /allow = never/);
+          if (outcome === 'bad-outcome') throw new Error('Incorrect first commit');
+          return gitDemoEvidence(demo, 'd'.repeat(40));
+        };
+        if (outcome === 'candidate' || outcome === 'rehearsal') {
+          const result = await captureEditor(outcome === 'rehearsal' ?
+            {...input, video: false, ffmpeg: undefined, rehearse: true} : input, fake);
+          assert.equal(result.manifest.gitDemo.check, 'passed');
+          assert.equal(result.manifest.gitDemo.approvedStoryboardSha256, hash);
+          assert.equal(result.manifest.settings['chat.disableAIFeatures'], true);
+          assert.equal(result.manifest.settings['git.autofetch'], false);
+          assert.equal(result.manifest.approval, outcome === 'rehearsal' ? 'not-a-media-candidate' : 'human-visual-review-required');
+          assert.equal(fake.state().photographed, outcome !== 'rehearsal');
+          assert.equal(result.manifest.status, outcome === 'rehearsal' ? 'passed' : 'candidate');
+          assert.equal(fs.existsSync(path.join(result.directory, 'runtime')), false);
+          assert.equal(recorded, 1);
+        } else {
+          await assert.rejects(() => captureEditor(input, fake), /Incorrect first commit|empty generated|cancelled/);
+          assert.equal(recorded, outcome === 'bad-outcome' ? 1 : 0);
+          assert.ok(fake.state().closed);
+        }
+      });
+    }
+  });
+
+test('Git demo outcome checks reject extra files, remotes, history, content, and real identities without creating commits', async () => {
+    await withOutput(async options => {
+      const workspace = path.join(options.output, 'git-practice');
+      fs.mkdirSync(workspace);
+      fs.mkdirSync(path.join(workspace, '.git'));
+      const demo = {content: '# Git practice\n', commitMessage: 'Add practice README'};
+      fs.writeFileSync(path.join(workspace, 'README.md'), demo.content);
+      const environment = {};
+      prepareGitDemo(options.output, environment);
+      const responses = new Map([
+        ['rev-parse --show-toplevel', workspace],
+        ['log -1 --format=%H%x00%B%x00%an <%ae>%x00%cn <%ce>',
+          `${'d'.repeat(40)}\0${demo.commitMessage}\n\0Git Demo <git-demo@example.invalid>\0Git Demo <git-demo@example.invalid>\n`],
+        ['status --porcelain=v1 --untracked-files=all', ''],
+        ['remote', ''], ['rev-list --all --count', '1\n'],
+        ['ls-tree --name-only -rz HEAD', 'README.md\0'], ['show HEAD:README.md', demo.content]
+      ]);
+      const execute = (command, args, config) => {
+        assert.equal(command, 'git');
+        assert.equal(config.env, environment);
+        assert.equal(config.cwd, workspace);
+        const key = args.join(' ');
+        assert.ok(responses.has(key), `Unexpected Git command: ${key}`);
+        return responses.get(key);
+      };
+      assert.deepEqual(verifyGitDemo(workspace, demo, environment, execute), gitDemoEvidence(demo, 'd'.repeat(40)));
+      for (const [key, invalid] of [
+        ['remote', 'origin\n'], ['rev-list --all --count', '2\n'],
+        ['status --porcelain=v1 --untracked-files=all', ' M README.md\n'],
+        ['show HEAD:README.md', 'Wrong content'],
+        ['log -1 --format=%H%x00%B%x00%an <%ae>%x00%cn <%ce>', `${'d'.repeat(40)}\0${demo.commitMessage}\0Other author\0Other committer`]
+      ]) {
+        const original = responses.get(key);
+        responses.set(key, invalid);
+        assert.throws(() => verifyGitDemo(workspace, demo, environment, execute), /approved first local commit/);
+        responses.set(key, original);
+      }
+      fs.writeFileSync(path.join(workspace, 'extra.txt'), 'Not approved');
+      assert.throws(() => verifyGitDemo(workspace, demo, environment, execute), /only its local repository/);
   });
 });
 

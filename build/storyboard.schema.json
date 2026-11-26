@@ -5,8 +5,9 @@
   "additionalProperties": false,
   "required": ["schemaVersion", "id", "article", "channel", "execution", "ai", "profile", "targets", "steps", "capture", "privacy"],
   "oneOf": [
-    {"required": ["fixture"], "not": {"required": ["workspace"]}},
-    {"required": ["workspace"], "not": {"required": ["fixture"]}}
+    {"required": ["fixture"], "not": {"anyOf": [{"required": ["workspace"]}, {"required": ["gitDemo"]}]}},
+    {"required": ["workspace"], "not": {"anyOf": [{"required": ["fixture"]}, {"required": ["gitDemo"]}]}},
+    {"required": ["gitDemo"], "not": {"anyOf": [{"required": ["fixture"]}, {"required": ["workspace"]}]}}
   ],
   "properties": {
     "$schema": {"type": "string"},
@@ -31,6 +32,16 @@
     "profile": {"$ref": "#/$defs/profile"},
     "fixture": {"$ref": "#/$defs/fixture"},
     "workspace": {"$ref": "#/$defs/workspace"},
+    "gitDemo": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["content", "commitMessage"],
+      "properties": {
+        "content": {"type": "string", "minLength": 1, "maxLength": 4096, "pattern": "\\S"},
+        "commitMessage": {"type": "string", "minLength": 1, "maxLength": 120, "pattern": "^[^\\r\\n]+$"}
+      },
+      "description": "An initially empty generated git-practice folder. The one-pass video must create only README.md and one local commit with this content and message. Uses the isolated synthetic Git Demo identity; no remotes."
+    },
     "targets": {
       "type": "object",
       "minProperties": 1,
@@ -58,7 +69,7 @@
       "properties": {
         "file": {"type": "string", "pattern": "^(?!con\\.|prn\\.|aux\\.|nul\\.|com[1-9]\\.|lpt[1-9]\\.)[a-z][a-z0-9-]{0,63}\\.png$"},
         "alt": {"type": "string", "maxLength": 240, "pattern": "^Screenshot showing .+\\.$"},
-        "mode": {"enum": ["prepared-session", "live-ai"]},
+        "mode": {"enum": ["prepared-session", "live-ai", "git-demo"]},
         "surface": {"enum": ["editor", "agents"]},
         "highlights": {"$ref": "#/$defs/highlights"}
       }

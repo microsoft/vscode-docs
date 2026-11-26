@@ -614,6 +614,26 @@ Successful runs retain `editor-find.webm`, four full-resolution frames in `video
 
 Run `npm run test:capture` for unit tests of isolation, guards, recording failure paths, output validation, and cleanup. Those tests use fake launchers, media headers, and decoders. They do not prove that real Electron screenshot or video capture works.
 
+### Record a first-commit Git walkthrough
+
+Use `capture.mode: "git-demo"`, `capture.surface: "editor"`, and `ai: "none"` for an attended walkthrough that initializes a repository, creates `README.md`, and makes its first local commit. This restricted mode generates an empty `git-practice` folder instead of opening an existing workspace. Supply `gitDemo.content` and `gitDemo.commitMessage` as the exact expected outcome, with neither `fixture` nor `workspace`.
+
+The runner uses an isolated Git configuration and the synthetic identity `Git Demo <git-demo@example.invalid>`. It disables AI, automatic tasks, MCP, Git autofetch, system Git configuration, signing, hooks, and Git transport protocols. It never changes personal Git configuration. The human handles Workspace Trust and readiness.
+
+Approve the exact storyboard and the single synthetic local commit before launching:
+
+```powershell
+node .\build\capture.js --storyboard '<reviewed-storyboard.json>' --git-demo '<approved-storyboard-sha256>' --executable '<Code.exe>' --revision '<full-build-commit>' --output '<private-directory>' --video --ffmpeg '<matching-playwright-ffmpeg.exe>' --validation-ffmpeg '<full-ffmpeg.exe>' --wait-for-ready
+```
+
+Setup steps must be observation-only. Recording steps execute once, without a dry run or reset, because initialization and the first commit are stateful actions. Require named `video.blockedTargets` for unexpected prompts and target every keyboard action. The video can run for up to 60 seconds with `video.maxDurationSeconds`; takes over 30 seconds require the full validation encoder. Recording permits up to 40 steps and 40 seconds of configured typing and pauses, including at most five seconds of pauses. Keep actions visible rather than adding holds.
+
+To validate the actions before producing video, replace `--video` and both encoder options with `--rehearse`. Rehearsal requires the same hash-bound approval and human readiness, executes the same actions once in a fresh disposable folder, and checks the Git outcome without saving images or video. Its report is not a media candidate. Approve both synthetic commits if the scope includes a rehearsal followed by a recording; each run uses its own empty folder and does not undo history.
+
+After closing the application, the runner verifies exactly one commit with the approved message, file content, and synthetic author, a clean working tree, and no remotes or extra files. It records this evidence before removing its generated runtime. Failed, interrupted, or mismatched recordings remain private and are not retried. Existing ordinary-video dry runs and live-AI approval requirements remain unchanged.
+
+Use the existing media preparation or composition commands, which verify the Git outcome and single-execution evidence. Review full playback and approve the exact candidate separately from approving its article insertion.
+
 ### Record a scripted live-AI video
 
 Use this opt-in to record an approved sequence of real AI interactions in the editor or Agents window. The runner executes `video.steps` once. It never rehearses, resets, retries a request, or invents a response. Existing `ai: none` captures and prepared-session screenshots keep their original restrictions.

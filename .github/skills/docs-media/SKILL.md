@@ -56,6 +56,7 @@ For an approved polished montage, follow [video composition](../../../DOCS-AGENT
    * Prefer named role and accessible-name targets. Use CSS only where a semantic target is unavailable.
    * Add observable outcome assertions. Ordinary video reset steps must restore the known start state before both the dry run and recording. Live-AI videos instead execute the approved recording steps once, without a reset or dry run.
    * Keep typing and navigation visible and pauses short. Do not add long holds to satisfy duration or motion checks.
+   * For a first-commit Git walkthrough, use the restricted [Git demo mode](../../../DOCS-AGENT-WORKFLOW.md#record-a-first-commit-git-walkthrough), not live-AI mode. It starts with an empty generated folder, uses a synthetic identity, and verifies the exact first commit. Validate the script with an approved `--rehearse` run before recording. Rehearsal saves no pixels; each run creates its own disposable repository and requires human readiness. Obtain approval for both synthetic commits when rehearsing and recording.
    * For screenshot highlights, configure `capture.highlights` with named targets instead of hand-coded pixel coordinates. Use red rectangles, defaulting to two pixels with a three-pixel maximum. Follow the [highlighting guidance](../../../DOCS-AGENT-WORKFLOW.md#highlight-screenshot-controls), and leave space around text and controls.
 
 4. **Validate without launching the product.**
@@ -73,6 +74,8 @@ For an approved polished montage, follow [video composition](../../../DOCS-AGENT
    ```
 
    Add `--video --ffmpeg '<absolute-path-to-encoder.exe>'` only when the storyboard defines video. For ordinary videos, the runner dry-runs those steps, resets, records, validates, and closes its isolated application.
+
+   For an approved no-AI first-commit walkthrough, supply `--git-demo '<approved-storyboard-sha256>' --wait-for-ready`. Use `--rehearse` without encoder options first, then record in a fresh generated folder with `--video --ffmpeg` and the same approved script. Takes over 30 seconds also require `--validation-ffmpeg '<full-ffmpeg.exe>'`. The restricted mode accepts only the approved `README.md` content, a single local commit, a clean worktree, and no remotes; it never resets or retries stateful actions. Failed rehearsal blocks recording. Keep both results private, and obtain fresh script approval for changes outside the approved sequence.
 
    For a generated folder, set `fixture.openFolder: true`. For an approved existing workspace, use `workspace.entry` and supply `--workspace` plus `--capture-profile`. Use a dedicated capture profile, never a personal profile. The profile retains the human's own Workspace Trust decisions; do not set or copy trust decisions yourself.
 

@@ -446,6 +446,53 @@ test('live-AI preparation verifies scoped edits, single execution, and approval 
   }
 });
 
+test('Git demo preparation requires exact first-commit and single-run evidence', t => {
+  const f = fixture(t);
+  const {gitDemoEvidence} = require('./capture-git');
+  const story = structuredClone(require('./storyboards/editor-find.json'));
+  delete story.fixture;
+  delete story.video.reset;
+  story.gitDemo = {content: '# Git practice\n', commitMessage: 'Add practice README'};
+  Object.assign(story.capture, {mode: 'git-demo', surface: 'editor'});
+  story.steps = [story.steps.at(-1)];
+  story.targets.approval = {selector: '.fixture-approval'};
+  Object.assign(story.video, {steps: story.steps, maxDurationSeconds: 60, blockedTargets: ['approval']});
+  const bytes = Buffer.from(JSON.stringify(story));
+  fs.writeFileSync(path.join(f.output, 'storyboard.json'), bytes);
+  const capture = path.join(f.output, 'capture.json');
+  const manifest = {
+    schemaVersion: 1, status: 'candidate', execution: 'attended', ai: 'none', mode: 'git-demo', surface: 'editor',
+    privacy: {textScan: 'passed'}, product: {revision: 'c'.repeat(40), quality: 'insider'},
+    storyboard: {id: story.id, article: story.article, file: 'storyboard.json', sha256: sha256(bytes)},
+    workspacePreparation: {status: 'confirmed'},
+    gitDemo: {check: 'passed', approvedStoryboardSha256: sha256(bytes), result: gitDemoEvidence(story.gitDemo, 'd'.repeat(40))},
+    video: {status: 'candidate', execution: 'single-git-run', maxDurationSeconds: 60, durationSeconds: 50,
+      validationMethod: 'ffmpeg-showinfo', validationEncoderSha256: 'e'.repeat(64)},
+    asset: {file: 'source.png', sha256: f.options.sha256, bytes: f.bytes.length}
+  };
+  const prepare = value => {
+    overwriteJson(capture, value);
+    return prepareMedia({...f.options, capture, captureSha256: sha256(fs.readFileSync(capture))}, f.deps);
+  };
+  const result = prepare(manifest);
+  assert.equal(verifyMedia({manifest: result.manifest}, f.deps).approval, 'human-visual-review-required');
+  for (const change of [
+    value => {value.gitDemo.result.remotes = ['origin'];},
+    value => {value.gitDemo.result.contentSha256 = 'f'.repeat(64);},
+    value => {value.gitDemo.approvedStoryboardSha256 = 'f'.repeat(64);},
+    value => {value.video.execution = 'dry-run';},
+    value => {value.video.durationSeconds = 61;},
+    value => {delete value.video.validationEncoderSha256;},
+    value => {value.workspacePreparation.status = 'cancelled';},
+    value => {value.ai = 'live-approved';},
+    value => {delete value.gitDemo.result;}
+  ]) {
+    const invalid = structuredClone(manifest);
+    change(invalid);
+    assert.throws(() => prepare(invalid), /Git demo/);
+  }
+});
+
 test('RGB rows using every PNG filter decode to the same original pixels', () => {
   const rows = Buffer.from([1, 2, 3, 10, 20, 30, 2, 4, 6, 20, 40, 60]);
   function chunk(name, data) {

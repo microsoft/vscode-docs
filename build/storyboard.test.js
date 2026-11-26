@@ -141,6 +141,38 @@ test('browser-surface steps never fall back to the workbench', async () => {
   await assert.rejects(() => runSteps(driver, storyboard, step, async () => {}), /browser capture surface is not available/);
 });
 
+test('Git demos require an empty generated workspace, one-pass guards, and a bounded no-AI editor video', () => {
+  const story = structuredClone(find);
+  delete story.fixture;
+  delete story.video.reset;
+  story.gitDemo = {content: '# Git practice\n', commitMessage: 'Add practice README'};
+  story.capture = {...story.capture, mode: 'git-demo', surface: 'editor'};
+  story.steps = [find.steps.at(-1)];
+  story.targets.approval = {selector: '.test-approval'};
+  Object.assign(story.video, {steps: story.steps, maxDurationSeconds: 60, blockedTargets: ['approval']});
+  validateStoryboard(story);
+  for (const change of [
+    value => {value.ai = 'live-approved';},
+    value => {value.fixture = find.fixture;},
+    value => {value.workspace = {entry: 'readme.md'};},
+    value => {delete value.gitDemo;},
+    value => {value.capture.mode = 'live-ai';},
+    value => {value.capture.surface = 'agents';},
+    value => {value.gitDemo.commitMessage += '\n';},
+    value => {value.video.reset = find.video.reset;},
+    value => {value.video.maxDurationSeconds = 61;},
+    value => {delete value.video.blockedTargets;},
+    value => {value.video.steps = [{kind: 'key', key: 'Enter'}, ...story.steps];},
+    value => {value.steps.unshift({kind: 'click', target: 'query'});},
+    value => {value.video.browserUrl = 'http://localhost/';},
+    value => {value.video.steps = [{kind: 'type', target: 'query', text: 'x'.repeat(210), delayMs: 200}, ...story.steps];}
+  ]) {
+    const invalid = structuredClone(story);
+    change(invalid);
+    assert.throws(() => validateStoryboard(invalid), /Invalid storyboard/);
+  }
+});
+
 test('instruction source maps require exact line ranges and an observable outcome for each runnable check', () => {
   const storyboard = structuredClone(find);
   delete storyboard.video;

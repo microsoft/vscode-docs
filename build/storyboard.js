@@ -65,7 +65,7 @@ const STEP_RULES = new Map(schema.$defs.steps.items.oneOf.map(reference => {
   return [rule.properties.kind.const, rule];
 }));
 
-function validateSteps(steps, targets, label, requireAssertion) {
+function validateSteps(steps, targets, label, requireAssertion, typingBudget = 15000) {
   requireArray(steps, schema.$defs.steps, label);
   let delay = 0;
   let pauses = 0;
@@ -100,22 +100,29 @@ function validateSteps(steps, targets, label, requireAssertion) {
       delay += step.text.length * step.delayMs;
     }
   }
-  requireValue(delay <= 15000 && pauses <= 5000, `${label} exceeds the typing or pause budget.`);
+  requireValue(delay <= typingBudget && pauses <= 5000, `${label} exceeds the typing or pause budget.`);
   requireValue(!requireAssertion || steps.some(step => step.kind === 'assert' || step.expectTextCycle),
     `${label} needs an assertion or a text-cycle check before capture.`);
 }
 
 function validateStoryboard(value) {
   requireValue(value?.schemaVersion === 2, 'unsupported schemaVersion; migrate to version 2 using build/storyboards/editor-find.json.');
-  requireScalarFields(value, schema, 'storyboard', ['profile', 'fixture', 'workspace', 'targets', 'steps', 'instructions', 'capture', 'video', 'privacy', 'liveAI']);
+  requireScalarFields(value, schema, 'storyboard', ['profile', 'fixture', 'workspace', 'gitDemo', 'targets', 'steps', 'instructions', 'capture', 'video', 'privacy', 'liveAI']);
   const liveAI = value.ai === 'live-approved';
+  const gitDemo = value.capture?.mode === 'git-demo';
+  const singleRun = liveAI || gitDemo;
   requireScalarFields(value.profile, schema.$defs.profile, 'profile');
   requireValue(value.profile.zoomLevel === (value.profile.wideContent ? 1.5 : 2),
     'use zoom level 2 by default, or 1.5 with profile.wideContent: true.');
-  requireValue(Object.hasOwn(value, 'fixture') !== Object.hasOwn(value, 'workspace'),
-    'supply either a generated fixture or an existing workspace entry.');
+  requireValue(['fixture', 'workspace', 'gitDemo'].filter(key => Object.hasOwn(value, key)).length === 1,
+    'supply either a generated fixture, an existing workspace entry, or a Git demo.');
   if (value.fixture) {
     requireScalarFields(value.fixture, schema.$defs.fixture, 'fixture');
+  } else if (value.gitDemo) {
+    requireScalarFields(value.gitDemo, schema.properties.gitDemo, 'gitDemo');
+    requireValue(gitDemo && !liveAI, 'gitDemo requires no-AI git-demo capture mode.');
+    requireValue(value.gitDemo.commitMessage.trim() === value.gitDemo.commitMessage,
+      'gitDemo commitMessage must not have leading or trailing whitespace.');
   } else {
     requireScalarFields(value.workspace, schema.$defs.workspace, 'workspace', ['allowedChanges', 'excludedDirectories']);
     if (Object.hasOwn(value.workspace, 'excludedDirectories')) {
@@ -199,7 +206,13 @@ function validateStoryboard(value) {
   } else {
     requireValue(!Object.hasOwn(value, 'liveAI') && !Object.hasOwn(value.workspace || {}, 'allowedChanges') &&
       !Object.hasOwn(value.workspace || {}, 'excludedDirectories'), 'liveAI and workspace change controls require explicit live-AI mode.');
-    if (value.capture.mode || value.capture.surface) {
+    if (gitDemo) {
+      requireValue(Boolean(value.gitDemo) && value.capture.surface === 'editor' && Boolean(value.video) &&
+        !value.instructions && !value.capture.highlights,
+      'git-demo requires a generated Git demo, editor video, and no replay or screenshot highlights.');
+      requireValue(value.steps.every(step => ['assert', 'wait-for', 'pause'].includes(step.kind)),
+        'git-demo setup must only observe the empty workspace; actions belong in the single recording.');
+    } else if (value.capture.mode || value.capture.surface) {
       requireValue(value.capture.mode === 'prepared-session' && ['editor', 'agents'].includes(value.capture.surface),
         'prepared-session capture requires a mode and surface.');
       requireValue(value.workspace?.environment === 'sample' && !value.video && !value.instructions,
@@ -225,7 +238,9 @@ function validateStoryboard(value) {
     requireScalarFields(value.video, schema.properties.video, 'video', ['reset', 'steps', 'blockedTargets']);
     requireValue(!value.video.browserCamera || (liveAI && Boolean(value.video.browserUrl)),
       'browserCamera requires a live-approved video with an explicit browserUrl.');
-    if (liveAI) {
+    if (singleRun) {
+      requireValue(liveAI || (!value.video.browserUrl && !value.video.browserCamera && value.video.maxDurationSeconds <= 60),
+        'git-demo records only the editor for at most 60 seconds.');
       if (value.video.browserUrl !== undefined) {
         requireValue(URL.canParse(value.video.browserUrl), 'browserUrl must be a valid URL.');
         const url = new URL(value.video.browserUrl);
@@ -235,7 +250,7 @@ function validateStoryboard(value) {
         requireValue(!value.capture.highlights, 'browser-camera annotations belong in media composition, not screenshot highlights.');
       }
       requireValue(!Object.hasOwn(value.video, 'reset') && Object.hasOwn(value.video, 'maxDurationSeconds'),
-        'live-AI videos require a duration limit and cannot reset or dry-run requests.');
+        'single-run videos require a duration limit and cannot reset or dry-run actions.');
       const rule = schema.properties.video.properties.blockedTargets;
       requireArray(value.video.blockedTargets, rule, 'video.blockedTargets');
       for (const target of value.video.blockedTargets) {
@@ -247,14 +262,14 @@ function validateStoryboard(value) {
       requireValue(value.video.steps.every(step =>
         (step.kind !== 'key' || Boolean(step.target)) &&
         (!step.target || !value.video.blockedTargets.includes(step.target))),
-      'live-AI steps must target their keyboard input and must not act on blocked prompts.');
+      'single-run steps must target their keyboard input and must not act on blocked prompts.');
     } else {
       requireValue(!Object.hasOwn(value.video, 'maxDurationSeconds') && !Object.hasOwn(value.video, 'blockedTargets') &&
         !Object.hasOwn(value.video, 'browserUrl'),
         'video duration and blocked-target controls require live-AI mode.');
       validateSteps(value.video.reset, value.targets, 'video.reset', false);
     }
-    validateSteps(value.video.steps, value.targets, 'video.steps', true);
+    validateSteps(value.video.steps, value.targets, 'video.steps', true, gitDemo ? 40000 : 15000);
   }
   requireScalarFields(value.privacy, schema.properties.privacy, 'privacy', ['denyText']);
   const denied = schema.properties.privacy.properties.denyText;
