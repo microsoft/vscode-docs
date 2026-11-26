@@ -1,46 +1,198 @@
 {
-  "getStarted": {
-    "title": "Build your first app with AI",
-    "description": "Build a small web app with an AI agent, test it in the browser, and review the generated changes.",
-    "link": "/docs/agents/quickstart",
-    "image": "/assets/docs/agents/agents-quickstart/editor-integrated-browser-interaction.png"
-  },
-  "featured": [
+  "startHere": [
     {
-      "icon": "codicon-tools",
+      "icon": "codicon-desktop-download",
       "title": "Set up VS Code",
-      "description": "Install VS Code, open your code, and choose a guided path for your first task.",
+      "description": "Install the editor and open your first project.",
       "link": "/docs/getstarted/overview"
     },
     {
       "icon": "codicon-mortar-board",
       "title": "Learn the editor",
-      "description": "Create, preview, and debug a small app, then explore settings, extensions, and Git. No AI required.",
+      "description": "Build and debug a small app. No AI required.",
       "link": "/docs/editing/getting-started/editor-tutorial"
     },
     {
+      "icon": "codicon-sparkle",
+      "title": "Build your first app with AI",
+      "description": "Build, test, and review a small app with an agent.",
+      "link": "/docs/agents/quickstart"
+    }
+  ],
+  "topics": [
+    {
       "icon": "codicon-code",
-      "title": "Set up your language",
-      "description": "Set up editing, running, and debugging for Python, JavaScript, C++, and more.",
-      "link": "/docs/languages/overview"
+      "title": "Editor",
+      "description": "Edit, navigate, and refactor code, and configure the editor to fit your workflow.",
+      "link": "/docs/editing/getting-started/overview",
+      "links": [
+        {
+          "title": "Settings",
+          "link": "/docs/configure/settings"
+        },
+        {
+          "title": "Extensions",
+          "link": "/docs/configure/extensions/extension-marketplace"
+        },
+        {
+          "title": "Keyboard shortcuts",
+          "link": "/docs/configure/keybindings"
+        }
+      ]
     },
     {
       "icon": "codicon-hubot",
-      "title": "Use AI on your codebase",
-      "description": "Find guides to explore a codebase, add features, fix bugs, and test changes with AI agents.",
-      "link": "/docs/agents/guides/overview"
+      "title": "AI in VS Code",
+      "description": "Work with agents, choose models, and tailor AI to your project.",
+      "link": "/docs/agents/overview",
+      "links": [
+        {
+          "title": "Set up GitHub Copilot",
+          "link": "/docs/setup/copilot"
+        },
+        {
+          "title": "Agent guides",
+          "link": "/docs/agents/guides/overview"
+        },
+        {
+          "title": "Customize agents",
+          "link": "/docs/agent-customization/overview"
+        }
+      ]
     },
     {
-      "icon": "codicon-settings-gear",
-      "title": "Customize AI for your project",
-      "description": "Configure custom instructions, skills, and MCP servers to tailor AI to your workflow.",
-      "link": "/docs/agent-customization/overview"
+      "icon": "codicon-source-control",
+      "title": "Source control",
+      "description": "Commit, branch, and collaborate with Git and GitHub from the editor.",
+      "link": "/docs/sourcecontrol/overview",
+      "links": [
+        {
+          "title": "Source control quickstart",
+          "link": "/docs/sourcecontrol/quickstart"
+        },
+        {
+          "title": "Branches and worktrees",
+          "link": "/docs/sourcecontrol/branches-worktrees"
+        },
+        {
+          "title": "Merge conflicts",
+          "link": "/docs/sourcecontrol/merge-conflicts"
+        }
+      ]
+    },
+    {
+      "icon": "codicon-debug-alt",
+      "title": "Run, debug, and test",
+      "description": "Debug your app, run tests, and automate build tasks.",
+      "link": "/docs/debugtest/debugging",
+      "links": [
+        {
+          "title": "Debugging quickstart",
+          "link": "/docs/debugtest/quickstart"
+        },
+        {
+          "title": "Testing",
+          "link": "/docs/debugtest/testing"
+        },
+        {
+          "title": "Tasks",
+          "link": "/docs/debugtest/tasks"
+        }
+      ]
+    },
+    {
+      "icon": "codicon-terminal",
+      "title": "Terminal",
+      "description": "Run shell commands in the editor and configure your shells.",
+      "link": "/docs/terminal/getting-started",
+      "links": [
+        {
+          "title": "Terminal basics",
+          "link": "/docs/terminal/basics"
+        },
+        {
+          "title": "Terminal profiles",
+          "link": "/docs/terminal/profiles"
+        },
+        {
+          "title": "Shell integration",
+          "link": "/docs/terminal/shell-integration"
+        }
+      ]
+    },
+    {
+      "icon": "codicon-symbol-namespace",
+      "title": "Languages",
+      "description": "Set up editing, running, and debugging for your language.",
+      "link": "/docs/languages/overview",
+      "links": [
+        {
+          "title": "Python",
+          "link": "/docs/languages/python"
+        },
+        {
+          "title": "JavaScript and TypeScript",
+          "link": "/docs/languages/javascript"
+        },
+        {
+          "title": "C++",
+          "link": "/docs/languages/cpp"
+        }
+      ]
+    },
+    {
+      "icon": "codicon-remote-explorer",
+      "title": "Remote development",
+      "description": "Develop in containers, on remote machines, or in WSL.",
+      "link": "/docs/remote/remote-overview",
+      "links": [
+        {
+          "title": "SSH",
+          "link": "/docs/remote/ssh"
+        },
+        {
+          "title": "Dev Containers",
+          "link": "/docs/remote/dev-containers"
+        },
+        {
+          "title": "WSL",
+          "link": "/docs/remote/wsl"
+        }
+      ]
     },
     {
       "icon": "codicon-organization",
-      "title": "Manage VS Code for your team",
-      "description": "Configure policies, extensions, AI access, and network settings for your organization.",
-      "link": "/docs/enterprise/overview"
+      "title": "For organizations",
+      "description": "Deploy VS Code and manage policies, extensions, and AI access.",
+      "link": "/docs/enterprise/overview",
+      "links": [
+        {
+          "title": "Deploy to managed devices",
+          "link": "/docs/enterprise/deployment"
+        },
+        {
+          "title": "Manage AI settings",
+          "link": "/docs/enterprise/manage-ai-settings"
+        },
+        {
+          "title": "Enterprise policies",
+          "link": "/docs/enterprise/policies"
+        }
+      ]
+    }
+  ],
+  "secondaryLinks": [
+    {
+      "title": "Network setup",
+      "link": "/docs/setup/network"
+    },
+    {
+      "title": "Extension API",
+      "link": "/api"
+    },
+    {
+      "title": "FAQ",
+      "link": "/docs/supporting/faq"
     }
   ],
   "latest": [
