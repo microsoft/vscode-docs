@@ -77,17 +77,30 @@
                 "name": "Work with AI",
                 "area": "agents/run",
                 "topics": [
-                    ["Inline Suggestions", "/docs/editing/ai-powered-suggestions", { "secondary": true }],
-                    ["Smart Actions", "/docs/editing/copilot-smart-actions", { "secondary": true }],
-                    ["Use the Chat View", "/docs/agents/run/chat-view"],
-                    ["Agents Window", "/docs/agents/run/agents-window"],
-                    ["Work with Agents in Worktrees", "/docs/agents/run/worktrees"],
-                    ["Inline Chat and Quick Chat", "/docs/chat/inline-chat"],
-                    ["Chat Messages and Responses", "/docs/chat/chat-overview"],
-                    ["Canvases", "/docs/agents/run/canvases"],
-                    ["Add Prompt Context", "/docs/chat/copilot-chat-context"],
-                    ["Review and Undo Changes", "/docs/agents/run/review-code-edits"],
-                    ["Configure the Agents Window", "/docs/agents/run/agents-window-configuration"],
+                    ["", "", {
+                        "name": "Choose an Interface",
+                        "area": "agents/run/interfaces",
+                        "topics": [
+                            ["Inline Suggestions", "/docs/editing/ai-powered-suggestions", { "secondary": true }],
+                            ["Smart Actions", "/docs/editing/copilot-smart-actions", { "secondary": true }],
+                            ["Inline Chat and Quick Chat", "/docs/chat/inline-chat"],
+                            ["Use the Chat View", "/docs/agents/run/chat-view"],
+                            ["Agents Window", "/docs/agents/run/agents-window"],
+                            ["Configure the Agents Window", "/docs/agents/run/agents-window-configuration"]
+                        ]
+                    }],
+
+                    ["", "", {
+                        "name": "Interact and Review",
+                        "area": "agents/run/interact",
+                        "topics": [
+                            ["Chat Messages and Responses", "/docs/chat/chat-overview"],
+                            ["Add Prompt Context", "/docs/chat/copilot-chat-context"],
+                            ["Review and Undo Changes", "/docs/agents/run/review-code-edits"],
+                            ["Work with Agents in Worktrees", "/docs/agents/run/worktrees"],
+                            ["Canvases", "/docs/agents/run/canvases"]
+                        ]
+                    }],
 
                     ["", "", {
                         "name": "Plan and Run Tasks",
@@ -107,6 +120,7 @@
                         "topics": [
                             ["Manage Sessions", "/docs/agents/run/sessions/manage-sessions"],
                             ["Organize and Triage Sessions", "/docs/agents/run/sessions/organize-sessions"],
+                            ["Session History", "/docs/agents/run/sessions/session-history"],
                             ["Memory", "/docs/agents/run/memory"],
                             ["Artifacts", "/docs/agents/run/artifacts"]
                         ]
@@ -162,8 +176,7 @@
                 "topics": [
                     ["Tutorial: Agent Continuity", "/docs/agents/cloud-continuity-tutorial"],
                     ["Remote Agent Sessions", "/docs/agents/run/remote-agent-sessions"],
-                    ["Cloud Sessions", "/docs/agents/run/cloud-sandbox-sessions"],
-                    ["Session History", "/docs/agents/run/sessions/session-history"]
+                    ["Cloud Sessions", "/docs/agents/run/cloud-sandbox-sessions"]
                 ]
             }],
 

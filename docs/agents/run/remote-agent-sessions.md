@@ -32,7 +32,7 @@ Choose the workflow that matches what you want to do:
 | Edit and debug a remote project while using chat. | Open the project through [Remote Development](#work-in-a-remote-workspace), then use the {% data variables.copilot.chat_view %}. | A remote workspace open in the editor. This is different from opening an existing agent conversation. |
 | Run agent tasks without keeping a development machine online. | Start a [cloud session](/docs/agents/run/cloud-sandbox-sessions.md) `feature(cloud-sessions)`. | Managed cloud compute. Starting a cloud session doesn't move an existing session from your own host into the cloud. |
 
-Opening a remote project in the editor is a separate workflow, described under [Use remote sessions in the {% data variables.copilot.chat_view %}](#use-remote-sessions-in-the-chat-view).
+Opening a remote project in the editor is a separate workflow, described under [Use remote sessions in the {% data variables.copilot.chat_view %}](#use-remote-sessions-in-the-chat-view). To sync or search past session transcripts across devices instead of connecting to a live host, see [Save, sync, and query session history](/docs/agents/run/sessions/session-history.md#enable-or-disable-session-sync-experimental).
 
 ## Make a host available for remote access
 
