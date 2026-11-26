@@ -57,7 +57,10 @@ Continuity lets you pick up agent work across supported interfaces without start
     </a>
 </div>
 
+* **Need to connect an account first:** [Set up {% data variables.product.prodname_copilot %}](/docs/setup/copilot.md) or review [other AI access options](/docs/setup/copilot.md#other-ai-access-options).
 * **Prefer to start with your own code:** [Explore a codebase without changing files](/docs/agents/guides/explore-a-codebase.md), then verify the explanation against your code.
+* **Have a specific coding task:** [Find a step-by-step guide](/docs/agents/guides/overview.md) for bugs, features, testing, refactoring, or customization.
+* **Not sure which AI feature to use:** Check the [AI features cheat sheet](/docs/agents/reference/ai-features-cheat-sheet.md#choose-a-feature) to match a task to its feature and first action.
 * **New to {% data variables.product.prodname_vscode_shortname %}:** First [install the editor and open a workspace](/docs/getstarted/overview.md).
 
 <video src="images/agents-overview/build-with-ai-overview-2026112501.mp4" title="Video showing code suggestions, agent edits reviewed alongside code, parallel reviews, and a destination filter checked in the integrated browser." autoplay loop controls muted></video>
@@ -95,9 +98,16 @@ Switch between different experiences depending on your task, and [continue agent
 
 An [agent](/docs/agents/concepts/agents.md) uses a model and tools to find relevant code, make changes, and run checks. Both the {% data variables.copilot.chat_view %} and the {% data variables.copilot.agents_window %} run agents. You set the goal, guide the work, and review the results.
 
+| Interface | Best for | Workspace scope | Parallel tasks |
+|-----------|----------|-----------------|----------------|
+| [Inline suggestions](/docs/editing/ai-powered-suggestions.md) | Staying in flow while typing completions and next edits. | Active editor file. | Single edit at cursor. |
+| [Inline chat](/docs/chat/inline-chat.md) | Focused edits or terminal commands without leaving your code. | Selected code or active terminal. | One focused prompt at a time. |
+| [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) | Collaborating with an agent beside your editor, debugger, tests, and terminal. | Current workspace. | Supports multiple chats and background sessions. |
+| [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) | Delegating, monitoring, and reviewing agent sessions across repositories. | Multiple projects, worktrees, or remote hosts. | Designed for parallel sessions, worktrees, and PR review. |
+
 For routine work, save a prompt as an [automation](/docs/agents/run/automations.md). Run it locally on a schedule, or use cloud automations `feature(cloud-automations)` for scheduled or event-triggered repository work that continues while your computer is off. Review a manual run before enabling recurring work.
 
-For a focused edit, use [inline chat](/docs/chat/inline-chat.md) without leaving your code. To compare features for a specific task, use the [AI features cheat sheet](/docs/agents/reference/ai-features-cheat-sheet.md#choose-a-feature).
+To compare features for a specific task, use the [AI features cheat sheet](/docs/agents/reference/ai-features-cheat-sheet.md#choose-a-feature).
 
 ## Choose your models, agents, and tools
 
@@ -105,7 +115,7 @@ For a first agent task, [use the quickstart](/docs/agents/quickstart.md) without
 
 | Choice | Options |
 |--------|---------|
-| **Models** | Choose [models from multiple providers](/docs/agent-customization/language-models.md) through {% data variables.product.prodname_copilot %}, or use your own [API key (BYOK)](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) or a supported local model. For help deciding, [compare and choose models for your tasks](/docs/agents/guides/choose-a-model.md). |
+| **Models** | Choose [models from multiple providers](/docs/agent-customization/language-models.md) through {% data variables.product.prodname_copilot %}, or use your own [API key (BYOK)](/docs/agent-customization/model-providers.md#bring-your-own-language-model-key) or a supported local model. For help deciding, [compare and choose models for your tasks](/docs/agents/guides/choose-a-model.md). |
 | **Agent harnesses** | Choose between {% data variables.product.prodname_copilot_short %}, {% data variables.product.prodname_anthropic_claude_short %}, or {% data variables.product.prodname_openai_codex_short %} based on its [tools and workflows](/docs/agents/run/agent-harnesses.md#compare-agent-harnesses). |
 | **Access and billing** | Use your existing {% data variables.product.prodname_copilot %} plan, a supported provider account, or an API key. Check [requirements for your harness](/docs/agents/run/agent-harnesses.md#requirements-and-setup). |
 | **Customization** | Tailor agents with [plugins](/docs/agent-customization/agent-plugins.md), [project instructions](/docs/agents/guides/customize-copilot-guide.md), and [skills](/docs/agent-customization/agent-skills.md). Connect external tools through [Model Context Protocol (MCP) servers](/docs/agent-customization/mcp-servers.md). |

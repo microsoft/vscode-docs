@@ -20,8 +20,6 @@
                 "name": "Get Started",
                 "area": "agents",
                 "topics": [
-                    ["Find a Guide", "/docs/agents/guides/overview", { "secondary": true }],
-                    ["AI Features Cheat Sheet", "/docs/agents/reference/ai-features-cheat-sheet", { "secondary": true }],
                     ["Set Up GitHub Copilot", "/docs/setup/copilot"],
                     ["Complete Your First Agent Task", "/docs/agents/quickstart"],
                     ["Build, Refine, and Commit an App", "/docs/agents/agents-tutorial"],
@@ -34,14 +32,17 @@
                 "area": "agents/guides",
                 "topics": [
                     ["Find a Guide", "/docs/agents/guides/overview"],
+                    ["Prompt Examples", "/docs/agents/guides/prompt-examples"],
                     ["", "", {
                         "name": "Work on a Project",
                         "area": "agents/guides/project",
                         "topics": [
                             ["Explore a Codebase", "/docs/agents/guides/explore-a-codebase"],
                             ["Fix an API Bug", "/docs/agents/guides/fix-a-bug-with-agents"],
+                            ["Debug a Runtime Failure", "/docs/agents/guides/debug-runtime-failure"],
                             ["Add a Feature", "/docs/agents/guides/add-a-feature"],
                             ["Refactor Safely", "/docs/agents/guides/refactor-safely"],
+                            ["Review a Pull Request", "/docs/agents/guides/review-pull-request"],
                             ["Work with Jupyter Notebooks", "/docs/agents/guides/notebooks-with-ai"]
                         ]
                     }],
@@ -59,6 +60,7 @@
                         "area": "agents/guides/customization",
                         "topics": [
                             ["Adapt Agents to Your Project", "/docs/agents/guides/customize-copilot-guide"],
+                            ["Context Engineering Workflow", "/docs/agents/guides/context-engineering-guide"],
                             ["Run Parallel Tasks", "/docs/agents/guides/delegate-two-tasks"],
                             ["Continue a Cloud Session in Your Terminal", "/docs/agents/cloud-continuity-tutorial", { "secondary": true }]
                         ]
@@ -76,20 +78,34 @@
             }],
 
             ["", "", {
-                "name": "Work with AI",
+                "name": "Use Chat and Agents",
                 "area": "agents/run",
                 "topics": [
-                    ["Inline Suggestions", "/docs/editing/ai-powered-suggestions", { "secondary": true }],
-                    ["Smart Actions", "/docs/editing/copilot-smart-actions", { "secondary": true }],
-                    ["Use the Chat View", "/docs/agents/run/chat-view"],
-                    ["Agents Window", "/docs/agents/run/agents-window"],
-                    ["Work with Agents in Worktrees", "/docs/agents/run/worktrees"],
-                    ["Inline Chat and Quick Chat", "/docs/chat/inline-chat"],
-                    ["Chat Messages and Responses", "/docs/chat/chat-overview"],
-                    ["Canvases", "/docs/agents/run/canvases"],
-                    ["Add Prompt Context", "/docs/chat/copilot-chat-context"],
-                    ["Review and Undo Changes", "/docs/agents/run/review-code-edits"],
-                    ["Configure the Agents Window", "/docs/agents/run/agents-window-configuration"],
+                    ["", "", {
+                        "name": "Choose an Interface",
+                        "area": "agents/run/interfaces",
+                        "topics": [
+                            ["Inline Suggestions", "/docs/editing/ai-powered-suggestions", { "secondary": true }],
+                            ["Smart Actions", "/docs/editing/copilot-smart-actions", { "secondary": true }],
+                            ["Inline Chat and Quick Chat", "/docs/chat/inline-chat"],
+                            ["Use the Chat View", "/docs/agents/run/chat-view"],
+                            ["Agents Window", "/docs/agents/run/agents-window"],
+                            ["Configure the Agents Window", "/docs/agents/run/agents-window-configuration"]
+                        ]
+                    }],
+
+                    ["", "", {
+                        "name": "Interact and Review",
+                        "area": "agents/run/interact",
+                        "topics": [
+                            ["Chat Messages and Responses", "/docs/chat/chat-overview"],
+                            ["Add Prompt Context", "/docs/chat/copilot-chat-context"],
+                            ["Review and Undo Changes", "/docs/agents/run/review-code-edits"],
+                            ["Work with Agents in Worktrees", "/docs/agents/run/worktrees"],
+                            ["Work with Agents in Dev Containers", "/docs/agents/run/dev-containers"],
+                            ["Canvases", "/docs/agents/run/canvases"]
+                        ]
+                    }],
 
                     ["", "", {
                         "name": "Plan and Run Tasks",
@@ -109,6 +125,7 @@
                         "topics": [
                             ["Manage Sessions", "/docs/agents/run/sessions/manage-sessions"],
                             ["Organize and Triage Sessions", "/docs/agents/run/sessions/organize-sessions"],
+                            ["Session History", "/docs/agents/run/sessions/session-history"],
                             ["Memory", "/docs/agents/run/memory"],
                             ["Artifacts", "/docs/agents/run/artifacts"]
                         ]
@@ -131,10 +148,11 @@
                 "area": "agents/model-and-agent-choice",
                 "topics": [
                     ["Choose and Configure Models", "/docs/agent-customization/language-models"],
-                    ["Choose an Agent Harness", "/docs/agents/run/agent-harnesses"],
-                    ["Move from Local to Copilot", "/docs/agents/run/move-to-copilot"],
+                    ["Add Model Providers and Local Models", "/docs/agent-customization/model-providers"],
                     ["Compare Models Side by Side", "/docs/agents/run/compare-models"],
-                    ["Guide: Choose the Right Model", "/docs/agents/guides/choose-a-model", { "secondary": true }]
+                    ["Guide: Choose the Right Model", "/docs/agents/guides/choose-a-model", { "secondary": true }],
+                    ["Choose an Agent Harness", "/docs/agents/run/agent-harnesses"],
+                    ["Migration: Move from Local to Copilot", "/docs/agents/run/move-to-copilot"]
                 ]
             }],
 
@@ -145,16 +163,33 @@
                 "topics": [
                     ["Overview", "/docs/agent-customization/overview"],
                     ["Agent Plugins", "/docs/agent-customization/agent-plugins"],
-                    ["Agent Skills", "/docs/agent-customization/agent-skills"],
-                    ["Custom Instructions", "/docs/agent-customization/custom-instructions"],
-                    ["Custom Agents", "/docs/agent-customization/custom-agents"],
-                    ["Copilot Connectors", "/docs/agent-customization/copilot-connectors"],
-                    ["Add and Use MCP Servers", "/docs/agent-customization/mcp-servers"],
-                    ["Manage MCP Servers", "/docs/agents/run/manage-mcp-servers"],
-                    ["Agent Hooks", "/docs/agent-customization/hooks"],
-                    ["Prompt Files", "/docs/agent-customization/prompt-files"],
-                    ["Advanced: Connect Planning and Implementation", "/docs/agents/guides/context-engineering-guide"],
-                    ["Migrate Existing Customizations", "/docs/agent-customization/migrate-customizations"]
+                    ["", "", {
+                        "name": "Guide Agent Behavior",
+                        "area": "agent-customization/behavior",
+                        "topics": [
+                            ["Custom Instructions", "/docs/agent-customization/custom-instructions"],
+                            ["Agent Skills", "/docs/agent-customization/agent-skills"],
+                            ["Custom Agents", "/docs/agent-customization/custom-agents"],
+                            ["Agent Hooks", "/docs/agent-customization/hooks"]
+                        ]
+                    }],
+                    ["", "", {
+                        "name": "Connect Tools and Services",
+                        "area": "agent-customization/integrations",
+                        "topics": [
+                            ["Copilot Connectors", "/docs/agent-customization/copilot-connectors"],
+                            ["Add and Use MCP Servers", "/docs/agent-customization/mcp-servers"],
+                            ["Manage MCP Servers", "/docs/agents/run/manage-mcp-servers"]
+                        ]
+                    }],
+                    ["", "", {
+                        "name": "Migration and Legacy",
+                        "area": "agent-customization/migration",
+                        "topics": [
+                            ["Migrate Existing Customizations", "/docs/agent-customization/migrate-customizations"],
+                            ["Prompt Files", "/docs/agent-customization/prompt-files"]
+                        ]
+                    }]
                 ]
             }],
 
@@ -164,8 +199,7 @@
                 "topics": [
                     ["Tutorial: Agent Continuity", "/docs/agents/cloud-continuity-tutorial"],
                     ["Remote Agent Sessions", "/docs/agents/run/remote-agent-sessions"],
-                    ["Cloud Sessions", "/docs/agents/run/cloud-sandbox-sessions"],
-                    ["Session History", "/docs/agents/run/sessions/session-history"]
+                    ["Cloud Sessions", "/docs/agents/run/cloud-sandbox-sessions"]
                 ]
             }],
 
@@ -174,13 +208,14 @@
                 "area": "agents/concepts",
                 "topics": [
                     ["Agents", "/docs/agents/concepts/agents"],
+                    ["Agent Harnesses", "/docs/agents/concepts/agent-harnesses"],
                     ["How Models Work", "/docs/agents/concepts/language-models"],
                     ["Context", "/docs/agents/concepts/context"],
                     ["Tools", "/docs/agents/concepts/tools"],
                     ["Sessions and Chats", "/docs/agents/concepts/sessions"],
                     ["Trust and Safety", "/docs/agents/concepts/trust-and-safety"],
-                    ["Agent Harnesses", "/docs/agents/concepts/agent-harnesses"],
-                    ["Agent Customization", "/docs/agents/concepts/customization"]
+                    ["Agent Customization", "/docs/agents/concepts/customization"],
+                    ["Agent Host Architecture", "/docs/agents/concepts/agent-host"]
                 ]
             }],
 
@@ -189,32 +224,39 @@
                 "area": "agents/reference-and-help",
                 "topics": [
                     ["", "", {
-                        "name": "Reference",
+                        "name": "Quick Reference",
                         "area": "agents/reference",
                         "topics": [
                             ["AI Features Cheat Sheet", "/docs/agents/reference/ai-features-cheat-sheet"],
-                            ["Prompt Examples", "/docs/agents/guides/prompt-examples"],
                             ["Tool Names and Context References", "/docs/agents/reference/tools-reference"],
                             ["Workspace Context", "/docs/agents/reference/workspace-context"],
                             ["AI Settings", "/docs/agents/reference/ai-settings"],
-                            ["VS Code Pet", "/docs/agents/reference/chat-pet"],
-                            ["Custom Agent File Reference", "/docs/agents/reference/custom-agent-file-reference"],
-                            ["Custom Instructions Reference", "/docs/agents/reference/custom-instructions-reference"],
-                            ["Agent Plugin Authoring Reference", "/docs/agents/reference/agent-plugin-reference"],
-                            ["MCP Configuration", "/docs/agents/reference/mcp-configuration"],
-                            ["Hooks Reference", "/docs/agents/reference/hooks-reference"],
-                            ["OpenTelemetry Monitoring", "/docs/agents/guides/monitoring-agents"],
-                            ["Agent Host Architecture", "/docs/agents/concepts/agent-host"]
+                            ["VS Code Pet", "/docs/agents/reference/chat-pet"]
                         ]
                     }],
 
                     ["", "", {
-                        "name": "Troubleshooting",
+                        "name": "Customization File References",
+                        "area": "agents/reference/customization",
+                        "topics": [
+                            ["Custom Instructions Reference", "/docs/agents/reference/custom-instructions-reference"],
+                            ["Agent Skills Reference", "/docs/agents/reference/agent-skills-reference"],
+                            ["Custom Agent File Reference", "/docs/agents/reference/custom-agent-file-reference"],
+                            ["Agent Plugin Authoring Reference", "/docs/agents/reference/agent-plugin-reference"],
+                            ["MCP Configuration", "/docs/agents/reference/mcp-configuration"],
+                            ["Legacy Local Hooks Reference", "/docs/agents/reference/hooks-reference"]
+                        ]
+                    }],
+
+                    ["", "", {
+                        "name": "Troubleshooting and Diagnostics",
                         "area": "agents/agent-troubleshooting",
                         "topics": [
                             ["Troubleshooting", "/docs/agents/agent-troubleshooting/troubleshooting"],
+                            ["Get Back on Track", "/docs/agents/guides/get-agent-back-on-track", { "secondary": true }],
                             ["Debug Chat Interactions", "/docs/agents/agent-troubleshooting/chat-debug-view"],
                             ["Diagnose Prompt Caching", "/docs/agents/agent-troubleshooting/cache-explorer"],
+                            ["OpenTelemetry Monitoring", "/docs/agents/guides/monitoring-agents"],
                             ["FAQ", "/docs/agents/agent-troubleshooting/faq"]
                         ]
                     }]
@@ -316,6 +358,7 @@
       ["Branches, Stashes & Worktrees", "/docs/sourcecontrol/branches-worktrees"],
       ["Merge Conflicts", "/docs/sourcecontrol/merge-conflicts"],
       ["Collaborate on GitHub", "/docs/sourcecontrol/github"],
+      ["Review a Pull Request with AI", "/docs/agents/guides/review-pull-request", { "secondary": true }],
       ["Troubleshooting", "/docs/sourcecontrol/troubleshooting"],
       ["FAQ", "/docs/sourcecontrol/faq"]
     ]
@@ -350,6 +393,7 @@
         "area": "debugging/guides",
         "topics": [
           ["Fix an API Bug", "/docs/agents/guides/fix-a-bug-with-agents", { "secondary": true }],
+          ["Debug a Runtime Failure", "/docs/agents/guides/debug-runtime-failure", { "secondary": true }],
           ["Add Tests", "/docs/agents/guides/test-code-with-ai", { "secondary": true }],
           ["Test-Driven Development", "/docs/agents/guides/test-driven-development-guide", { "secondary": true }],
           ["Test Web Apps", "/docs/agents/guides/browser-agent-testing-guide", { "secondary": true }]

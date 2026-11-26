@@ -13,6 +13,8 @@ The walkthrough uses the {% data variables.product.prodname_copilot_short %} har
 
 ## Prerequisites
 
+**Project:** Your repository. **Harness:** {% data variables.product.prodname_copilot_short %}. **Interface:** {% data variables.copilot.chat_view %}.
+
 * [Set up {% data variables.product.prodname_copilot %}](/docs/setup/copilot.md).
 * Open an existing project in {% data variables.product.prodname_vscode_shortname %}.
 * Install the project's dependencies and any runtime needed to run its tests.

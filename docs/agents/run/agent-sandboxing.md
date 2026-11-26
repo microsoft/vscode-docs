@@ -121,7 +121,7 @@ Administrators should use [{% data variables.product.prodname_copilot_short %} m
 
 ### Use sandboxing in Dev Containers
 
-When sandboxing is on for a new [Dev Container session](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container), {% data variables.product.prodname_vscode_shortname %} adds Docker options that let the sandbox run inside the container. A default container doesn't have all of these capabilities. Recreate an existing container with sandboxing on if it was started without them.
+When sandboxing is on for a new [Dev Container session](/docs/agents/run/dev-containers.md), {% data variables.product.prodname_vscode_shortname %} adds Docker options that let the sandbox run inside the container. A default container doesn't have all of these capabilities. Recreate an existing container with sandboxing on if it was started without them.
 
 > [!CAUTION]
 > These Docker options relax the container's isolation from the host. Commands that the agent runs still run inside the sandbox, but other processes in the container don't gain that protection automatically.

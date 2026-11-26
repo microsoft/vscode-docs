@@ -81,7 +81,7 @@ Switching agents doesn't change the harness. You can also select [custom agents]
 
 <a name="choose-code-isolation"></a>
 
-Your harness choice is separate from where the session changes code. For supported sessions in either interface, [choose between a folder and a worktree](/docs/agents/run/worktrees.md#choose-folder-or-worktree-isolation). In the {% data variables.copilot.agents_window %}, you can also [run a session in a Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container).
+Your harness choice is separate from where the session changes code. For supported sessions in either interface, [choose between a folder and a worktree](/docs/agents/run/worktrees.md#choose-folder-or-worktree-isolation). In the {% data variables.copilot.agents_window %}, you can also [run a session in a Dev Container](/docs/agents/run/dev-containers.md).
 
 ### Identify your current harness
 
@@ -106,7 +106,7 @@ If you're starting with an existing account or key:
 * **{% data variables.product.prodname_copilot %} access**: Start with the [{% data variables.product.prodname_copilot_short %} harness](#copilot). The [{% data variables.product.prodname_anthropic_claude %}](#claude) and [{% data variables.product.prodname_openai_codex %}](#codex) integrations also offer Copilot-routed models, subject to their requirements.
 * **{% data variables.product.prodname_anthropic_claude %} credentials**: Follow the [authentication options](#claude).
 * **ChatGPT account**: Follow the [Codex setup](#codex) for your chosen integration.
-* **Another model API key or local model**: [Configure a model provider](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) for Local sessions or supported Experimental Copilot harness workflows.
+* **Another model API key or local model**: [Configure a model provider](/docs/agent-customization/model-providers.md#bring-your-own-language-model-key) for Local sessions or supported Experimental Copilot harness workflows.
 
 For access through a provider's own credentials, that provider's usage limits, billing, and data-handling terms apply. Organization policies can restrict the available routes, even when you have separate credentials.
 
@@ -117,7 +117,7 @@ For access through a provider's own credentials, that provider's usage limits, b
 
 To use models through {% data variables.product.prodname_copilot %}, follow the [{% data variables.product.prodname_copilot_short %} setup guide](/docs/setup/copilot.md). Copilot harness sessions use the same GitHub authentication context as chat in {% data variables.product.prodname_vscode_shortname %}, including your GitHub Enterprise account when configured.
 
-To use supported models through your own credentials, follow the [Experimental Agent Host BYOK setup](/docs/agent-customization/language-models.md#bring-your-own-language-model-key). This is separate from configuring provider-native authentication for the {% data variables.product.prodname_anthropic_claude %} or {% data variables.product.prodname_openai_codex %} harness.
+To use supported models through your own credentials, follow the [Experimental Agent Host BYOK setup](/docs/agent-customization/model-providers.md#bring-your-own-language-model-key). This is separate from configuring provider-native authentication for the {% data variables.product.prodname_anthropic_claude %} or {% data variables.product.prodname_openai_codex %} harness.
 
 For managed user accounts on GHE.com, complete the setup in [Using GitHub Copilot with an account on GHE.com](https://docs.github.com/en/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom).
 
@@ -189,7 +189,7 @@ See [Codex approval presets](/docs/agents/run/approvals.md#codex-approval-preset
 
 The Local harness will be removed in February 2027. Use the Copilot harness for new workflows and [move existing workflows to Copilot](/docs/agents/run/move-to-copilot.md) before then.
 
-Local harness sessions use the models configured in {% data variables.product.prodname_vscode_shortname %}. [Set up {% data variables.product.prodname_copilot %}](/docs/setup/copilot.md) to use Copilot-provided models, or [configure your own model credentials](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) for a supported model.
+Local harness sessions use the models configured in {% data variables.product.prodname_vscode_shortname %}. [Set up {% data variables.product.prodname_copilot %}](/docs/setup/copilot.md) to use Copilot-provided models, or [configure your own model credentials](/docs/agent-customization/model-providers.md#bring-your-own-language-model-key) for a supported model.
 
 Select **Local** `feature(local-harness)` in the {% data variables.copilot.chat_view %} and keep the editor window open while the agent works. Local harness sessions use different [customization settings](/docs/agent-customization/custom-instructions.md) from Copilot harness sessions.
 

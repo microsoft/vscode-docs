@@ -80,9 +80,9 @@ For a Git workspace, use the isolation dropdown above the input to choose where 
 
 ![Screenshot showing the isolation dropdown with Branch and New Worktree options above the input.](../images/agent-harnesses/agents-window-new-worktree-2.png)
 
-For the folder-versus-worktree comparison, Git requirements, and dependency setup, see [Work with agents in worktrees](/docs/agents/run/worktrees.md). To change the initial choice, [configure isolation defaults](#configure-isolation-defaults).
+For the folder-versus-worktree comparison, Git requirements, and dependency setup, see [Work with agents in worktrees](/docs/agents/run/worktrees.md). To change the initial choice, [configure isolation defaults](/docs/agents/run/agents-window-configuration.md#configure-isolation-defaults).
 
-Dev Container sessions work directly in the container workspace and don't support **New Worktree**. See [Run a session in a Dev Container](#run-a-session-in-a-dev-container).
+Dev Container sessions work directly in the container workspace and don't support **New Worktree**. See [Work with agents in Dev Containers](/docs/agents/run/dev-containers.md).
 
 > [!IMPORTANT]
 > Worktrees isolate working files, not the agent's access to your machine or external services. Review the [permission and sandboxing considerations](/docs/agents/run/worktrees.md#choose-folder-or-worktree-isolation) before starting a task.
@@ -107,61 +107,11 @@ The draft is removed from the list after the request is accepted. To discard one
 
 Turning off `setting(sessions.drafts.enabled)` hides saved drafts and stops saving new ones, but doesn't delete them. Turn it back on to access them again.
 
-## Send a request later
+<a name="send-a-request-later"></a>
+<a name="change-or-cancel-a-scheduled-request"></a>
+<a name="ask-the-agent-to-schedule-a-follow-up"></a>
 
-`feature(agents-window-send-later)`
-
-Use **Send Later** to start a new task or send a follow-up to an existing conversation at a future time. For tasks that repeat, [create an automation](/docs/agents/run/automations.md) instead.
-
-Enable `setting(sessions.sendLater.enabled)`, which is off by default, and keep `setting(chat.automations.enabled)` enabled. Send Later currently only works on the local machine and not for remote agent sessions.
-
-1. Compose a request in **New Session** or an existing conversation. For a new session, choose its workspace, agent, model, and other session options.
-
-1. Open the **Send** dropdown and select **Send Later**.
-
-1. Choose a preset, such as **In 5 Minutes** or **Tomorrow Morning** (9 AM the next day). Each preset shows its exact local send time.
-
-    For a custom time, select **Choose Date and Time**, choose a future date and time, and select **Schedule**. The time dropdown uses 15-minute steps. Select **Exact Time** to choose a precise minute. Review the date, time, and time zone before scheduling.
-
-<!-- TODO: Capture the Send Later calendar and an existing conversation's scheduled-message area. -->
-
-A scheduled new-session request appears under **Drafts**. Use **Preview** to check its prompt, time, workspace, and model. A scheduled follow-up appears inside its original conversation, including a nested chat, rather than as a new sidebar draft.
-
-At the scheduled time, a follow-up uses that conversation's current configuration. If the conversation is busy, the request joins its queue without interrupting or steering the active turn.
-
-> [!NOTE]
-> Keep your computer awake and the Agent Host running for on-time delivery. Scheduling doesn't wake a sleeping computer or start a stopped host. Pending requests survive window reloads, and a missed send catches up once when the host becomes available.
-
-### Change or cancel a scheduled request
-
-To update or manage a scheduled request, right-click a scheduled chat request and select an action.
-
-| Action | Effect |
-|---|---|
-| **Reschedule** | Change the send time without changing the destination. |
-| **Send Now** | Send immediately, or queue the request if its conversation is busy. It doesn't send again at the original time. |
-| **Edit** | For an existing-chat request, change its text and send time, then select **Save**. |
-| **Cancel Schedule** | Cancel delivery and retain the request content. For a new session, cancellation keeps an ordinary draft if saved drafts are enabled, or restores the content to the composer otherwise. |
-| **Edit as Draft** | For a new-session request, cancel the schedule and reopen its content in the composer. |
-
-Recovery doesn't overwrite other unsent input. If cancellation reports an uncertain outcome, check **Automations** before sending the request again.
-
-Turning off `setting(sessions.sendLater.enabled)` doesn't cancel accepted schedules. Manage those requests in **Automations**.
-
-> [!TIP]
-> To view the list of scheduled requests, select the **Scheduled Only** filter option in the sessions list.
-
-### Ask the agent to schedule a follow-up
-
-You can ask the agent to schedule a text-only request in the same conversation:
-
-```prompt
-In 30 minutes, remind me in this chat to review the test results.
-```
-
-An explicit one-time request doesn't require a separate `Create it` message. Review the scheduling tool approval if prompted. Scheduling doesn't approve future tool actions.
-
-The request targets the exact calling conversation unless you explicitly ask for a new session. You can also ask the agent to reschedule, cancel, or send a pending request now. Use the chat UI for requests with attachments.
+To schedule a one-time request for a later time instead of sending it immediately, see [Send a request later](/docs/agents/run/automations.md#send-a-request-later) `feature(agents-window-send-later)`.
 
 ## Work with multiple sessions
 
@@ -169,7 +119,10 @@ You can run multiple agent sessions in parallel, either in the same project or a
 
 Use separate sessions for independent tasks you want to track and review separately. For related conversations you want to keep together, [work with multiple chats in a session](#work-with-multiple-chats-in-a-session).
 
-To add another task, select **New Session**, choose its project, and submit a prompt. You don't need to wait for the other sessions to finish. Switch between them in the sessions list to check progress, answer questions, or give feedback. Sessions can run in parallel without being displayed side by side. [Arrange sessions in a grid](#arrange-sessions-in-a-grid) when you want to keep several conversations visible.
+<a name="arrange-sessions-in-a-grid"></a>
+<a name="open-chats-in-separate-windows"></a>
+
+To add another task, select **New Session**, choose its project, and submit a prompt. You don't need to wait for the other sessions to finish. Switch between them in the sessions list to check progress, answer questions, or give feedback. Sessions can run in parallel without being displayed side by side. To keep several conversations visible together or move a chat to another display, [arrange sessions in a grid](/docs/agents/run/agents-window-configuration.md#arrange-sessions-in-a-grid) or [open chats in separate windows](/docs/agents/run/agents-window-configuration.md#open-chats-in-separate-windows).
 
 For parallel changes in the same repository, [use separate worktrees](#choose-where-an-agent-makes-changes) to keep edits apart. Separate sessions or chats don't automatically isolate files: those using the same folder can edit the same files. Choose tasks that can proceed independently. If one depends on another's result, complete that prerequisite first. For a walkthrough, follow [Delegate two tasks without mixing their changes](/docs/agents/guides/delegate-two-tasks.md).
 
@@ -181,39 +134,13 @@ Use the sessions list to check status and change statistics. Select a session to
 
 Confirm the [active session](#understand-the-active-session) before sending feedback or running commands. For steering and stopping requests, see [Use chat](/docs/chat/chat-overview.md). To group, pin, or prioritize sessions that need attention, see [Organize and triage sessions](/docs/agents/run/sessions/organize-sessions.md).
 
-### Arrange sessions in a grid
-
-To keep two sessions visible, right-click a session in the list and select **Open to the Side**. To start another session without replacing the current pane, hold `kbstyle(Alt)` (`kbstyle(Option)` on macOS) and select **New Session**.
-
-Drag a session to the top, bottom, left, or right edge of another session to create a horizontal or vertical split. A placement preview shows where the session appears.
-
-<video src="../images/agents-window/sessions-grid.mp4" title="Video showing agent sessions arranged in a grid in the {% data variables.copilot.agents_window %}." autoplay loop controls muted></video>
-
-Only one pane is active at a time. Selecting another session in the list replaces an unpinned active view.
-
-When multiple panes are visible, use the session header's **Session Layout** menu to arrange or resize them. **Maximize** expands one pane, and **Restore Size** returns to the grid. These actions are separate from **Session Layout**.
-
-### Open chats in separate windows
-
-`feature(agents-window-chat-windows)`
-
-To keep a conversation and its files on another display, enable `setting(sessions.chatWindows.enabled)`, then right-click a session or chat in the sessions list and select **Open in** > **New Window**. The setting is on by default in Insiders.
-
-You can also drag a chat tab or session title out of the window to open it separately, or into another chat window to move it there.
-
-Use **Configure Layout** in the new window's title bar to show chat and editors side by side or stacked. In the stacked layout, run **Agents: Toggle Chat Conversation** from the Command Palette to hide the conversation and keep only the input visible.
-
-To rearrange content, hover over the top edge of a chat, editor, or terminal area to reveal its layout handle. Drag the handle to an edge of another area, using the placement preview to choose its new position.
-
-To move the window's chats and editors back to the main window, select **More Actions** (**...**) > **Move to Main Window** in the chat header.
-
 ## Review and finish an agent session
 
 When an agent finishes a task, use the {% data variables.copilot.agents_window %} to review its changes, request revisions, and validate the result. Once the work meets your requirements, commit the changes and integrate them into your project, either locally or through a pull request.
 
 Select the session you want to review to make its files, changes, and tools active.
 
-For more in-depth coding or debugging, select **Open in Editor** to [continue a supported project session in the main editor window](#continue-in-another-interface), with the editor, debugger, and other development tools alongside the conversation.
+For more in-depth coding or debugging, select **Open in Editor** to [continue a supported project session in the main editor window](#continue-automate-and-configure), with the editor, debugger, and other development tools alongside the conversation.
 
 ### Inspect workspace files and changes
 
@@ -257,6 +184,10 @@ After combining changes from multiple sessions, rerun the relevant checks on the
 
 To reclaim disk space from inactive or leftover worktrees, run **Chat: Open Worktree Cleanup**. The [shared cleanup procedure](/docs/agents/run/worktrees.md#clean-up-session-worktrees) covers both windows, local and remote worktrees, and what is preserved.
 
+## Work with pull requests
+
+Create pull requests directly from finished sessions, start sessions from existing pull requests, or monitor blockers with {% data variables.copilot.agent_merge %}.
+
 ### Create a pull request
 
 If the session doesn't already have a pull request:
@@ -272,6 +203,54 @@ If the session doesn't already have a pull request:
 1. Select **Create PR**. Any uncommitted changes are committed and the branch is pushed before the pull request is created.
 
 To have the agent create the pull request instead, select **Pull Request Actions** > **Send Create PR Message** in the form. This asks the agent to generate its own title and description, rather than use the form's text, with your selected draft status and merge options.
+
+### Start a session from a pull request
+
+For a local {% data variables.product.prodname_github %}-backed workspace, start from an existing pull request to ask questions or continue its changes. The session includes the pull request details, changes, and comments, and uses an isolated worktree that tracks its branch.
+
+1. Group the sessions list by workspace.
+1. Hover over the workspace, expand the **+** (New Session) action, and select **New Session from Pull Request**.
+
+    ![Screenshot showing the New Session from Pull Request action in the workspace menu.](../images/agents-window/agents-window-new-session-from-pull-request.png)
+
+1. Select a pull request. The session opens with its title and shows its changes in **Changes**.
+1. Ask questions or request revisions. [Review, validate, and commit](#review-and-finish-an-agent-session) any new changes, then select **Sync Changes** in the title bar to update the existing pull request branch.
+
+> [!NOTE]
+> Pull requests from forks aren't supported and don't appear in the picker.
+
+### Finish a pull request with {% data variables.copilot.agent_merge %}
+
+`feature(agent-merge)`
+
+{% data variables.copilot.agent_merge_caps %} monitors a session's pull request and asks the agent to address blockers. It can address reviews, fix failed required checks, resolve conflicts or update a branch, and optionally merge the result. It requires `setting(chat.agentMerge.enabled)` and a supported session.
+
+> [!NOTE]
+> {% data variables.copilot.agent_merge_caps %} is unavailable while `setting(chat.artifactIntegrations.enabled)` is enabled (on by default in Insiders), regardless of `setting(chat.agentMerge.enabled)`. Saved choices are preserved if you switch back.
+
+> [!CAUTION]
+> {% data variables.copilot.agent_merge_caps %} starts agent turns, changes and syncs the pull request branch, and consumes model requests. Enabling it changes the session to [Autopilot](/docs/agents/run/approvals.md#autopilot-mode) with [Assisted permissions](/docs/agents/run/approvals.md#permission-levels). Review its options before enabling automatic merging.
+
+1. Enable `setting(chat.agentMerge.enabled)` and open a session associated with a pull request.
+
+1. Select **{% data variables.copilot.agent_merge_caps %}** in the title bar, and then select **Enable {% data variables.copilot.agent_merge %}**.
+
+1. Review the options in its menu. You can also run **Configure {% data variables.copilot.agent_merge %} for Active Session** from the Command Palette.
+
+    * **Blockers**: select **Address Reviews**, **Fix CI Failures**, or **Resolve Conflicts and Behind Branches**.
+    * **Merge Pull Request**: choose **Off** to leave merging to you, **Only if {% data variables.copilot.agent_merge_caps %} Made No Changes** to merge only while {% data variables.copilot.agent_merge %} has not changed the branch, or **On** to merge after the selected work and required checks and approvals.
+
+These choices are also available when you select **{% data variables.copilot.agent_merge_caps %}** in the [Create PR form](#create-a-pull-request). For all options, see the [{% data variables.copilot.agent_merge %} settings](/docs/agents/reference/ai-settings.md#agent-sessions).
+
+<!-- TODO: Add a screenshot of the {% data variables.copilot.agent_merge_caps %} menu in the Agents window title bar. -->
+
+For a draft pull request, use **Mark Ready** in **Changes** when it is ready for review. While blockers are being addressed, this action is in the action menu.
+
+{% data variables.copilot.agent_merge_caps %} waits for required checks and rechecks readiness before merging or adding the pull request to the merge queue. It turns off if the session starts tracking another branch or pull request.
+
+To review the changes from the most recent {% data variables.copilot.agent_merge %} repair cycle, open the **Changes** view and select **{% data variables.copilot.agent_merge_caps %}** from the changeset dropdown. This changeset compares the latest completed {% data variables.copilot.agent_merge %} repair turn with the preceding completed user turn. It remains empty after your latest message until {% data variables.copilot.agent_merge %} completes another repair turn.
+
+To stop monitoring the pull request, select **{% data variables.copilot.agent_merge_caps %}** in the title bar, and then select **Disable {% data variables.copilot.agent_merge %}**.
 
 ### Remove a pull request from a session
 
@@ -308,110 +287,18 @@ If a quick chat becomes project-specific, continue it in a local workspace witho
 
 After setup, the chat moves to the workspace's group and the agent continues your request. For chats that already have a workspace, see [Move a chat to another folder or worktree](/docs/agents/run/sessions/manage-sessions.md#move-a-chat-to-another-folder-or-worktree).
 
-### Open without GitHub sign-in (Experimental)
-
-On desktop, you can run sessions using supported provider credentials instead of a {% data variables.product.prodname_github %} sign-in:
-
-* Follow the [{% data variables.product.prodname_anthropic_claude_short %} BYOK setup](/docs/agents/run/agent-harnesses.md#claude) for a supported API key or provider configuration.
-* Follow the [{% data variables.product.prodname_openai_codex_short %} setup](/docs/agents/run/agent-harnesses.md#codex) to use a ChatGPT sign-in.
-* Configure a [supported BYOK model](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) for the {% data variables.copilot.agents_window %}.
-
-> [!NOTE]
-> {% data variables.product.prodname_anthropic_claude_short %} and {% data variables.product.prodname_openai_codex_short %} harnesses are disabled when [enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), unless your administrator explicitly permits them. Separate credentials don't override that restriction. Existing sessions aren't deleted. Contact the IT team that deployed the settings to discuss access.
-
-If no provider is configured, select **Add Models** or **Sign In** in the window. Models and operations that require {% data variables.product.prodname_github %} authentication prompt you when needed. The browser-based {% data variables.copilot.agents_window %} requires {% data variables.product.prodname_github %} sign-in.
+<a name="open-without-github-sign-in-experimental"></a>
+<a name="run-a-session-in-a-dev-container"></a>
+<a name="use-your-projects-dev-container"></a>
+<a name="create-a-container-without-a-project-experimental"></a>
+<a name="ask-the-agent-to-continue-in-a-new-container-experimental"></a>
 
 ### Run in another environment
 
-For a {% data variables.product.prodname_github %} repository, select **Work in Repository** in the workspace picker. To work on another machine, select **SSH** or **Dev Tunnels** from the environment picker and follow the [remote session setup](/docs/agents/run/remote-agent-sessions.md).
-
-For managed compute that runs independently of your local machine, [start a cloud session](/docs/agents/run/cloud-sandbox-sessions.md#start-a-cloud-session) `feature(cloud-sessions)`. To return to its work later, [reopen the existing session](/docs/agents/run/cloud-sandbox-sessions.md#continue-an-existing-cloud-session).
-
-You can also [use the browser-based {% data variables.copilot.agents_window %}](/docs/agents/run/remote-agent-sessions.md#use-the-agents-window-in-the-browser) to access remote sessions from another device.
-
-### Run a session in a Dev Container
-
-Use a Dev Container to run the agent with tools and dependencies inside a container rather than directly on its host. Containers can run on this computer or on a configured SSH, Tunnel, or WSL host. These workflows aren't supported in the VS Code for the Web.
-
-Choose the starting point that fits your task:
-
-* [Use your project's Dev Container](#use-your-projects-dev-container) to work with its existing files and configuration.
-* [Create a container without a project](#create-a-container-without-a-project-experimental) for a fresh Ubuntu workspace.
-* [Ask the agent to continue in a new container](#ask-the-agent-to-continue-in-a-new-container-experimental) to hand off a task to a new session.
-
-#### Use your project's Dev Container
-
-Before starting:
-
-* [Install and run Docker](/docs/devcontainers/containers.md#installation) on the host that contains the folder, with its CLI on `PATH`.
-* Add a [Dev Container configuration](/docs/devcontainers/create-dev-container.md) at `.devcontainer/devcontainer.json` or `.devcontainer.json`.
-* For remote folders, [configure the connection](/docs/agents/run/remote-agent-sessions.md) to a host that supports Dev Container sessions.
-
-1. Select **New Session**.
-1. In the workspace picker, expand the eligible folder's menu and select **Use Dev Container**. The workspace label gains the **- Dev Container** suffix.
-1. Choose an available harness and submit your prompt.
-
-To switch back before starting, select **Use This Computer** or **Use Remote Host** from the folder menu. Dev Container sessions edit the container workspace directly and don't support **New Worktree**. For command restrictions, see [sandboxing in Dev Containers](/docs/agents/run/agent-sandboxing.md#use-sandboxing-in-dev-containers).
-
-If startup fails, check the workspace-specific **Dev Container** Output channel. The picker option isn't available for unsupported hosts or folders nested inside another remote environment. Dev Container support is on by default through `setting(chat.agentHost.devContainer.enabled)`.
-
-Idle containers stop after five minutes when no session is working, waiting for input, or holding an unsent draft. Continuing a session restarts the container without losing the conversation. Change the timeout with `setting(chat.agentHost.devContainer.idleTimeout)` (`300` seconds by default, `0` to turn off automatic shutdown). Marking sessions as done or deleting them can still remove the container.
-
-Restarting an existing container is different from rebuilding or replacing it. To keep container-stored chat sessions across replacements, enable `setting(chat.agentHost.devContainer.stateVolume.enabled)` before creating the container. See [Preserve chat sessions across rebuilds](/docs/devcontainers/create-dev-container.md#preserve-chat-sessions-across-rebuilds) `feature(dev-container-state-volume)`, especially the warning about the first rebuild of an existing container.
-
-#### Create a container without a project (Experimental)
-
-Create a standalone Ubuntu container when you need a fresh workspace without an existing project folder or `devcontainer.json`. Its files stay in a Docker volume on the machine that runs the container.
-
-Before starting, [install and run Docker](/docs/devcontainers/containers.md#installation) on the intended host, with its CLI on `PATH`. For a remote host, [connect to it](/docs/agents/run/remote-agent-sessions.md) first. For WSL, Docker must be available inside the distribution.
-
-Enable `setting(chat.agentHost.devContainer.environments.enabled)`, which is off by default. Keep `setting(chat.agentHost.devContainer.enabled)` and `setting(chat.remoteAgentHostsEnabled)` enabled.
-
-1. Run **Agents: Manage Remote Environments** from the Command Palette (`kb(workbench.action.showCommands)`).
-1. In the search box's **Filter** menu, choose **Group By > Type** to show the **Dev Containers** group.
-1. Select **Create Dev Container** on the **Dev Containers** group. If prompted, choose **This Computer** or a connected host.
-
-    To create the container on a specific connected host, you can instead use the create action on that host's row.
-
-1. After the container connects, select **New Session** and choose it in the **Environment** picker.
-1. Choose an available harness and submit your prompt.
-
-Standalone containers persist independently of their sessions. The idle timeout and session cleanup described for project-configured containers don't apply. Disconnecting or marking a session as done doesn't delete the container's files.
-
-> [!CAUTION]
-> To remove a standalone container, use **Delete** on its row in **Remote Environments**. This deletes the container and its Docker volumes, including workspace files. Save any work you need elsewhere first. Sessions that ran in the deleted container can no longer continue.
-
-To edit or debug the workspace, see [open a standalone container in the editor](/docs/agents/run/sessions/manage-sessions.md#continue-between-the-chat-view-and-agents-window) for extension and WSL requirements.
-
-#### Ask the agent to continue in a new container (Experimental)
-
-To let an agent create a standalone container and continue work there, [enable standalone containers](#create-a-container-without-a-project-experimental) and turn on `setting(chat.agentHost.devContainer.handoff.enabled)`, which is off by default. This also provides the remote session tools. You don't need to separately enable `setting(chat.remoteSessions.tools.enabled)`.
-
-In an [Agent Host-backed session](/docs/agents/concepts/agent-host.md), describe the task and where the container should run. For example:
-
-```prompt
-Create a Dev Container on this computer for a Python command-line tool,
-then continue implementing the tool in a new session there.
-```
-
-Review the container host and the new-session approval before proceeding. By default, the agent creates the container on the current session's host when it supports containers, otherwise on this computer. Name a connected host in your request when its location matters.
-
-The agent starts a new session in the container and links to it from the original conversation. It passes a task summary, not the full conversation history, and doesn't copy the original project's files into the new workspace. The container appears in **Remote Environments** and follows the same persistence and deletion rules as a manually created standalone container.
-
-### Start a session from a pull request
-
-For a local {% data variables.product.prodname_github %}-backed workspace, start from an existing pull request to ask questions or continue its changes. The session includes the pull request details, changes, and comments, and uses an isolated worktree that tracks its branch.
-
-1. Group the sessions list by workspace.
-1. Hover over the workspace, expand the **+** (New Session) action, and select **New Session from Pull Request**.
-
-    ![Screenshot showing the New Session from Pull Request action in the workspace menu.](../images/agents-window/agents-window-new-session-from-pull-request.png)
-
-1. Select a pull request. The session opens with its title and shows its changes in **Changes**.
-1. Ask questions or request revisions. [Review, validate, and commit](#review-and-finish-an-agent-session) any new changes, then select **Sync Changes** in the title bar to update the existing pull request branch.
-
-> [!NOTE]
-> Pull requests from forks aren't supported and don't appear in the picker.
+* **Dev Containers:** Run an agent inside a project's Dev Container or a standalone container on this computer or a connected host. See [Work with agents in Dev Containers](/docs/agents/run/dev-containers.md).
+* **Remote hosts and browser access:** Select **SSH** or **Dev Tunnels** from the environment picker, or connect from a browser. See [Run and manage remote agent sessions](/docs/agents/run/remote-agent-sessions.md).
+* **Cloud compute:** [Start a cloud session](/docs/agents/run/cloud-sandbox-sessions.md#start-a-cloud-session) `feature(cloud-sessions)` to run independently of your local machine, or select **Work in Repository** for a {% data variables.product.prodname_github %} repository.
+* **Provider credentials without {% data variables.product.prodname_github %} sign-in:** Configure {% data variables.product.prodname_anthropic_claude_short %}, {% data variables.product.prodname_openai_codex_short %}, or BYOK credentials in [Manage AI providers and accounts](/docs/agents/run/agents-window-configuration.md#manage-ai-providers-and-accounts).
 
 ### Work with multiple chats in a session
 
@@ -423,61 +310,14 @@ For shared context, chat tabs, side chats, and moving conversations, see [Run mu
 
 Run the same prompt with multiple models or harnesses to compare responses or isolated code changes. See [Compare model results](/docs/agents/run/compare-models.md) for setup, judging, and synthesis options.
 
-## Continue in another interface
+<a name="continue-in-another-interface"></a>
 
-To edit or debug alongside a supported project conversation, select **Open in Editor** in the title bar. To return, select **Open in Agents**, then select the existing session. Check the [supported session types and continuation requirements](/docs/agents/run/sessions/manage-sessions.md#continue-between-the-chat-view-and-agents-window).
+## Continue, automate, and configure
 
-For continuity across apps and devices, use [{% data variables.copilot.github_environments %}](/docs/agents/run/remote-agent-sessions.md#github-environments) `feature(github-environments)`. For {% data variables.product.prodname_vscode_shortname %}-specific remote access, use [SSH or dev tunnels](/docs/agents/run/remote-agent-sessions.md#choose-how-to-connect). Keep the host and its required application or service running.
-
-## Automate follow-up work
-
-### Finish a pull request with {% data variables.copilot.agent_merge %}
-
-`feature(agent-merge)`
-
-{% data variables.copilot.agent_merge_caps %} monitors a session's pull request and asks the agent to address blockers. It can address reviews, fix failed required checks, resolve conflicts or update a branch, and optionally merge the result. It requires `setting(chat.agentMerge.enabled)` and a supported session.
-
-> [!CAUTION]
-> {% data variables.copilot.agent_merge_caps %} starts agent turns, changes and syncs the pull request branch, and consumes model requests. Enabling it changes the session to [Autopilot](/docs/agents/run/approvals.md#autopilot-mode) with [Assisted permissions](/docs/agents/run/approvals.md#permission-levels). Review its options before enabling automatic merging.
-
-1. Enable `setting(chat.agentMerge.enabled)` and open a session associated with a pull request.
-
-1. Select **{% data variables.copilot.agent_merge_caps %}** in the title bar, and then select **Enable {% data variables.copilot.agent_merge %}**.
-
-1. Review the options in its menu. You can also run **Configure {% data variables.copilot.agent_merge %} for Active Session** from the Command Palette.
-
-    * **Blockers**: select **Address Reviews**, **Fix CI Failures**, or **Resolve Conflicts and Behind Branches**.
-    * **Merge Pull Request**: choose **Off** to leave merging to you, **If Unchanged** to merge only if the agent makes no changes, or **When Ready** to merge after the selected work and required checks and approvals.
-
-These choices are also available when you select **{% data variables.copilot.agent_merge_caps %}** in the [Create PR form](#create-a-pull-request). For all options, see the [{% data variables.copilot.agent_merge %} settings](/docs/agents/reference/ai-settings.md#agent-sessions).
-
-<!-- TODO: Add a screenshot of the {% data variables.copilot.agent_merge_caps %} menu in the Agents window title bar. -->
-
-For a draft pull request, use **Mark Ready** in **Changes** when it is ready for review. While blockers are being addressed, this action is in the action menu.
-
-{% data variables.copilot.agent_merge_caps %} waits for required checks and rechecks readiness before merging or adding the pull request to the merge queue. It turns off if the session starts tracking another branch or pull request.
-
-To review the changes from the most recent {% data variables.copilot.agent_merge %} repair cycle, open the **Changes** view and select **{% data variables.copilot.agent_merge_caps %} Changes** from the changeset dropdown. This changeset compares the latest completed {% data variables.copilot.agent_merge %} repair turn with the preceding completed user turn. It remains empty after your latest message until {% data variables.copilot.agent_merge %} completes another repair turn.
-
-To stop monitoring the pull request, select **{% data variables.copilot.agent_merge_caps %}** in the title bar, and then select **Disable {% data variables.copilot.agent_merge %}**.
-
-### Schedule recurring tasks
-
-Automations run saved agent tasks on a schedule or, for cloud automations `feature(cloud-automations)`, in response to supported repository events. To turn a completed task into an automation, enter `/automate` in its chat. To start from a new idea, select **Automations** in the sidebar, and then select **Create with Agent**. Follow the [chat-based creation workflow](/docs/agents/run/automations.md#create-an-automation-from-chat) to review the proposal, save it, and check a first run.
-
-## Configure the {% data variables.copilot.agents_window %}
-
-You can personalize chat, adjust the window layout, configure settings and extensions, and choose how Markdown files open. See [Configure the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window-configuration.md) for all window-specific options.
-
-For other interaction options, use [Voice Mode](/docs/configure/accessibility/voice.md#use-voice-mode) `feature(voice-mode)` or [canvases](/docs/agents/run/canvases.md) `feature(canvases)` where supported.
-
-By default, the **Chats** group remains visible even when empty. Set `setting(sessions.list.showEmptyDefaultGroups)` to `false` to hide empty default groups.
-
-### Configure isolation defaults
-
-The `setting(sessions.useWorktree)` setting controls the initial isolation choice for a workspace that hasn't started a session before. After you start a session, {% data variables.product.prodname_vscode_shortname %} remembers that workspace's isolation choice instead. The branch selection isn't remembered.
-
-For dependencies and ignored files, see [Prepare a worktree](/docs/agents/run/worktrees.md#prepare-a-worktree).
+* **Continue in another interface:** Select **Open in Editor** in the title bar to edit or debug alongside a supported project conversation, or select **Open in Agents** to return. For continuity across apps and devices, use [{% data variables.copilot.github_environments %}](/docs/agents/run/remote-agent-sessions.md#github-environments) `feature(github-environments)` or [SSH and dev tunnels](/docs/agents/run/remote-agent-sessions.md#choose-how-to-connect). See [continue between the Chat view and Agents window](/docs/agents/run/sessions/manage-sessions.md#continue-between-the-chat-view-and-agents-window) for requirements.
+* **Automate and schedule tasks:** Enter `/automate` in a chat or select **Automations** in the sidebar to set up recurring or event-triggered tasks. For one-time deferred requests, use [Send Later](/docs/agents/run/automations.md#send-a-request-later) `feature(agents-window-send-later)`. See [Create and manage agent automations](/docs/agents/run/automations.md).
+<a name="configure-isolation-defaults"></a>
+* **Configure the window:** Personalize chat, adjust grid or tab layouts, set isolation defaults, and manage extensions in [Configure the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window-configuration.md). For other interaction modes, see [Voice Mode](/docs/configure/accessibility/voice.md#use-voice-mode) `feature(voice-mode)` and [canvases](/docs/agents/run/canvases.md) `feature(canvases)`.
 
 ## Limitations
 

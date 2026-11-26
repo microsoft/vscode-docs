@@ -12,7 +12,7 @@ The machines have two roles:
 * **Host machine:** Runs the agent and contains the project, tools, and session.
 * **Client machine:** Runs the application you use to connect and interact with the session.
 
-`setting(sessions.keepAwakeWhileWorking)` can prevent idle sleep while an Agent Host chat is working. Configure it on the host machine, not the client. See the [AI settings reference](/docs/agents/reference/ai-settings.md#agent-host) for its modes and platform limitations.
+`setting(sessions.keepAwakeWhileWorking)` can prevent idle sleep while an [Agent Host](/docs/agents/concepts/agent-host.md) chat is working (the Agent Host is the dedicated process that runs agent harnesses and manages sessions). Configure it on the host machine, not the client. See the [AI settings reference](/docs/agents/reference/ai-settings.md#agent-host) for its modes and platform limitations.
 
 Keep the host machine awake, online, and its Agent Host or owning application running. Connecting doesn't transfer the session or copy the project to the client machine.
 
@@ -26,13 +26,13 @@ Choose the workflow that matches what you want to do:
 
 | Your task | Start here | What you need |
 |---------------|------------|---------------|
-| Continue an existing agent session from another machine. | Use [{% data variables.copilot.github_environments %}](#github-environments) `feature(github-environments)` from the {% data variables.copilot.agents_window %} on the client machine. | Register the host machine as a {% data variables.copilot.github_environment %} and sign in with the same {% data variables.product.prodname_github %} account on both machines. |
+| Continue an existing agent session from another machine. | Use [{% data variables.copilot.github_environments %}](#github-environments) `feature(github-environments)` from the {% data variables.copilot.agents_window %} on the client machine. | Register the host machine as a {% data variables.copilot.github_environment %} (a {% data variables.product.prodname_github %} feature for cross-client agent access, separate from GitHub Actions deployment environments) and sign in with the same {% data variables.product.prodname_github %} account on both machines. |
 | Run agent tasks on an SSH-accessible development server. | [Start a remote session](#start-a-remote-session) in the {% data variables.copilot.agents_window %}, choosing **SSH** and a folder on that server. | SSH access to the server. |
 | Connect through an existing dev tunnel or use a browser. | [Start a remote session](#start-a-remote-session) with **Dev Tunnels** in the installed app, or follow the [browser workflow](#use-the-agents-window-in-the-browser). | For a dev tunnel, an authenticated tunnel running on the host. For browser access, either a registered {% data variables.copilot.github_environment %} or a dev tunnel. The browser doesn't connect directly over SSH. |
 | Edit and debug a remote project while using chat. | Open the project through [Remote Development](#work-in-a-remote-workspace), then use the {% data variables.copilot.chat_view %}. | A remote workspace open in the editor. This is different from opening an existing agent conversation. |
 | Run agent tasks without keeping a development machine online. | Start a [cloud session](/docs/agents/run/cloud-sandbox-sessions.md) `feature(cloud-sessions)`. | Managed cloud compute. Starting a cloud session doesn't move an existing session from your own host into the cloud. |
 
-Opening a remote project in the editor is a separate workflow, described under [Use remote sessions in the {% data variables.copilot.chat_view %}](#use-remote-sessions-in-the-chat-view).
+Opening a remote project in the editor is a separate workflow, described under [Use remote sessions in the {% data variables.copilot.chat_view %}](#use-remote-sessions-in-the-chat-view). To sync or search past session transcripts across devices instead of connecting to a live host, see [Save, sync, and query session history](/docs/agents/run/sessions/session-history.md#enable-or-disable-session-sync-experimental).
 
 ## Make a host available for remote access
 
@@ -222,7 +222,7 @@ In the installed {% data variables.copilot.agents_window %}, discovering a machi
 
 Use the Remote Environments editor in the installed {% data variables.copilot.agents_window %} to find and manage your remote machines in one place. This editor is optional; you don't need to open it to follow the connection steps above.
 
-You can also [create and manage standalone Dev Containers](/docs/agents/run/agents-window.md#create-a-container-without-a-project-experimental) here, on this computer or a connected host. Unlike a connection to an existing machine, each standalone container provides a new workspace with its files in a Docker volume.
+You can also [create and manage standalone Dev Containers](/docs/agents/run/dev-containers.md#create-a-container-without-a-project-experimental) here, on this computer or a connected host. Unlike a connection to an existing machine, each standalone container provides a new workspace with its files in a Docker volume.
 
 The **This Computer** section manages how this computer is shared. It requires `setting(sessions.chat.experimental.remoteEnvironmentsThisComputer)`, which is on by default. With the default sharing controls, choose **{% data variables.copilot.github_environments_caps %}** (when available), **Dev Tunnels**, or **Off**, or select **Rename Sharing Name** to change the name other clients see. Alternatively, [use the Experimental sharing setup form](#share-this-computer-with-the-setup-form-experimental) to choose a method before applying it. Local sessions continue to run on this computer whether sharing is on or off.
 
@@ -350,10 +350,10 @@ Select a folder on that host instead when the task needs an existing project.
 
 Run agents inside a container on a connected SSH, Tunnel, or WSL host to use its tools and dependencies without installing them directly on that host. This requires the installed {% data variables.copilot.agents_window %}, a host that supports Dev Container sessions, and Docker installed and running on that host.
 
-* For an existing project, select its remote folder and follow [Use your project's Dev Container](/docs/agents/run/agents-window.md#use-your-projects-dev-container).
-* For a fresh workspace without a project configuration, follow [Create a container without a project](/docs/agents/run/agents-window.md#create-a-container-without-a-project-experimental).
+* For an existing project, select its remote folder and follow [Use your project's Dev Container](/docs/agents/run/dev-containers.md#use-your-projects-dev-container).
+* For a fresh workspace without a project configuration, follow [Create a container without a project](/docs/agents/run/dev-containers.md#create-a-container-without-a-project-experimental).
 
-The main [Dev Container procedure](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container) covers setup, troubleshooting, and the different cleanup behavior of these two choices.
+The main [Dev Container procedure](/docs/agents/run/dev-containers.md) covers setup, troubleshooting, and the different cleanup behavior of these two choices.
 
 ### Preview a remote web app
 

@@ -23,6 +23,8 @@ If you already have a bug to investigate, [apply the workflow to your own projec
 
 ## Prerequisites
 
+**Project:** Sample Node.js API (or your own repository). **Harness:** {% data variables.product.prodname_copilot_short %}. **Interface:** {% data variables.copilot.chat_view %}.
+
 To complete this tutorial, you need:
 
 * [Download and install {% data variables.product.prodname_vscode %}](/download).

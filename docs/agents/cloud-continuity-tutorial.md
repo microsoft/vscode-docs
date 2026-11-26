@@ -84,6 +84,8 @@ You can use the same computer or another computer with {% data variables.copilot
 
 1. Type `/sessions` to view the list of sessions. Use `kbstyle(right)` to select the **Remote** tab.
 
+    {% data variables.copilot.copilot_cli_short %} lists both remote-machine sessions and cloud-hosted sessions under the **Remote** tab.
+
 1. Choose the cloud session you started in {% data variables.product.prodname_vscode_shortname %}. Match its title and repository to the task from the previous section.
 
     ![Screenshot of the Copilot CLI connecting to the cloud session.](images/cloud-continuity-tutorial/connect-cloud-session.png)

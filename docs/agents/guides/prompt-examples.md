@@ -203,7 +203,7 @@ By building on earlier responses, the AI maintains context from the previous ste
 
 ## Schedule follow-up work
 
-These examples use the {% data variables.copilot.agents_window %}. For a one-time reminder in the same conversation, enable [Send Later](/docs/agents/run/agents-window.md#send-a-request-later) `feature(agents-window-send-later)` with a supported local desktop Agent Host, then ask:
+These examples use the {% data variables.copilot.agents_window %}. For a one-time reminder in the same conversation, enable [Send Later](/docs/agents/run/automations.md#send-a-request-later) `feature(agents-window-send-later)` with a supported local desktop Agent Host, then ask:
 
 ```prompt
 In 30 minutes, remind me in this chat to review the test results.

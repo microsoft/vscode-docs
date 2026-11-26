@@ -61,7 +61,7 @@ test('keeps concepts alongside workflow groups and nests only reference and trou
   assert.deepEqual(groups.map(group => group.name), [
     'Get Started',
     'Tutorials and Guides',
-    'Work with AI',
+    'Use Chat and Agents',
     'Choose Models and Agents',
     'Customize and Extend',
     'Work Across Apps and Machines',
@@ -69,5 +69,9 @@ test('keeps concepts alongside workflow groups and nests only reference and trou
     'Reference and Help'
   ]);
   const help = groups.find(group => group.name === 'Reference and Help');
-  assert.deepEqual(help.topics.map(topic => topic[2].name), ['Reference', 'Troubleshooting']);
+  assert.deepEqual(help.topics.map(topic => topic[2].name), [
+    'Quick Reference',
+    'Customization File References',
+    'Troubleshooting and Diagnostics'
+  ]);
 });

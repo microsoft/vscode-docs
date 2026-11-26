@@ -15,7 +15,7 @@ If you don't see an answer to your question here, check our previously [reported
 
 Yes. You don't need an account to install {% data variables.product.prodname_vscode_shortname %} or use its core editor features.
 
-Signing in with GitHub connects {% data variables.product.prodname_vscode_shortname %} to your GitHub Copilot plan and gives you access to the AI features, models, and usage allowances included with that plan. If you don't want to sign in, you can still use chat with a [bring-your-own-key model](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) without a GitHub account or Copilot plan. Features that depend on the GitHub Copilot service, such as inline suggestions, semantic search, and embeddings, aren't available through bring-your-own-key models.
+Signing in with GitHub connects {% data variables.product.prodname_vscode_shortname %} to your GitHub Copilot plan and gives you access to the AI features, models, and usage allowances included with that plan. If you don't want to sign in, you can still use chat with a [bring-your-own-key model](/docs/agent-customization/model-providers.md#bring-your-own-language-model-key) without a GitHub account or Copilot plan. Features that depend on the GitHub Copilot service, such as inline suggestions, semantic search, and embeddings, aren't available through bring-your-own-key models.
 
 You can also use {% data variables.product.prodname_vscode_shortname %} without AI features. To hide the built-in AI features, see [Remove AI features from {% data variables.product.prodname_vscode_shortname %}](/docs/setup/copilot.md#remove-ai-features-from-vs-code).
 
@@ -27,7 +27,7 @@ We've open sourced the GitHub Copilot Chat extension under the MIT license and a
 
 This change does not affect current GitHub Copilot subscriptions. To use GitHub Copilot, you'll continue to need both a GitHub account, and access to a GitHub Copilot subscription.
 
-Individual developers who don't have access to Copilot through an organization or enterprise have access to the [GitHub Copilot free plan](https://docs.github.com/en/copilot/get-started/plans#github-copilot-plans) ([restrictions may apply](https://docs.github.com/en/site-policy/other-site-policies/github-and-trade-controls#github-copilot)). If that plan doesn't meet your needs, you can sign up for a Copilot paid plan or [bring your own model keys](/docs/agent-customization/language-models.md#bring-your-own-language-model-key).
+Individual developers who don't have access to Copilot through an organization or enterprise have access to the [GitHub Copilot free plan](https://docs.github.com/en/copilot/get-started/plans#github-copilot-plans) ([restrictions may apply](https://docs.github.com/en/site-policy/other-site-policies/github-and-trade-controls#github-copilot)). If that plan doesn't meet your needs, you can sign up for a Copilot paid plan or [bring your own model keys](/docs/agent-customization/model-providers.md#bring-your-own-language-model-key).
 
 ### Will the GitHub Copilot backend services also be open sourced?
 

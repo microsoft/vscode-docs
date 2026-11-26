@@ -18,6 +18,8 @@ In this guide, you choose two changes in your own repository, run them in separa
 
 ## Prerequisites
 
+**Project:** Your Git repository with tests. **Harness:** {% data variables.product.prodname_copilot_short %}. **Interface:** {% data variables.copilot.agents_window %} or {% data variables.copilot.chat_view %} (Insiders with editor worktrees).
+
 To follow this guide, you need:
 
 * {% data variables.product.prodname_vscode %} with [AI features set up](/docs/setup/copilot.md).

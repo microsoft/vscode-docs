@@ -39,14 +39,15 @@ Follow a hands-on walkthrough to customize AI for your project.
 
 Start with a recurring task or an observed problem, such as the agent using the wrong test command. Choose a representative task and define the result you expect. If the agent already meets your needs, don't add a customization. Put one-time requirements in the current request instead.
 
-| If you want to | Start with |
-|----------------|------------|
-| Adopt an existing workflow or packaged setup | [Browse customization marketplaces](#discover-and-install-existing-customizations-preview) for skills, plugins, and integrations |
-| Stop repeating project commands and conventions | [Create or refine project instructions](/docs/agent-customization/custom-instructions.md#get-started-with-project-instructions) |
-| Reuse a multi-step process specific to your team | [Create or adapt an agent skill](/docs/agent-customization/agent-skills.md#create-a-skill) |
-| Give a recurring role focused guidance and tools | [Create a custom agent](/docs/agent-customization/custom-agents.md) |
-| Connect an external service | [Use a {% data variables.product.prodname_copilot_short %} connector](/docs/agent-customization/copilot-connectors.md) `feature(copilot-connectors)` or [add an MCP server](/docs/agent-customization/mcp-servers.md#add-a-server-by-url-or-command) |
-| Run an action at specific events of the agent's workflow | [Configure a hook](/docs/agent-customization/hooks.md) |
+| If you want to | Start with | How it applies |
+|----------------|------------|----------------|
+| Adopt an existing workflow or packaged setup | [Browse customization marketplaces](#discover-and-install-existing-customizations-preview) or install an [agent plugin](/docs/agent-customization/agent-plugins.md) | Bundles skills, agents, hooks, or MCP servers for reuse. |
+| Stop repeating project commands and conventions | [Create or refine project instructions](/docs/agent-customization/custom-instructions.md#get-started-with-project-instructions) | Loaded automatically for matching files or every request. |
+| Reuse a multi-step process specific to your team | [Create or adapt an agent skill](/docs/agent-customization/agent-skills.md#create-a-skill) | Loaded when relevant or invoked explicitly as a slash command. |
+| Give a recurring role focused guidance and tools | [Create a custom agent](/docs/agent-customization/custom-agents.md) | Selected as the active agent or delegated to as a subagent. |
+| Connect an external service | [Use a {% data variables.product.prodname_copilot_short %} connector](/docs/agent-customization/copilot-connectors.md) `feature(copilot-connectors)` or [add an MCP server](/docs/agent-customization/mcp-servers.md#add-a-server-by-url-or-command) | Exposes external tools that the agent calls when needed. |
+| Run an action at specific events of the agent's workflow | [Configure a hook](/docs/agent-customization/hooks.md) | Runs deterministically at configured lifecycle events. |
+| Migrate Local harness files or legacy prompt files | [Migrate existing customizations](/docs/agent-customization/migrate-customizations.md) | [Prompt files](/docs/agent-customization/prompt-files.md) are legacy and Local-only. Use [agent skills](/docs/agent-customization/agent-skills.md) for new work. |
 
 To understand what each type contributes, see [customization building blocks](/docs/agents/concepts/customization.md#customization-building-blocks).
 

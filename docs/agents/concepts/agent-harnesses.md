@@ -100,7 +100,7 @@ The execution environment determines where the harness runs workspace tools and 
 
 The diagram shows where sessions work on code, not where you connect from or where the language model runs. See [remote sessions and browser access](/docs/agents/run/remote-agent-sessions.md) for connection steps. Harness availability depends on the selected environment.
 
-Selecting a Dev Container changes the execution environment, not the harness. For supported hosts, interfaces, and setup, see [run a session in a Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container).
+Selecting a Dev Container changes the execution environment, not the harness. For supported hosts, interfaces, and setup, see [Work with agents in Dev Containers](/docs/agents/run/dev-containers.md).
 
 For sessions that offer folder and worktree options, code isolation controls which working directory receives changes. Folder isolation applies edits directly to your current workspace. Worktree isolation gives the session a separate working directory based on committed Git state. For the comparison, requirements, and setup in either interface, see [Work with agents in worktrees](/docs/agents/run/worktrees.md).
 

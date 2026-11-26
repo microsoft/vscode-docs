@@ -526,6 +526,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/agents/run/dev-containers</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/agents/run/compare-models</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -596,6 +601,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/agents/reference/agent-skills-reference</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/agents/reference/agent-plugin-reference</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -612,6 +622,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/agent-customization/language-models</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/agent-customization/model-providers</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -711,6 +726,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://code.visualstudio.com/docs/agents/guides/review-pull-request</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://code.visualstudio.com/docs/agents/guides/context-engineering-guide</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -737,6 +757,11 @@
     </url>
     <url>
         <loc>https://code.visualstudio.com/docs/agents/guides/fix-a-bug-with-agents</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://code.visualstudio.com/docs/agents/guides/debug-runtime-failure</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
