@@ -238,6 +238,7 @@
                         "area": "agents/reference/customization",
                         "topics": [
                             ["Custom Instructions Reference", "/docs/agents/reference/custom-instructions-reference"],
+                            ["Agent Skills Reference", "/docs/agents/reference/agent-skills-reference"],
                             ["Custom Agent File Reference", "/docs/agents/reference/custom-agent-file-reference"],
                             ["Agent Plugin Authoring Reference", "/docs/agents/reference/agent-plugin-reference"],
                             ["MCP Configuration", "/docs/agents/reference/mcp-configuration"],
