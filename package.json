@@ -63,8 +63,7 @@
     "livereload": "^0.9.3",
     "markdown-it": "^15.0.3",
     "playwright-core": "^1.66.0-alpha-2026-11-12",
-    "serve-static": "^1.16.3",
-    "shelljs": "^0.8.5"
+    "serve-static": "^1.16.3"
   },
   "lint-staged": {
     "*.{gif,mp4,jpg,png,GIF,MP4,JPG,PNG}": [
