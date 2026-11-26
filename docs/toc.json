@@ -39,6 +39,7 @@
                         "topics": [
                             ["Explore a Codebase", "/docs/agents/guides/explore-a-codebase"],
                             ["Fix an API Bug", "/docs/agents/guides/fix-a-bug-with-agents"],
+                            ["Debug a Runtime Failure", "/docs/agents/guides/debug-runtime-failure"],
                             ["Add a Feature", "/docs/agents/guides/add-a-feature"],
                             ["Refactor Safely", "/docs/agents/guides/refactor-safely"],
                             ["Review a Pull Request", "/docs/agents/guides/review-pull-request"],
@@ -392,6 +393,7 @@
         "area": "debugging/guides",
         "topics": [
           ["Fix an API Bug", "/docs/agents/guides/fix-a-bug-with-agents", { "secondary": true }],
+          ["Debug a Runtime Failure", "/docs/agents/guides/debug-runtime-failure", { "secondary": true }],
           ["Add Tests", "/docs/agents/guides/test-code-with-ai", { "secondary": true }],
           ["Test-Driven Development", "/docs/agents/guides/test-driven-development-guide", { "secondary": true }],
           ["Test Web Apps", "/docs/agents/guides/browser-agent-testing-guide", { "secondary": true }]

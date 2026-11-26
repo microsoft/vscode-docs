@@ -58,6 +58,8 @@ Or jump to a task:
 
 * [Fix an API bug](/docs/agents/guides/fix-a-bug-with-agents.md): reproduce a pagination bug, add a regression test, and review the fix. **Setup:** sample project, Node.js 22 or later, and Git.
 
+* [Debug a runtime failure](/docs/agents/guides/debug-runtime-failure.md): pair an agent in the {% data variables.copilot.chat_view %} with the debugger, stack traces, and logpoints to confirm a root cause and verify a fix. **Setup:** your repository with a reproducible failure and debugger extension, {% data variables.product.prodname_copilot_short %} in the {% data variables.copilot.chat_view %}.
+
 * [Add a feature](/docs/agents/guides/add-a-feature.md): continue the bug tutorial by adding filtering to the same pagination API, or plan, implement, and test a feature in your own project. **Setup:** the fixed sample or your repository with working tests, {% data variables.product.prodname_copilot_short %} in the {% data variables.copilot.chat_view %}.
 
 * [Refactor safely](/docs/agents/guides/refactor-safely.md): change code structure in reviewable steps while preserving existing behavior. **Setup:** your repository, {% data variables.product.prodname_copilot_short %} in the {% data variables.copilot.chat_view %}.
