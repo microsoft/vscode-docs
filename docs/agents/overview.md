@@ -98,9 +98,16 @@ Switch between different experiences depending on your task, and [continue agent
 
 An [agent](/docs/agents/concepts/agents.md) uses a model and tools to find relevant code, make changes, and run checks. Both the {% data variables.copilot.chat_view %} and the {% data variables.copilot.agents_window %} run agents. You set the goal, guide the work, and review the results.
 
+| Interface | Best for | Workspace scope | Parallel tasks |
+|-----------|----------|-----------------|----------------|
+| [Inline suggestions](/docs/editing/ai-powered-suggestions.md) | Staying in flow while typing completions and next edits. | Active editor file. | Single edit at cursor. |
+| [Inline chat](/docs/chat/inline-chat.md) | Focused edits or terminal commands without leaving your code. | Selected code or active terminal. | One focused prompt at a time. |
+| [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) | Collaborating with an agent beside your editor, debugger, tests, and terminal. | Current workspace. | Supports multiple chats and background sessions. |
+| [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) | Delegating, monitoring, and reviewing agent sessions across repositories. | Multiple projects, worktrees, or remote hosts. | Designed for parallel sessions, worktrees, and PR review. |
+
 For routine work, save a prompt as an [automation](/docs/agents/run/automations.md). Run it locally on a schedule, or use cloud automations `feature(cloud-automations)` for scheduled or event-triggered repository work that continues while your computer is off. Review a manual run before enabling recurring work.
 
-For a focused edit, use [inline chat](/docs/chat/inline-chat.md) without leaving your code. To compare features for a specific task, use the [AI features cheat sheet](/docs/agents/reference/ai-features-cheat-sheet.md#choose-a-feature).
+To compare features for a specific task, use the [AI features cheat sheet](/docs/agents/reference/ai-features-cheat-sheet.md#choose-a-feature).
 
 ## Choose your models, agents, and tools
 

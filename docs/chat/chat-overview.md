@@ -3,7 +3,7 @@ ContentId: 557a7e74-f77e-488d-90ea-fd2cfecfffda
 DateApproved: 11/25/2026
 MetaDescription: Use chat in {% data variables.product.prodname_vscode_shortname %} to ask about code, send requests, add context, and review AI-generated changes.
 ---
-# Use chat in {% data variables.product.prodname_vscode_shortname %}
+# Work with chat messages and responses
 
 Chat in {% data variables.product.prodname_vscode %} lets you use natural language for interacting with AI agents. Ask questions about your code, get help understanding complex logic, generate new features, fix bugs, and more, all through a conversational interface.
 

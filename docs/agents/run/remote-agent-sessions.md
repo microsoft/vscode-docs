@@ -12,7 +12,7 @@ The machines have two roles:
 * **Host machine:** Runs the agent and contains the project, tools, and session.
 * **Client machine:** Runs the application you use to connect and interact with the session.
 
-`setting(sessions.keepAwakeWhileWorking)` can prevent idle sleep while an Agent Host chat is working. Configure it on the host machine, not the client. See the [AI settings reference](/docs/agents/reference/ai-settings.md#agent-host) for its modes and platform limitations.
+`setting(sessions.keepAwakeWhileWorking)` can prevent idle sleep while an [Agent Host](/docs/agents/concepts/agent-host.md) chat is working (the Agent Host is the dedicated process that runs agent harnesses and manages sessions). Configure it on the host machine, not the client. See the [AI settings reference](/docs/agents/reference/ai-settings.md#agent-host) for its modes and platform limitations.
 
 Keep the host machine awake, online, and its Agent Host or owning application running. Connecting doesn't transfer the session or copy the project to the client machine.
 
@@ -26,7 +26,7 @@ Choose the workflow that matches what you want to do:
 
 | Your task | Start here | What you need |
 |---------------|------------|---------------|
-| Continue an existing agent session from another machine. | Use [{% data variables.copilot.github_environments %}](#github-environments) `feature(github-environments)` from the {% data variables.copilot.agents_window %} on the client machine. | Register the host machine as a {% data variables.copilot.github_environment %} and sign in with the same {% data variables.product.prodname_github %} account on both machines. |
+| Continue an existing agent session from another machine. | Use [{% data variables.copilot.github_environments %}](#github-environments) `feature(github-environments)` from the {% data variables.copilot.agents_window %} on the client machine. | Register the host machine as a {% data variables.copilot.github_environment %} (a {% data variables.product.prodname_github %} feature for cross-client agent access, separate from GitHub Actions deployment environments) and sign in with the same {% data variables.product.prodname_github %} account on both machines. |
 | Run agent tasks on an SSH-accessible development server. | [Start a remote session](#start-a-remote-session) in the {% data variables.copilot.agents_window %}, choosing **SSH** and a folder on that server. | SSH access to the server. |
 | Connect through an existing dev tunnel or use a browser. | [Start a remote session](#start-a-remote-session) with **Dev Tunnels** in the installed app, or follow the [browser workflow](#use-the-agents-window-in-the-browser). | For a dev tunnel, an authenticated tunnel running on the host. For browser access, either a registered {% data variables.copilot.github_environment %} or a dev tunnel. The browser doesn't connect directly over SSH. |
 | Edit and debug a remote project while using chat. | Open the project through [Remote Development](#work-in-a-remote-workspace), then use the {% data variables.copilot.chat_view %}. | A remote workspace open in the editor. This is different from opening an existing agent conversation. |
