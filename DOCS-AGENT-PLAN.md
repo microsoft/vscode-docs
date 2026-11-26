@@ -96,7 +96,7 @@ Before implementing each new slice, describe its complete user journey, identify
 
 ### Reusable foundation
 
-Reuse the [checkers](build/check-claims.js), [product evidence](build/product-manifest.js), [review reports](build/review.js), [findings inbox](.github/extensions/vscode-docs-workbench/article-inbox.mjs), [host adapter](.github/extensions/vscode-docs-workbench/article-workflow.mjs), and existing writing/review skills. Reuse [capture](build/capture.js), [video](build/capture-video.js), [preparation and exact-asset review](build/media.js), and [replay](build/replay.js) where applicable.
+Reuse the [checkers](build/checks/check-claims.js), [product evidence](build/checks/product-manifest.js), [review reports](build/workflow/review.js), [findings inbox](.github/extensions/vscode-docs-workbench/article-inbox.mjs), [host adapter](.github/extensions/vscode-docs-workbench/article-workflow.mjs), and existing writing/review skills. Reuse [capture](build/media/capture.js), [video](build/media/capture-video.js), [preparation and exact-asset review](build/media/media.js), and [replay](build/media/replay.js) where applicable.
 
 These components do not establish complete workflow acceptance. Product inventories are partial; source presence is not public availability. Replay success is not article correctness. The host SDK is experimental and session-scoped. Small scopes are usable, but full-corpus performance work remains parked. No new general infrastructure phase is needed.
 

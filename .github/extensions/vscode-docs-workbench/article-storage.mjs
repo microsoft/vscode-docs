@@ -2,9 +2,9 @@ import { createHash, randomUUID } from 'node:crypto';
 import { lstat, mkdir, open, readFile, realpath, readdir, rm } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
-import audit from '../../../build/audit-state.js';
-import findings from '../../../build/findings.js';
-import repository from '../../../build/repository-paths.js';
+import audit from '../../../build/checks/audit-state.js';
+import findings from '../../../build/checks/findings.js';
+import repository from '../../../build/lib/repository-paths.js';
 import { replaceStateFile, WorkbenchError } from './state.mjs';
 
 /* eslint-disable security/detect-non-literal-fs-filename -- All paths are derived from canonical workspace/private roots and checked for containment and symlinks. */

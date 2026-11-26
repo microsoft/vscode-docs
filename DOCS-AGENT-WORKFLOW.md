@@ -233,7 +233,7 @@ Navigation checks always cover the repository's Docs, API, and Learn root TOCs, 
 * TOC checks validate section and topic structure, resolve data variables, follow nested groups and TOC imports, and check article targets and fragments with the shared link resolver. Missing imports, import cycles, and paths outside the repository are errors. Repeated article links, including secondary navigation shortcuts, are allowed.
 * Sitemap checks reuse the standalone sitemap verifier's rules for duplicate URLs, standalone pages missing from the sitemap, and redirecting URLs. Redirecting sitemap entries are warnings; confirmed sitemap problems are errors. Published targets without local evidence remain unverified in the shared report. The standalone verifier still reports them as missing local coverage; neither result proves that a live website URL is broken.
 
-Results use the shared JSON, console, and annotation formats, with locations in the relevant TOC, sitemap, or missing page. Freshness checking includes imported TOCs, navigation targets, and the standalone-page inventory. No navigation files are rewritten, and external sites are not contacted. The existing `node build/verify-sitemap.js --json` command remains available.
+Results use the shared JSON, console, and annotation formats, with locations in the relevant TOC, sitemap, or missing page. Freshness checking includes imported TOCs, navigation targets, and the standalone-page inventory. No navigation files are rewritten, and external sites are not contacted. The existing `node build/checks/verify-sitemap.js --json` command remains available.
 
 ### Check tryout references
 
@@ -249,14 +249,14 @@ JSON is the default output. Use `--format console` for readable file and line di
 npm run check-claims -- --format console --files docs\agents
 ```
 
-The [findings schema](build/findings.schema.json) accepts version 4 and 5 checker reports and version 6 agent-review reports, recording the enabled `checks`. Claim-report freshness checks rerun the same checks. Replay freshness never launches UI, and review freshness never reruns an agent. Retained checker triage remains readable. The checker validates each report before returning it. Findings retain their stable IDs and include the article's SHA-256 hash and `firstSeen` and `lastSeen` timestamps. Each run is a new observation: both timestamps equal `generatedAt`, and review status starts as `open`. The checker does not persist triage decisions or merge observation history.
+The [findings schema](build/schemas/findings.schema.json) accepts version 4 and 5 checker reports and version 6 agent-review reports, recording the enabled `checks`. Claim-report freshness checks rerun the same checks. Replay freshness never launches UI, and review freshness never reruns an agent. Retained checker triage remains readable. The checker validates each report before returning it. Findings retain their stable IDs and include the article's SHA-256 hash and `firstSeen` and `lastSeen` timestamps. Each run is a new observation: both timestamps equal `generatedAt`, and review status starts as `open`. The checker does not persist triage decisions or merge observation history.
 
 The report's `inputHash` covers the enabled checks, scan scope, all scanned article contents (including articles with no findings), resolved data variables, and lifecycle data. Link and navigation checks also cover their dependencies: linked Markdown contents, redirect files, target existence, TOCs, the sitemap, and the standalone-page inventory, as applicable. It identifies relevant uncommitted changes that the Git revision alone cannot distinguish.
 
 Validate and display a saved report with the standalone reporter:
 
 ```powershell
-node .\build\findings.js --input "$env:TEMP\findings.json" --format console
+node .\build\checks\findings.js --input "$env:TEMP\findings.json" --format console
 ```
 
 Add `--check-current` to rerun the saved scope and enabled checks against this checkout and reject changes to the Git revision, input fingerprint, or product manifest. If the saved report used a product manifest, also supply `--manifest <file>`. A stale or invalid report exits with code 1 and produces no formatted output. Claim reports with error findings also exit with code 1; warnings and unverified findings do not. Regenerate reports older than schema version 4 with the checker. [Replay reports](#replay-a-reviewed-procedure) have separate freshness options and completion exit codes.
@@ -271,8 +271,8 @@ Use `--root` to read documentation from another checkout while running checker c
 $trustedRoot = 'C:\docs\vscode-docs'
 $reviewRoot = 'C:\worktrees\docs-pr'
 $headOid = '<screened-PR-head-commit>'
-node "$trustedRoot\build\check-claims.js" --root $reviewRoot --expected-revision $headOid --links --files docs\agents\overview.md > "$env:TEMP\docs-pr-findings.json"
-node "$trustedRoot\build\findings.js" --input "$env:TEMP\docs-pr-findings.json" --check-current --root $reviewRoot --expected-revision $headOid --format console
+node "$trustedRoot\build\checks\check-claims.js" --root $reviewRoot --expected-revision $headOid --links --files docs\agents\overview.md > "$env:TEMP\docs-pr-findings.json"
+node "$trustedRoot\build\checks\findings.js" --input "$env:TEMP\docs-pr-findings.json" --check-current --root $reviewRoot --expected-revision $headOid --format console
 ```
 
 Replace the example paths and hash with the reviewed snapshot. Article paths are relative to `--root`; report input and product manifest paths are relative to the calling directory unless absolute. The default source root remains the checkout containing the checker. Reports retain portable, repository-relative paths and do not store the source worktree location, so supply `--root` again for freshness checks.
@@ -283,20 +283,20 @@ The `pr-review` skill runs these checks after its prompt-injection screening and
 
 ### Retain audit findings and review decisions
 
-The [audit state helper](build/audit-state.js) keeps pending issue proposals and checker findings in private Git metadata. It uses `git rev-parse --git-path daily-docs-audit/pending.json`, or the explicit `VSCODE_DOCS_AUDIT_STATE_PATH` override. The existing skill-local helper remains a compatibility wrapper. Run the helper from trusted code; do not commit its state, backups, or raw reports.
+The [audit state helper](build/checks/audit-state.js) keeps pending issue proposals and checker findings in private Git metadata. It uses `git rev-parse --git-path daily-docs-audit/pending.json`, or the explicit `VSCODE_DOCS_AUDIT_STATE_PATH` override. The existing skill-local helper remains a compatibility wrapper. Run the helper from trusted code; do not commit its state, backups, or raw reports.
 
-After generating a report and checking freshness with `build/findings.js --check-current`, import it:
+After generating a report and checking freshness with `build/checks/findings.js --check-current`, import it:
 
 ```powershell
-Get-Content -Raw -LiteralPath $reportPath | node .\build\audit-state.js import-findings
-$stateJson = node .\build\audit-state.js list
+Get-Content -Raw -LiteralPath $reportPath | node .\build\checks\audit-state.js import-findings
+$stateJson = node .\build\checks\audit-state.js list
 ```
 
 The import validates report structure and returns added, refreshed, and reopened counts. It does not check the current checkout itself, create proposals, or contact GitHub. It preserves stable finding IDs and the original `firstSeen`; `lastSeen` advances for observations present in later reports. Absent findings are retained unchanged, not marked fixed.
 
 Review decisions persist while evidence is unchanged. Changed article bytes, severity, diagnostic message, or product evidence and manifest reopen decided findings. Source revision, scan scope, input fingerprint, and timestamps alone do not reopen them. The findings canvas also supplies verified per-article absence to the shared audit helper: if a fixed finding reappears after that verification, it reopens even when the evidence is identical. This automatic `finding-reappeared` history event references the intervening verification and is distinct from human triage. Ordinary report imports do not infer verified absence. The latest observation and report metadata are retained, together with status transitions, evidence hashes, timestamps, and reasons. Keep raw reports separately if you need every prior observation's contents.
 
-For an explicit review decision, pass `id`, the current record's `evidenceHash`, a `status` (`open`, `accepted`, `dismissed`, or `fixed`), and a nonempty `reason` as JSON on standard input to `node .\build\audit-state.js triage`. Changed evidence rejects a stale decision. Triage is local state only; it does not authorize content changes or issue creation.
+For an explicit review decision, pass `id`, the current record's `evidenceHash`, a `status` (`open`, `accepted`, `dismissed`, or `fixed`), and a nonempty `reason` as JSON on standard input to `node .\build\checks\audit-state.js triage`. Changed evidence rejects a stale decision. Triage is local state only; it does not authorize content changes or issue creation.
 
 Pending proposals can include optional `findingIds` referencing imported findings. Existing proposal IDs, source PR markers, deduplication rules, and per-issue confirmation requirements remain unchanged. Removing a proposal retains its findings and history.
 
@@ -346,8 +346,8 @@ Generate a manifest, then pass it to the checker with an explicit matching chann
 
 ```powershell
 $capture = Join-Path $env:TEMP 'vscode-docs-capture'
-node .\build\product-manifest.js --input "$capture\capture.json" > "$capture\manifest.json"
-node .\build\check-claims.js --channel insiders --manifest "$capture\manifest.json" --files docs\agents > "$capture\findings.json"
+node .\build\checks\product-manifest.js --input "$capture\capture.json" > "$capture\manifest.json"
+node .\build\checks\check-claims.js --channel insiders --manifest "$capture\manifest.json" --files docs\agents > "$capture\findings.json"
 ```
 
 The manifest preserves defaults, keybinding conditions and arguments, unbound command IDs and their capture line numbers, mode, platform, and hashes of the raw captures. The report identifies the manifest by its hash and records the supplied product build. Build metadata is supplied by the person capturing the files, not inferred or independently verified.
@@ -368,7 +368,7 @@ Run link and navigation tests with `npm run test:links` and `npm run test:naviga
 
 ## Regenerate media from reusable instructions
 
-The [media recipe helper](build/media-recipes.js) associates published asset paths with portable instructions under [build/media-recipes](build/media-recipes). The agent maintains these files as part of approved media work, not a separate registry UI or spreadsheet.
+The [media recipe helper](build/media/media-recipes.js) associates published asset paths with portable instructions under [build/media/recipes](build/media/recipes). The agent maintains these files as part of approved media work, not a separate registry UI or spreadsheet.
 
 Each recipe has a stable `id`, a version 2 `storyboard` path, and named `outputs`. An output contains:
 
@@ -383,20 +383,20 @@ Do not store machine-specific executable paths, accounts, credentials, capture p
 Validate registered instructions and resolve an existing asset:
 
 ```powershell
-node .\build\media-recipes.js check
-node .\build\media-recipes.js find --asset docs/editing/images/codebasics/search-replace-advanced-options.png
+node .\build\media\media-recipes.js check
+node .\build\media\media-recipes.js find --asset docs/editing/images/codebasics/search-replace-advanced-options.png
 ```
 
 `find` returns the owning recipe/output, storyboard, source variant, preparation settings, and original asset hash. Record that hash in the capture proposal; do not silently replace it if the original changes. Existing assets without recipes return **unmapped** with exit code 1. Do not infer their historical generation procedure from the pixels. Draft new instructions for review instead.
 
-The [Find/Replace screenshot recipe](build/media-recipes/editor-find-replace.json) supplies prospective refresh instructions for the existing advanced-options image. The [Find-demo recipe](build/media-recipes/editor-find-demo.json) preserves the video pilot as an unpublished example. Registering these inputs does not copy pilot media, assert that the existing image was generated by them, or approve another capture.
+The [Find/Replace screenshot recipe](build/media/recipes/editor-find-replace.json) supplies prospective refresh instructions for the existing advanced-options image. The [Find-demo recipe](build/media/recipes/editor-find-demo.json) preserves the video pilot as an unpublished example. Registering these inputs does not copy pilot media, assert that the existing image was generated by them, or approve another capture.
 
 After the human approves the capture proposal, use the returned storyboard with the [attended runner](#capture-an-editor-screenshot-candidate). Confirm the installed full product revision and readiness as usual. Each new private run keeps byte-identical input in `storyboard.json`, referenced and hashed by `capture.json`. The snapshot survives runtime cleanup; the capture and preparation verification detect changes. Older hash-only manifests remain supported historical evidence but are not self-contained regeneration packages.
 
 Prepare a registered output without copying its settings by hand:
 
 ```powershell
-node .\build\media-recipes.js prepare --recipe-id editor-find-replace --output-id advanced-options --capture '<private-run\capture.json>' --capture-sha256 '<capture-manifest-hash>' --output '<existing-private-parent>'
+node .\build\media\media-recipes.js prepare --recipe-id editor-find-replace --output-id advanced-options --capture '<private-run\capture.json>' --capture-sha256 '<capture-manifest-hash>' --output '<existing-private-parent>'
 ```
 
 For video, capture with `--video` first and supply the approved full `--ffmpeg` and `--ffprobe` paths where required. This wrapper uses the existing media helper and does not launch UI or write documentation. Recipe and capture inputs must match. Review the final prepared image or full video and record [fresh exact-asset approval](#record-an-exact-asset-review).
@@ -404,7 +404,7 @@ For video, capture with `--video` first and supply the approved full `--ffmpeg` 
 For an approved replacement, prepare a private application plan:
 
 ```powershell
-node .\build\media-recipes.js plan --asset docs/editing/images/codebasics/search-replace-advanced-options.png --asset-sha256 '<original-hash-from-approved-proposal>' --manifest '<private-candidate\media.json>' --articles docs/editing/codebasics.md --output '<existing-private-plan-directory>'
+node .\build\media\media-recipes.js plan --asset docs/editing/images/codebasics/search-replace-advanced-options.png --asset-sha256 '<original-hash-from-approved-proposal>' --manifest '<private-candidate\media.json>' --articles docs/editing/codebasics.md --output '<existing-private-plan-directory>'
 ```
 
 Add multiple explicitly approved Markdown paths after `--articles` when needed. The plan reports a new `yyyymmddseq` filename, affected articles, recipe association, other consumers, and its own hash. Names come from the stable base, not from appending another suffix to the old filename. Existing output collisions cause replanning rather than overwrite.
@@ -414,7 +414,7 @@ The reference updater preserves inline and reference-style Markdown images/links
 After the human approves those repository writes and that exact plan hash:
 
 ```powershell
-node .\build\media-recipes.js apply --plan '<private-plan.json>' --plan-sha256 '<approved-plan-hash>' --confirm-apply
+node .\build\media\media-recipes.js apply --plan '<private-plan.json>' --plan-sha256 '<approved-plan-hash>' --confirm-apply
 ```
 
 Repeat video tool paths when required. Application rechecks the approved candidate, original asset, storyboard, recipe, articles, and review record, creates the new asset exclusively, updates references and association, and verifies lookup. It never deletes old assets, stages, commits, pushes, or publishes. A failed operation reports written or attempted paths and may leave a partial update. Inspect the diff and repair or replan; do not automatically retry or remove another writer's `.apply.lock`.
@@ -425,7 +425,7 @@ Run `npm run test:media-recipes` for isolated lookup, versioning, reference-upda
 
 ## Capture an editor screenshot candidate
 
-The attended capture runner uses an installed VS Code executable and a version-controlled storyboard. The default [editor Find storyboard](build/storyboards/editor-find.json) targets Insiders. Each storyboard declares its channel, generated fixture or reviewed workspace entry, UI targets, actions, and expected outcomes. Default captures support bounded editor workflows without sign-in or AI requests. [Scripted live-AI videos](#record-a-scripted-live-ai-video) require a separate opt-in and approval. Arbitrary scripts and native UI automation remain unsupported.
+The attended capture runner uses an installed VS Code executable and a version-controlled storyboard. The default [editor Find storyboard](build/media/storyboards/editor-find.json) targets Insiders. Each storyboard declares its channel, generated fixture or reviewed workspace entry, UI targets, actions, and expected outcomes. Default captures support bounded editor workflows without sign-in or AI requests. [Scripted live-AI videos](#record-a-scripted-live-ai-video) require a separate opt-in and approval. Arbitrary scripts and native UI automation remain unsupported.
 
 Screenshot and video capture is attended-only. Keep the capture window visible and remain available throughout the run. Unattended media capture, scheduled capture jobs, and lock-screen or sleep-state testing are out of scope.
 
@@ -436,7 +436,7 @@ Window zoom reduces the CSS viewport to about 1333 by 750 at level 2, or 1461 by
 After approving the local run, use PowerShell with the installed executable and the full build commit from **Help > About**:
 
 ```powershell
-node .\build\capture.js --executable '<absolute-path-to-Code-Insiders.exe>' --revision '<full-build-commit>' --output '<existing-private-capture-directory>'
+node .\build\media\capture.js --executable '<absolute-path-to-Code-Insiders.exe>' --revision '<full-build-commit>' --output '<existing-private-capture-directory>'
 ```
 
 The runner creates a new run directory, isolated user-data and extension directories, a separate Copilot home, and the storyboard's synthetic file. The default workflow searches for `total` with case matching and requires three matches. The runner verifies the product revision and channel, theme, viewport dimensions, scale, window zoom, and page visibility before saving a PNG from Electron's native window-content capture. Images are not resized after capture.
@@ -468,7 +468,7 @@ Inspection rejects source quotes that do not match the current article. The exac
 2. Inspect the exact procedure binding without launching UI:
 
    ```powershell
-   node .\build\replay.js inspect --storyboard '<storyboard.json>' --revision '<full-build-commit>'
+   node .\build\media\replay.js inspect --storyboard '<storyboard.json>' --revision '<full-build-commit>'
    ```
 
    For an existing-workspace storyboard, also supply absolute `--workspace` and `--capture-profile` paths. Never use a normal profile. The binding includes these selected paths, article and storyboard hashes, documentation HEAD, trusted runner hashes, and the product build/channel.
@@ -476,7 +476,7 @@ Inspection rejects source quotes that do not match the current article. The exac
 3. Show the inspected binding to the human. Only after explicit review of that exact hash, record the attestation in an existing private directory outside the repository:
 
    ```powershell
-   node .\build\replay.js review --storyboard '<storyboard.json>' --revision '<full-build-commit>' --binding-hash '<inspected-binding-hash>' --attest-reviewed --output '<private-directory>'
+   node .\build\media\replay.js review --storyboard '<storyboard.json>' --revision '<full-build-commit>' --binding-hash '<inspected-binding-hash>' --attest-reviewed --output '<private-directory>'
    ```
 
    Repeat any workspace/profile options from inspection. This creates a private `procedure-review-*\review.json`; it is not media approval. Changed article contents, storyboard bytes, source revision, runner code, workspace/profile selection, or product pin require a new review. The attestation records a human decision, not a cryptographic signature.
@@ -484,15 +484,15 @@ Inspection rejects source quotes that do not match the current article. The exac
 4. Coordinate human availability before launching the attended replay:
 
    ```powershell
-   node .\build\replay.js run --storyboard '<storyboard.json>' --review '<review.json>' --executable '<absolute-path-to-Code.exe>' --output '<private-directory>' --wait-for-ready
+   node .\build\media\replay.js run --storyboard '<storyboard.json>' --review '<review.json>' --executable '<absolute-path-to-Code.exe>' --output '<private-directory>' --wait-for-ready
    ```
 
-   Every replay requires readiness, including single-file fixtures. Read the printed private `readiness-request.json`, have the human handle prompts, and relay their explicit response with the existing `build/capture.js --confirm-ready '<capture-run-directory>' --token '<token>'` or `--cancel-ready` command. Keep the process attached and the window visible. Omitting `--wait-for-ready` uses the interactive terminal confirmation. Never infer readiness.
+   Every replay requires readiness, including single-file fixtures. Read the printed private `readiness-request.json`, have the human handle prompts, and relay their explicit response with the existing `build/media/capture.js --confirm-ready '<capture-run-directory>' --token '<token>'` or `--cancel-ready` command. Keep the process attached and the window visible. Omitting `--wait-for-ready` uses the interactive terminal confirmation. Never infer readiness.
 
 5. Inspect the result and validate freshness without relaunching the product:
 
    ```powershell
-   node .\build\findings.js --input '<findings.json>' --check-current --storyboard '<storyboard.json>' --replay-review '<review.json>' --format console
+   node .\build\checks\findings.js --input '<findings.json>' --check-current --storyboard '<storyboard.json>' --replay-review '<review.json>' --format console
    ```
 
    Replay writes `findings.json` and `replay.json` beneath a private `procedure-replay-*` directory. With a source map, `replay.json.instructions` retains setup, source quotations, expected outcomes, structural observations, per-check statuses, and run issues. Successful literal assertions record what matched, not arbitrary UI text. A mapped failed step cites its article line in `findings.json`. Completed observations can remain passed when later cleanup fails, but the overall replay stays incomplete and records that failure. Changed reviewed inputs block mapped results. Without a source map, replay does not claim article-step coverage.
@@ -512,7 +512,7 @@ Run deterministic replay fixtures with `npm run test:replay`. These tests use fa
 
 ### Create an attended storyboard
 
-Use the [storyboard schema](build/storyboard.schema.json) and the [editor Find](build/storyboards/editor-find.json) or [expanded Find and Replace](build/storyboards/editor-find-replace.json) examples. Version 2 supports a generated fixture or one root-level entry file in a reviewed existing workspace, a raw PNG, an optional highlighted PNG, and an optional WebM per run. Version 1 storyboards are rejected with a migration message rather than interpreted as version 2.
+Use the [storyboard schema](build/schemas/storyboard.schema.json) and the [editor Find](build/media/storyboards/editor-find.json) or [expanded Find and Replace](build/media/storyboards/editor-find-replace.json) examples. Version 2 supports a generated fixture or one root-level entry file in a reviewed existing workspace, a raw PNG, an optional highlighted PNG, and an optional WebM per run. Version 1 storyboards are rejected with a migration message rather than interpreted as version 2.
 
 Review a storyboard before running it. Storyboards are executable UI procedures, even though they contain no JavaScript. Do not run procedures from unreviewed PRs or remote text. Use a trusted checkout of the runner.
 
@@ -527,7 +527,7 @@ Review a storyboard before running it. Storyboards are executable UI procedures,
 Validate one or more storyboards without launching VS Code:
 
 ```powershell
-node .\build\storyboard.js .\build\storyboards\editor-find.json .\build\storyboards\editor-find-replace.json
+node .\build\media\storyboard.js .\build\media\storyboards\editor-find.json .\build\media\storyboards\editor-find-replace.json
 ```
 
 Pass `--storyboard '<file>'` to the capture command to choose a workflow. Unsupported fields, actions, paths, and target references fail validation before launch. The runner does not support shell steps, arbitrary JavaScript, or unattended execution. Live AI requires the separate video workflow below.
@@ -536,7 +536,7 @@ Use the [docs-media skill](.github/skills/docs-media/SKILL.md) for the attended 
 
 ### Highlight screenshot controls
 
-Add `capture.highlights` to draw red rectangles around named storyboard targets. This is optional and applies only to the screenshot, not the video. For example, the [debug-configuration storyboard](build/storyboards/debug-create-configuration.json) sets `capture.highlights` to:
+Add `capture.highlights` to draw red rectangles around named storyboard targets. This is optional and applies only to the screenshot, not the video. For example, the [debug-configuration storyboard](build/media/storyboards/debug-create-configuration.json) sets `capture.highlights` to:
 
 ```json
 {
@@ -558,20 +558,20 @@ Review the raw and highlighted images before choosing an asset. If you crop afte
 
 ### Use an existing workspace with chat confirmation
 
-The [debug-configuration picker storyboard](build/storyboards/debug-create-configuration.json) uses `workspace.entry` instead of `fixture`. Supply the reviewed folder with `--workspace` and a separate, absolute `--capture-profile` directory whose parent exists. The runner creates a marked profile or reuses one bound to that workspace and channel. It refuses to adopt a nonempty unmarked directory, so never supply your personal VS Code profile.
+The [debug-configuration picker storyboard](build/media/storyboards/debug-create-configuration.json) uses `workspace.entry` instead of `fixture`. Supply the reviewed folder with `--workspace` and a separate, absolute `--capture-profile` directory whose parent exists. The runner creates a marked profile or reuses one bound to that workspace and channel. It refuses to adopt a nonempty unmarked directory, so never supply your personal VS Code profile.
 
 The dedicated profile retains its own home directory as well as user-data. Workspace Trust uses application-shared storage under that home, so retaining user-data alone is insufficient. Trust only the selected workspace yourself; the runner never copies or writes trust decisions. It disables automatic tasks, MCP access and autostart, Git integration, and automatic TypeScript type acquisition for the capture profile, and rejects conflicting workspace settings. It does not write an entry file into an existing project. Use only reviewed, non-editing UI steps. The entry and known workspace configuration files are hashed before and after the run; detected changes fail capture and are not automatically reverted. This check is not a filesystem sandbox or a complete project-change audit.
 
 Agents can launch the capture with `--wait-for-ready`, keeping terminal commands as an optional manual interface:
 
 ```powershell
-node .\build\capture.js --storyboard .\build\storyboards\debug-create-configuration.json --executable '<absolute-path-to-Code.exe>' --revision '<full-build-commit>' --output '<existing-private-directory>' --workspace '<reviewed-workspace>' --capture-profile '<dedicated-profile-directory>' --wait-for-ready
+node .\build\media\capture.js --storyboard .\build\media\storyboards\debug-create-configuration.json --executable '<absolute-path-to-Code.exe>' --revision '<full-build-commit>' --output '<existing-private-directory>' --workspace '<reviewed-workspace>' --capture-profile '<dedicated-profile-directory>' --wait-for-ready
 ```
 
 The runner writes a private `readiness-request.json` and waits up to five minutes. After the human handles any prompts and explicitly confirms readiness in chat, relay that decision with the request's run directory and token:
 
 ```powershell
-node .\build\capture.js --confirm-ready '<run-directory>' --token '<request-token>'
+node .\build\media\capture.js --confirm-ready '<run-directory>' --token '<request-token>'
 ```
 
 Use `--cancel-ready` instead to relay cancellation. Never infer readiness from an open window or a previous trust decision. Stale, mismatched, or duplicate responses are rejected. Readiness is permission to proceed with capture, not approval of the resulting media.
@@ -594,7 +594,7 @@ Use the existing sample workspace and a dedicated profile bound to the intended 
 
 For an attended screenshot of a prepared scene, set `workspace.environment` to `sample`, `capture.mode` to `prepared-session`, and `capture.surface` to `editor` or `agents`. Keep `ai: none`: the runner does not initiate model requests. Steps can only assert text, wait for visibility, or pause. There is no automated typing, clicking, or code execution in this capture mode, and it cannot be combined with video or replay.
 
-Validate the storyboard, then add `--prepared-session` to the existing `build/capture.js` command with the approved workspace, matching capture profile, pinned executable/revision, private output directory, and `--wait-for-ready`. The runner verifies the requested window type. The canvas's approved feature-media path uses the same opt-in for a reviewed prepared-session storyboard.
+Validate the storyboard, then add `--prepared-session` to the existing `build/media/capture.js` command with the approved workspace, matching capture profile, pinned executable/revision, private output directory, and `--wait-for-ready`. The runner verifies the requested window type. The canvas's approved feature-media path uses the same opt-in for a reviewed prepared-session storyboard.
 
 Arrange the already prepared scene during the 15-minute readiness window, then explicitly confirm in chat or the canvas. The agent can arrange approved UI navigation before confirmation; the human handles trust and authentication prompts. Setup changes that require sign-in, requests, or code edits belong before this capture run. The existing profile locks, privacy checks, workspace snapshots, shutdown checks, private preparation, and exact-asset approval still apply. Existing isolated captures and sample instruction replays keep their previous behavior and readiness timeout.
 
@@ -603,7 +603,7 @@ Arrange the already prepared scene during the 15-minute readiness window, then e
 To record the same synthetic task, add `--video --ffmpeg '<absolute-path-to-encoder.exe>'`. Screenshot-only behavior remains the default. Video capture requires a Playwright build with `page.screencast` and its matching FFmpeg binary. Obtain missing dependencies through an approved source before running the pilot. The runner does not download tools or substitute older cached binaries.
 
 ```powershell
-node .\build\capture.js --executable '<absolute-path-to-Code-Insiders.exe>' --revision '<full-build-commit>' --output '<existing-private-capture-directory>' --video --ffmpeg '<absolute-path-to-playwright-ffmpeg.exe>'
+node .\build\media\capture.js --executable '<absolute-path-to-Code-Insiders.exe>' --revision '<full-build-commit>' --output '<existing-private-capture-directory>' --video --ffmpeg '<absolute-path-to-playwright-ffmpeg.exe>'
 ```
 
 The default video shows opening Find, typing the query, matching case, and moving through all three results. The runner checks visible text between actions and finalizes recording even if an action fails. Failed partial recordings remain private and are marked as failed in `capture.json`.
@@ -623,7 +623,7 @@ The runner uses an isolated Git configuration and the synthetic identity `Git De
 Approve the exact storyboard and the single synthetic local commit before launching:
 
 ```powershell
-node .\build\capture.js --storyboard '<reviewed-storyboard.json>' --git-demo '<approved-storyboard-sha256>' --executable '<Code.exe>' --revision '<full-build-commit>' --output '<private-directory>' --video --ffmpeg '<matching-playwright-ffmpeg.exe>' --validation-ffmpeg '<full-ffmpeg.exe>' --wait-for-ready
+node .\build\media\capture.js --storyboard '<reviewed-storyboard.json>' --git-demo '<approved-storyboard-sha256>' --executable '<Code.exe>' --revision '<full-build-commit>' --output '<private-directory>' --video --ffmpeg '<matching-playwright-ffmpeg.exe>' --validation-ffmpeg '<full-ffmpeg.exe>' --wait-for-ready
 ```
 
 Setup steps must be observation-only. Recording steps execute once, without a dry run or reset, because initialization and the first commit are stateful actions. Require named `video.blockedTargets` for unexpected prompts and target every keyboard action. The video can run for up to 60 seconds with `video.maxDurationSeconds`; takes over 30 seconds require the full validation encoder. Recording permits up to 40 steps and 40 seconds of configured typing and pauses, including at most five seconds of pauses. Keep actions visible rather than adding holds.
@@ -656,8 +656,8 @@ The audited sample inventory is bounded to 1000 filesystem entries, 50 MiB of fi
 Validate without launching the product, then relay the human's explicit execution approval using the exact lowercase SHA-256 hash:
 
 ```powershell
-node .\build\storyboard.js '<reviewed-storyboard.json>'
-node .\build\capture.js --storyboard '<reviewed-storyboard.json>' --live-ai '<approved-storyboard-sha256>' --executable '<Code.exe>' --revision '<full-build-commit>' --workspace '<reviewed-sample>' --capture-profile '<dedicated-profile>' --output '<existing-private-directory>' --video --ffmpeg '<matching-playwright-ffmpeg.exe>' --wait-for-ready
+node .\build\media\storyboard.js '<reviewed-storyboard.json>'
+node .\build\media\capture.js --storyboard '<reviewed-storyboard.json>' --live-ai '<approved-storyboard-sha256>' --executable '<Code.exe>' --revision '<full-build-commit>' --workspace '<reviewed-sample>' --capture-profile '<dedicated-profile>' --output '<existing-private-directory>' --video --ffmpeg '<matching-playwright-ffmpeg.exe>' --wait-for-ready
 ```
 
 For a take with an approved maximum over 30 seconds, add `--validation-ffmpeg '<approved-full-ffmpeg.exe>'`. The recording stays at native capture dimensions. Full decoding checks every frame's dimensions, timestamps, and sequence through bounded `showinfo` diagnostics; 12 sampled images support motion checks and four diagnostic review images. These samples do not substitute for viewing the entire recording.
@@ -667,7 +667,7 @@ Changing the storyboard invalidates that hash. The runner requires the matching 
 To relay a human cancellation after readiness:
 
 ```powershell
-node .\build\capture.js --cancel-capture '<run-directory>' --token '<readiness-token>'
+node .\build\media\capture.js --cancel-capture '<run-directory>' --token '<readiness-token>'
 ```
 
 Cancellation, a detected prompt, or the duration deadline stops subsequent scripted actions and finalizes any partial recording privately. An in-flight UI operation might finish before the application closes. Submitted model requests or agent work might continue independently and require separate human cancellation; stopping capture neither undoes edits nor revokes external actions. Check the final manifest rather than treating a cancellation request as a completed shutdown.
@@ -703,7 +703,7 @@ Use native browser footage as a real close-up in the final composition. Review t
 
 ### Prepare saved media without changing the source
 
-Use [the media helper](build/media.js) after capture to crop, frame, or convert a saved candidate without launching the editor. It never changes source bytes, replaces article media, or updates Markdown. Keep the source, capture manifest, recipes, and candidates in private storage outside the repository. Do not run the in-place `optimize-images.sh` or `optimize-videos.sh` scripts on these candidates.
+Use [the media helper](build/media/media.js) after capture to crop, frame, or convert a saved candidate without launching the editor. It never changes source bytes, replaces article media, or updates Markdown. Keep the source, capture manifest, recipes, and candidates in private storage outside the repository. Do not run the in-place `optimize-images.sh` or `optimize-videos.sh` scripts on these candidates.
 
 Save a reusable JSON recipe. Coordinates refer to the source pixels, before padding:
 
@@ -719,7 +719,7 @@ Save a reusable JSON recipe. Coordinates refer to the source pixels, before padd
 `crop`, `padding`, and `background` are optional. Defaults preserve the full image with no padding and use an opaque `#1F1F1F` background for any added padding. Crops must fit entirely inside the source. Supply all four padding edges, each from zero to 256 pixels. Dimensions are limited to 4096 pixels per side and eight megapixels; media files are limited to 50 MiB. MP4 preparation also supports [timed rectangle callouts](#add-timed-video-callouts). There is no resizing, automatic clipping, trim, frame-rate change, text/arrow overlay, or audio support. MP4 crop coordinates, crop dimensions, top and left padding, and final dimensions must be even. No rounding is applied.
 
 ```powershell
-node .\build\media.js prepare --input '<private-source.png>' --sha256 '<source-sha256>' --recipe '<recipe.json>' --output '<existing-private-parent>' --capture '<capture.json>' --capture-sha256 '<capture-manifest-sha256>'
+node .\build\media\media.js prepare --input '<private-source.png>' --sha256 '<source-sha256>' --recipe '<recipe.json>' --output '<existing-private-parent>' --capture '<capture.json>' --capture-sha256 '<capture-manifest-sha256>'
 ```
 
 For runner captures, supply both capture options to retain storyboard provenance, check successful capture and cleanup, verify source hashes, and reject crops that clip recorded highlight rectangles. Other saved sources can omit both options, but have no capture provenance. Review margins yourself.
@@ -741,7 +741,7 @@ Preparation errors identify the private run path when available. Failed runs ret
 
 ### Compose a polished UI video
 
-Use `build/media.js compose` to assemble reviewed real footage into one silent 1920 by 1080, 25 fps H.264 MP4. The output must be at least four seconds and strictly under 60 seconds. Source recordings stay unchanged. Failed captures cannot become composition inputs.
+Use `build/media/media.js compose` to assemble reviewed real footage into one silent 1920 by 1080, 25 fps H.264 MP4. The output must be at least four seconds and strictly under 60 seconds. Source recordings stay unchanged. Failed captures cannot become composition inputs.
 
 Approve the readable shot list and production scope before recording. Keep the composition recipe private: it binds each source path/hash, capture manifest/hash, exact trim, and installed font/hash. The agent maintains this JSON; the author reviews the visible sequence, framing, motion, and labels. Do not fabricate UI, model responses, test results, or browser actions. When waiting time is removed, disclose that in the video rather than implying real-time model performance.
 
@@ -761,7 +761,7 @@ To slow the complete composition without changing its visual sequence, set optio
 Use the approved installed full FFmpeg and ffprobe binaries:
 
 ```powershell
-node .\build\media.js compose --recipe '<private-composition.json>' --output '<existing-private-parent>' --ffmpeg '<full-ffmpeg.exe>' --ffprobe '<full-ffprobe.exe>'
+node .\build\media\media.js compose --recipe '<private-composition.json>' --output '<existing-private-parent>' --ffmpeg '<full-ffmpeg.exe>' --ffprobe '<full-ffprobe.exe>'
 ```
 
 The helper validates and fully decodes every input, checks capture provenance, hashes the font, renders into a new private directory, and verifies the exact final frame count and duration. It saves `prepared.mp4` and `media.json` with the normalized recipe and all source evidence. Text is supplied through confined files, not interpolated into FFmpeg expressions. Source, font, or manifest changes invalidate verification. Failed rendering or cleanup retains an explicitly failed private result.
@@ -791,7 +791,7 @@ For example, this rectangle appears from one second up to, but not including, tw
 * Choose geometry and intervals from the actual recording and its action timestamps, not the example coordinates. Prefer one or two short-lived callouts that guide attention without hiding content. Rectangles do not track moving targets.
 * Only WebM/MP4 input with MP4 output supports this option. Unchanged WebM handoff and image preparation do not. Text labels, arrows, and animated callouts remain unsupported.
 
-Use the existing `build/media.js prepare` command with the recipe and the approved full FFmpeg/ffprobe paths. The preparation manifest records the rectangles and frame ranges. Every transformation creates a new candidate requiring exact-asset review; approval of a raw recording or earlier preparation is not inherited. H.264 encoding is lossy, so the preserved-source guarantee applies to the original file, not identical pixels in the re-encoded video.
+Use the existing `build/media/media.js prepare` command with the recipe and the approved full FFmpeg/ffprobe paths. The preparation manifest records the rectangles and frame ranges. Every transformation creates a new candidate requiring exact-asset review; approval of a raw recording or earlier preparation is not inherited. H.264 encoding is lossy, so the preserved-source guarantee applies to the original file, not identical pixels in the re-encoded video.
 
 The agent should present a readable timing/placement proposal in chat; the author does not need to maintain this JSON. Review the entire final video for correct placement and timing. Automated checks validate geometry, frame bounds, and decodability, not whether a callout identifies the right control.
 
@@ -804,8 +804,8 @@ Inspect the final image or the entire final video. Check privacy, readability, c
 Only after an explicit human decision, record it:
 
 ```powershell
-node .\build\media.js review --manifest '<media.json>' --manifest-sha256 '<preparation-sha256>' --sha256 '<final-asset-sha256>' --decision approved --reviewer '<human-name>' --evidence '<explicit-human-response-and-context>' --confirm-reviewed
-node .\build\media.js verify --manifest '<media.json>'
+node .\build\media\media.js review --manifest '<media.json>' --manifest-sha256 '<preparation-sha256>' --sha256 '<final-asset-sha256>' --decision approved --reviewer '<human-name>' --evidence '<explicit-human-response-and-context>' --confirm-reviewed
+node .\build\media\media.js verify --manifest '<media.json>'
 ```
 
 Use `--decision rejected` to record rejection. Add the required media-tool options for WebP or video to both commands. The review command revalidates the final bytes before creating an exclusive `review.json`, bound to both the asset and manifest hashes. It records an attestation, not authenticated identity or permission to publish. Agents must never infer a human decision.
@@ -848,7 +848,7 @@ The whole review scope is preflighted before any agent starts. An unconfirmed la
 
 Select **Technical accuracy (AI)**, choose the **Public product channel**, optionally enter a **Stable version** and **Technical focus**, then select **Run technical review**. A blank Stable version uses the latest public Stable release. Insiders uses the latest published build from the official update-metadata endpoint, not the current `main` commit. Selecting a mode or refreshing the inbox does not fetch metadata or start agents.
 
-The [product-pin helper](build/review-product.js) resolves the public release once before launch and verifies that its full commit is available in `microsoft/vscode`. Stable targets use a non-draft, non-prerelease GitHub release and its resolved tag. Insiders targets use published product metadata and its exact source revision. Missing authentication, unavailable metadata, invalid versions, or unresolved commits fail explicitly before any agent starts. Nothing is downloaded or installed.
+The [product-pin helper](build/workflow/review-product.js) resolves the public release once before launch and verifies that its full commit is available in `microsoft/vscode`. Stable targets use a non-draft, non-prerelease GitHub release and its resolved tag. Insiders targets use published product metadata and its exact source revision. Missing authentication, unavailable metadata, invalid versions, or unresolved commits fail explicitly before any agent starts. Nothing is downloaded or installed.
 
 Every article receives the same server-owned `binding.product`: channel, version, revision, and public metadata source. The notice, execution details, coverage, and finding provenance identify that target. Requests and reports bind it with their existing hashes. Supported technical findings require commit-pinned source quotations, and the validator rejects citations to a different revision. The importer does not fetch citation contents or certify the agent's conclusions. Different product revisions retain distinct findings and coverage rather than silently inheriting earlier decisions.
 
@@ -864,7 +864,7 @@ Start new interactive reviews on [Review article](#start-a-skill-driven-review-c
 
 Filter **Check type** to **Article review** to inspect saved quotations, suggested corrections, product citations, and review decisions. **Coverage** retains the review summary, limitations, and separate deterministic prechecks. Section findings remain scoped to the originally selected heading and nested subsections; their freshness is bound to the whole article and its dependencies.
 
-The [docs-review skill](.github/skills/docs-review/SKILL.md) defines the procedure. The [review helper](build/review.js) and [workflow adapter](.github/extensions/vscode-docs-workbench/article-review.mjs) validate the captured article, exact source spans, requested focus, channel, guidelines, local dependencies, and completion receipt before ingestion. Private state uses `reviews.json` and `review-runs` beside the existing inbox state, without migrating or overwriting checks, replay, daily audit, or account data.
+The [docs-review skill](.github/skills/docs-review/SKILL.md) defines the procedure. The [review helper](build/workflow/review.js) and [workflow adapter](.github/extensions/vscode-docs-workbench/article-review.mjs) validate the captured article, exact source spans, requested focus, channel, guidelines, local dependencies, and completion receipt before ingestion. Private state uses `reviews.json` and `review-runs` beside the existing inbox state, without migrating or overwriting checks, replay, daily audit, or account data.
 
 Supported observations are labeled as agent judgments and use warning severity. Unresolved questions are unverified. Supported technical findings require quotations and line references from commit-pinned `microsoft/vscode` sources. For a pinned batch, citations must match `binding.product.revision`. The agent and human reviewer assess those citations. The importer validates their shape and product pin but does not fetch or independently authenticate their contents or conclusions. A selected channel is review intent, not proof of an installed build or public feature availability. The agent uses the host's existing permissions, not a new security sandbox.
 
@@ -872,7 +872,7 @@ Supported observations are labeled as agent judgments and use warning severity. 
 
 Freshness checks never rerun the agent or contact GitHub. **Fresh** means local review inputs and saved artifacts remain current, not that a judgment is correct or that the current product still behaves the same way. One-click decisions authenticate the original evidence and record current article bytes without relabeling historical evidence Fresh.
 
-For a saved version 6 report, `node .\build\findings.js --input '<report.json>' --check-current --root '<docs-checkout>'` verifies local freshness. Exit 0 means a completed review with no reported findings, 1 means a completed review with findings, and 2 means an incomplete review. Invalid or stale reports fail explicitly.
+For a saved version 6 report, `node .\build\checks\findings.js --input '<report.json>' --check-current --root '<docs-checkout>'` verifies local freshness. Exit 0 means a completed review with no reported findings, 1 means a completed review with findings, and 2 means an incomplete review. Invalid or stale reports fail explicitly.
 
 Run the focused integration tests with `npm run test:article-workflow`. Set `DOCS_ARTICLE_BROWSER` as described below to include the browser review journey. Live acceptance requires an explicitly selected article and human inspection of the resulting findings.
 
@@ -901,7 +901,7 @@ New plans are proposed in [doc-writer chat](#start-a-documentation-writing-chat)
 
 Review existing proposals, their sources and limitations, or continue an approved draft. Existing **Approve plan scope**, **Reject plan**, and **Prepare draft** controls keep their original source checks and authorization requirements. Current draft actions appear before the original plan; supporting context, research, and proposal notes remain expandable. These compatibility controls are not prerequisites for new chat-based work.
 
-The [plan validator](build/doc-plan.js) restricts proposals to docs articles, documentation TOCs, and the sitemap. It requires sitemap work for new articles and rejects generated policy output, out-of-scope paths, and fabricated media-approval states. Source references and availability assessments remain agent judgments for human review, not independently authenticated conclusions.
+The [plan validator](build/workflow/doc-plan.js) restricts proposals to docs articles, documentation TOCs, and the sitemap. It requires sitemap work for new articles and rejects generated policy output, out-of-scope paths, and fabricated media-approval states. Source references and availability assessments remain agent judgments for human review, not independently authenticated conclusions.
 
 Local source citations must identify files in the captured documentation snapshot. They cannot name arbitrary local or network files. Public citations support GitHub, the VS Code website, Microsoft Learn, and the official update-metadata endpoint. Mutable update metadata describes the research time, not an immutable product version, and should accompany pinned product-source evidence.
 
@@ -956,7 +956,7 @@ Use the **Replay** check-type filter to inspect previously saved findings and th
 
 If a previously launched canvas-owned replay is still waiting, its **I'm ready** and **Cancel waiting replay** controls remain under **Execution details and recovery**. These recover existing work only; they do not start a new replay, change trust decisions, or cancel unrelated tasks.
 
-Replay uses the existing `build/replay.js` runner and readiness protocol. Its private records live in `replay.json` and `replay-runs` beneath the workspace's inbox directory. Capture output and default profiles use shorter, guarded `replay-output` and `replay-profiles` directories beneath the canvas's private extension-data directory to avoid Windows path-length limits. Execution IDs and reviewed bindings retain workspace ownership. They use the shared audit and guarded storage helpers, but do not change the claims/link state or coverage. Existing claims and their review decisions remain intact.
+Replay uses the existing `build/media/replay.js` runner and readiness protocol. Its private records live in `replay.json` and `replay-runs` beneath the workspace's inbox directory. Capture output and default profiles use shorter, guarded `replay-output` and `replay-profiles` directories beneath the canvas's private extension-data directory to avoid Windows path-length limits. Execution IDs and reviewed bindings retain workspace ownership. They use the shared audit and guarded storage helpers, but do not change the claims/link state or coverage. Existing claims and their review decisions remain intact.
 
 Coverage is tracked per storyboard, separately from claims and links. An incomplete attempt retains earlier successful verification. Only a passed replay can establish that an earlier finding was not observed; absence does not automatically mark it fixed. A fixed finding returning after a passed replay reopens, while unchanged dismissals persist.
 

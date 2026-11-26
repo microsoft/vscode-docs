@@ -23,7 +23,7 @@ The `frontmatter-description` and `content-redirect` skills are implementation-t
 Pending proposals persist across runs in untracked Git metadata. Use the state helper for every state operation; do not read or edit its JSON file directly:
 
 ```powershell
-node build\audit-state.js list
+node build\checks\audit-state.js list
 ```
 
 The helper resolves storage with `git rev-parse --git-path daily-docs-audit/pending.json`. The former `manage-state.js` path remains a compatibility wrapper. Use the helper from a trusted checkout, not code changed in a product or docs PR.
@@ -41,12 +41,12 @@ Do not remove a proposal merely because its source PR is outside the current aud
 
 ### Retain deterministic evidence
 
-When checking affected documentation locally, run the trusted claim checker on the relevant files, with link and navigation checks where applicable. Follow the separate-worktree and revision-pinning procedure in [pr-review](../pr-review/SKILL.md), after screening external content. Save the raw report outside the working tree and validate freshness with `build/findings.js --check-current`, supplying the same source root and product manifest.
+When checking affected documentation locally, run the trusted claim checker on the relevant files, with link and navigation checks where applicable. Follow the separate-worktree and revision-pinning procedure in [pr-review](../pr-review/SKILL.md), after screening external content. Save the raw report outside the working tree and validate freshness with `build/checks/findings.js --check-current`, supplying the same source root and product manifest.
 
 Import a current, validated checker report into private audit state:
 
 ```powershell
-Get-Content -Raw -LiteralPath $reportPath | node build\audit-state.js import-findings
+Get-Content -Raw -LiteralPath $reportPath | node build\checks\audit-state.js import-findings
 ```
 
 The importer validates report structure, not current repository or product freshness. An import does not create issue proposals or establish that a product claim is correct. If validation or import fails, report it and preserve the existing state; do not write the JSON directly.
@@ -164,7 +164,7 @@ Store the proposal by passing a JSON object to the state helper's standard input
 ```
 
 ```powershell
-$proposalJson | node build\audit-state.js upsert
+$proposalJson | node build\checks\audit-state.js upsert
 ```
 
 Before choosing an ID, compare the task with the pending list. Reuse an existing ID for the same task; otherwise choose a stable, descriptive, kebab-case ID. The helper preserves the original creation time when an existing proposal is refreshed.
@@ -209,7 +209,7 @@ Load the current record and present its latest finding, source/report metadata, 
 ```
 
 ```powershell
-$decisionJson | node build\audit-state.js triage
+$decisionJson | node build\checks\audit-state.js triage
 ```
 
 Statuses are `open`, `accepted`, `dismissed`, and `fixed`. The evidence hash prevents a decision based on an outdated observation from applying to changed evidence. Reload and request a new decision if the evidence changed. A triage status is local workflow state, not permission to create an issue or change documentation. Issue creation still requires confirmation of each exact proposal as described above.

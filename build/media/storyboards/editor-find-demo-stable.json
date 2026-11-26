@@ -1,0 +1,88 @@
+{
+  "$schema": "../../schemas/storyboard.schema.json",
+  "schemaVersion": 2,
+  "id": "editor-find-demo-stable",
+  "article": "docs/editing/codebasics.md",
+  "channel": "stable",
+  "execution": "attended",
+  "ai": "none",
+  "profile": {
+    "platform": "win32",
+    "theme": "Dark Modern",
+    "width": 1920,
+    "height": 1080,
+    "deviceScaleFactor": 1,
+    "zoomLevel": 2,
+    "wideContent": false,
+    "fonts": "product-defaults"
+  },
+  "fixture": {
+    "file": "example.js",
+    "content": "function calculateTotal(prices) {\n  const total = prices.reduce((sum, price) => sum + price, 0);\n  console.log(total);\n  return total;\n}\n\ncalculateTotal([10, 20, 30]);\n",
+    "openFolder": true
+  },
+  "targets": {
+    "tab": {"role": "tab", "name": "example.js", "exact": false, "first": true},
+    "editor": {"selector": ".monaco-editor .view-lines", "first": true},
+    "find": {"selector": ".find-widget.visible"},
+    "query": {"scope": ".find-widget", "role": "textbox", "name": "Find"},
+    "matchCase": {"scope": ".find-widget", "role": "checkbox", "name": "Match Case", "exact": false},
+    "next": {"scope": ".find-widget", "role": "button", "name": "Next Match", "exact": false},
+    "close": {"scope": ".find-widget", "role": "button", "name": "Close", "exact": false},
+    "count": {"selector": ".find-widget .matchesCount"}
+  },
+  "steps": [
+    {"kind": "click", "target": "tab"},
+    {"kind": "click", "target": "editor"},
+    {"kind": "key", "key": "Control+Home"},
+    {"kind": "key", "key": "Control+f"},
+    {"kind": "fill", "target": "query", "text": "total"},
+    {"kind": "check", "target": "matchCase", "checked": true},
+    {"kind": "assert", "target": "count", "text": "of 3", "match": "contains"}
+  ],
+  "capture": {
+    "file": "editor-find.png",
+    "alt": "Screenshot showing three case-sensitive matches for total in the editor Find control.",
+    "highlights": {
+      "strokeWidth": 2,
+      "targets": [
+        {"target": "matchCase", "padding": 4},
+        {"target": "next", "padding": 4}
+      ]
+    }
+  },
+  "video": {
+    "file": "editor-find.webm",
+    "title": "Video showing searching for total with Match Case and navigating three matches.",
+    "reset": [
+      {"kind": "fill", "target": "query", "text": ""},
+      {"kind": "check", "target": "matchCase", "checked": false},
+      {"kind": "click", "target": "close"},
+      {"kind": "wait-for", "target": "find", "state": "hidden"},
+      {"kind": "click", "target": "editor"},
+      {"kind": "key", "key": "Control+Home"},
+      {"kind": "key", "key": "End"}
+    ],
+    "steps": [
+      {"kind": "key", "key": "Control+f"},
+      {"kind": "fill", "target": "query", "text": ""},
+      {"kind": "pause", "ms": 500},
+      {"kind": "type", "target": "query", "text": "total", "delayMs": 250},
+      {"kind": "assert", "target": "count", "text": "of 5", "match": "contains"},
+      {"kind": "pause", "ms": 400},
+      {"kind": "check", "target": "matchCase", "checked": true},
+      {"kind": "assert", "target": "count", "text": "of 3", "match": "contains"},
+      {"kind": "pause", "ms": 800},
+      {"kind": "click", "target": "next", "expectTextCycle": {"target": "count", "values": ["1 of 3", "2 of 3", "3 of 3"]}},
+      {"kind": "pause", "ms": 900},
+      {"kind": "click", "target": "next", "expectTextCycle": {"target": "count", "values": ["1 of 3", "2 of 3", "3 of 3"]}},
+      {"kind": "pause", "ms": 900},
+      {"kind": "click", "target": "next", "expectTextCycle": {"target": "count", "values": ["1 of 3", "2 of 3", "3 of 3"]}},
+      {"kind": "pause", "ms": 900}
+    ]
+  },
+  "privacy": {
+    "denyText": ["@", "Bearer ", "ghp_", "github_pat_"],
+    "humanVisualReviewRequired": true
+  }
+}

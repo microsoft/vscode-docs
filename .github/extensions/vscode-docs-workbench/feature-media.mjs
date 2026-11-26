@@ -2,9 +2,9 @@ import { randomUUID } from 'node:crypto';
 import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import capture from '../../../build/capture.js';
-import media from '../../../build/media.js';
-import preparation from '../../../build/capture-preparation.js';
+import capture from '../../../build/media/capture.js';
+import media from '../../../build/media/media.js';
+import preparation from '../../../build/media/capture-preparation.js';
 import { atomicJson, format, hash, isHash, isTime, now, ownedPath, readBytes, readJson, validateRun } from './article-storage.mjs';
 
 /* eslint-disable security/detect-non-literal-fs-filename -- Capture and preparation artifacts stay in guarded private run directories. */
@@ -189,7 +189,7 @@ export function createFeatureMedia(store, host, { stateFile, approved, currentSo
         const procedure = await procedures.prepare(request.prepared.procedure.config);
         if (hash(JSON.stringify(procedure)) !== hash(JSON.stringify(request.prepared.procedure)) ||
             hash(await readFile(fileURLToPath(import.meta.url))) !== request.prepared.implementationHash) throw new Error('Reviewed screenshot procedure changed.');
-        const storyFile = await ownedPath(store.workspace, path.join('build', 'storyboards', procedure.config.storyboard));
+        const storyFile = await ownedPath(store.workspace, path.join('build', 'media', 'storyboards', procedure.config.storyboard));
         const story = await readJson(storyFile);
         const captured = await captureEditor({ ...procedure.config, storyboard: storyFile, output: base,
           preparedSession: story.capture?.mode === 'prepared-session',
