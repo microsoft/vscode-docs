@@ -225,6 +225,9 @@ For a local {% data variables.product.prodname_github %}-backed workspace, start
 
 {% data variables.copilot.agent_merge_caps %} monitors a session's pull request and asks the agent to address blockers. It can address reviews, fix failed required checks, resolve conflicts or update a branch, and optionally merge the result. It requires `setting(chat.agentMerge.enabled)` and a supported session.
 
+> [!NOTE]
+> {% data variables.copilot.agent_merge_caps %} is unavailable while `setting(chat.artifactIntegrations.enabled)` is enabled (on by default in Insiders), regardless of `setting(chat.agentMerge.enabled)`. Saved choices are preserved if you switch back.
+
 > [!CAUTION]
 > {% data variables.copilot.agent_merge_caps %} starts agent turns, changes and syncs the pull request branch, and consumes model requests. Enabling it changes the session to [Autopilot](/docs/agents/run/approvals.md#autopilot-mode) with [Assisted permissions](/docs/agents/run/approvals.md#permission-levels). Review its options before enabling automatic merging.
 
@@ -235,7 +238,7 @@ For a local {% data variables.product.prodname_github %}-backed workspace, start
 1. Review the options in its menu. You can also run **Configure {% data variables.copilot.agent_merge %} for Active Session** from the Command Palette.
 
     * **Blockers**: select **Address Reviews**, **Fix CI Failures**, or **Resolve Conflicts and Behind Branches**.
-    * **Merge Pull Request**: choose **Off** to leave merging to you, **If Unchanged** to merge only if the agent makes no changes, or **When Ready** to merge after the selected work and required checks and approvals.
+    * **Merge Pull Request**: choose **Off** to leave merging to you, **Only if {% data variables.copilot.agent_merge_caps %} Made No Changes** to merge only while {% data variables.copilot.agent_merge %} has not changed the branch, or **On** to merge after the selected work and required checks and approvals.
 
 These choices are also available when you select **{% data variables.copilot.agent_merge_caps %}** in the [Create PR form](#create-a-pull-request). For all options, see the [{% data variables.copilot.agent_merge %} settings](/docs/agents/reference/ai-settings.md#agent-sessions).
 
@@ -245,7 +248,7 @@ For a draft pull request, use **Mark Ready** in **Changes** when it is ready for
 
 {% data variables.copilot.agent_merge_caps %} waits for required checks and rechecks readiness before merging or adding the pull request to the merge queue. It turns off if the session starts tracking another branch or pull request.
 
-To review the changes from the most recent {% data variables.copilot.agent_merge %} repair cycle, open the **Changes** view and select **{% data variables.copilot.agent_merge_caps %} Changes** from the changeset dropdown. This changeset compares the latest completed {% data variables.copilot.agent_merge %} repair turn with the preceding completed user turn. It remains empty after your latest message until {% data variables.copilot.agent_merge %} completes another repair turn.
+To review the changes from the most recent {% data variables.copilot.agent_merge %} repair cycle, open the **Changes** view and select **{% data variables.copilot.agent_merge_caps %}** from the changeset dropdown. This changeset compares the latest completed {% data variables.copilot.agent_merge %} repair turn with the preceding completed user turn. It remains empty after your latest message until {% data variables.copilot.agent_merge %} completes another repair turn.
 
 To stop monitoring the pull request, select **{% data variables.copilot.agent_merge_caps %}** in the title bar, and then select **Disable {% data variables.copilot.agent_merge %}**.
 

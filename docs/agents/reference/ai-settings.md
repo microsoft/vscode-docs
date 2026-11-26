@@ -309,7 +309,7 @@ Use the [session lists](/docs/agents/run/sessions/manage-sessions.md#find-and-re
 
 | Setting and Description | Default |
 |------------------------|---------------|
-| `setting(chat.agentMerge.enabled)` _(Experimental)_<br/>Enable [{% data variables.copilot.agent_merge %}](/docs/agents/run/agents-window.md#finish-a-pull-request-with-agent-merge) and its commands. {% data variables.copilot.agent_merge_caps %} monitors a session's pull request and can ask the agent to address selected blockers. | `false` |
+| `setting(chat.agentMerge.enabled)` _(Experimental)_<br/>Enable [{% data variables.copilot.agent_merge %}](/docs/agents/run/agents-window.md#finish-a-pull-request-with-agent-merge) and its commands. {% data variables.copilot.agent_merge_caps %} monitors a session's pull request and can ask the agent to address selected blockers. Paused while `setting(chat.artifactIntegrations.enabled)` is enabled (saved choices are preserved). | `false` (Stable), `true` (Insiders) |
 | `setting(chat.agentMerge.addressReviews)` _(Experimental)_<br/>Address unresolved review threads, changes-requested reviews, and new pull request comments from repository maintainers or the Copilot pull request reviewer. | `true` |
 | `setting(chat.agentMerge.fixCI)` _(Experimental)_<br/>Ask the agent to fix failed required CI checks. | `true` |
 | `setting(chat.agentMerge.resolveConflicts)` _(Experimental)_<br/>Ask the agent to update branches that are behind and resolve merge conflicts. | `true` |
