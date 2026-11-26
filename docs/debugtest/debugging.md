@@ -80,7 +80,7 @@ The selected stack frame determines which variables and expressions are availabl
 
 * **CALL STACK** shows the active function calls. Select a stack frame to inspect its source location and variables.
 
-Some debugger extensions also contribute a **REGISTERS** section that shows the current thread's CPU registers while execution is paused. Register names and values depend on the debugger and the selected stack frame. If the section is hidden, open it with **View: Open View...**.
+* **REGISTERS** shows the current thread's CPU registers while execution is paused. Register names and values depend on the debugger and the selected stack frame. If the section is hidden, open it with **View: Open View...** (`kb(workbench.action.quickOpenView)`).
 
 To filter variables by name or value, focus the **VARIABLES** section, use `kb(list.find)`, and enter a search term.
 
