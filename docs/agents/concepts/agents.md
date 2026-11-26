@@ -116,9 +116,9 @@ Where you interact with an agent and where its work happens are separate:
 
 For example, you can use a browser on your laptop to control a supported session on a remote development machine. The browser displays the session, while workspace files and commands stay on the remote machine.
 
-The diagram shows how these parts connect in Agent Host-backed sessions, with local, remote, and managed cloud examples.
+The diagram shows how these parts connect in Agent Host-backed sessions, with local, Dev Container, remote, and managed cloud examples.
 
-![Diagram of a client connected to an Agent Host, with a harness coordinating context, model requests, permissions, and workspace tools. Deployment examples distinguish where the client connects from, where workspace tools run, and where the model is hosted.](../images/concepts/agent-execution.svg)
+![Diagram of a client connected to an Agent Host, with a harness coordinating context, model requests, permissions, and workspace tools. Deployment examples distinguish execution on your machine, in a Dev Container, on another machine, and in managed cloud compute.](../images/concepts/agent-execution-2026112601.svg)
 
 Learn more about [agent harnesses and execution environments](/docs/agents/concepts/agent-harnesses.md#relate-execution-environments-and-code-isolation).
 
