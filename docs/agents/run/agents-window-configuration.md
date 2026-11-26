@@ -16,7 +16,7 @@ The {% data variables.copilot.agents_window %} uses the accounts and model crede
 * **GitHub Copilot**: select the account icon in the top-right corner, and then sign in to GitHub. To switch accounts, sign out and then authenticate with a different GitHub account.
 * **Claude**: configure a Claude API key or another supported bring-your-own-key (BYOK) option for Claude.
 * **Codex**: select the account icon, and then select **Sign in to ChatGPT**.
-* **Bring your own key (BYOK)**: add a model in the Language Models editor and enable `setting(chat.agentHost.byokModels.enabled)` to make it available in the desktop {% data variables.copilot.agents_window %}. Learn how to [configure BYOK models](/docs/agent-customization/language-models.md#bring-your-own-language-model-key).
+* **Bring your own key (BYOK)**: add a model in the Language Models editor and enable `setting(chat.agentHost.byokModels.enabled)` to make it available in the desktop {% data variables.copilot.agents_window %}. Learn how to [configure BYOK models](/docs/agent-customization/model-providers.md#bring-your-own-language-model-key).
 
 For account requirements, billing options, and integration setup, see [Agent harness requirements and setup](/docs/agents/run/agent-harnesses.md#requirements-and-setup).
 

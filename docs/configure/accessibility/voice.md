@@ -26,7 +26,7 @@ When `setting(agents.voice.handsFree)` is enabled, Voice Mode starts listening a
 
 Voice Mode can use an OpenAI Live model with your own API key. This Experimental option uses your OpenAI account and incurs OpenAI usage charges. Your account and organization policies must permit client BYOK.
 
-1. [Add an OpenAI model from the built-in provider](/docs/agent-customization/language-models.md#add-a-model-from-a-built-in-provider) and enter your OpenAI API key.
+1. [Add an OpenAI model from the built-in provider](/docs/agent-customization/model-providers.md#add-a-model-from-a-built-in-provider) and enter your OpenAI API key.
 
 1. Set `setting(agents.voice.useBYOKVoiceModel)` to an OpenAI Live model ID that your key can access, such as `gpt-live-1`. Model access depends on your OpenAI account and key.
 

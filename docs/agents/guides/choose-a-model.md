@@ -109,17 +109,9 @@ Each attempt and optional judge evaluation uses models and adds to your usage.
 
 ### Run the comparison
 
-1. In the {% data variables.copilot.agents_window %}, select **New**, choose your repository and the {% data variables.product.prodname_copilot_short %} harness, then open the model picker and select **Compare Models**.
+Follow [Configure a comparison](/docs/agents/run/compare-models.md#configure-a-comparison) in the {% data variables.copilot.agents_window %} to select two or three candidate models (using their recommended configurations), optionally configure a judge model, and send your prepared prompt.
 
-    ![Screenshot showing the model picker with the Compare Models option selected.](../images/compare-models/compare-models-icon.png)
-
-1. Select two or three models. Keep their recommended configurations for your first comparison.
-
-1. To get an automated assessment, select **Configure Judge** and choose a judge model. Otherwise, compare the attempts yourself.
-
-1. Select **Done**, enter your task prompt, and select **Run N Attempts**.
-
-The attempts run concurrently. You can open each session to inspect its progress and changes. For additional setup options, including synthesis, see the [model comparison reference](/docs/agents/run/compare-models.md).
+The attempts run concurrently in separate worktrees, and you can inspect each session's progress and changes. For additional options, including combining parts of multiple attempts, see [Compare model results](/docs/agents/run/compare-models.md).
 
 ### Review the results and choose
 

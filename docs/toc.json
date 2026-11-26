@@ -144,6 +144,7 @@
                 "area": "agents/model-and-agent-choice",
                 "topics": [
                     ["Choose and Configure Models", "/docs/agent-customization/language-models"],
+                    ["Add Model Providers and Local Models", "/docs/agent-customization/model-providers"],
                     ["Compare Models Side by Side", "/docs/agents/run/compare-models"],
                     ["Guide: Choose the Right Model", "/docs/agents/guides/choose-a-model", { "secondary": true }],
                     ["Choose an Agent Harness", "/docs/agents/run/agent-harnesses"],

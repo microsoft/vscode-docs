@@ -100,7 +100,7 @@ If you already use AI coding tools but are new to {% data variables.product.prod
 
 1. [Open your repository as a workspace](/docs/getstarted/overview.md#open-your-code).
 
-1. Connect your existing account by following the [setup for your agent harness](/docs/agents/run/agent-harnesses.md#requirements-and-setup), or [connect a model with your own API key](/docs/agent-customization/language-models.md#bring-your-own-language-model-key).
+1. Connect your existing account by following the [setup for your agent harness](/docs/agents/run/agent-harnesses.md#requirements-and-setup), or [connect a model with your own API key](/docs/agent-customization/model-providers.md#bring-your-own-language-model-key).
 
 1. Use the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) to work alongside your editor, tests, and debugger, or the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md) to coordinate tasks across multiple projects.
 

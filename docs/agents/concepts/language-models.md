@@ -80,43 +80,42 @@ Start with Fusion, Auto, or an individual model, then evaluate results on your c
 * [Compare and choose models](/docs/agents/guides/choose-a-model.md)
 {% /action-card %}
 
-Each model has different strengths. Some are optimized for speed and work well for quick edits and simple questions. Others have larger context windows or better reasoning capabilities, making them ideal for complex tasks. As a general guideline:
+Each model balances speed, reasoning depth, context size, and cost differently. As a general guideline:
 
-* **Fast models** are best for quick code edits, boilerplate generation, and straightforward questions.
+* **Fast models** fit quick code edits, boilerplate generation, and straightforward questions.
 * **Reasoning models** excel at complex refactoring, architectural decisions, multi-step debugging, and tasks that require analyzing trade-offs.
-* **Large context models** can accommodate more source material or conversation history. The agent still needs to find and include the relevant information.
+* **Large context models** accommodate more source material or conversation history. The agent still needs to find and include the relevant information.
 
-You can switch models at any time, based on your needs for a particular task. For a detailed comparison, see [Choosing the right AI model for your task](https://docs.github.com/en/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task) in the GitHub Copilot documentation.
+{% data variables.product.prodname_vscode_shortname %} supports four approaches to choosing models, depending on how much control you want:
 
-For a practical workflow, [compare and choose models for your coding tasks](/docs/agents/guides/choose-a-model.md) using Fusion, Auto, or individual models.
+| Approach | Who chooses | How it runs | Best for |
+|----------|-------------|-------------|----------|
+| **[Auto](#auto-model-selection)** | {% data variables.product.prodname_copilot_short %} | Selects one model per request based on task complexity and availability. | Everyday coding without manually switching models. |
+| **[Copilot Fusion](#copilot-fusion)** | {% data variables.product.prodname_copilot_short %} | Selects one model or orchestrates multiple models (for example, drafting, reviewing, and revising) for a task. | Substantial, well-scoped tasks where extra review is worth additional time and AI credits. |
+| **[Model routers](#model-routers)** `feature(model-routers)` | Your rules | Routes requests automatically across models you specify for recurring task types. | Developers who already prefer specific models for different kinds of work. |
+| **Individual model** | You | Uses the explicit model, thinking effort, and context size you choose in the picker. | Tasks needing a specific capability, cost profile, or consistent behavior. |
+
+You can switch approaches at any time. For setup steps, see [Choose and configure language models](/docs/agent-customization/language-models.md#options-for-choosing-a-model). For a hands-on evaluation workflow on your own codebase, see [Compare and choose models for your coding tasks](/docs/agents/guides/choose-a-model.md).
 
 ### Auto model selection
 
-Auto model selection in {% data variables.product.prodname_copilot %} selects a model for each request based on task complexity and model availability. Use Auto when you want the service to make that choice rather than selecting a model yourself.
+Auto model selection in {% data variables.product.prodname_copilot %} routes each request to a single model based on task complexity and availability. It respects your organization's [model access settings](https://docs.github.com/en/copilot/how-tos/use-ai-models/configure-access-to-ai-models) and avoids models excluded by administrator or data-residency policies.
 
-In [{% data variables.product.prodname_copilot_short %} harness sessions](/docs/agents/run/agent-harnesses.md#copilot), the same routing entry can appear as **Copilot Fusion** instead of **Auto**, depending on your settings and the tiers offered to your account. Fusion adds [multi-model orchestration](#copilot-fusion) alongside single-model routing.
-
-Auto selects from multiple models and respects your organization's [model access settings](https://docs.github.com/en/copilot/how-tos/use-ai-models/configure-access-to-ai-models). Auto won't select models excluded by administrator policies or models restricted by data-residency policies.
-
-For more details, see [About Copilot auto model selection](https://docs.github.com/en/copilot/concepts/auto-model-selection) in the GitHub documentation.
+In [{% data variables.product.prodname_copilot_short %} harness sessions](/docs/agents/run/agent-harnesses.md#copilot), **Copilot Fusion** can replace **Auto** when dynamic Auto tiers are enabled and offered to your account. Learn how to [use auto model selection](/docs/agent-customization/language-models.md#use-auto-model-selection) or read [About Copilot auto model selection](https://docs.github.com/en/copilot/concepts/auto-model-selection) in the GitHub documentation.
 
 ### Copilot Fusion
 
-Copilot Fusion is a model orchestration system, not an individual language model. It chooses models and a workflow for your task, so you don't need to coordinate each step yourself. Unlike Auto, which selects one model per request, Fusion can use one model or coordinate multiple models. For example, one model can draft a solution, another can critique it, and the original model can revise it. You receive a single final response.
+Copilot Fusion is a model orchestration system rather than an individual model. Unlike Auto, which picks one model per request, Fusion can coordinate multiple models across passes, such as drafting, critiquing, and revising, and return one final response. Because each pass processes tokens, Fusion can take longer and consume more [AI credits](#ai-credits-and-model-costs) than a single-model request.
 
-Consider Fusion for substantial, well-scoped coding tasks where additional review can be worth the extra time and [AI credits](#ai-credits-and-model-costs). Availability depends on your account and organization policies.
-
-Learn how to [use Copilot Fusion](/docs/agent-customization/language-models.md#use-copilot-fusion). For details about orchestration, see [GitHub Copilot Fusion](https://docs.github.com/en/copilot/concepts/models/copilot-fusion) in the GitHub documentation.
+Learn how to [use Copilot Fusion](/docs/agent-customization/language-models.md#use-copilot-fusion) or read [GitHub Copilot Fusion](https://docs.github.com/en/copilot/concepts/models/copilot-fusion) in the GitHub documentation.
 
 ### Model routers
 
 `feature(model-routers)`
 
-A model router selects from routes you define for recurring work. Each route describes the requests it should handle and the model to use, with optional thinking effort, context size, and guidance for the agent. Unlike Auto or Fusion, which choose models for you, a router uses your own model choices and routing criteria.
+A model router applies routing criteria that you define, matching recurring task descriptions to your chosen models, thinking effort, context size, and route guidance. Routing and guidance are model-driven, so they guide model selection without guaranteeing a specific outcome or cost.
 
-Use a router when you already have model preferences for different tasks and want to reuse them. For example, choose a reasoning model for multi-file changes and a faster model for small edits. Routing and guidance are model-driven, not guarantees about the result or its cost.
-
-Model routers are available in {% data variables.product.prodname_vscode_shortname %} Insiders for Copilot harness sessions. Learn how to [create and use a model router](/docs/agent-customization/language-models.md#use-model-routers).
+Learn how to [create and use a model router](/docs/agent-customization/language-models.md#use-model-routers).
 
 ### AI credits and model costs
 
@@ -126,25 +125,21 @@ Copilot Fusion can use multiple model passes for a task, such as drafting, criti
 
 Long context, reasoning, and repeated tool-and-model steps can increase usage. Prompt caching can reduce the cost of processing input reused from an earlier request. A lower-cost model isn't always cheaper for the whole task if it needs more retries or corrective work. For practical guidance, see [optimize AI credit usage](/docs/agents/guides/optimize-usage.md).
 
-## Model access and hosting
+<a name="model-access-and-hosting"></a>
+<a name="bring-your-own-language-model-key"></a>
 
-Model access determines which account or credentials provide a model and how usage is billed. Model hosting determines where it processes requests. Neither is the same as where the agent edits your code.
+## Model access, hosting, and BYOK
 
-You can use models through a {% data variables.product.prodname_copilot %} plan, another account supported by your harness, or your own API key. Supported local models process requests on your machine instead of a hosted provider. Availability, capabilities, and organization restrictions vary by access option and harness.
+Model access determines which account or credentials provide a model and how usage is billed. Model hosting determines where the model processes requests. Neither is the same as the [agent harness](/docs/agents/concepts/agent-harnesses.md#model-access) or where the agent edits your code.
 
-For example, selecting a Claude-family model through {% data variables.product.prodname_copilot_short %} does not switch to the Claude harness. Learn about [harness and model access](/docs/agents/concepts/agent-harnesses.md#model-access) and [configure model access](/docs/agent-customization/language-models.md#choose-how-to-access-models).
+* **Subscription and harness accounts:** Access models through a {% data variables.product.prodname_copilot %} plan or another provider account supported by your harness. Selecting a Claude-family model through {% data variables.product.prodname_copilot_short %} does not switch to the Claude harness.
+* **Bring your own key (BYOK):** Connect a built-in provider, marketplace extension, or custom API endpoint with your own credentials. That provider's billing, limits, tool-calling capabilities, and data-handling terms apply. BYOK applies to chat and utility tasks and doesn't replace the {% data variables.product.prodname_copilot %} service for inline suggestions or semantic search.
+* **Local and on-device models:** Process model requests on your own machine through a local BYOK provider (such as Ollama) or a {% data variables.product.prodname_copilot_short %}-managed [on-device model](/docs/agent-customization/model-providers.md#use-on-device-models) `feature(on-device-models)`. Local model execution doesn't guarantee an offline workflow, because other tools and services can still use the network. See [where information goes](/docs/agents/concepts/trust-and-safety.md#where-information-goes).
 
-For {% data variables.product.prodname_copilot_short %}-provided models that run on supported hardware, see [on-device models](/docs/agent-customization/language-models.md#use-on-device-models) `feature(on-device-models)`. Don't assume that local model execution makes the entire workflow offline: other tools and services can still use the network. See [where information goes](/docs/agents/concepts/trust-and-safety.md#where-information-goes).
-
-## Bring your own language model key
-
-Bring your own key (BYOK) connects a supported model provider through your own credentials. Use it when you need a model or endpoint outside your existing plan, including a compatible local model provider.
-
-The provider's billing, usage limits, and data-handling terms apply. Tool calling, image input, reasoning, and output filtering depend on the model and integration. BYOK doesn't replace model access for every AI feature, such as inline suggestions.
-
-For supported providers, harness compatibility, sign-in requirements, and setup, see [bring your own language model key](/docs/agent-customization/language-models.md#bring-your-own-language-model-key).
+For setup steps and supported providers, see [Add model providers and local models](/docs/agent-customization/model-providers.md).
 
 ## Related resources
 
+* [Choose and configure language models](/docs/agent-customization/language-models.md)
+* [Add model providers and local models](/docs/agent-customization/model-providers.md)
 * [Context](/docs/agents/concepts/context.md)
-* [AI language models in {% data variables.product.prodname_vscode_shortname %}](/docs/agent-customization/language-models.md)

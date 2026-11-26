@@ -314,7 +314,7 @@ On desktop, you can run sessions using supported provider credentials instead of
 
 * Follow the [{% data variables.product.prodname_anthropic_claude_short %} BYOK setup](/docs/agents/run/agent-harnesses.md#claude) for a supported API key or provider configuration.
 * Follow the [{% data variables.product.prodname_openai_codex_short %} setup](/docs/agents/run/agent-harnesses.md#codex) to use a ChatGPT sign-in.
-* Configure a [supported BYOK model](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) for the {% data variables.copilot.agents_window %}.
+* Configure a [supported BYOK model](/docs/agent-customization/model-providers.md#bring-your-own-language-model-key) for the {% data variables.copilot.agents_window %}.
 
 > [!NOTE]
 > {% data variables.product.prodname_anthropic_claude_short %} and {% data variables.product.prodname_openai_codex_short %} harnesses are disabled when [enterprise-managed settings apply](/docs/enterprise/manage-ai-settings.md#claude-and-codex-availability), unless your administrator explicitly permits them. Separate credentials don't override that restriction. Existing sessions aren't deleted. Contact the IT team that deployed the settings to discuss access.

@@ -59,7 +59,7 @@ If you need to switch between a GitHub.com account and a GHE account, see [Use a
 
 ## Other AI access options
 
-To use another provider's account, follow the [{% data variables.product.prodname_anthropic_claude %} setup](/docs/agents/run/agent-harnesses.md#claude) or [{% data variables.product.prodname_openai_codex %} setup](/docs/agents/run/agent-harnesses.md#codex). To connect a model with your own API key, follow the [bring your own key (BYOK) setup](/docs/agent-customization/language-models.md#bring-your-own-language-model-key). These routes have their own requirements. Some agent workflows without GitHub sign-in are experimental.
+To use another provider's account, follow the [{% data variables.product.prodname_anthropic_claude %} setup](/docs/agents/run/agent-harnesses.md#claude) or [{% data variables.product.prodname_openai_codex %} setup](/docs/agents/run/agent-harnesses.md#codex). To connect a model with your own API key, follow the [bring your own key (BYOK) setup](/docs/agent-customization/model-providers.md#bring-your-own-language-model-key). These routes have their own requirements. Some agent workflows without GitHub sign-in are experimental.
 
 Access through another provider's credentials follows that provider's usage, billing, and data-handling terms. Compare [harness authentication and billing options](/docs/agents/run/agent-harnesses.md#requirements-and-setup).
 

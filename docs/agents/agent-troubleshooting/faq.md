@@ -16,7 +16,7 @@ Yes. You don't need an account to use the core editor features in {% data variab
 To use AI features, choose one of these access methods:
 
 * Sign in with the GitHub account that has your GitHub Copilot plan. This provides the models, features, and usage allowances included with the plan.
-* Configure a [bring-your-own-key model](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) for supported chat features without GitHub sign-in.
+* Configure a [bring-your-own-key model](/docs/agent-customization/model-providers.md#bring-your-own-language-model-key) for supported chat features without GitHub sign-in.
 
 Some features, including inline suggestions, semantic search, and embeddings, require the GitHub Copilot service and aren't available through bring-your-own-key models.
 
@@ -37,7 +37,7 @@ Signing in with a GitHub account that has access to GitHub Copilot has the follo
 
 * [Higher monthly AI credits allowance](https://docs.github.com/en/copilot/get-started/plans#comparing-copilot-plans)
 * [Access to premium language models in chat](https://docs.github.com/en/copilot/reference/ai-models/supported-models#supported-ai-models-per-copilot-plan) beyond auto model selection
-* [Bring your own model keys](/docs/agent-customization/language-models.md#bring-your-own-language-model-key) (BYOK) to access more models
+* [Bring your own model keys](/docs/agent-customization/model-providers.md#bring-your-own-language-model-key) (BYOK) to access more models
 * [Remote repository indexing and semantic code search](/docs/agents/reference/workspace-context.md#semantic-index-sources)
 * [Copilot code review](https://docs.github.com/en/copilot/concepts/agents/code-review)
 * [Copilot content exclusions](https://docs.github.com/en/copilot/how-tos/configure-content-exclusion/exclude-content-from-copilot)
