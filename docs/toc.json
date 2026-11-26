@@ -41,6 +41,7 @@
                             ["Fix an API Bug", "/docs/agents/guides/fix-a-bug-with-agents"],
                             ["Add a Feature", "/docs/agents/guides/add-a-feature"],
                             ["Refactor Safely", "/docs/agents/guides/refactor-safely"],
+                            ["Review a Pull Request", "/docs/agents/guides/review-pull-request"],
                             ["Work with Jupyter Notebooks", "/docs/agents/guides/notebooks-with-ai"]
                         ]
                     }],
@@ -356,6 +357,7 @@
       ["Branches, Stashes & Worktrees", "/docs/sourcecontrol/branches-worktrees"],
       ["Merge Conflicts", "/docs/sourcecontrol/merge-conflicts"],
       ["Collaborate on GitHub", "/docs/sourcecontrol/github"],
+      ["Review a Pull Request with AI", "/docs/agents/guides/review-pull-request", { "secondary": true }],
       ["Troubleshooting", "/docs/sourcecontrol/troubleshooting"],
       ["FAQ", "/docs/sourcecontrol/faq"]
     ]

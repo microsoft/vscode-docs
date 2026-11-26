@@ -62,6 +62,8 @@ Or jump to a task:
 
 * [Refactor safely](/docs/agents/guides/refactor-safely.md): change code structure in reviewable steps while preserving existing behavior. **Setup:** your repository, {% data variables.product.prodname_copilot_short %} in the {% data variables.copilot.chat_view %}.
 
+* [Review a pull request](/docs/agents/guides/review-pull-request.md): inspect a pull request diff, address review comments or failing CI checks in an isolated worktree, verify fixes, and sync the branch. **Setup:** your {% data variables.product.prodname_github %}-backed repository, {% data variables.product.prodname_copilot_short %} in the {% data variables.copilot.agents_window %}.
+
 * [Work with Jupyter notebooks](/docs/agents/guides/notebooks-with-ai.md): create or edit a notebook, run cells, and review results. **Setup:** your data, the Jupyter extension, and a notebook kernel.
 
 If the change is already written, [review uncommitted changes with AI](/docs/sourcecontrol/staging-commits.md#review-code-changes-with-ai) before you commit.
