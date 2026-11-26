@@ -56,15 +56,13 @@
     "eslint-plugin-security": "^1.7.1",
     "get-port": "^5.1.1",
     "glob": "^10.4.5",
-    "gulp": "~5.0.0",
     "husky": "^7.0.0",
     "jsonc-parser": "^3.3.1",
     "lint-staged": "^12.3.3",
     "livereload": "^0.9.3",
     "markdown-it": "^15.0.3",
     "playwright-core": "^1.66.0-alpha-2026-11-12",
-    "serve-static": "^1.16.3",
-    "shelljs": "^0.8.5"
+    "serve-static": "^1.16.3"
   },
   "lint-staged": {
     "*.{gif,mp4,jpg,png,GIF,MP4,JPG,PNG}": [
