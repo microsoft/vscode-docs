@@ -1,45 +1,42 @@
 ---
 ContentId: 5d8a707d-a239-4cc7-92ee-ccc763e8eb9c
-DateApproved: 11/25/2026
-MetaDescription: Add files, symbols, images, browser content, and other context to AI prompts in {% data variables.product.prodname_vscode %} for more relevant responses.
+DateApproved: 11/26/2026
+MetaDescription: Add files, folders, images, GitHub items, web URLs, and browser content as context to AI prompts in {% data variables.product.prodname_vscode %}.
 ---
 # Add context to chat
 
-Providing relevant context helps the AI give more accurate responses. Add files, folders, symbols, images, web content, and other information directly to your prompt when you want the AI to consider specific details.
+Providing relevant context helps the AI give more accurate responses. Add files, folders, editor selections, images, GitHub items, web URLs, and browser content directly to your prompt when you want the AI to consider specific details.
 
 > [!NOTE]
-> Unless otherwise noted, the features on this page work in both the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md).
+> Unless otherwise noted, the features on this page work in [{% data variables.product.prodname_copilot_short %} harness sessions](/docs/agents/run/agent-harnesses.md#copilot) across both the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) and the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md). For context pickers that apply only to the deprecated Local harness, see [Local harness context options (Deprecated)](#local-harness-context-options-deprecated).
 
 For background on what context is and how {% data variables.product.prodname_vscode_shortname %} assembles it, see [Context concepts](/docs/agents/concepts/context.md).
 
-## #-mentions
+## Attach context with #-mentions and Add Context
 
-You can explicitly add context to your prompt by typing `#` followed by the context item you want to mention. {% data variables.product.prodname_vscode_shortname %} supports different types of context items: files, folders, code symbols, tools, terminal output, source control changes, and more.
-
-Type the `#` symbol in the chat input field to see a list of available context items, or select **Add Context** (`+` icon) in the {% data variables.copilot.chat_view %} to open the context picker.
+You can explicitly add context to your prompt by typing `#` followed by the file, folder, or `#selection` you want to mention, or by selecting **Add Context** (`+` icon) in the chat input to open the context picker. You can also paste stack traces, terminal output, or code snippets directly into the chat input, where {% data variables.product.prodname_vscode_shortname %} attaches large pasted blocks cleanly as text context.
 
 ![Screenshot of {% data variables.product.prodname_vscode_shortname %} {% data variables.copilot.chat_view %}, showing the chat variable picker.](./images/copilot-chat/copilot-chat-view-chat-variables.png)
 
-For tool names and context references, see the [Tools and context reference](/docs/agents/reference/tools-reference.md).
+For a full reference of context items and legacy Local tool names, see the [Tools and context reference](/docs/agents/reference/tools-reference.md).
 
-### Add files as context
+<a name="add-files-as-context"></a>
 
-Agents can use workspace search and file-reading tools to gather relevant context. A workspace index helps locate code, but doesn't attach every file to the conversation. Add specific files, folders, or symbols by using #-mentions or the context picker when you know which sources the agent should consider.
+### Add files and folders as context
 
-To provide specific files, folders, or symbols as context, add them to the chat using the following methods:
+Agents can use workspace search and file-reading tools to gather relevant context automatically. A workspace index helps locate code, but doesn't attach every file to the conversation. Add specific files, folders, or editor selections when you know which sources the agent should consider:
 
-* #-mention the file, folder, or symbol in your chat message by typing `#` followed by the name of the file, folder, or symbol.
-    To reference a symbol, make sure to open the file containing the symbol in the editor first.
+* Type `#` followed by a file or folder name to mention it in your prompt, or type `#selection` to attach the code currently selected in the active editor.
 
 * Drag and drop files or folders from the Explorer view, Search view, or editor tabs onto the {% data variables.copilot.chat_view %} to add them as context.
 
-* Select **Add Context** (`+` icon) and then **Files** to choose files from disk, or **Symbols** to select a code symbol.
+* Select **Add Context** (`+` icon) and then **Files & Folders** to pick workspace items, or **Files** to choose files from anywhere on disk.
 
-Use `#codebase` to request a search for relevant code across the workspace. It doesn't add the entire codebase to the model's context. Learn about [workspace search and indexing](/docs/agents/reference/workspace-context.md).
+To request a broad search across the repository, describe what you want the agent to find in your prompt. See [workspace search and indexing](/docs/agents/reference/workspace-context.md) for how agents search your project.
 
 #### Attach files from disk
 
-Use the file chooser to attach files outside your workspace, such as a screenshot or UI mockup from your desktop. You don't need to add their folder to the workspace or open a workspace first.
+Use the file chooser to attach files outside your workspace, such as a log file, screenshot, or UI mockup from your desktop. You don't need to add their folder to the workspace or open a workspace first.
 
 1. Select **Add Context** (`+` icon) > **Files** in the chat input.
 
@@ -51,44 +48,35 @@ Use the file chooser to attach files outside your workspace, such as a screensho
 
 If the selected session supports only image attachments, **Files** filters the chooser to supported images. It doesn't enable ordinary local-file transfer for those sessions.
 
-In sandboxed Copilot harness sessions, attaching a file can grant read access for the session without changing sandbox settings. It doesn't grant write permission or override organization restrictions. See [Read attached files and folders](/docs/agents/run/agent-sandboxing.md#read-attached-files-and-folders).
+In sandboxed {% data variables.product.prodname_copilot_short %} harness sessions, attaching a file can grant read access for the session without changing sandbox settings. It doesn't grant write permission or override organization restrictions. See [Read attached files and folders](/docs/agents/run/agent-sandboxing.md#read-attached-files-and-folders).
 
-### Add project and GitHub context
+### Add project, session, and GitHub context
 
 When you start a session in the {% data variables.copilot.agents_window %}, the first folder or repository you select is the primary execution workspace. It determines where the agent runs and changes files.
 
-You can attach project and GitHub context to a request:
+You can attach project, session, and {% data variables.product.prodname_github %} context to a request:
 
 * In the {% data variables.copilot.agents_window %}, select **Folder** or **Repository** to attach another project. An attached project provides request context and doesn't become another workspace root.
 
-* In any chat input, select **Add Context** (`+` icon), and then select **Issue...** or **Pull Request...**. If multiple GitHub repositories are available, select a repository before you choose the issue or pull request.
+* In any chat input, select **Add Context** (`+` icon), and then select **Issue** or **Pull Request**. If multiple {% data variables.product.prodname_github %} repositories are available, select a repository before you choose the issue or pull request.
 
-* Paste a GitHub issue or pull request URL directly into the prompt. {% data variables.product.prodname_vscode_shortname %} automatically adds the item as a context attachment.
+* Paste a {% data variables.product.prodname_github %} issue or pull request URL directly into the prompt. {% data variables.product.prodname_vscode_shortname %} automatically adds the item as a context attachment.
+
+* Select **Add Context** (`+` icon) > **Sessions** to attach a previous compatible {% data variables.product.prodname_copilot_short %} session as context.
 
 You can attach multiple items. The attachments are preserved in a draft and included when you send the request. Learn more about [starting an agent session in the {% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md#start-an-agent-session).
 
-With `setting(chat.inlineAttachments.enabled)` enabled (Experimental), you can preview GitHub items in your {% data variables.copilot.chat_view %} draft. Hover over a reference, or highlight it with the arrow keys, to see its title, status, and description. Select it or press `kbstyle(Enter)` while highlighted to open the item without sending the draft. Press `kbstyle(Escape)` to dismiss the preview.
+With `setting(chat.inlineAttachments.enabled)` enabled (Experimental, on by default), attached context such as files, folders, images, and pull requests appears as inline pills inside your prompt text instead of above the input. For {% data variables.product.prodname_github %} items in the {% data variables.copilot.chat_view %}, hover over a pill or highlight it with the arrow keys to preview its title, status, and description. Select it or press `kbstyle(Enter)` while highlighted to open the item without sending the draft, or press `kbstyle(Escape)` to dismiss the preview.
 
 ### Reference content from the web
 
-You can reference content from the web in your chat prompts, for example to get the latest API reference or code examples.
+You can reference web pages in your chat prompts, for example to check the latest API reference or migration guide.
 
-You can directly include a URL in your prompt to get information from that webpage, or use the `#fetch` tool to indicate that you want to retrieve content from the web. For example:
+Include the URL directly in your prompt and describe what you want the agent to check. For example:
 
-* `"What are the highlights of the latest {% data variables.product.prodname_vscode_shortname %} release #fetch"`
-* `"Update the asp.net app to .net 9 #fetch https://learn.microsoft.com/en-us/aspnet/core/migration/80-90"`
+* `"Summarize the breaking changes in https://learn.microsoft.com/en-us/aspnet/core/migration/80-90 and check whether this project is affected."`
 
-{% data variables.product.prodname_vscode_shortname %} caches the content of the web page for a limited time to improve performance. If the content of the page changes, you can force a refresh by restarting {% data variables.product.prodname_vscode_shortname %}. If the page cannot be reached, the cache will expire after a short time (approximately five minutes).
-
-{% data variables.product.prodname_vscode_shortname %} prompts for confirmation before accessing external URLs to protect your privacy and security. Learn more about [configuring URL auto-approval](/docs/agents/run/approvals.md#url-approval).
-
-Learn more about [using tools with agents](/docs/agents/run/tools.md).
-
-## @-mentions
-
-Chat participants invoked with `@name` are deprecated and are not supported in the Copilot harness. They remain available for Local harness compatibility `feature(local-harness)`.
-
-Ask Copilot directly about your code, terminal output, or editor settings and attach the relevant context. For domain-specific integrations, use plugins with skills and MCP tools, or extension tools when editor context is required. See [Replace chat participants](/docs/agent-customization/migrate-customizations.md#replace-chat-participants).
+{% data variables.product.prodname_vscode_shortname %} prompts for confirmation before accessing external URLs to protect your privacy and security. Learn more about [configuring URL auto-approval](/docs/agents/run/approvals.md#url-approval) and [using tools with agents](/docs/agents/run/tools.md).
 
 ## Vision
 
@@ -149,6 +137,25 @@ The browser toolbar has an **Add to Chat** split button with actions that let yo
 * **Add Console Logs to Chat**: capture console output from the page and attach it as context for debugging runtime errors.
 
 Learn how to [add browser context to chat](/docs/debugtest/integrated-browser.md#add-context-to-ai-chat). To let an agent interact with a page instead of attaching it as prompt context, see [browser tools for agents](/docs/debugtest/integrated-browser.md#browser-tools-for-agents).
+
+<a name="-mentions"></a>
+
+## Local harness context options (Deprecated)
+
+`feature(local-harness)`
+
+The Local harness is deprecated and will be removed. The following context pickers and mentions apply only to Local harness sessions and aren't supported in the default [{% data variables.product.prodname_copilot_short %} harness](/docs/agents/run/agent-harnesses.md#copilot):
+
+| Local-only context option | What to use in the {% data variables.product.prodname_copilot_short %} harness |
+|---------------------------|--------------------------------------------------------------------------------|
+| **Tool `#`-mentions** (`#codebase`, `#fetch`, `#read/...`, **Add Context** > **Tools**) | Describe what you want in natural language or paste a URL directly so the agent selects its built-in tools. |
+| **Code symbols** (`#<symbol>`, **Add Context** > **Symbols**) | Attach the file (`#<file>`) or select the code in the editor and use `#selection`. |
+| **Terminal output** (**Add Context** > **Terminal**, terminal command decorations) | Copy and paste terminal output into the prompt, attach a log file with **Add Context** > **Files**, or ask the agent to run the command directly. |
+| **Source Control changes** (**Add Context** > **Source Control**, Graph **Add to Chat**) | Mention the commit SHA, branch, or uncommitted changes in your prompt so the agent inspects them with Git. |
+| **Problems, Search Results, Open Editors, and Instructions picker** | Ask the agent to inspect current errors or workspace files directly, or attach the specific files you want it to check. |
+| **`@-mentions` (Chat participants)** | Ask {% data variables.product.prodname_copilot_short %} directly with relevant files, or use [plugins](/docs/agent-customization/agent-plugins.md), [skills](/docs/agent-customization/agent-skills.md), [MCP servers](/docs/agent-customization/mcp-servers.md), or extension tools. See [Replace chat participants](/docs/agent-customization/migrate-customizations.md#replace-chat-participants). |
+
+Plan to [move from the Local to the Copilot harness](/docs/agents/run/move-to-copilot.md) before the Local harness is removed.
 
 ## Next steps
 
