@@ -13,7 +13,7 @@ This is the fastest hands-on introduction to agents. The app uses a single HTML 
 
 * [Download and install {% data variables.product.prodname_vscode %}](/download).
 
-* [Set up {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}](/docs/setup/copilot.md).
+* [Set up {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}](/docs/setup/copilot.md) if you haven't signed in yet, then return here for Step 1.
 
     This quickstart uses {% data variables.product.prodname_copilot_short %} with the recommended session settings shown below. You don't need to compare models or configure additional tools first.
 

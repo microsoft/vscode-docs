@@ -135,54 +135,15 @@ For more information, see [GitHub Copilot security](/docs/agents/run/security.md
 
 ## Go further when you need to
 
-You don't need the following techniques to complete a first task. Use them when a specific problem or recurring workflow calls for more control.
+You don't need these options to complete a first task. Use them when a specific problem or recurring workflow calls for more control:
 
-### Choose the right model
-
-Start with **Copilot Fusion** or **Auto** when available. If results, speed, or cost don't meet your needs, compare models on the same representative task rather than changing several options at once.
-
-For help choosing between Copilot Fusion, Auto, and individual models, see the [model selection guide](/docs/agents/guides/choose-a-model.md).
-
-* Use the [model picker](/docs/agent-customization/language-models.md) to browse available models and their requirements.
-* Use [**Compare Models**](/docs/agents/run/compare-models.md) in the {% data variables.copilot.agents_window %} to run the same prompt with multiple models and compare their results side by side.
-* For reasoning models, adjust [thinking effort](/docs/agent-customization/language-models.md#configure-thinking-effort-and-context-size) when the task needs more analysis.
-* Compare the result and verification evidence alongside [AI credit usage](/docs/agents/guides/optimize-usage.md), not only response speed.
-
-### Choose the right agent harness
-
-Keep the {% data variables.product.prodname_copilot_short %} harness for the workflow above. When you need another provider's tools or account, [compare harness requirements](/docs/agents/run/agent-harnesses.md#requirements-and-setup) before switching. Organization policies can restrict the available choices.
-
-Changing the model doesn't change the harness. Where tools run is another decision: use [remote sessions](/docs/agents/run/remote-agent-sessions.md) for a host you manage, or [cloud sessions](/docs/agents/run/cloud-sandbox-sessions.md) `feature(cloud-sessions)` for managed execution without keeping your own machine online.
-
-### Optimize your project for AI
-
-Add customizations when the agent repeatedly misses a convention or workflow that it can't infer from your code. Run **Chat: Open Customizations** to open the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) for your selected session.
-
-{% data variables.product.prodname_vscode_shortname %} supports several mechanisms to configure AI behavior for your project. Run **Chat: Open Customizations** to open the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) and create customizations for your selected harness.
-
-| Mechanism | Best for | Get started |
-|-----------|----------|-------------|
-| [Custom instructions](/docs/agent-customization/custom-instructions.md) | Project-wide coding standards and architectural context | Type `/init` to generate always-on instructions for your project |
-| [Custom agents](/docs/agent-customization/custom-agents.md) | Specialized workflows or personas (TDD, security audit) | Select **Agents**, then **New Agent** next to **Workspace** in the Agent Customizations editor |
-| [Skills](/docs/agent-customization/agent-skills.md) | Domain-specific capabilities (testing, deployment) | Select **Skills**, then **New Skill** next to **Workspace** in the Agent Customizations editor |
-| [Tools and MCP servers](/docs/agents/run/tools.md) | Connecting to external systems (databases, APIs, CLIs) | Configure in `mcp.json` |
-
-Verify one customization on a representative task before adding more. Follow the [project customization guide](/docs/agents/guides/customize-copilot-guide.md) for a before-and-after comparison.
-
-### Manage context and sessions
-
-Choose an approach based on the problem you're solving:
-
-* **A long conversation is losing focus:** [Compact the conversation](/docs/agents/run/sessions/manage-sessions.md#compact-conversation-context), specifying what to retain, or start a fresh chat with a concise summary.
-* **You want to compare approaches:** [Fork the conversation](/docs/agents/run/sessions/manage-sessions.md#fork-a-chat-session) to retain its history. A fork doesn't isolate file changes.
-* **Independent tasks need to run in parallel:** Use [separate worktrees](/docs/agents/guides/delegate-two-tasks.md) when their changes must stay separate. Review each result before integrating it.
-* **One task needs a focused investigation:** Ask a [subagent](/docs/agents/run/subagents.md#subagents-by-harness) to investigate a bounded question and report back.
-
-### Optimize AI credit usage
-
-If usage is higher than expected, first check task scope, relevant context, and repeated failed attempts. Planning before implementation and correcting the agent early can avoid work you would otherwise discard.
-
-Use the [AI credit usage guide](/docs/agents/guides/optimize-usage.md) to compare cost with result quality. If session metrics indicate low cache reuse, use the [Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md) to investigate it rather than treating cache tuning as a prerequisite for coding.
+| When you need to | Where to go |
+|------------------|-------------|
+| Balance quality, speed, and cost across models | Start with **Copilot Fusion** or **Auto**, or follow [Compare and choose models](/docs/agents/guides/choose-a-model.md) and [Compare model results](/docs/agents/run/compare-models.md). Adjust [thinking effort](/docs/agent-customization/language-models.md#configure-thinking-effort-and-context-size) only when a task needs deeper analysis. |
+| Switch agent harnesses or execution environments | Keep the {% data variables.product.prodname_copilot_short %} harness by default, or compare [agent harnesses](/docs/agents/run/agent-harnesses.md#requirements-and-setup). Use [remote sessions](/docs/agents/run/remote-agent-sessions.md) or [cloud sessions](/docs/agents/run/cloud-sandbox-sessions.md) `feature(cloud-sessions)` when tools shouldn't run locally. |
+| Stop repeating project rules or team workflows | Open the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor) (**Chat: Open Customizations**) to add instructions, skills, custom agents, or MCP servers. Follow [Adapt agents to your project](/docs/agents/guides/customize-copilot-guide.md) to verify one change at a time. |
+| Keep long or parallel conversations organized | [Compact context](/docs/agents/run/sessions/manage-sessions.md#compact-conversation-context) or start a fresh chat when a conversation loses focus, [fork a session](/docs/agents/run/sessions/manage-sessions.md#fork-a-chat-session) to explore alternatives, delegate investigations to [subagents](/docs/agents/run/subagents.md#subagents-by-harness), or [run parallel tasks in separate worktrees](/docs/agents/guides/delegate-two-tasks.md). |
+| Reduce unexpected AI credit consumption | Follow [Optimize AI credit usage](/docs/agents/guides/optimize-usage.md) to scope tasks, trim context, and compare model costs. Use the [Cache Explorer](/docs/agents/agent-troubleshooting/cache-explorer.md) if session metrics show low prompt-cache reuse. |
 
 ### Work with large codebases
 

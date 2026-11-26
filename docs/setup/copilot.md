@@ -34,15 +34,11 @@ Follow these steps to get started with Copilot in {% data variables.product.prod
 
 1. Choose a sign-in method and follow the prompts.
 
-    * If you already have a Copilot subscription for your account, {% data variables.product.prodname_vscode_shortname %} will use that subscription.
+    * If you already have a Copilot subscription for your account, {% data variables.product.prodname_vscode_shortname %} uses that subscription.
 
-    * If you don't have a Copilot subscription yet, you'll be signed up for the [{% data variables.copilot.copilot_free_short %} plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits. Learn more about the different [GitHub Copilot plans](https://docs.github.com/en/copilot/get-started/plans).
+    * If you don't have a Copilot subscription yet, you sign up for the [{% data variables.copilot.copilot_free_short %} plan](https://github.com/github-copilot/signup) and get a monthly allowance of inline suggestions and AI credits. Learn more about the different [GitHub Copilot plans](https://docs.github.com/en/copilot/get-started/plans).
 
-1. Choose a first task:
-
-    * **Use your own project**: [explore a codebase without changing files](/docs/agents/guides/explore-a-codebase.md) and check the explanation against your code.
-
-    * **Use a practice project**: [build and validate a small app](/docs/agents/quickstart.md) with recommended defaults.
+After signing in, confirm that the Copilot icon in the Status Bar shows your active status. If you arrived here from a quickstart or guide, return to it now, or pick a starting path from [Next steps](#next-steps).
 
 > [!IMPORTANT]
 > Telemetry in your free version of GitHub Copilot is currently enabled. By default, code suggestions that match public code, including code references in the {% data variables.product.prodname_vscode_shortname %} and [github.com](https://github.com/copilot) experience, are allowed. You can opt out of telemetry data collection by disabling telemetry in {% data variables.product.prodname_vscode_shortname %} by setting `setting(telemetry.telemetryLevel)` to `off`, or you can adjust both telemetry and code suggestion settings in [Copilot Settings](https://github.com/settings/copilot).
