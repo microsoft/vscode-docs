@@ -1,4 +1,4 @@
-import reviewChat from '../../../build/review-chat.js';
+import reviewChat from '../../../build/workflow/review-chat.js';
 import { createGitHub } from './github.mjs';
 import { isTime, now } from './article-storage.mjs';
 import { text } from './state.mjs';

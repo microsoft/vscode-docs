@@ -3,7 +3,7 @@ import test from 'node:test';
 import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { chromium } from 'playwright-core';
-import editorTools from '../../../build/docs-editor.js';
+import editorTools from '../../../build/media/docs-editor.js';
 import { createArticleFixture } from './article-fixture.mjs';
 import { createWorkbenchServer } from './server.mjs';
 import { articleAssets } from './article-canvas.mjs';

@@ -1,8 +1,8 @@
 import { open, mkdir, readFile, rm } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import claims from '../../../build/check-claims.js';
-import findings from '../../../build/findings.js';
+import claims from '../../../build/checks/check-claims.js';
+import findings from '../../../build/checks/findings.js';
 import { articlePath, atomicJson, createArticleStore, format, hash, isHash, now, readJson, resolveArticle, uuid, validateScope, version } from './article-storage.mjs';
 
 /* eslint-disable security/detect-non-literal-fs-filename -- Inputs and outputs are validated workflow-owned paths, never paths extracted from article content. */

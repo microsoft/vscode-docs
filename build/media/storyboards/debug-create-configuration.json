@@ -1,0 +1,54 @@
+{
+  "$schema": "../../schemas/storyboard.schema.json",
+  "schemaVersion": 2,
+  "id": "debug-create-configuration",
+  "article": "docs/debugtest/debugging-configuration.md",
+  "channel": "stable",
+  "execution": "attended",
+  "ai": "none",
+  "profile": {
+    "platform": "win32",
+    "theme": "Dark Modern",
+    "width": 1920,
+    "height": 1080,
+    "deviceScaleFactor": 1,
+    "zoomLevel": 2,
+    "wideContent": false,
+    "fonts": "product-defaults"
+  },
+  "workspace": {
+    "entry": "jsconfig.json"
+  },
+  "targets": {
+    "tab": {"role": "tab", "name": "jsconfig.json", "exact": false, "first": true},
+    "editor": {"selector": ".monaco-editor .view-lines", "first": true},
+    "createConfiguration": {"scope": ".part.sidebar", "role": "button", "name": "create a launch.json file"},
+    "picker": {"selector": ".quick-input-widget"},
+    "pickerInput": {"scope": ".quick-input-widget", "selector": "input[placeholder=\"Select debugger\"]"}
+  },
+  "steps": [
+    {"kind": "click", "target": "tab"},
+    {"kind": "click", "target": "editor"},
+    {"kind": "key", "key": "Control+w"},
+    {"kind": "key", "key": "Control+Shift+d"},
+    {"kind": "wait-for", "target": "createConfiguration", "state": "visible"},
+    {"kind": "click", "target": "createConfiguration"},
+    {"kind": "wait-for", "target": "pickerInput", "state": "visible"},
+    {"kind": "assert", "target": "picker", "text": "Node.js", "match": "contains"}
+  ],
+  "capture": {
+    "file": "debug-create-configuration.png",
+    "alt": "Screenshot showing the create a launch.json file action in the Run and Debug view and the Select debugger picker.",
+    "highlights": {
+      "strokeWidth": 2,
+      "targets": [
+        {"target": "createConfiguration", "padding": 8},
+        {"target": "picker", "padding": -4}
+      ]
+    }
+  },
+  "privacy": {
+    "denyText": ["@", "Bearer ", "ghp_", "github_pat_"],
+    "humanVisualReviewRequired": true
+  }
+}

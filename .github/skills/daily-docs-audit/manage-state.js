@@ -1,7 +1,7 @@
 //@ts-check
 'use strict';
 
-const state = require('../../../build/audit-state');
+const state = require('../../../build/checks/audit-state');
 
 if (require.main === module) {
 	try {

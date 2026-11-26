@@ -1,5 +1,5 @@
-import findings from '../../../build/findings.js';
-import auditFindings from '../../../build/audit-findings.js';
+import findings from '../../../build/checks/findings.js';
+import auditFindings from '../../../build/checks/audit-findings.js';
 import { WorkbenchError, text } from './state.mjs';
 import { hash, now, resolveArticle } from './article-storage.mjs';
 import { loadRunArtifacts } from './article-artifacts.mjs';

@@ -4,12 +4,12 @@ import { promisify } from 'node:util';
 import { mkdir, readdir, readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import replay from '../../../build/replay.js';
-import storyboard from '../../../build/storyboard.js';
-import preparation from '../../../build/capture-preparation.js';
-import findings from '../../../build/findings.js';
-import audit from '../../../build/audit-state.js';
-import auditFindings from '../../../build/audit-findings.js';
+import replay from '../../../build/media/replay.js';
+import storyboard from '../../../build/media/storyboard.js';
+import preparation from '../../../build/media/capture-preparation.js';
+import findings from '../../../build/checks/findings.js';
+import audit from '../../../build/checks/audit-state.js';
+import auditFindings from '../../../build/checks/audit-findings.js';
 import { WorkbenchError, text } from './state.mjs';
 import { atomicJson, createArticleStore, format as inboxFormat, hash, isHash, isTime, now, ownedPath, readJson, uuid, validateRun } from './article-storage.mjs';
 import { decideFinding, findingActionView, findingSource } from './finding-actions.mjs';
@@ -24,7 +24,7 @@ const root = fileURLToPath(new URL('../../../', import.meta.url));
 const quote = value => `'${value.replaceAll("'", "''")}'`;
 
 async function catalog(store) {
-  const directory = await ownedPath(store.workspace, path.join('build', 'storyboards'));
+  const directory = await ownedPath(store.workspace, path.join('build', 'media', 'storyboards'));
   const values = [];
   for (const entry of await readdir(directory, { withFileTypes: true })) {
     if (!entry.name.endsWith('.json')) continue;
@@ -39,7 +39,7 @@ async function catalog(store) {
 
 async function storyFile(store, file) {
   if (typeof file !== 'string' || !/^[a-zA-Z0-9_-]+\.json$/.test(file)) throw new Error('Choose a checked-in storyboard.');
-  return ownedPath(store.workspace, path.join('build', 'storyboards', file));
+  return ownedPath(store.workspace, path.join('build', 'media', 'storyboards', file));
 }
 
 export async function installedReplayBuilds() {

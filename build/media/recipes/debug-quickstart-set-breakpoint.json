@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "debug-quickstart-set-breakpoint",
+  "storyboard": "build/media/storyboards/debug-quickstart-set-breakpoint.json",
+  "outputs": [
+    {
+      "id": "set-breakpoint",
+      "base": "docs/debugtest/images/quickstart/set-breakpoint",
+      "source": "highlighted",
+      "prepare": {
+        "format": "png",
+        "crop": {"x": 60, "y": 52, "width": 650, "height": 158}
+      },
+      "assets": ["docs/debugtest/images/quickstart/set-breakpoint-2026112401.png"]
+    }
+  ]
+}
