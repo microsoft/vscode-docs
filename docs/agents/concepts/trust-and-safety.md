@@ -128,7 +128,7 @@ Use the [review flow](/docs/agents/run/review-code-edits.md) and [sensitive file
 Other forms of isolation serve different purposes:
 
 * A [Git worktree](/docs/agents/concepts/agent-harnesses.md#relate-execution-environments-and-code-isolation) separates code changes. It doesn't restrict commands, network access, or access to other files.
-* A [Dev Container](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container) provides a containerized development environment. Its access to the host and network depends on mounts, permissions, and networking configuration.
+* A [Dev Container](/docs/agents/run/dev-containers.md) provides a containerized development environment. Its access to the host and network depends on mounts, permissions, and networking configuration.
 
 Neither replaces the applicable permission controls or your review of the result.
 

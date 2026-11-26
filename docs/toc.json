@@ -99,6 +99,7 @@
                             ["Add Prompt Context", "/docs/chat/copilot-chat-context"],
                             ["Review and Undo Changes", "/docs/agents/run/review-code-edits"],
                             ["Work with Agents in Worktrees", "/docs/agents/run/worktrees"],
+                            ["Work with Agents in Dev Containers", "/docs/agents/run/dev-containers"],
                             ["Canvases", "/docs/agents/run/canvases"]
                         ]
                     }],

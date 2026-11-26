@@ -222,7 +222,7 @@ In the installed {% data variables.copilot.agents_window %}, discovering a machi
 
 Use the Remote Environments editor in the installed {% data variables.copilot.agents_window %} to find and manage your remote machines in one place. This editor is optional; you don't need to open it to follow the connection steps above.
 
-You can also [create and manage standalone Dev Containers](/docs/agents/run/agents-window.md#create-a-container-without-a-project-experimental) here, on this computer or a connected host. Unlike a connection to an existing machine, each standalone container provides a new workspace with its files in a Docker volume.
+You can also [create and manage standalone Dev Containers](/docs/agents/run/dev-containers.md#create-a-container-without-a-project-experimental) here, on this computer or a connected host. Unlike a connection to an existing machine, each standalone container provides a new workspace with its files in a Docker volume.
 
 The **This Computer** section manages how this computer is shared. It requires `setting(sessions.chat.experimental.remoteEnvironmentsThisComputer)`, which is on by default. With the default sharing controls, choose **{% data variables.copilot.github_environments_caps %}** (when available), **Dev Tunnels**, or **Off**, or select **Rename Sharing Name** to change the name other clients see. Alternatively, [use the Experimental sharing setup form](#share-this-computer-with-the-setup-form-experimental) to choose a method before applying it. Local sessions continue to run on this computer whether sharing is on or off.
 
@@ -350,10 +350,10 @@ Select a folder on that host instead when the task needs an existing project.
 
 Run agents inside a container on a connected SSH, Tunnel, or WSL host to use its tools and dependencies without installing them directly on that host. This requires the installed {% data variables.copilot.agents_window %}, a host that supports Dev Container sessions, and Docker installed and running on that host.
 
-* For an existing project, select its remote folder and follow [Use your project's Dev Container](/docs/agents/run/agents-window.md#use-your-projects-dev-container).
-* For a fresh workspace without a project configuration, follow [Create a container without a project](/docs/agents/run/agents-window.md#create-a-container-without-a-project-experimental).
+* For an existing project, select its remote folder and follow [Use your project's Dev Container](/docs/agents/run/dev-containers.md#use-your-projects-dev-container).
+* For a fresh workspace without a project configuration, follow [Create a container without a project](/docs/agents/run/dev-containers.md#create-a-container-without-a-project-experimental).
 
-The main [Dev Container procedure](/docs/agents/run/agents-window.md#run-a-session-in-a-dev-container) covers setup, troubleshooting, and the different cleanup behavior of these two choices.
+The main [Dev Container procedure](/docs/agents/run/dev-containers.md) covers setup, troubleshooting, and the different cleanup behavior of these two choices.
 
 ### Preview a remote web app
 

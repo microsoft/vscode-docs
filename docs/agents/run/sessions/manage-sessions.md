@@ -56,7 +56,7 @@ From an SSH, WSL, or tunnel editor window, opening the {% data variables.copilot
 
 Supported tunnel connections can also reopen the same session in either window. For SSH, WSL, and Dev Containers, switching windows currently opens the folder without continuing the session.
 
-Standalone Dev Container environments are an exception to this container limitation. For a [container created without a project](/docs/agents/run/agents-window.md#create-a-container-without-a-project-experimental), **Open in Editor** can open its workspace and a supported session. This requires the Dev Containers extension pre-release, version 0.478.0 or later. For a container on WSL, the action is available only when this computer's Docker engine can access the environment's volume, as with a shared Docker Desktop engine. A separate Docker engine running only inside WSL isn't supported by this action.
+Standalone Dev Container environments are an exception to this container limitation. For a [container created without a project](/docs/agents/run/dev-containers.md#create-a-container-without-a-project-experimental), **Open in Editor** can open its workspace and a supported session. This requires the Dev Containers extension pre-release, version 0.478.0 or later. For a container on WSL, the action is available only when this computer's Docker engine can access the environment's volume, as with a shared Docker Desktop engine. A separate Docker engine running only inside WSL isn't supported by this action.
 
 To change the harness instead, see [Continue with a different harness](/docs/agents/run/agent-harnesses.md#continue-with-a-different-harness).
 
@@ -248,7 +248,7 @@ Select a nested session in the list or, in the **Multiple** presentation, select
 
 To rename a chat, select **Rename** from its tab's context menu. Chat titles are independent of the session title.
 
-To keep conversations visible together, [arrange chat tabs in split groups](/docs/agents/run/agents-window-configuration.md#arrange-chat-tabs-and-groups). For separate top-level sessions, [arrange sessions in a grid](/docs/agents/run/agents-window.md#arrange-sessions-in-a-grid).
+To keep conversations visible together, [arrange chat tabs in split groups](/docs/agents/run/agents-window-configuration.md#arrange-chat-tabs-and-groups). For separate top-level sessions, [arrange sessions in a grid](/docs/agents/run/agents-window-configuration.md#arrange-sessions-in-a-grid).
 
 {% /tab %}
 {% tab label="{% data variables.copilot.chat_view %}" %}
@@ -318,9 +318,9 @@ Choose the action that matches what you want to keep:
 
 For a worktree session, archiving commits uncommitted changes to the session branch before removing the worktree folder. If changes can't be preserved or the folder can't be removed, the worktree remains. The branch and commits are retained, so restoring re-creates the worktree.
 
-For a session in [your project's configured Dev Container](/docs/agents/run/agents-window.md#use-your-projects-dev-container), marking done removes the container without waiting for idle shutdown, but only if no other session or unsent draft uses it. Restoring starts a replacement container. To retain container-stored conversations across replacements, [configure a persistent state volume](/docs/devcontainers/create-dev-container.md#preserve-chat-sessions-across-rebuilds) `feature(dev-container-state-volume)` before creating the container.
+For a session in [your project's configured Dev Container](/docs/agents/run/dev-containers.md#use-your-projects-dev-container), marking done removes the container without waiting for idle shutdown, but only if no other session or unsent draft uses it. Restoring starts a replacement container. To retain container-stored conversations across replacements, [configure a persistent state volume](/docs/devcontainers/create-dev-container.md#preserve-chat-sessions-across-rebuilds) `feature(dev-container-state-volume)` before creating the container.
 
-Marking a session as done doesn't remove a [standalone Dev Container](/docs/agents/run/agents-window.md#create-a-container-without-a-project-experimental). Manage that container separately in **Remote Environments**.
+Marking a session as done doesn't remove a [standalone Dev Container](/docs/agents/run/dev-containers.md#create-a-container-without-a-project-experimental). Manage that container separately in **Remote Environments**.
 
 > [!NOTE]
 > A Local session automatically archived by [enterprise runtime policy enforcement](/docs/enterprise/manage-ai-settings.md#runtime-policies-and-harness-selection) remains read-only while the policy applies. Continue in its replacement {% data variables.product.prodname_copilot_short %} session instead.
@@ -340,7 +340,7 @@ Main chats, side chats, and subagent chats can't be marked done independently.
 
 Right-click a session and select **Delete**. For {% data variables.product.prodname_copilot_short %} harness sessions, this also removes associated worktrees created for the session. A shared worktree remains while another session still uses it and is removed only after the last linked session is deleted or archived.
 
-For sessions in a project's configured Dev Container, deletion removes the container only when no other session or unsent draft uses it, even if automatic idle shutdown is off. Deleting a session in a standalone Dev Container doesn't remove that container or its workspace files. To remove those resources, [delete the container in Remote Environments](/docs/agents/run/agents-window.md#create-a-container-without-a-project-experimental).
+For sessions in a project's configured Dev Container, deletion removes the container only when no other session or unsent draft uses it, even if automatic idle shutdown is off. Deleting a session in a standalone Dev Container doesn't remove that container or its workspace files. To remove those resources, [delete the container in Remote Environments](/docs/agents/run/dev-containers.md#create-a-container-without-a-project-experimental).
 
 To delete an individual chat in the {% data variables.copilot.agents_window %} **Multiple** presentation, select **Delete Chat** in its tab's context menu, or press `kb(sessions.chatCompositeBar.deleteChat)` while it has focus.
 

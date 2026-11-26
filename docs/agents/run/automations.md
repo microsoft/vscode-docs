@@ -12,7 +12,7 @@ Run an automation locally when the task needs your development environment. Run 
 
 This article explains how to choose between local and cloud automations, and how to create, monitor, and safely manage them.
 
-For a one-time request in a new session or an existing conversation, use [Send Later](/docs/agents/run/agents-window.md#send-a-request-later) `feature(agents-window-send-later)`.
+For a one-time request in a new session or an existing conversation, use [Send Later](#send-a-request-later) `feature(agents-window-send-later)`.
 
 ## Prerequisites
 
@@ -153,7 +153,7 @@ Save the automation disabled so I can review it before enabling scheduled runs.
 
 1. Open **Automations** to review the saved configuration, then [run and review the automation](#run-and-review-an-automation) before enabling recurring work.
 
-For an explicit [one-time scheduling request](/docs/agents/run/agents-window.md#ask-the-agent-to-schedule-a-follow-up), you don't need a separate `Create it` message. Normal tool approvals still apply.
+For an explicit [one-time scheduling request](#ask-the-agent-to-schedule-a-follow-up), you don't need a separate `Create it` message. Normal tool approvals still apply.
 
 You can also ask the agent to change or remove an existing automation's end date. Review the resolved date and time zone before confirming the change. End dates stop future scheduled runs, not a run already in progress.
 
@@ -363,6 +363,62 @@ For cloud automations, edit, enable, disable, and delete actions update the auto
 
 > [!IMPORTANT]
 > Turning off `setting(chat.automations.cloud.enabled)` or `setting(chat.automations.enabled)` hides cloud automation controls in {% data variables.product.prodname_vscode_shortname %}, but it doesn't stop schedules or event triggers that are already active on GitHub. Disable or delete those cloud automations before turning off the settings.
+
+## Send a request later
+
+`feature(agents-window-send-later)`
+
+Use **Send Later** in the {% data variables.copilot.agents_window %} to start a new task or send a follow-up to an existing conversation at a future time. For tasks that repeat, [create an automation](#create-an-automation) instead.
+
+Enable `setting(sessions.sendLater.enabled)`, which is off by default, and keep `setting(chat.automations.enabled)` enabled. Send Later currently only works on the local machine and not for remote agent sessions.
+
+1. Compose a request in **New Session** or an existing conversation. For a new session, choose its workspace, agent, model, and other session options.
+
+1. Open the **Send** dropdown and select **Send Later**.
+
+1. Choose a preset, such as **In 5 Minutes** or **Tomorrow Morning** (9 AM the next day). Each preset shows its exact local send time.
+
+    For a custom time, select **Choose Date and Time**, choose a future date and time, and select **Schedule**. The time dropdown uses 15-minute steps. Select **Exact Time** to choose a precise minute. Review the date, time, and time zone before scheduling.
+
+<!-- TODO: Capture the Send Later calendar and an existing conversation's scheduled-message area. -->
+
+A scheduled new-session request appears under **Drafts**. Use **Preview** to check its prompt, time, workspace, and model. A scheduled follow-up appears inside its original conversation, including a nested chat, rather than as a new sidebar draft.
+
+At the scheduled time, a follow-up uses that conversation's current configuration. If the conversation is busy, the request joins its queue without interrupting or steering the active turn.
+
+> [!NOTE]
+> Keep your computer awake and the Agent Host running for on-time delivery. Scheduling doesn't wake a sleeping computer or start a stopped host. Pending requests survive window reloads, and a missed send catches up once when the host becomes available.
+
+### Change or cancel a scheduled request
+
+To update or manage a scheduled request, right-click a scheduled chat request and select an action.
+
+| Action | Effect |
+|---|---|
+| **Reschedule** | Change the send time without changing the destination. |
+| **Send Now** | Send immediately, or queue the request if its conversation is busy. It doesn't send again at the original time. |
+| **Edit** | For an existing-chat request, change its text and send time, then select **Save**. |
+| **Cancel Schedule** | Cancel delivery and retain the request content. For a new session, cancellation keeps an ordinary draft if saved drafts are enabled, or restores the content to the composer otherwise. |
+| **Edit as Draft** | For a new-session request, cancel the schedule and reopen its content in the composer. |
+
+Recovery doesn't overwrite other unsent input. If cancellation reports an uncertain outcome, check **Automations** before sending the request again.
+
+Turning off `setting(sessions.sendLater.enabled)` doesn't cancel accepted schedules. Manage those requests in **Automations**.
+
+> [!TIP]
+> To view the list of scheduled requests, select the **Scheduled Only** filter option in the sessions list.
+
+### Ask the agent to schedule a follow-up
+
+You can ask the agent to schedule a text-only request in the same conversation:
+
+```prompt
+In 30 minutes, remind me in this chat to review the test results.
+```
+
+An explicit one-time request doesn't require a separate `Create it` message. Review the scheduling tool approval if prompted. Scheduling doesn't approve future tool actions.
+
+The request targets the exact calling conversation unless you explicitly ask for a new session. You can also ask the agent to reschedule, cancel, or send a pending request now. Use the chat UI for requests with attachments.
 
 ## Cloud automation security and usage
 
