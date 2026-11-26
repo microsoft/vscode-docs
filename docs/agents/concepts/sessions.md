@@ -16,7 +16,7 @@ Keywords:
 
 # Understand sessions and chats
 
-A session is the unit of work with an agent in {% data variables.product.prodname_vscode %}. It brings together the workspace and code changes for a task. A chat is a conversation within that session, and a session can contain multiple chats when the harness supports them.
+A session is the unit of work with an agent in {% data variables.product.prodname_vscode %}. It brings together the workspace, code changes, and execution state for a task. A chat is a conversation within that session, and a session can contain multiple chats when the harness supports them.
 
 This article explains how conversations relate to the workspace and helps you choose between continuing a chat, forking a conversation, and starting a new session. It also distinguishes continuing live work from accessing saved history.
 
@@ -37,7 +37,7 @@ The session starts with a **main chat**. Where supported, additional conversatio
 | Conversation | Who directs it | Relationship to the other chats |
 |--------------|----------------|---------------------------------|
 | **Main chat** | You send requests to the agent. | The starting conversation for the session. |
-| **Nested session** | You prompt another conversation independently. | Grouped under the parent session. A new nested session starts without the other chats' conversation history. |
+| **Nested session** (additional chat) | You prompt another conversation independently. | An additional chat grouped under the parent session, starting without the other chats' conversation history. |
 | **Subagent chat** | An agent delegates a focused task. | The subagent works in its own context and reports a result to the delegating agent. |
 
 Grouping conversations together doesn't automatically share what the agents know. Each chat has its own history. Nested sessions use the parent session's folder or worktree by default, so they can work on the same saved files without sharing the discussion.
@@ -80,12 +80,9 @@ Some sessions created in other applications can also be discovered and continued
 
 Handoff continues ongoing work with a different agent configuration and carries the full conversation history and context with it. A handoff can change the [harness](/docs/agents/concepts/agent-harnesses.md), execution environment, or agent role. Use handoff when another configuration is a better fit for the next part of the task.
 
-For example, use the [Plan agent](/docs/agents/run/planning.md) to produce a reviewed plan, then hand off to an implementation agent. To work in a [cloud session](/docs/agents/run/cloud-sandbox-sessions.md), start a separate session. Cloud sessions don't receive local-session handoffs.
+For example, use the [Plan agent](/docs/agents/run/planning.md) to produce a reviewed plan, then hand off to an implementation agent. To work in a [cloud session](/docs/agents/run/cloud-sandbox-sessions.md), start a separate session because cloud sessions don't receive local-session handoffs.
 
-> [!NOTE]
-> **For Local harness sessions:** `feature(local-harness)` You can also use the **Session Target** dropdown to hand off an ongoing task to Copilot, Claude, or Codex. This dropdown is available only when starting the handoff from a Local harness session. The destination session uses the selected harness's tools, permissions, and models.
-
-Learn how to [hand off an ongoing session](/docs/agents/run/agent-harnesses.md#continue-with-a-different-harness).
+Learn how to [hand off an ongoing session](/docs/agents/run/agent-harnesses.md#continue-with-a-different-harness), including transitioning from legacy Local harness sessions `feature(local-harness)`.
 
 ## Remote and synced sessions
 
@@ -99,13 +96,9 @@ Saved history and live execution are different. Access to a conversation doesn't
 
 ## Close a chat or finish work
 
-Closing, marking done, and deleting serve different purposes:
+Closing a tab only hides the chat from view, archiving or marking a session done moves completed work out of the active list while keeping its history, and deleting permanently removes the conversation. These actions organize conversation history and are not substitutes for reviewing code or stopping active work.
 
-* **Close a chat tab**: hide the chat from the chat area without deleting its conversation. You can reopen it later.
-* **Mark a chat as done**: remove a completed conversation from the active sessions list while retaining its title and history. Restore it when you want to continue.
-* **Delete a chat**: permanently remove the conversation. Unlike closing or marking done, deletion can't be undone.
-
-These actions organize conversation history; they aren't substitutes for reviewing code or stopping active work. Available actions depend on the chat type and harness. See [manage chats within a session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session).
+For exact steps and worktree or container cleanup behavior, see [Finish and restore sessions](/docs/agents/run/sessions/manage-sessions.md#finish-and-restore-sessions).
 
 ## Related resources
 

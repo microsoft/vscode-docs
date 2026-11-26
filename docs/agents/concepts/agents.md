@@ -37,13 +37,14 @@ Complete a short quickstart to create and validate an app with an agent in {% da
 
 You don't need to configure every agent option before your first task. Read this article to understand the agent loop, then explore these concepts in order:
 
+1. [Agent harnesses](/docs/agents/concepts/agent-harnesses.md): how the runtime coordinates models, tools, permissions, and execution environments.
 1. [Language models](/docs/agents/concepts/language-models.md): what a model can do, its limitations, and how tokens and context limits affect your work.
 1. [Context](/docs/agents/concepts/context.md): what information the agent uses and what it remembers across conversations.
 1. [Tools](/docs/agents/concepts/tools.md): how an agent reads code, makes changes, and checks results.
 1. [Sessions and chats](/docs/agents/concepts/sessions.md): how to organize conversations and keep code changes separate.
 1. [Trust and safety](/docs/agents/concepts/trust-and-safety.md): how to control actions, review results, and understand data handling.
 
-When you need to adapt the experience, learn about [agent harnesses](/docs/agents/concepts/agent-harnesses.md) and [customization](/docs/agents/concepts/customization.md). These are deeper choices, not prerequisites for the [agents quickstart](/docs/agents/quickstart.md).
+When you have recurring team workflows, explore [agent customization](/docs/agents/concepts/customization.md). For deeper runtime internals, see [Agent Host architecture](/docs/agents/concepts/agent-host.md). These are optional next steps, not prerequisites for the [agents quickstart](/docs/agents/quickstart.md).
 
 ## How the concepts fit together
 
@@ -127,45 +128,19 @@ Agents can use additional capabilities for complex tasks and recurring workflows
 
 ### Planning
 
-Every agent decides which action to take next as part of the agent loop. For a complex task, use the built-in Plan agent to research the codebase, clarify requirements, and propose an implementation plan before code changes begin.
-
-The planning workflow separates research and review from implementation. After you approve the approach, continue with implementation using the controls available for your harness. Learn more about [planning with agents](/docs/agents/run/planning.md).
+For complex tasks, use the built-in Plan agent to research the codebase, clarify requirements, and propose an implementation plan before code changes begin. Separating research and review from implementation reduces rework. Learn more about [planning with agents](/docs/agents/run/planning.md).
 
 ### Subagents
 
-For complex tasks, the main agent can delegate focused work to subagents. A subagent performs a specific task, such as researching a topic or analyzing part of a codebase, and reports the result to the main agent.
-
-Subagents are useful when independent research would add large amounts of intermediate information to the main agent's [context window](/docs/agents/concepts/language-models.md#context-window).
-
-Key characteristics of subagents:
-
-* **Context isolation**: each subagent works in its own context. The harness determines which instructions and conversation history it receives. In the Local harness `feature(local-harness)`, subagents receive the delegated task and applicable instructions, not the main conversation history.
-* **Parallel execution**: independent subtasks can run in parallel when the harness supports concurrent subagents, such as separate correctness and performance reviews.
-* **Focused results**: the main agent uses the subagent's result without adding all of its intermediate work to the main context.
-
-Subagents make their own model requests, so a smaller main context doesn't necessarily mean lower total token usage or [cost](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs).
-
-You don't need to create a custom agent to use subagents. A [custom agent](/docs/agent-customization/custom-agents.md) defines reusable instructions, tools, and model preferences that a subagent can use.
-
-For example, the [Plan agent](#planning) can use subagents to research independent parts of a task before creating a plan.
-
-Learn more about [using subagents](/docs/agents/run/subagents.md).
+A main agent can delegate bounded subtasks, such as independent code research or parallel reviews, to subagents that run in isolated contexts and return focused results. Isolating intermediate output keeps the main [context window](/docs/agents/concepts/language-models.md#context-window) clean, though subagents still make their own model requests and add to [AI credit usage](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs). Learn more about [using subagents](/docs/agents/run/subagents.md).
 
 ### Memory
 
-Memory retains selected preferences and codebase knowledge separately from conversation history. It can help an agent reuse a project fact in another conversation without you repeating it. It is not a complete record of everything you discussed, and a saved fact still needs to be retrieved to inform a response.
-
-The harness determines how memory is stored, shared, and retrieved. Compare [context, instructions, and memory](/docs/agents/concepts/context.md#context-knowledge-and-memory), then learn how to [use and manage agent memory](/docs/agents/run/memory.md).
+Memory retains selected preferences and codebase knowledge separately from conversation history so an agent can reuse project facts across conversations. Saved facts are not a full transcript and must still be retrieved to inform a response. Compare [context, instructions, and memory](/docs/agents/concepts/context.md#context-knowledge-and-memory) or learn how to [use agent memory](/docs/agents/run/memory.md).
 
 ### Customization
 
-You can customize the agent loop for a project or workflow:
-
-* A [**custom agent**](/docs/agent-customization/custom-agents.md) defines instructions, available tools, a language model, and optional handoffs for a specific workflow.
-* [**Agent skills**](/docs/agent-customization/agent-skills.md) give an agent instructions and resources for a specialized task.
-* [**Hooks**](/docs/agent-customization/hooks.md) run commands at specific points in the agent's workflow, such as before or after a tool runs.
-
-Learn more about [customization concepts](/docs/agents/concepts/customization.md).
+Tailor the agent loop for recurring project needs with [custom instructions](/docs/agent-customization/custom-instructions.md), [agent skills](/docs/agent-customization/agent-skills.md), [custom agents](/docs/agent-customization/custom-agents.md), [hooks](/docs/agent-customization/hooks.md), and external tool integrations. Learn how these pieces fit together in [agent customization concepts](/docs/agents/concepts/customization.md).
 
 ## Related resources
 

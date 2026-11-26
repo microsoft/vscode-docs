@@ -110,27 +110,23 @@ Sandbox restrictions apply to covered processes even when their actions are auto
 
 ### How sandboxing works
 
-Sandboxing enforces two types of isolation:
+Sandboxing enforces two types of isolation on covered processes:
 
-* **File system isolation** limits read and write access to configured paths. It protects sensitive locations, such as SSH keys and shell configuration, and applies to child processes such as package managers and build scripts.
-* **Network isolation** blocks outbound connections or, where supported, limits them to configured domains. Domain-filtering capabilities vary by terminal implementation and platform.
+* **File system isolation** limits read and write access to configured paths, protecting sensitive locations such as SSH keys and shell configuration across child processes.
+* **Network isolation** blocks outbound connections or, where supported, restricts them to configured domains.
 
-Terminal and child-process restrictions use operating system protections. Other supported operations can use checks inside the process that runs the agent. The implementation and supported restrictions depend on the platform and harness. Check the [platform prerequisites](/docs/agents/run/agent-sandboxing.md#check-platform-availability) on the machine where commands run.
+Supported protections and platform prerequisites depend on the operating system and harness. See [Configure agent sandboxing](/docs/agents/run/agent-sandboxing.md#check-platform-availability) for platform details and setup.
 
 ### What sandboxing does not cover
 
-Agent sandboxing is an added layer for the processes it covers. It is not a virtual machine or user-account boundary, a standalone security boundary, or a replacement for endpoint security. The sandbox does not protect credentials that you explicitly inject. Developer-tool configuration and caches, allowed paths, unrestricted or local network access, unsandboxed fallback, and bypass also weaken its isolation.
-
-Built-in and other non-process tools are not covered by the process sandbox. The agent's read, edit, and write tools use {% data variables.product.prodname_vscode_shortname %}'s permission system directly.
-
-Use the [review flow](/docs/agents/run/review-code-edits.md) and [sensitive file protection](/docs/agents/run/review-code-edits.md#require-approval-before-sensitive-edits) to control these operations.
+Agent sandboxing adds an isolation layer for covered shell and server processes, not a virtual machine, user-account boundary, or replacement for endpoint security. Built-in file tools stay outside the process sandbox and use {% data variables.product.prodname_vscode_shortname %}'s permission system, [review flow](/docs/agents/run/review-code-edits.md), and [sensitive file protection](/docs/agents/run/review-code-edits.md#require-approval-before-sensitive-edits).
 
 Other forms of isolation serve different purposes:
 
-* A [Git worktree](/docs/agents/concepts/agent-harnesses.md#relate-execution-environments-and-code-isolation) separates code changes. It doesn't restrict commands, network access, or access to other files.
-* A [Dev Container](/docs/agents/run/dev-containers.md) provides a containerized development environment. Its access to the host and network depends on mounts, permissions, and networking configuration.
+* A [Git worktree](/docs/agents/concepts/agent-harnesses.md#relate-execution-environments-and-code-isolation) separates code changes, not command or network access.
+* A [Dev Container](/docs/agents/run/dev-containers.md) provides a containerized development environment whose host and network access depend on its container configuration.
 
-Neither replaces the applicable permission controls or your review of the result.
+Neither replaces permission controls or your review of the result. For detailed exclusions and caveats, see [Configure agent sandboxing](/docs/agents/run/agent-sandboxing.md).
 
 ## Related resources
 
