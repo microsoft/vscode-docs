@@ -57,7 +57,10 @@ Continuity lets you pick up agent work across supported interfaces without start
     </a>
 </div>
 
+* **Need to connect an account first:** [Set up {% data variables.product.prodname_copilot %}](/docs/setup/copilot.md) or review [other AI access options](/docs/setup/copilot.md#other-ai-access-options).
 * **Prefer to start with your own code:** [Explore a codebase without changing files](/docs/agents/guides/explore-a-codebase.md), then verify the explanation against your code.
+* **Have a specific coding task:** [Find a step-by-step guide](/docs/agents/guides/overview.md) for bugs, features, testing, refactoring, or customization.
+* **Not sure which AI feature to use:** Check the [AI features cheat sheet](/docs/agents/reference/ai-features-cheat-sheet.md#choose-a-feature) to match a task to its feature and first action.
 * **New to {% data variables.product.prodname_vscode_shortname %}:** First [install the editor and open a workspace](/docs/getstarted/overview.md).
 
 <video src="images/agents-overview/build-with-ai-overview-2026112501.mp4" title="Video showing code suggestions, agent edits reviewed alongside code, parallel reviews, and a destination filter checked in the integrated browser." autoplay loop controls muted></video>

@@ -20,8 +20,6 @@
                 "name": "Get Started",
                 "area": "agents",
                 "topics": [
-                    ["Find a Guide", "/docs/agents/guides/overview", { "secondary": true }],
-                    ["AI Features Cheat Sheet", "/docs/agents/reference/ai-features-cheat-sheet", { "secondary": true }],
                     ["Set Up GitHub Copilot", "/docs/setup/copilot"],
                     ["Complete Your First Agent Task", "/docs/agents/quickstart"],
                     ["Build, Refine, and Commit an App", "/docs/agents/agents-tutorial"],

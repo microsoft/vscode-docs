@@ -7,7 +7,7 @@ MetaDescription: Build and validate a web app with an AI agent in {% data variab
 
 In this quickstart, you use an AI agent in {% data variables.product.prodname_vscode %} to build a small web app from a natural-language prompt. You then review the generated code, let the agent validate the app with browser tools, and verify the result yourself.
 
-The app uses a single HTML file, so you don't need to install runtimes or build tools.
+This is the fastest hands-on introduction to agents. The app uses a single HTML file, so you don't need Git, runtimes, or build tools. For a longer walkthrough that includes Git and switching between the {% data variables.copilot.agents_window %} and the {% data variables.copilot.chat_view %}, see [Build, refine, and commit an app](/docs/agents/agents-tutorial.md).
 
 ## Prerequisites
 
@@ -234,7 +234,5 @@ When you no longer need the app, run these steps to clean up your local resource
 ## Next steps
 
 * [Apply the workflow to a bounded task in your own project](/docs/agents/best-practices.md#apply-the-workflow-to-your-project).
+* [Build, refine, and commit an app with Git across agent interfaces](/docs/agents/agents-tutorial.md).
 * [Explore a codebase without changing files](/docs/agents/guides/explore-a-codebase.md).
-* [Build a complete app and learn the editor, browser, and source control workflows](/docs/agents/agents-tutorial.md).
-* [Review the recommended security baseline](/docs/agents/run/security.md#recommended-security-baseline).
-* [Choose between Fusion, Auto, and individual models for your tasks](/docs/agents/guides/choose-a-model.md).

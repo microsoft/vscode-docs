@@ -9,6 +9,8 @@ In this tutorial, you build a personal portfolio page with AI agents in {% data 
 
 You start in the **{% data variables.copilot.agents_window %}** to create the app, then continue the same session in the **{% data variables.copilot.chat_view %}** to refine it alongside your code. Along the way, you learn to open a project folder, preview your app in the integrated browser, and review and commit changes with Git.
 
+Looking for a shorter first task without Git setup? Start with the [Agents quickstart](/docs/agents/quickstart.md) instead.
+
 {% action-card title="Learn {% data variables.product.prodname_vscode_shortname %} editor features" display="inline" %}
 Get familiar with the {% data variables.product.prodname_vscode_shortname %} user interface, editing features, and key productivity tools.
 
@@ -20,9 +22,9 @@ Get familiar with the {% data variables.product.prodname_vscode_shortname %} use
 
 * [Download and install {% data variables.product.prodname_vscode %}](/download).
 
-* [Enable AI features in {% data variables.product.prodname_vscode_shortname %}](/docs/getstarted/overview.md#enable-ai-features)
+* [Set up {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}](/docs/setup/copilot.md), or configure [other AI access options](/docs/setup/copilot.md#other-ai-access-options).
 
-    If you use GitHub Copilot, learn more about [AI credits and model costs](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs) and [what happens when you reach a limit](/docs/agents/agent-troubleshooting/faq.md#i-reached-my-inline-suggestions-or-ai-credits-limit).
+    If you use {% data variables.product.prodname_copilot %}, learn more about [AI credits and model costs](/docs/agents/concepts/language-models.md#ai-credits-and-model-costs) and [what happens when you reach a limit](/docs/agents/agent-troubleshooting/faq.md#i-reached-my-inline-suggestions-or-ai-credits-limit).
 
 * [Install Git](https://git-scm.com/)
 
