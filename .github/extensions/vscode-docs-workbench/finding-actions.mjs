@@ -2,8 +2,8 @@ import { randomUUID } from 'node:crypto';
 import { mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import auditFindings from '../../../build/audit-findings.js';
-import chat from '../../../build/review-chat.js';
+import auditFindings from '../../../build/checks/audit-findings.js';
+import chat from '../../../build/workflow/review-chat.js';
 import { atomicJson, hash, now, readBytes, resolveArticle } from './article-storage.mjs';
 
 export function findingSource(record, report) {

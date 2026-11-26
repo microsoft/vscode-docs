@@ -94,7 +94,7 @@ This exception applies only to corroborated comment-summary discrepancies. It do
 
   ```powershell
   $checkArgs = @(
-    "$trustedRoot\build\check-claims.js",
+    "$trustedRoot\build\checks\check-claims.js",
     '--root', $reviewRoot,
     '--expected-revision', $headOid,
     '--links', '--files'
@@ -104,11 +104,11 @@ This exception applies only to corroborated comment-summary discrepancies. It do
   ```
 
 * If a suitable product manifest is available, add `--manifest <file> --channel stable|insiders`. Match it to the release channel and build being reviewed, not merely the newest installed product. Without a suitable manifest, run repository checks and keep product claims unverified.
-* Exit code 1 with a valid report means the report contains errors; exit code 1 without a valid report means execution failed. Capture stderr, validate the JSON with the trusted `build/findings.js`, and report failures explicitly. An empty or malformed output is not a successful check.
+* Exit code 1 with a valid report means the report contains errors; exit code 1 without a valid report means execution failed. Capture stderr, validate the JSON with the trusted `build/checks/findings.js`, and report failures explicitly. An empty or malformed output is not a successful check.
 * Recheck an available deterministic report before presenting findings:
 
   ```powershell
-  node "$trustedRoot\build\findings.js" --input $reportPath --check-current --root $reviewRoot --expected-revision $headOid --format console
+  node "$trustedRoot\build\checks\findings.js" --input $reportPath --check-current --root $reviewRoot --expected-revision $headOid --format console
   ```
 
   Supply the same `--manifest` when one was used.

@@ -2,7 +2,7 @@ import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { createHash } from 'node:crypto';
 import { itemKey, milestoneName, WorkbenchError } from './state.mjs';
-import reviewChat from '../../../build/review-chat.js';
+import reviewChat from '../../../build/workflow/review-chat.js';
 
 const execute = promisify(execFile);
 export async function runGh(args, input) {

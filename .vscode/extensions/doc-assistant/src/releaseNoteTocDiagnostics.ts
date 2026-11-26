@@ -4,7 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 import * as vscode from 'vscode';
-import { validateReleaseNoteToc } from '../../../../build/release-note-toc';
+import { validateReleaseNoteToc } from '../../../../build/checks/release-note-toc';
 
 const RELEASE_NOTE_PATH_PATTERN = /\/release-notes\/v1_\d+\.md$/i;
 

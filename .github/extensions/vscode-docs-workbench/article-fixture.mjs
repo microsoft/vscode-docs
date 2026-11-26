@@ -2,7 +2,7 @@ import { mkdir, mkdtemp, realpath, rm, stat, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import claims from '../../../build/check-claims.js';
+import claims from '../../../build/checks/check-claims.js';
 import { createArticleWorkflow } from './article-workflow.mjs';
 import { runArticleCheck } from './article-runner.mjs';
 import { now, within } from './article-storage.mjs';

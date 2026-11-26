@@ -1,7 +1,7 @@
 import { parentPort, workerData } from 'node:worker_threads';
 import { performance } from 'node:perf_hooks';
 import path from 'node:path';
-import claims from '../../../build/check-claims.js';
+import claims from '../../../build/checks/check-claims.js';
 import { createArticleStore, now } from './article-storage.mjs';
 import { coverageBinding, inspectExecution, verifyCoverage, verifyInbox } from './article-inbox.mjs';
 

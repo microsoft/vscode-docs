@@ -1,4 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-node ./build/check-staged-files.js
+node ./build/checks/check-staged-files.js

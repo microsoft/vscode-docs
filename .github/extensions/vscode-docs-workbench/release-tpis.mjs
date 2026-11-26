@@ -1,5 +1,5 @@
 import { fileURLToPath } from 'node:url';
-import writing from '../../../build/writing-chat.js';
+import writing from '../../../build/workflow/writing-chat.js';
 import { createGitHub } from './github.mjs';
 import { atomicJson, hash, isTime, now, readJson } from './article-storage.mjs';
 import { milestoneName, text } from './state.mjs';

@@ -1,0 +1,315 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Attended VS Code documentation capture storyboard",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "id", "article", "channel", "execution", "ai", "profile", "targets", "steps", "capture", "privacy"],
+  "oneOf": [
+    {"required": ["fixture"], "not": {"anyOf": [{"required": ["workspace"]}, {"required": ["gitDemo"]}]}},
+    {"required": ["workspace"], "not": {"anyOf": [{"required": ["fixture"]}, {"required": ["gitDemo"]}]}},
+    {"required": ["gitDemo"], "not": {"anyOf": [{"required": ["fixture"]}, {"required": ["workspace"]}]}}
+  ],
+  "properties": {
+    "$schema": {"type": "string"},
+    "schemaVersion": {"const": 2},
+    "id": {"type": "string", "pattern": "^[a-z][a-z0-9-]{0,63}$"},
+    "article": {"type": "string", "maxLength": 240, "pattern": "^docs/[a-zA-Z0-9/_-]+\\.md$"},
+    "channel": {"enum": ["stable", "insiders"]},
+    "execution": {"const": "attended"},
+    "ai": {"enum": ["none", "live-approved"]},
+    "liveAI": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["provider", "model", "requests", "tools"],
+      "properties": {
+        "provider": {"type": "string", "minLength": 1, "maxLength": 120, "pattern": "\\S"},
+        "model": {"type": "string", "minLength": 1, "maxLength": 120, "pattern": "\\S"},
+        "requests": {"type": "string", "minLength": 1, "maxLength": 2000, "pattern": "\\S"},
+        "tools": {"type": "string", "minLength": 1, "maxLength": 2000, "pattern": "\\S"}
+      },
+      "description": "Human-reviewed scope, not a model-provider or tool-permission enforcement mechanism. Never include credentials."
+    },
+    "profile": {"$ref": "#/$defs/profile"},
+    "fixture": {"$ref": "#/$defs/fixture"},
+    "workspace": {"$ref": "#/$defs/workspace"},
+    "gitDemo": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["content", "commitMessage"],
+      "properties": {
+        "content": {"type": "string", "minLength": 1, "maxLength": 4096, "pattern": "\\S"},
+        "commitMessage": {"type": "string", "minLength": 1, "maxLength": 120, "pattern": "^[^\\r\\n]+$"}
+      },
+      "description": "An initially empty generated git-practice folder. The one-pass video must create only README.md and one local commit with this content and message. Uses the isolated synthetic Git Demo identity; no remotes."
+    },
+    "targets": {
+      "type": "object",
+      "minProperties": 1,
+      "maxProperties": 30,
+      "propertyNames": {"pattern": "^[a-z][a-zA-Z0-9]{0,63}$"},
+      "additionalProperties": {"$ref": "#/$defs/target"}
+    },
+    "steps": {"$ref": "#/$defs/steps"},
+    "instructions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["setup", "checks"],
+      "properties": {
+        "setup": {"type": "string", "minLength": 1, "maxLength": 2000, "pattern": "\\S"},
+        "checks": {
+          "type": "array", "minItems": 1, "maxItems": 30,
+          "items": {"$ref": "#/$defs/instructionCheck"}
+        }
+      }
+    },
+    "capture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["file", "alt"],
+      "properties": {
+        "file": {"type": "string", "pattern": "^(?!con\\.|prn\\.|aux\\.|nul\\.|com[1-9]\\.|lpt[1-9]\\.)[a-z][a-z0-9-]{0,63}\\.png$"},
+        "alt": {"type": "string", "maxLength": 240, "pattern": "^Screenshot showing .+\\.$"},
+        "mode": {"enum": ["prepared-session", "live-ai", "git-demo"]},
+        "surface": {"enum": ["editor", "agents"]},
+        "highlights": {"$ref": "#/$defs/highlights"}
+      }
+    },
+    "video": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["file", "title", "steps"],
+      "properties": {
+        "file": {"type": "string", "pattern": "^(?!con\\.|prn\\.|aux\\.|nul\\.|com[1-9]\\.|lpt[1-9]\\.)[a-z][a-z0-9-]{0,63}\\.webm$"},
+        "title": {"type": "string", "maxLength": 120, "pattern": "^Video showing .+\\.$"},
+        "reset": {"$ref": "#/$defs/steps"},
+        "steps": {"$ref": "#/$defs/steps"},
+        "browserUrl": {"type": "string", "minLength": 1, "maxLength": 240},
+        "browserCamera": {"enum": ["window"]},
+        "maxDurationSeconds": {"type": "integer", "minimum": 4, "maximum": 120},
+        "blockedTargets": {
+          "type": "array", "minItems": 1, "maxItems": 10, "uniqueItems": true,
+          "items": {"$ref": "#/$defs/targetName"},
+          "description": "Visible approval, authentication, or other unexpected prompts abort live recording; the script must never act on these targets."
+        }
+      }
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["denyText", "humanVisualReviewRequired"],
+      "properties": {
+        "denyText": {"type": "array", "minItems": 1, "maxItems": 100, "items": {"type": "string", "minLength": 1, "maxLength": 240}},
+        "humanVisualReviewRequired": {"const": true}
+      }
+    }
+  },
+  "$defs": {
+    "instructionSource": {
+      "type": "object", "additionalProperties": false,
+      "required": ["line", "endLine", "quote"],
+      "properties": {
+        "line": {"type": "integer", "minimum": 1, "maximum": 1000000},
+        "endLine": {"type": "integer", "minimum": 1, "maximum": 1000000},
+        "quote": {"type": "string", "minLength": 1, "maxLength": 4000, "pattern": "\\S"}
+      }
+    },
+    "instructionCheck": {
+      "type": "object", "additionalProperties": false,
+      "required": ["source", "action", "expected"],
+      "oneOf": [
+        {"required": ["steps"], "not": {"required": ["notChecked"]}},
+        {"required": ["notChecked"], "not": {"required": ["steps"]}}
+      ],
+      "properties": {
+        "source": {"$ref": "#/$defs/instructionSource"},
+        "action": {"type": "string", "minLength": 1, "maxLength": 1000, "pattern": "\\S"},
+        "expected": {"type": "string", "minLength": 1, "maxLength": 1000, "pattern": "\\S"},
+        "steps": {
+          "type": "array", "minItems": 1, "maxItems": 40, "uniqueItems": true,
+          "items": {"type": "integer", "minimum": 0, "maximum": 39}
+        },
+        "notChecked": {"type": "string", "minLength": 1, "maxLength": 1000, "pattern": "\\S"}
+      }
+    },
+    "highlights": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["targets"],
+      "properties": {
+        "strokeWidth": {"type": "integer", "minimum": 1, "maximum": 3, "default": 2},
+        "targets": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 10,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["target"],
+            "properties": {
+              "target": {"$ref": "#/$defs/targetName"},
+              "padding": {"type": "integer", "minimum": -32, "maximum": 32, "default": 6}
+            }
+          }
+        }
+      },
+      "description": "Optional opaque red rectangle annotations. Width and padding are output-image pixels, independent of editor zoom. Negative padding insets a rectangle."
+    },
+    "fileName": {
+      "type": "string",
+      "pattern": "^(?!con\\.|prn\\.|aux\\.|nul\\.|com[1-9]\\.|lpt[1-9]\\.)[a-z][a-z0-9-]{0,63}\\.(js|ts|json|txt|md|html|css)$"
+    },
+    "workspace": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["entry"],
+      "properties": {
+        "entry": {"$ref": "#/$defs/fileName"},
+        "allowedChanges": {
+          "type": "array", "minItems": 0, "maxItems": 10, "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1, "maxLength": 240, "pattern": "^[a-zA-Z0-9_+./-]+\\.(js|ts|json|txt|md|html|css|svelte)$"},
+          "description": "Explicit relative source-file paths that a separately approved live-AI recording may change. Parent traversal, protected configuration, and excluded dependency/build trees are forbidden."
+        },
+        "excludedDirectories": {
+          "type": "array", "minItems": 0, "maxItems": 4, "uniqueItems": true,
+          "items": {"enum": ["node_modules", ".svelte-kit", "dist", "build"]},
+          "description": "Explicitly approved root-level dependency/build directories that are not audited. This does not sandbox agent actions."
+        },
+        "environment": {
+          "enum": ["isolated", "sample"],
+          "description": "Sample is an explicitly reviewed environment for replay, prepared-session screenshots, or separately approved live-AI videos, with persistent extensions, normal sign-in storage, Git enabled, and network access. Isolated remains the default."
+        }
+      },
+      "description": "Open a reviewed existing workspace supplied separately with --workspace. Files must remain unchanged except for explicitly approved live-AI sample edits."
+    },
+    "profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["platform", "theme", "width", "height", "deviceScaleFactor", "zoomLevel", "wideContent", "fonts"],
+      "properties": {
+        "platform": {"const": "win32"},
+        "theme": {"const": "Dark Modern"},
+        "width": {"const": 1920},
+        "height": {"const": 1080},
+        "deviceScaleFactor": {"const": 1},
+        "zoomLevel": {"enum": [1.5, 2]},
+        "wideContent": {"type": "boolean"},
+        "fonts": {"const": "product-defaults"}
+      },
+      "if": {"properties": {"wideContent": {"const": true}}},
+      "then": {"properties": {"zoomLevel": {"const": 1.5}}},
+      "else": {"properties": {"zoomLevel": {"const": 2}}}
+    },
+    "fixture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["file", "content"],
+      "properties": {
+        "file": {"$ref": "#/$defs/fileName"},
+        "content": {"type": "string", "minLength": 1, "maxLength": 16384, "pattern": "\\S"},
+        "openFolder": {"type": "boolean", "description": "Open the generated folder and file, then require explicit attended readiness confirmation before any capture."}
+      }
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "scope": {"type": "string", "minLength": 1, "maxLength": 240},
+        "selector": {"type": "string", "minLength": 1, "maxLength": 240},
+        "role": {"enum": ["button", "checkbox", "combobox", "link", "menuitem", "option", "radio", "tab", "textbox", "treeitem"]},
+        "name": {"type": "string", "minLength": 1, "maxLength": 240},
+        "exact": {"type": "boolean"},
+        "first": {"type": "boolean"},
+        "surface": {"enum": ["browser"]}
+      },
+      "oneOf": [
+        {"required": ["role", "name"], "not": {"required": ["selector"]}},
+        {"required": ["selector"], "not": {"anyOf": [{"required": ["role"]}, {"required": ["name"]}, {"required": ["exact"]}]}}
+      ]
+    },
+    "targetName": {"type": "string", "pattern": "^[a-z][a-zA-Z0-9]{0,63}$"},
+    "textCycle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["target", "values"],
+      "properties": {
+        "target": {"$ref": "#/$defs/targetName"},
+        "values": {"type": "array", "minItems": 2, "maxItems": 20, "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 240}}
+      }
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 40,
+      "description": "Each phase permits at most 15 seconds of configured typing and pauses, with at most five seconds of pauses. Screenshot and video steps require an assertion or a text-cycle check.",
+      "items": {
+        "oneOf": [
+          {"$ref": "#/$defs/clickStep"},
+          {"$ref": "#/$defs/hoverStep"},
+          {"$ref": "#/$defs/keyStep"},
+          {"$ref": "#/$defs/fillStep"},
+          {"$ref": "#/$defs/typeStep"},
+          {"$ref": "#/$defs/checkStep"},
+          {"$ref": "#/$defs/waitStep"},
+          {"$ref": "#/$defs/assertStep"},
+          {"$ref": "#/$defs/pauseStep"}
+        ]
+      }
+    },
+    "clickStep": {
+      "type": "object", "additionalProperties": false, "required": ["kind", "target"],
+      "properties": {
+        "kind": {"const": "click"}, "target": {"$ref": "#/$defs/targetName"},
+        "expectTextCycle": {"$ref": "#/$defs/textCycle"}
+      }
+    },
+    "hoverStep": {
+      "type": "object", "additionalProperties": false, "required": ["kind", "target"],
+      "properties": {"kind": {"const": "hover"}, "target": {"$ref": "#/$defs/targetName"}}
+    },
+    "keyStep": {
+      "type": "object", "additionalProperties": false, "required": ["kind", "key"],
+      "properties": {
+        "kind": {"const": "key"}, "target": {"$ref": "#/$defs/targetName"},
+        "key": {"type": "string", "minLength": 1, "maxLength": 80, "pattern": "^[^\\r\\n]+$"}
+      }
+    },
+    "fillStep": {
+      "type": "object", "additionalProperties": false, "required": ["kind", "target", "text"],
+      "properties": {
+        "kind": {"const": "fill"}, "target": {"$ref": "#/$defs/targetName"},
+        "text": {"type": "string", "maxLength": 4096}
+      }
+    },
+    "typeStep": {
+      "type": "object", "additionalProperties": false, "required": ["kind", "target", "text", "delayMs"],
+      "properties": {
+        "kind": {"const": "type"}, "target": {"$ref": "#/$defs/targetName"},
+        "text": {"type": "string", "minLength": 1, "maxLength": 200},
+        "delayMs": {"type": "integer", "minimum": 40, "maximum": 250}
+      }
+    },
+    "checkStep": {
+      "type": "object", "additionalProperties": false, "required": ["kind", "target", "checked"],
+      "properties": {
+        "kind": {"const": "check"}, "target": {"$ref": "#/$defs/targetName"}, "checked": {"type": "boolean"}
+      }
+    },
+    "waitStep": {
+      "type": "object", "additionalProperties": false, "required": ["kind", "target", "state"],
+      "properties": {
+        "kind": {"const": "wait-for"}, "target": {"$ref": "#/$defs/targetName"}, "state": {"enum": ["visible", "hidden"]}
+      }
+    },
+    "assertStep": {
+      "type": "object", "additionalProperties": false, "required": ["kind", "target", "text", "match"],
+      "properties": {
+        "kind": {"const": "assert"}, "target": {"$ref": "#/$defs/targetName"},
+        "text": {"type": "string", "minLength": 1, "maxLength": 240}, "match": {"enum": ["equals", "contains"]}
+      }
+    },
+    "pauseStep": {
+      "type": "object", "additionalProperties": false, "required": ["kind", "ms"],
+      "properties": {"kind": {"const": "pause"}, "ms": {"type": "integer", "minimum": 1, "maximum": 1500}}
+    }
+  }
+}

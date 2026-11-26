@@ -3,13 +3,13 @@ import { chmod, mkdir, readFile, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { globSync } from 'glob';
-import plans from '../../../build/doc-plan.js';
-import draftTools from '../../../build/doc-draft.js';
-import docMedia from '../../../build/doc-media.js';
-import claims from '../../../build/check-claims.js';
-import findings from '../../../build/findings.js';
-import source from '../../../build/review-source.js';
-import reviewTools from '../../../build/review.js';
+import plans from '../../../build/workflow/doc-plan.js';
+import draftTools from '../../../build/workflow/doc-draft.js';
+import docMedia from '../../../build/media/doc-media.js';
+import claims from '../../../build/checks/check-claims.js';
+import findings from '../../../build/checks/findings.js';
+import source from '../../../build/workflow/review-source.js';
+import reviewTools from '../../../build/workflow/review.js';
 import { createGitHub, contextVersion } from './github.mjs';
 import { atomicJson, hash, hostStatuses, isHash, isTime, now, ownedPath, readBytes, readJson, resolveScope, uuid } from './article-storage.mjs';
 import { WorkbenchError, text } from './state.mjs';
@@ -26,7 +26,7 @@ const draftDescription = id => `Docs feature draft ${id}`;
 const quote = value => `'${value.replaceAll("'", "''")}'`;
 const revision = workspace => source.createRevisionGuard(workspace).revision;
 const guidance = ['.github/skills/docs-feature-plan/SKILL.md', '.github/skills/doc-writer/SKILL.md',
-  '.github/instructions/docs-writing.instructions.md', 'build/doc-plan.js'];
+  '.github/instructions/docs-writing.instructions.md', 'build/workflow/doc-plan.js'];
 
 async function snapshotSource(store, getRevision) {
   const before = getRevision(store.workspace);

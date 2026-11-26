@@ -5,13 +5,13 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import { chromium } from 'playwright-core';
-import plans from '../../../build/doc-plan.js';
+import plans from '../../../build/workflow/doc-plan.js';
 import { createArticleFixture } from './article-fixture.mjs';
 import { beginFeatureDraft, completeFeatureDraft, completeFeaturePlan, createFeaturePlans } from './feature-plans.mjs';
-import draftTools from '../../../build/doc-draft.js';
-import png from '../../../build/media-png.js';
-import claims from '../../../build/check-claims.js';
-import editorTools from '../../../build/docs-editor.js';
+import draftTools from '../../../build/workflow/doc-draft.js';
+import png from '../../../build/media/media-png.js';
+import claims from '../../../build/checks/check-claims.js';
+import editorTools from '../../../build/media/docs-editor.js';
 import { completeReviewRequest } from './article-review.mjs';
 import { atomicJson, format, hash, now, readJson } from './article-storage.mjs';
 import { createWorkbenchServer } from './server.mjs';
@@ -49,8 +49,8 @@ async function fixture(t, { authoring = false, revision = false, preparedSession
     story.workspace = {entry: 'example.js', environment: 'sample'};
     story.capture = {mode: 'prepared-session', surface: 'editor'};
   }
-  await mkdir(path.join(f.workspace, 'build', 'storyboards'));
-  await atomicJson(path.join(f.workspace, 'build', 'storyboards', 'fixture.json'), story);
+  await mkdir(path.join(f.workspace, 'build', 'media', 'storyboards'), { recursive: true });
+  await atomicJson(path.join(f.workspace, 'build', 'media', 'storyboards', 'fixture.json'), story);
   let draftEdit = async () => {
     const file = path.join(f.workspace, 'docs', 'article.md');
     await writeFile(file, (await readFile(file, 'utf8')) + '\nClarified fixture step.\n<!-- TODO: workflow-image requires attended capture and asset approval. -->\n');
@@ -61,7 +61,8 @@ async function fixture(t, { authoring = false, revision = false, preparedSession
     encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe'] }).trim();
   if (authoring) {
     git(['init', '--template=', '--initial-branch=main']);
-    await writeFile(path.join(f.workspace, 'build', 'check-claims.js'), 'throw new Error("Source checkout scripts must not execute");');
+    await mkdir(path.join(f.workspace, 'build', 'checks'), { recursive: true });
+    await writeFile(path.join(f.workspace, 'build', 'checks', 'check-claims.js'), 'throw new Error("Source checkout scripts must not execute");');
     git(['add', '.']);
     const tree = git(['write-tree']);
     git(['update-ref', 'HEAD', git(['commit-tree', tree], 'Fixture source\n\nCo-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>\n')]);
@@ -76,7 +77,7 @@ async function fixture(t, { authoring = false, revision = false, preparedSession
     async prepare(input) {
       return { config: { storyboard: input.storyboard, executable: input.executable, revision: input.revision },
         procedure: story, productVersion: 'Fixture',
-        binding: { article: story.article, storyboardHash: hash(await readFile(path.join(f.workspace, 'build', 'storyboards', input.storyboard))),
+        binding: { article: story.article, storyboardHash: hash(await readFile(path.join(f.workspace, 'build', 'media', 'storyboards', input.storyboard))),
           product: { revision: input.revision, channel: 'stable' } } };
     }
   }, async captureEditor(input) {
@@ -436,7 +437,7 @@ test('screenshot readiness, changed procedures, and output replacement are guard
   await f.workflow.dispatch('feature-media-ready', { id: launched.id, ready: false, confirmed: true });
   assert.equal((await readJson(path.join(captureDirectory, 'readiness-response.json'))).ready, false);
   await assert.rejects(f.workflow.dispatch('feature-media-ready', { id: launched.id, ready: true, confirmed: true }), /No current/);
-  await writeFile(path.join(f.workspace, 'build', 'storyboards', 'fixture.json'), '{"changed":true}');
+  await writeFile(path.join(f.workspace, 'build', 'media', 'storyboards', 'fixture.json'), '{"changed":true}');
   const helper = await createFeaturePlans(f.rawWorkflow.store, {}, f.options);
   await assert.rejects(helper.media.execute(path.join(captureDirectory, '..', 'request.json')), /procedure changed/);
 

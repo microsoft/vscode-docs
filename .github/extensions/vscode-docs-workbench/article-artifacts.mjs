@@ -1,4 +1,4 @@
-import findings from '../../../build/findings.js';
+import findings from '../../../build/checks/findings.js';
 import { checks, format, hash, isTime, now, readBytes, readJson, version } from './article-storage.mjs';
 import { validateRequest } from './article-runner.mjs';
 
