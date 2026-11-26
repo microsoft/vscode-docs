@@ -58,6 +58,7 @@
                         "area": "agents/guides/customization",
                         "topics": [
                             ["Adapt Agents to Your Project", "/docs/agents/guides/customize-copilot-guide"],
+                            ["Context Engineering Workflow", "/docs/agents/guides/context-engineering-guide"],
                             ["Run Parallel Tasks", "/docs/agents/guides/delegate-two-tasks"],
                             ["Continue a Cloud Session in Your Terminal", "/docs/agents/cloud-continuity-tutorial", { "secondary": true }]
                         ]
@@ -184,8 +185,7 @@
                         "area": "agent-customization/migration",
                         "topics": [
                             ["Migrate Existing Customizations", "/docs/agent-customization/migrate-customizations"],
-                            ["Prompt Files", "/docs/agent-customization/prompt-files"],
-                            ["Context Engineering Workflow (Local)", "/docs/agents/guides/context-engineering-guide"]
+                            ["Prompt Files", "/docs/agent-customization/prompt-files"]
                         ]
                     }]
                 ]

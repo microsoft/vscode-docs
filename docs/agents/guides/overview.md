@@ -78,7 +78,7 @@ If the change is already written, [review uncommitted changes with AI](/docs/sou
 
 * [Adapt agents to your project](/docs/agents/guides/customize-copilot-guide.md): start with one project convention the agent keeps missing. Add instructions, then compare the result on the same task. **Setup:** your repository.
 
-    If your team needs a repeatable handoff from planning to implementation, follow the [advanced context engineering example](/docs/agents/guides/context-engineering-guide.md). It uses the Local harness `feature(local-harness)` in the {% data variables.copilot.chat_view %}.
+    If your team needs a repeatable workflow from planning to implementation, follow the [context engineering guide](/docs/agents/guides/context-engineering-guide.md) using custom instructions, Agent Skills, and custom agents.
 
 * [Run independent tasks in parallel](/docs/agents/guides/delegate-two-tasks.md): work in separate Git worktrees, review each result, then integrate and retest. **Setup:** your Git repository, {% data variables.product.prodname_copilot_short %} in the {% data variables.copilot.agents_window %}. Complete one agent task first.
 

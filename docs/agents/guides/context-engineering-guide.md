@@ -1,34 +1,34 @@
 ---
 ContentId: f8820661-7772-47e6-b63e-ac59f6752d9c
-DateApproved: 11/25/2026
-MetaDescription: Learn how to implement context engineering using {% data variables.product.prodname_vscode_shortname %}'s built-in AI features.
+DateApproved: 11/26/2026
+MetaDescription: Set up a context engineering workflow in {% data variables.product.prodname_vscode_shortname %} with custom instructions, Agent Skills, and custom agents.
 ---
 # Set up a context engineering flow in {% data variables.product.prodname_vscode_shortname %}
 
-This guide shows you how to set up a context engineering workflow in {% data variables.product.prodname_vscode_shortname %} using custom instructions, custom agents, and prompt files. The customization concepts apply to both the Local and {% data variables.product.prodname_copilot_short %} agent harnesses. The runnable workflow in this guide uses the Local harness `feature(local-harness)` in the {% data variables.copilot.chat_view %} because it includes a prompt file and a custom agent handoff.
+This guide shows you how to set up a context engineering workflow in {% data variables.product.prodname_vscode_shortname %} using custom instructions, [Agent Skills](/docs/agent-customization/agent-skills.md), and [custom agents](/docs/agent-customization/custom-agents.md) with the {% data variables.product.prodname_copilot_short %} harness.
 
-Context engineering is a systematic approach to providing AI agents with targeted project information to improve the quality and accuracy of generated code. By curating essential project context through custom instructions, implementation plans, and coding guidelines, you enable AI to make better decisions, improve accuracy, and maintain persistent knowledge across interactions.
+Context engineering is a systematic approach to providing AI agents with targeted project information to improve the quality and accuracy of generated code. By curating essential project context through custom instructions, reusable planning skills, and role-specific agents, you enable AI to make better decisions and maintain persistent knowledge across interactions.
 
 > [!TIP]
-> {% data variables.product.prodname_vscode_shortname %} chat provides a [built-in plan agent](/docs/agents/run/planning.md) to help you create detailed implementation plans before starting complex coding tasks. If you don't want to create a custom planning workflow, you can use the plan agent to generate implementation plans quickly.
+> {% data variables.product.prodname_vscode_shortname %} provides a [built-in Plan agent](/docs/agents/run/planning.md) (`/plan`) to create detailed implementation plans before starting complex coding tasks. If you don't need a custom planning template or team-specific workflow, start with `/plan` instead.
 
 ## Prerequisites
 
 Use your own repository for this workflow. Before you start:
 
 * Open the repository root as a folder or workspace in {% data variables.product.prodname_vscode_shortname %}. The workflow stores shared customization files under `.github`.
-* Open the {% data variables.copilot.chat_view %} and select **Local** `feature(local-harness)` from the **Session Target** control. Run the prompts and handoffs in this view.
+* Use a [{% data variables.product.prodname_copilot_short %} harness session](/docs/agents/run/agent-harnesses.md#copilot) in either the [{% data variables.copilot.chat_view %}](/docs/agents/run/chat-view.md) or the [{% data variables.copilot.agents_window %}](/docs/agents/run/agents-window.md).
 * Set up the repository's development environment, including its dependencies and test commands, before you ask the agent to implement a plan.
 
-If you use another harness, follow the guidance for [reusing customizations across harnesses](/docs/agent-customization/overview.md#reuse-customizations-across-harnesses) to adapt the workflow. For example, use an [agent skill](/docs/agent-customization/agent-skills.md) instead of the prompt file in this guide.
+If you use another harness, check [reusing customizations across harnesses](/docs/agent-customization/overview.md#reuse-customizations-across-harnesses) for supported file locations and fields.
 
 ## Context engineering workflow
 
-The high-level workflow for context engineering in {% data variables.product.prodname_vscode_shortname %} consists of the following steps:
+The high-level workflow for context engineering in {% data variables.product.prodname_vscode_shortname %} consists of three stages:
 
-1. Curate project-wide context: use custom instructions to include relevant documentation (for example, architecture, design, contributor guidelines) as context to all agent interactions.
-1. Generate implementation plan: create a planning persona by using a custom agent and a prompt to generate a detailed feature implementation plan.
-1. Generate implementation code: use custom instructions to generate code based on the implementation plan that adheres to your coding guidelines.
+1. Curate project-wide context: use custom instructions to give every request concise architectural and contributor guidelines.
+1. Generate an implementation plan: combine a read-only planning custom agent with a reusable planning skill and template to produce a structured plan file.
+1. Generate implementation code: switch to an implementation custom agent in a fresh chat or nested session to build and test against the approved plan.
 
 As you work through the steps, you can iterate and refine the output with follow-up prompts in the chat.
 
@@ -76,9 +76,7 @@ Start with concise project instructions that address a repeated problem, such as
     > * `Generate a PRODUCT.md (max 2 page) file that describes the product functionality of the project.`
     > * `Generate a CONTRIBUTING.md (max 1 page) file that describes developer guidelines and best practices for contributing to the project.`
 
-1. Create a `.github/copilot-instructions.md` [instructions file](/docs/agent-customization/custom-instructions.md#create-project-instructions) at the root of your repository.
-
-    For the Local workflow in this guide, this file is included when `setting(github.copilot.chat.codeGeneration.useInstructionFiles)` is on, which is the default.
+1. Create a workspace instructions file (`.github/copilot-instructions.md` or `AGENTS.md`) from the [Agent Customizations editor](/docs/agent-customization/overview.md#agent-customizations-editor): run **Chat: Open Customizations**, select **Instructions**, and select **New Instruction** (`+`) next to **Workspace**. Alternatively, create `.github/copilot-instructions.md` directly at the root of your repository. See [Create project instructions](/docs/agent-customization/custom-instructions.md#get-started-with-project-instructions).
 
 1. Put essential rules directly in the instructions file and link to supporting documentation for detail. Adapt the following example to documents that exist in your repository.
 
@@ -95,24 +93,20 @@ Start with concise project instructions that address a repeated problem, such as
     ```
 
 > [!TIP]
-> Start small, keeping the initial project-wide context concise and focused on the most critical information. If uncertain, focus on high-level architecture and only add new rules to address errors or incorrect behavior the agent makes repeatedly (for example, using the wrong shell command, ignoring certain files).
+> Start small, keeping the initial project-wide context concise and focused on the most critical information. If uncertain, focus on high-level architecture and only add new rules to address errors or incorrect behavior the agent makes repeatedly (for example, using the wrong shell command or ignoring certain files).
 
-Markdown links don't guarantee that linked content reaches the model. Local's `setting(chat.includeReferencedInstructions)` setting is off by default. For a task that needs a supporting document, attach it or ask the agent to read it, then [verify inclusion and behavior](/docs/agent-customization/custom-instructions.md#verify-your-instructions).
+Markdown links don't automatically load linked files into the model's context. For a task that needs a supporting document, attach it or ask the agent to read it, then [verify inclusion and behavior](/docs/agent-customization/custom-instructions.md#verify-your-instructions).
 
-## Step 2: Create implementation plan
+## Step 2: Create an implementation plan
 
-Once you have the project-specific context in place, you can use AI to prompt the creation of an implementation plan for a new feature or bug fix. Generating an implementation plan is an iterative process that might require multiple rounds of refinement to ensure it's complete and accurate.
-
-With a [custom agent](/docs/agent-customization/custom-agents.md) for planning, you can create a dedicated persona with planning-specific guidelines and tools, such as read-only access to the codebase and web research. Custom agents can also capture specific workflows for brainstorming and collaboration for your project and team.
+Once you have project-specific context in place, combine a read-only planning [custom agent](/docs/agent-customization/custom-agents.md) with a reusable planning [Agent Skill](/docs/agent-customization/agent-skills.md) to generate structured implementation plans. Generating an implementation plan is an iterative process that might require multiple rounds of refinement to ensure it's complete and accurate.
 
 > [!TIP]
-> Once you create custom agents, treat them as living documents. Refine and improve them over time based on any mistakes or shortcomings you observe in the agent's behavior.
+> Treat custom agents and skills as living documents. Refine them over time based on any mistakes or gaps you observe in the agent's behavior.
 
-1. Create a planning document template `plan-template.md` that defines the structure and sections of the implementation plan document.
+1. Create a planning [Agent Skill](/docs/agent-customization/agent-skills.md#create-a-skill) named `plan-qna` using the Agent Customizations editor (**Chat: Open Customizations** > **Skills** > **New Skill** next to **Workspace**). This creates `.github/skills/plan-qna/SKILL.md`.
 
-    By using a template, you ensure that the agent collects all necessary information and presents it in a consistent format. This also helps improve the quality of the code that is generated from the plan.
-
-    The following `plan-template.md` file provides sample structure for an implementation plan template:
+    Add a `plan-template.md` file inside `.github/skills/plan-qna/` to define a consistent plan structure:
 
     ```markdown
     ---
@@ -131,83 +125,61 @@ With a [custom agent](/docs/agent-customization/custom-agents.md) for planning, 
     Break down the implementation into smaller, manageable tasks using a Markdown checklist format.
 
     ## Open questions
-    Outline 1-3 open questions or uncertainties that need to be clarified.
+    Outline 1 to 3 open questions or uncertainties that need to be clarified.
     ```
 
-1. Create a planning [agent](/docs/agent-customization/custom-agents.md) `.github/agents/plan.agent.md`
+    Then define `.github/skills/plan-qna/SKILL.md` so it asks clarifying questions before filling out the template:
 
-    The planning agent defines a planning persona and instructs the agent not to perform implementation tasks, but to focus on creating the implementation plan. You can specify [handoffs](/docs/agent-customization/custom-agents.md#handoffs) to transition to an implementation agent after the plan is complete.
+    ```markdown
+    ---
+    name: plan-qna
+    description: Clarify requirements with 3 focused questions and draft a structured implementation plan using the project template. Use when planning a new feature or complex change.
+    ---
+    # Clarifying Implementation Plan
 
-    To create a custom agent, run the **Chat: New Custom Agent** command in the Command Palette.
+    1. Briefly analyze the feature request and inspect relevant files in the codebase.
+    1. Ask 3 focused questions to clarify ambiguous requirements, constraints, or edge cases. Wait for answers before writing the plan.
+    1. Draft a detailed implementation plan following [plan-template.md](./plan-template.md) and pause for review before implementation begins.
+    ```
 
-    The following `plan.agent.md` file provides a starting point for a planning custom agent and handoff to a TDD implementation agent:
+1. Create a read-only planning [custom agent](/docs/agent-customization/custom-agents.md) using the Agent Customizations editor (**Chat: Open Customizations** > **Agents** > **New Agent** next to **Workspace**), saving it as `.github/agents/plan.agent.md`.
+
+    Restricting `tools` to `['read', 'search', 'web']` keeps the planning agent focused on research and design without modifying code:
 
     ```markdown
     ---
     name: Plan
-    description: 'Architect and planner to create detailed implementation plans.'
+    description: 'Architect and planner to create detailed implementation plans without editing code.'
     tools: ['read', 'search', 'web']
-    handoffs:
-      - label: Start implementation
-        agent: TDD
-        prompt: Implement the plan outlined above using TDD principles.
     ---
     # Planning Agent
 
-    You are an architect focused on creating detailed and comprehensive implementation plans for new features and bug fixes. Your goal is to break down complex requirements into clear, actionable tasks that can be easily understood and executed by developers.
+    You are an architect focused on creating detailed and comprehensive implementation plans for new features and bug fixes. Break down complex requirements into clear, actionable tasks that developers can review and execute.
 
     ## Workflow
 
     1. Analyze and understand: Gather context from the codebase, provided documentation, and relevant web sources to understand the requirements and constraints.
-    2. Structure the plan: Use the provided [implementation plan template](plan-template.md) to structure the plan.
-    3. Pause for review: Based on user feedback or questions, iterate and refine the plan as needed.
+    1. Structure the plan: Follow the repository's planning skill and template when drafting the plan.
+    1. Pause for review: Iterate on the plan based on user feedback until the requirements and tasks are clear.
     ```
 
-1. You can now select the **Plan** custom agent in the {% data variables.copilot.chat_view %}, and enter a task for implementing a new feature. It will generate a response that contains the implementation plan based on the provided template.
+1. Select the **Plan** custom agent in the agent picker and invoke your planning skill with `/plan-qna`. For example:
 
-    For example, enter the following prompt to create an implementation plan for a new feature: `Add user authentication with email and password, including registration, login, logout, and password reset functionality`.
-
-    You can also provide a full GitHub issue URL as context. Review the agent's interpretation of the issue and correct any missing requirements before you approve the plan.
-
-1. Optionally, create a [prompt file](/docs/agent-customization/prompt-files.md) `.github/prompts/plan-qna.prompt.md` that invokes the **Plan** agent and instructs the agent to create an implementation plan from a provided feature request.
-
-    The following `plan-qna.prompt.md` file provides a varied starting point for the planning prompt, using the same workflow but adding a clarification step.
-
-    ```markdown
-    ---
-    agent: Plan
-    description: Create a detailed implementation plan.
-    ---
-    Briefly analyze my feature request, then ask me 3 questions to clarify the requirements. Only then start the planning workflow.
+    ```prompt
+    /plan-qna Add a customer details page for displaying and editing customer information.
     ```
 
-1. In the {% data variables.copilot.chat_view %}, enter the `/plan-qna` slash command to invoke the clarifying planning prompt and provide details about the feature you want to implement in your prompt.
-
-    For example, enter the following prompt: `/plan-qna add a customer details page for displaying and editing customer information`
-
-    The agent will ask clarifying questions to better understand the requirements before creating the implementation plan, reducing any misunderstandings.
-
-> [!TIP]
-> Use custom agents to define workflows that follow a multi-turn process with specific tools. Use them stand-alone or in combination with prompt files to add different variants and configurations of the same workflows.
+    You can also paste a GitHub issue URL as context. Answer the clarifying questions, review the generated plan, and refine any missing requirements before approving it.
 
 ## Step 3: Generate implementation code
 
-After you have generated and refined the implementation plan, you can now use AI to implement the feature by generating code from the implementation plan.
+After refining and approving the implementation plan, transition to implementation with a fresh context so planning discussion doesn't crowd out code generation.
 
-1. For smaller tasks, you can directly implement the feature by prompting the agent to generate code based on the implementation plan.
+1. For smaller tasks, switch from **Plan** to **Agent** in the same chat and prompt it to implement the approved plan.
 
-    For larger or complex features, you can switch to **Agent** and prompt it to save the implementation plan to a file (for example, `<my-feature>-plan.md`). You can then open a new chat and reference the implementation plan file in your prompt to reset the chat context.
+    For larger or complex features, switch to **Agent** and ask it to save the plan to a file (for example, `<my-feature>-plan.md`), then open a [new chat or nested session](/docs/agents/run/sessions/manage-sessions.md#start-a-new-or-related-conversation) to start implementation with a clean context window.
 
-1. You can now instruct the agent to implement the feature based on the implementation plan you created in the previous step.
-
-    For example, enter a chat prompt like `implement #<my-plan>.md`, which references the implementation plan file.
-
-    > [!TIP]
-    > Agent is optimized for executing multi-step tasks and figuring out how to best accomplish a goal based on the plan and your project context. You only need to provide the plan file or reference it in your prompt.
-
-1. For a more customized workflow, create a [custom agent](/docs/agent-customization/custom-agents.md) `.github/agents/tdd.agent.md` specialized in implementing code based on a plan.
-
-    The following `tdd.agent.md` file provides a starting point for a test-driven implementation custom agent.
+1. For a reusable test-driven implementation workflow, create a [custom agent](/docs/agent-customization/custom-agents.md) named `TDD` via the Agent Customizations editor (**Chat: Open Customizations** > **Agents** > **New Agent** next to **Workspace**), saving it as `.github/agents/tdd.agent.md`:
 
     ```markdown
     ---
@@ -219,7 +191,7 @@ After you have generated and refined the implementation plan, you can now use AI
     Expert TDD developer generating high-quality, fully tested, maintainable code for the given implementation plan.
 
     ## Test-driven development
-    1. Write/update tests first to encode acceptance criteria and expected behavior
+    1. Write or update tests first to encode acceptance criteria and expected behavior
     2. Implement minimal code to satisfy test requirements
     3. Run targeted tests immediately after each change
     4. Run full test suite to catch regressions before moving to next task
@@ -236,10 +208,14 @@ After you have generated and refined the implementation plan, you can now use AI
     * Tests passing (unit, integration, full suite)
     ```
 
-1. Return to the approved response from the **Plan** agent and select **Start implementation**. The handoff switches to the **TDD** agent and fills the chat input with the implementation prompt. Review or edit the prompt, and then submit it. The handoff doesn't submit automatically because its configuration omits the `send` property.
+1. In your fresh chat or nested session, select the **TDD** custom agent and reference the saved implementation plan file:
+
+    ```prompt
+    Implement #<my-feature>-plan.md following TDD principles and report all test results.
+    ```
 
 > [!TIP]
-> Get a fresh pair of agent eyes: create a new chat (`kb(workbench.action.chat.newChat)`) and ask the agent to review the code changes against the implementation plan. It can help identify any missed requirements or inconsistencies.
+> Get a fresh pair of agent eyes: open a new chat (`kb(workbench.action.chat.newChat)`) or nested session and ask the agent to review the code changes against `#<my-feature>-plan.md` to catch missed requirements or inconsistencies.
 
 ## Best practices and common patterns
 
@@ -269,7 +245,7 @@ Following these best practices helps you establish a sustainable and effective c
 
 ### Workflow optimization
 
-**Handoffs between agents**: Use [handoffs](/docs/agent-customization/custom-agents.md#handoffs) to create guided transitions and implement end-to-end development workflows between planning, implementation, and review agents.
+**Clean transitions between stages**: Save approved implementation plans to Markdown files and start a fresh chat or [nested session](/docs/agents/run/sessions/manage-sessions.md#run-multiple-chats-in-a-session) when switching from planning to implementation or review.
 
 **Implement feedback loops**: Continuously validate that AI understands your context correctly. Ask clarifying questions and course-correct early when misunderstandings occur.
 
@@ -318,6 +294,6 @@ By following these practices and continuously refining your approach, you'll dev
 
 Learn more about customizing AI in {% data variables.product.prodname_vscode_shortname %}:
 
-* [Instructions files](/docs/agent-customization/custom-instructions.md)
+* [Custom instructions](/docs/agent-customization/custom-instructions.md)
+* [Agent Skills](/docs/agent-customization/agent-skills.md)
 * [Custom agents](/docs/agent-customization/custom-agents.md)
-* [Prompt files](/docs/agent-customization/prompt-files.md)
