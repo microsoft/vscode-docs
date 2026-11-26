@@ -14,6 +14,8 @@ Context engineering is a systematic approach to providing AI agents with targete
 
 ## Prerequisites
 
+**Project:** Your repository. **Harness:** {% data variables.product.prodname_copilot_short %}. **Interface:** {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}.
+
 Use your own repository for this workflow. Before you start:
 
 * Open the repository root as a folder or workspace in {% data variables.product.prodname_vscode_shortname %}. The workflow stores shared customization files under `.github`.

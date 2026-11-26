@@ -19,6 +19,8 @@ For a symbol rename or a supported method extraction, prefer the editor's [langu
 
 ## Prerequisites
 
+**Project:** Your repository. **Harness:** {% data variables.product.prodname_copilot_short %}. **Interface:** {% data variables.copilot.chat_view %}.
+
 * [Set up {% data variables.product.prodname_copilot %}](/docs/setup/copilot.md).
 * Open a trusted repository with a working development environment.
 * Identify a small area to improve and a concrete goal, such as removing duplicate validation while preserving API responses.

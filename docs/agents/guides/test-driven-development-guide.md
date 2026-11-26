@@ -22,6 +22,8 @@ If you want to cover behavior that already exists rather than develop new behavi
 
 ## Prerequisites
 
+**Project:** Your repository with working tests. **Harness:** {% data variables.product.prodname_copilot_short %}. **Interface:** {% data variables.copilot.chat_view %}.
+
 * [Set up {% data variables.product.prodname_copilot %}](/docs/setup/copilot.md).
 * Open your repository in {% data variables.product.prodname_vscode_shortname %}.
 * Install the project's dependencies and confirm that its test command runs from the integrated terminal.

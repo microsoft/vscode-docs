@@ -15,6 +15,8 @@ Keywords:
 
 Choosing the right model can be difficult when you need to balance code quality, response time, and cost. This guide helps you decide when to let {% data variables.product.prodname_copilot_short %} choose models, when to select one yourself, and when to compare results on your own code.
 
+**Project:** Your repository with working tests. **Harness:** {% data variables.product.prodname_copilot_short %}. **Interface:** {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %} (required for Compare Models).
+
 ## Choose your path
 
 If you're unsure where to start, use Fusion or Auto for your next task and let it choose the model for you. Choose a different path when you need a specific capability or evidence about which model works better for your tasks.

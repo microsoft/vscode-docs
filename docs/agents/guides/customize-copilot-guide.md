@@ -24,6 +24,8 @@ The example uses the {% data variables.product.prodname_copilot %} harness in {%
 
 ## Before you start
 
+**Project:** Your repository. **Harness:** {% data variables.product.prodname_copilot_short %}, {% data variables.product.prodname_anthropic_claude_short %}, or {% data variables.product.prodname_openai_codex_short %}. **Interface:** {% data variables.copilot.chat_view %} or {% data variables.copilot.agents_window %}.
+
 ### Prepare your session
 
 * Open your repository root.
@@ -376,3 +378,9 @@ Discovery, inclusion, and following the guidance are different checks. If a file
 Stop when the guidance addresses the need. More instructions consume context and can introduce conflicts. For a broader comparison of quality, reliability, and resource use, follow the [usage optimization loop](/docs/agents/guides/optimize-usage.md#inspect-token-usage-and-caching).
 
 Keep useful customizations in version control with their supporting files, and update them when your project's structure or conventions change.
+
+## Next steps
+
+* [Manage all customizations in the Agent Customizations editor](/docs/agent-customization/overview.md).
+* [Set up a repeatable planning and TDD workflow](/docs/agents/guides/context-engineering-guide.md).
+* [Inspect and optimize AI credit usage](/docs/agents/guides/optimize-usage.md).

@@ -17,6 +17,8 @@ In this guide, you investigate one behavior in an existing repository without ed
 
 ## Prerequisites
 
+**Project:** Your repository. **Harness:** {% data variables.product.prodname_copilot_short %}. **Interface:** {% data variables.copilot.chat_view %}.
+
 * [Set up {% data variables.product.prodname_copilot %}](/docs/setup/copilot.md).
 * Open the repository you want to explore in {% data variables.product.prodname_vscode_shortname %}.
 * Choose a question about the project, such as how a request is authorized, how a form saves data, or where an API response is assembled.

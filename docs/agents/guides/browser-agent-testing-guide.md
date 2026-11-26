@@ -23,6 +23,8 @@ These interactive checks provide feedback during development. They don't automat
 
 ## Prerequisites
 
+**Project:** Sample web app (no build step). **Harness:** {% data variables.product.prodname_copilot_short %}. **Interface:** {% data variables.copilot.chat_view %}.
+
 * [Install {% data variables.product.prodname_vscode %}](/download).
 * [Set up {% data variables.product.prodname_copilot %}](/docs/setup/copilot.md).
 * Leave `setting(workbench.browser.enableChatTools)` turned on, which is the default.

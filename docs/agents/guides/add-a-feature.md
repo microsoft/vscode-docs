@@ -21,6 +21,8 @@ For a practice project, complete [Fix an API bug with an agent](/docs/agents/gui
 
 ## Prerequisites
 
+**Project:** Your repository (or the completed sample from [Fix an API bug](/docs/agents/guides/fix-a-bug-with-agents.md)). **Harness:** {% data variables.product.prodname_copilot_short %}. **Interface:** {% data variables.copilot.chat_view %}.
+
 * [Set up {% data variables.product.prodname_copilot %}](/docs/setup/copilot.md).
 * Open a trusted repository with a working development environment and existing tests.
 * Choose a small feature with an observable result. If you're unfamiliar with the implementation, [explore the codebase](/docs/agents/guides/explore-a-codebase.md) first.
