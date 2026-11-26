@@ -43,6 +43,8 @@ Check these items before creating a replacement session:
 
 To find earlier work by topic, file, or pull request instead of browsing the list, [query session history](/docs/agents/run/sessions/session-history.md#query-session-history-with-chronicle). Synced history doesn't by itself provide access to a running agent.
 
+## Continue a session in another interface or app
+
 ### Continue between the Chat view and Agents window
 
 Supported {% data variables.product.prodname_copilot_short %} and {% data variables.product.prodname_anthropic_claude_short %} sessions are available in both interfaces. {% data variables.product.prodname_openai_codex_short %} requires the [experimental Agent Host integration](/docs/agents/run/agent-harnesses.md#codex). Switching interfaces doesn't change the session's harness, workspace, or worktree.
@@ -54,9 +56,7 @@ For a supported {% data variables.product.prodname_copilot_short %} session with
 
 From an SSH, WSL, or tunnel editor window, opening the {% data variables.copilot.agents_window %} selects the same remote and folder. For remote Dev Containers, it selects the source folder on that remote.
 
-Supported tunnel connections can also reopen the same session in either window. For SSH, WSL, and Dev Containers, switching windows currently opens the folder without continuing the session.
-
-Standalone Dev Container environments are an exception to this container limitation. For a [container created without a project](/docs/agents/run/dev-containers.md#create-a-container-without-a-project-experimental), **Open in Editor** can open its workspace and a supported session. This requires the Dev Containers extension pre-release, version 0.478.0 or later. For a container on WSL, the action is available only when this computer's Docker engine can access the environment's volume, as with a shared Docker Desktop engine. A separate Docker engine running only inside WSL isn't supported by this action.
+Supported tunnel connections can also reopen the same session in either window. For SSH, WSL, and project Dev Containers, switching windows currently opens the folder without continuing the session. For [standalone Dev Containers](/docs/agents/run/dev-containers.md#create-a-container-without-a-project-experimental), **Open in Editor** can open the workspace and continue a supported session when the extension and Docker requirements are met.
 
 To change the harness instead, see [Continue with a different harness](/docs/agents/run/agent-harnesses.md#continue-with-a-different-harness).
 
@@ -159,7 +159,7 @@ Alternatively, use the controls in the {% data variables.copilot.agents_window %
 1. Choose the working folder above the input:
 
     * Keep the preselected folder to share the parent's folder or worktree.
-    * Select a recent folder or **Open Folder...** to use another folder.
+    * Select a recent folder or **Open Folder** to use another folder.
     * Select **No Workspace** for a separate temporary folder. This is preselected for quick chats. Temporary files aren't shared between workspace-less chats.
 
     Harnesses supporting only one folder limit the choice to the parent's folder, or **No Workspace** for a quick chat.
@@ -224,7 +224,7 @@ If the selection shows **Ask Question** directly, enter the question there to st
 {% /tab %}
 {% tab label="{% data variables.copilot.chat_view %}" %}
 
-Select text in an agent response, right-click it, and select **Ask in Side Chat...**. Enter your question in **Ask Question** and press `kbstyle(Enter)`. The side chat opens in an adjacent editor. Unlike the {% data variables.copilot.agents_window %}, selecting text doesn't automatically open a menu.
+Select text in an agent response, right-click it, and select **Ask in Side Chat**. Enter your question in **Ask Question** and press `kbstyle(Enter)`. The side chat opens in an adjacent editor. Unlike the {% data variables.copilot.agents_window %}, selecting text doesn't automatically open a menu.
 
 {% /tab %}
 {% /tabs %}
@@ -318,9 +318,7 @@ Choose the action that matches what you want to keep:
 
 For a worktree session, archiving commits uncommitted changes to the session branch before removing the worktree folder. If changes can't be preserved or the folder can't be removed, the worktree remains. The branch and commits are retained, so restoring re-creates the worktree.
 
-For a session in [your project's configured Dev Container](/docs/agents/run/dev-containers.md#use-your-projects-dev-container), marking done removes the container without waiting for idle shutdown, but only if no other session or unsent draft uses it. Restoring starts a replacement container. To retain container-stored conversations across replacements, [configure a persistent state volume](/docs/devcontainers/create-dev-container.md#preserve-chat-sessions-across-rebuilds) `feature(dev-container-state-volume)` before creating the container.
-
-Marking a session as done doesn't remove a [standalone Dev Container](/docs/agents/run/dev-containers.md#create-a-container-without-a-project-experimental). Manage that container separately in **Remote Environments**.
+For a [project Dev Container](/docs/agents/run/dev-containers.md#use-your-projects-dev-container), marking done removes the container when no other session or draft uses it, and restoring starts a replacement container. Marking a session done doesn't remove a [standalone Dev Container](/docs/agents/run/dev-containers.md#create-a-container-without-a-project-experimental). Manage standalone containers in **Remote Environments**.
 
 > [!NOTE]
 > A Local session automatically archived by [enterprise runtime policy enforcement](/docs/enterprise/manage-ai-settings.md#runtime-policies-and-harness-selection) remains read-only while the policy applies. Continue in its replacement {% data variables.product.prodname_copilot_short %} session instead.
@@ -338,9 +336,7 @@ Main chats, side chats, and subagent chats can't be marked done independently.
 > [!CAUTION]
 > Deletion is permanent. Integrate or commit worktree changes first: uncommitted files that exist only in a removed worktree can be lost. To hide a session without deleting it, archive it instead.
 
-Right-click a session and select **Delete**. For {% data variables.product.prodname_copilot_short %} harness sessions, this also removes associated worktrees created for the session. A shared worktree remains while another session still uses it and is removed only after the last linked session is deleted or archived.
-
-For sessions in a project's configured Dev Container, deletion removes the container only when no other session or unsent draft uses it, even if automatic idle shutdown is off. Deleting a session in a standalone Dev Container doesn't remove that container or its workspace files. To remove those resources, [delete the container in Remote Environments](/docs/agents/run/dev-containers.md#create-a-container-without-a-project-experimental).
+Right-click a session and select **Delete**. For {% data variables.product.prodname_copilot_short %} harness sessions, this also removes associated worktrees created for the session while keeping any shared worktree in use by another session. For a [project Dev Container](/docs/agents/run/dev-containers.md#use-your-projects-dev-container), deletion removes the container when unused. A [standalone Dev Container](/docs/agents/run/dev-containers.md#create-a-container-without-a-project-experimental) persists until you delete it in **Remote Environments**.
 
 To delete an individual chat in the {% data variables.copilot.agents_window %} **Multiple** presentation, select **Delete Chat** in its tab's context menu, or press `kb(sessions.chatCompositeBar.deleteChat)` while it has focus.
 

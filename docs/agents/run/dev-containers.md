@@ -63,7 +63,7 @@ Standalone containers persist independently of their sessions. The idle timeout 
 > [!CAUTION]
 > To remove a standalone container, use **Delete** on its row in **Remote Environments**. This deletes the container and its Docker volumes, including workspace files. Save any work you need elsewhere first. Sessions that ran in the deleted container can no longer continue.
 
-To edit or debug the workspace, see [open a standalone container in the editor](/docs/agents/run/sessions/manage-sessions.md#continue-between-the-chat-view-and-agents-window) for extension and WSL requirements.
+To edit or debug the workspace in the main editor window, select **Open in Editor** to open the container workspace and continue a supported session. This requires the Dev Containers extension pre-release, version 0.478.0 or later. For a container on WSL, **Open in Editor** is available only when this computer's Docker engine can access the environment's volume, such as with a shared Docker Desktop engine. A separate Docker engine running only inside WSL isn't supported.
 
 ## Ask the agent to continue in a new container (Experimental)
 
