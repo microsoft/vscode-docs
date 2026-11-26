@@ -157,16 +157,34 @@
                 "topics": [
                     ["Overview", "/docs/agent-customization/overview"],
                     ["Agent Plugins", "/docs/agent-customization/agent-plugins"],
-                    ["Agent Skills", "/docs/agent-customization/agent-skills"],
-                    ["Custom Instructions", "/docs/agent-customization/custom-instructions"],
-                    ["Custom Agents", "/docs/agent-customization/custom-agents"],
-                    ["Copilot Connectors", "/docs/agent-customization/copilot-connectors"],
-                    ["Add and Use MCP Servers", "/docs/agent-customization/mcp-servers"],
-                    ["Manage MCP Servers", "/docs/agents/run/manage-mcp-servers"],
-                    ["Agent Hooks", "/docs/agent-customization/hooks"],
-                    ["Prompt Files", "/docs/agent-customization/prompt-files"],
-                    ["Advanced: Connect Planning and Implementation", "/docs/agents/guides/context-engineering-guide"],
-                    ["Migrate Existing Customizations", "/docs/agent-customization/migrate-customizations"]
+                    ["", "", {
+                        "name": "Guide Agent Behavior",
+                        "area": "agent-customization/behavior",
+                        "topics": [
+                            ["Custom Instructions", "/docs/agent-customization/custom-instructions"],
+                            ["Agent Skills", "/docs/agent-customization/agent-skills"],
+                            ["Custom Agents", "/docs/agent-customization/custom-agents"],
+                            ["Agent Hooks", "/docs/agent-customization/hooks"]
+                        ]
+                    }],
+                    ["", "", {
+                        "name": "Connect Tools and Services",
+                        "area": "agent-customization/integrations",
+                        "topics": [
+                            ["Copilot Connectors", "/docs/agent-customization/copilot-connectors"],
+                            ["Add and Use MCP Servers", "/docs/agent-customization/mcp-servers"],
+                            ["Manage MCP Servers", "/docs/agents/run/manage-mcp-servers"]
+                        ]
+                    }],
+                    ["", "", {
+                        "name": "Migration and Legacy",
+                        "area": "agent-customization/migration",
+                        "topics": [
+                            ["Migrate Existing Customizations", "/docs/agent-customization/migrate-customizations"],
+                            ["Prompt Files", "/docs/agent-customization/prompt-files"],
+                            ["Context Engineering Workflow (Local)", "/docs/agents/guides/context-engineering-guide"]
+                        ]
+                    }]
                 ]
             }],
 
