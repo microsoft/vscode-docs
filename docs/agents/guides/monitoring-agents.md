@@ -234,7 +234,10 @@ Enable identity capture with `setting(github.copilot.chat.otel.captureIdentity)`
 
 By default, no prompt content, responses, or tool arguments are captured. Only metadata like model names, token counts, and durations are included.
 
-To capture full content, enable the `setting(github.copilot.chat.otel.captureContent)` setting or set `COPILOT_OTEL_CAPTURE_CONTENT=true`. This populates span attributes with full prompt messages, response messages, system prompts, tool schemas, tool arguments, and tool results.
+How content capture is configured depends on the runtime:
+
+* **Local harness `feature(local-harness)`**: enable the `setting(github.copilot.chat.otel.captureContent)` setting or set `COPILOT_OTEL_CAPTURE_CONTENT=true`. This populates span attributes with full prompt messages, response messages, system prompts, tool schemas, tool arguments, and tool results.
+* **[Agent Host](/docs/agents/concepts/agent-host.md) runtime**: enable the `setting(chat.agentHost.otel.captureContent)` setting, or configure `OTEL_INSTRUMENTATION_GENAI_CAPTURE_CONTENT` / `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT` as described in [Environment variables](#environment-variables).
 
 > [!CAUTION]
 > Content capture can include sensitive information such as code, file contents, and user prompts. Only enable this in trusted environments.
@@ -257,7 +260,8 @@ Open **Settings** (`kb(workbench.action.openSettings)`) and search for `copilot 
 | `setting(github.copilot.chat.otel.enabled)` | boolean | `false` | Enable OTel emission |
 | `setting(github.copilot.chat.otel.exporterType)` | string | `"otlp-http"` | `otlp-http`, `otlp-grpc`, `console`, or `file` |
 | `setting(github.copilot.chat.otel.otlpEndpoint)` | string | `"http://localhost:4318"` | OTLP collector endpoint |
-| `setting(github.copilot.chat.otel.captureContent)` | boolean | `false` | Capture full prompt and response content |
+| `setting(github.copilot.chat.otel.captureContent)` | boolean | `false` | Capture full prompt and response content in Local harness `feature(local-harness)` sessions |
+| `setting(chat.agentHost.otel.captureContent)` | boolean | `false` | Capture full prompt and response content in [Agent Host](/docs/agents/concepts/agent-host.md) sessions |
 | `setting(github.copilot.chat.otel.captureIdentity)` | boolean | `false` | Capture the authenticated account name, operating system username, and machine hostname for Local harness `feature(local-harness)` sessions |
 | `setting(github.copilot.chat.otel.maxAttributeSizeChars)` | integer | `0` | Maximum characters per content attribute (prompts, tool args, tool results). `0` disables truncation. Set a positive value to match your backend's per-attribute size limit. |
 | `setting(github.copilot.chat.otel.outfile)` | string | `""` | File path for JSON-lines output |
@@ -276,13 +280,31 @@ Environment variables always take precedence over {% data variables.product.prod
 | `COPILOT_OTEL_PROTOCOL` | | Override OTLP protocol (`grpc` or `http`). Takes precedence over `OTEL_EXPORTER_OTLP_PROTOCOL`. |
 | `OTEL_SERVICE_NAME` | `copilot-chat` | Service name in resource attributes |
 | `OTEL_RESOURCE_ATTRIBUTES` | | Extra resource attributes (`key1=val1,key2=val2`) |
-| `COPILOT_OTEL_CAPTURE_CONTENT` | `false` | Capture full prompt and response content |
+| `COPILOT_OTEL_CAPTURE_CONTENT` | `false` | Capture full prompt and response content for Local harness `feature(local-harness)` sessions |
+| `OTEL_INSTRUMENTATION_GENAI_CAPTURE_CONTENT` | `NO_CONTENT` | Capture mode for the Copilot Agent Host runtime per the [OTel GenAI specification](https://github.com/open-telemetry/semantic-conventions/blob/main/docs/gen-ai/gen-ai-spans.md#recording-content-on-attributes): `NO_CONTENT`, `SPAN_ONLY`, `EVENT_ONLY`, or `SPAN_AND_EVENT`. Takes precedence over `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT`; invalid values (such as `true`) disable content capture. |
+| `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT` | `false` | Legacy boolean fallback (`true` or `false`) for Copilot Agent Host content capture when `OTEL_INSTRUMENTATION_GENAI_CAPTURE_CONTENT` is unset. {% data variables.product.prodname_vscode_shortname %} maps `setting(chat.agentHost.otel.captureContent)` to this variable unless overridden by an existing environment variable or managed policy. |
 | `COPILOT_OTEL_CAPTURE_IDENTITY` | `false` | Capture developer and machine identity for Local harness `feature(local-harness)` sessions |
 | `COPILOT_OTEL_MAX_ATTRIBUTE_SIZE_CHARS` | `0` | Override the max character size for content attributes. `0` disables truncation. Takes precedence over the `maxAttributeSizeChars` setting. |
 | `COPILOT_OTEL_LOG_LEVEL` | `info` | Minimum log level: `trace`, `debug`, `info`, `warn`, or `error`. |
 | `COPILOT_OTEL_FILE_EXPORTER_PATH` | | Write all signals to this file as JSON lines. |
 | `COPILOT_OTEL_HTTP_INSTRUMENTATION` | `false` | Enable HTTP-level OTel instrumentation. |
 | `OTEL_EXPORTER_OTLP_HEADERS` | | Static HTTP headers for the collector. For managed Agent Host sessions, see [dynamic headers](#configure-dynamic-headers). |
+
+#### Copilot Agent Host content capture precedence
+
+In contrast to the Local harness (`COPILOT_OTEL_CAPTURE_CONTENT`), the Copilot Agent Host runtime resolves content capture in the following order:
+
+1. Managed enterprise policy (`telemetry.captureContent`), which overrides user settings and inherited environment variables.
+2. `OTEL_INSTRUMENTATION_GENAI_CAPTURE_CONTENT` (`NO_CONTENT`, `SPAN_ONLY`, `EVENT_ONLY`, or `SPAN_AND_EVENT`).
+3. `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT` (legacy boolean fallback, used when `OTEL_INSTRUMENTATION_GENAI_CAPTURE_CONTENT` is unset).
+4. The `setting(chat.agentHost.otel.captureContent)` setting, which {% data variables.product.prodname_vscode_shortname %} passes as `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT` only when that variable isn't already set in the environment.
+
+Because `OTEL_INSTRUMENTATION_GENAI_CAPTURE_CONTENT` takes precedence over the legacy boolean and only accepts the enum values listed above, an invalid value such as `true` disables content capture even when `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT=true` or the {% data variables.product.prodname_vscode_shortname %} setting is enabled:
+
+```text
+OTEL_INSTRUMENTATION_GENAI_CAPTURE_CONTENT=true
+OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT=true
+```
 
 ### Commands
 
