@@ -47,7 +47,7 @@ Below are some specific ways you can configure Docker on a local or remote host:
 **Containers**:
 
 * x86_64 / ARMv7l (AArch32) / ARMv8l (AArch64) Debian 9+, Ubuntu 16.04+, CentOS / RHEL 7+
-* x86_64 Alpine Linux 3.9+
+* x86_64 Alpine Linux 3.22+
 
 Other `glibc` based Linux containers may work if they have [needed Linux prerequisites](/docs/remote/linux.md).
 
