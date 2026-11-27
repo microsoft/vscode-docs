@@ -109,13 +109,20 @@ Choose an authentication method that works with your configuration source. An ed
 
 #### Connected-editor OAuth integration
 
-The connected editor provides OAuth integration for {% data variables.product.prodname_copilot_short %} sessions, including built-in authentication support for {% data variables.product.prodname_github %} and Microsoft Entra. It also supports other OAuth identity providers through [Dynamic Client Registration (DCR)](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization#dynamic-client-registration) or a pre-registered OAuth client.
+The connected editor provides OAuth integration for {% data variables.product.prodname_copilot_short %} sessions, including built-in authentication support for {% data variables.product.prodname_github %} and Microsoft Entra. For other OAuth identity providers, {% data variables.product.prodname_vscode_shortname %} supports pre-registered OAuth clients, [Client ID Metadata Documents (CIMD)](https://datatracker.ietf.org/doc/html/draft-parecki-oauth-client-id-metadata-document-03), and [Dynamic Client Registration (DCR)](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization#dynamic-client-registration).
+
+When an authorization server advertises `client_id_metadata_document_supported: true` in its server metadata, {% data variables.product.prodname_vscode_shortname %} can identify itself using its published Client ID Metadata Document URL without requiring prior registration:
+
+* **Client ID / metadata URL**: `https://vscode.dev/oauth/client-metadata.json` (public native client with `token_endpoint_auth_method: "none"`)
+* **Registered redirect URIs**: `http://127.0.0.1:33418/` and `https://vscode.dev/redirect`
+* **Client registration precedence**: Explicit client registrations (`clientId` overrides) and previously cached client registrations take precedence over CIMD. {% data variables.product.prodname_vscode_shortname %} falls back to its CIMD client ID URL only when no existing or overridden registration applies and the authorization server advertises `client_id_metadata_document_supported: true`.
+* **Harness scope**: This flow applies when {% data variables.product.prodname_vscode_shortname %} coordinates OAuth authentication for the MCP server (including connected Copilot harness sessions). Standalone Copilot clients don't share the same published client identity or credential store.
 
 For your server integration:
 
 1. Implement the [MCP authorization specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization).
-1. Choose an identity provider that supports DCR, or provide instructions for a pre-registered client ID and, when required, a client secret. This isn't the OAuth client credentials grant.
-1. Include `http://127.0.0.1:33418` and `https://vscode.dev/redirect` in the client's allowed redirect URLs.
+1. Choose an identity provider that supports CIMD (`client_id_metadata_document_supported: true`) or DCR, or provide instructions for a pre-registered client ID and, when required, a client secret. This isn't the OAuth client credentials grant.
+1. Include `http://127.0.0.1:33418` and `https://vscode.dev/redirect` in the client's allowed redirect URLs (when using CIMD, accept the redirect URIs published in `https://vscode.dev/oauth/client-metadata.json`).
 1. Test sign-in from the intended Copilot session. For setup and credential handling, follow [authentication and secrets](/docs/agents/reference/mcp-configuration.md#authentication-and-secrets).
 
 ### Sampling
