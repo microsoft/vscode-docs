@@ -13,7 +13,7 @@ The extensions are known to work when connecting to recent stable/LTS version of
 * **Debian 64-bit x86, ARMv8l (AArch64)** (Buster/10+)
 * **Raspberry Pi OS ARMv7l (AArch32) 32-bit** (Buster/10+) (previously called Raspbian)
 * **CentOS / RHEL 64-bit x86** (8+)
-* **Alpine Linux 64-bit x86 containers or WSL hosts** (3.16+) in Dev Containers, WSL
+* **Alpine Linux 64-bit x86 containers or WSL hosts** (3.22+) in Dev Containers, WSL
 
 The following non-Linux SSH hosts are also supported:
 
@@ -45,7 +45,7 @@ You may encounter issues with certain extensions with native dependencies with *
 | General for Arm32 | `libatomic1` | No additional requirements. | |
 | Ubuntu 20.04+, Debian 10+, Raspberry Pi OS Buster/10+ and downstream distributions | `libc6 libstdc++6 ca-certificates tar` | `openssh-server bash` and `curl` or `wget` | Requires kernel >= 4.18, glibc >= 2.28, libstdc++ >= 3.4.25. |
 | RHEL / CentOS 8+ | `glibc libgcc libstdc++ ca-certificates tar` | `openssh-server bash` and `curl` or `wget` |   Requires kernel >= 4.18, glibc >= 2.28, libstdc++ >= 3.4.25. |
-| Alpine Linux 3.16+ | `musl libgcc libstdc++`. musl >= 1.2.3, glibc not required. | Not yet supported. | Supported in Dev Containers and WSL. Extensions installed in the container may not work due to `glibc` dependencies in extension native code. |
+| Alpine Linux 3.22+ | `musl libgcc libstdc++`. musl >= 1.2.3, glibc not required. | Not yet supported. | Supported in Dev Containers and WSL. Extensions installed in the container may not work due to `glibc` dependencies in extension native code. |
 | openSUSE Leap / SUSE Linux Enterprise 15+|`glibc libgcc_s1 libstdc++6 ca-certificates gzip tar`|`curl` or `wget` |Requires kernel >= 4.18, glibc, libstdc++6|
 
 ## Tips by Linux distribution
@@ -60,7 +60,7 @@ The following is a list of distributions and any base requirements that may be m
 
 | Server Distribution | Docker Image | Missing libraries | Notes / additional steps |
 |---------------------|--------------|-------------------|------------------|
-| ⚠️ Alpine Linux 3.16 (64-bit) | `alpine:3.16` | `libgcc libstdc++` |  Supported in Dev Containers and WSL only. Some extensions installed in the container may not work due to `glibc` dependencies in extension native code. |
+| ⚠️ Alpine Linux 3.22 (64-bit) | `alpine:3.22` | `libgcc libstdc++` |  Supported in Dev Containers and WSL only. Some extensions installed in the container may not work due to `glibc` dependencies in extension native code. |
 | ✅ CentOS 8 Server (64-bit) | `centos:8` | &lt;none&gt; | &lt;none&gt; |
 | ❌ CentOS 7 Server (64-bit) | `centos:7` | `glibc` >= 2.28, `libstdc++` >= 3.4.25 | &lt;none&gt; |
 | ✅ Debian 10 Server (64-bit) | `debian:10` | &lt;none&gt; | &lt;none&gt; |
