@@ -28,7 +28,7 @@ Learn about the key features of {% data variables.product.prodname_vscode %} in 
 {% data variables.product.prodname_vscode_shortname %} comes with a simple and intuitive layout that maximizes the space provided for the editor, while leaving ample room to browse and access the full context of your folder or project. The user interface is divided into six main areas:
 
 * **Editor** - The main area to edit your files. You can open as many editors as you like side by side vertically and horizontally.
-* **Primary Side Bar** - Contains different views like the Explorer to assist you while working on your project.
+* **Primary Side Bar** - Contains views such as the Explorer, Search, Source Control, Run and Debug, and Extensions to assist you while working on your project. Some views, like the Explorer, group their content into collapsible sections.
 * **Secondary Side Bar** - Opposite the Primary Side Bar. By default, contains the {% data variables.copilot.chat_view %}. Drag and drop views from the Primary Side Bar to the Secondary Side Bar to move them.
 * **Status Bar** - Information about the opened project and the files you edit.
 * **Activity Bar** -  Located on the far left-hand side. Lets you switch between views and gives you additional context-specific indicators, like the number of outgoing changes when Git is enabled. You can change the position of the Activity Bar by right-clicking it to open a context menu.
@@ -71,7 +71,7 @@ When you have more than one editor open, you can switch between them quickly by 
 
 When you split an editor (using the **Split Editor** or **Open to the Side** commands), a new editor region (edit group) is created which can hold a group of items. You can open as many editor groups as you like side by side vertically and horizontally.
 
-You can see these clearly in the **Open Editors** section at the top of the Explorer view (toggle **...** > **Open Editors** in the Explorer view).
+You can see these clearly in the **Open Editors** section, one of the collapsible sections at the top of the Explorer view (toggle **...** > **Open Editors** in the Explorer view).
 
 ![tabs editor groups](../images/userinterface/tabs-editor-groups.png)
 
@@ -145,6 +145,28 @@ The editor has a navigation bar at the top, also called [breadcrumbs](https://en
 ![Breadcrumbs](../images/userinterface/breadcrumbs.png)
 
 You can disable breadcrumbs with the **View** > **Appearance** > **Toggle Breadcrumbs** menu item or the **View: Toggle Breadcrumbs** command. For more information about the breadcrumbs feature, such as how to customize their appearance, see the [Breadcrumbs](/docs/editing/editingevolved.md#breadcrumbs) section of the [Code Navigation](/docs/editing/editingevolved.md) article.
+
+## Views and Sections
+
+A **View** is one of the top-level areas you select from the Activity Bar or with the **View: Open View** command, such as Explorer, Search, Source Control, Run and Debug, or Extensions. A **Section** is a collapsible region within a view that groups related content. The Explorer view, for example, contains several sections: Open Editors, Folders, Outline, and Timeline.
+
+```text
+Primary Side Bar
+│
+├─ Explorer (View)
+│  ├─ Open Editors (Section)
+│  ├─ Folders (Section)
+│  ├─ Outline (Section)
+│  └─ Timeline (Section)
+│
+├─ Search (View)
+├─ Source Control (View)
+├─ Run and Debug (View)
+└─ Extensions (View)
+```
+
+> [!NOTE]
+> This documentation uses the term **Section** for the collapsible regions within a view, such as the Explorer's Open Editors, Folders, Outline, and Timeline sections. If you're developing an extension, the [Extension API](/api/extension-guides/tree-view.md#view-container) uses different terminology: Explorer corresponds to a **View Container**, and Open Editors, Folders, Outline, and Timeline each correspond to a **View**.
 
 ## Explorer view
 
@@ -244,7 +266,7 @@ Pressing the **Fuzzy Match** button toggles between exact and fuzzy matching, wh
 
 ### Outline view
 
-The Outline view is a separate section at the bottom of the Explorer view. When expanded, it shows the symbol tree of the currently active editor.
+The Outline section is located at the bottom of the Explorer view. When expanded, it shows the symbol tree of the currently active editor.
 
 ![Outline view](../images/userinterface/outline-view.png)
 
@@ -258,11 +280,11 @@ There are several Outline view [settings](/docs/configure/settings.md). Search f
 
 ### Timeline view
 
-The Timeline view, accessible at the bottom of the File Explorer, is a unified view for visualizing the events history for a file. For example, you can view Git commits or local file saves in a timeline view.
+The Timeline section, accessible at the bottom of the Explorer view, lets you visualize the events history for a file. For example, you can view Git commits or local file saves in the Timeline section.
 
 ![Timeline view](../images/userinterface/timeline-view.png)
 
-A filter action in the Timeline view toolbar enables you to filter between source control events and local file events:
+A filter action in the Timeline section toolbar enables you to filter between source control events and local file events:
 
 ![Timeline filter drop down with Git History unchecked and Local History checked](../images/userinterface/timeline-filter.png)
 
@@ -277,7 +299,7 @@ From an entry you can:
 * Delete or rename the entry.
 
 > [!TIP]
-> If you've accidentally deleted a file, you can restore it from the local history by using the **...** > **Local History: Find Entry to Restore** action in the Timeline view, and then select your file from the Quick Pick.
+> If you've accidentally deleted a file, you can restore it from the local history by using the **...** > **Local History: Find Entry to Restore** action in the Timeline section, and then select your file from the Quick Pick.
 
 You can configure these settings for working with the local history:
 
@@ -317,6 +339,8 @@ The Explorer view is only one of the views available in {% data variables.produc
 > You can open any view using the **View: Open View** command.
 
 ![views](../images/userinterface/views.png)
+
+Explorer, Search, Source Control, Run and Debug, and Extensions are all views. The Explorer view additionally groups its content into sections, such as Open Editors, Folders, Outline, and Timeline.
 
 You can show or hide views by right-clicking the Activity Bar, and reorder them by using drag and drop. Within the Explorer view, you can show or hide sections via the '...' menu, or drag and drop sections to reorder them.
 
